@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b554ddf2a847139a6207410c46f9d0ab049f4e39"
+			"checksum": "59421529085c5f65a03146bf2dce597c8710b56d"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -670,7 +670,7 @@
 		},
 		{
 			"path": "server/lib/globals.js",
-			"checksum": "96d47a7e24157fa7a5776d9bba3726bd7911d983"
+			"checksum": "9c6a844bc9691e80dde24a3d14c474ff8c4b8eff"
 		},
 		{
 			"path": "imports/server/methods/blockscout.js",
