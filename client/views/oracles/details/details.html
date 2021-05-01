@@ -1,0 +1,112 @@
+<template name="OraclesDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> OraclesDetailsForm}}
+	</div>
+</template>
+
+<template name="OraclesDetailsForm">
+	<div id="oracles-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Oracle Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-name">
+				<label for="name" class="col-sm-3 control-label">
+					Name
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-name">
+						{{oracle.name}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-description">
+				<label for="description" class="col-sm-3 control-label">
+					Description
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-description">
+						{{oracle.description}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-oracle_type_id">
+				<label for="oracle_type_id" class="col-sm-3 control-label">
+					Oracle Type
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-oracle_type_id">
+						{{oracle.oracle_type_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-oracle_contract">
+				<label for="oracle_contract" class="col-sm-3 control-label">
+					Oracle Contract
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-oracle_contract">
+						{{addressLink oracle.oracle_contract oracle}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-oracle_owner">
+				<label for="oracle_owner" class="col-sm-3 control-label">
+					Oracle Owner
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-oracle_owner">
+						{{addressLink oracle.oracle_owner oracle}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-index">
+				<label for="index" class="col-sm-3 control-label">
+					Index
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-index">
+						{{oracle.index}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-active_oracle_types">
+				<label for="active_oracle_types" class="col-sm-3 control-label">
+					Active Oracle Types
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-active_oracle_types">
+						{{oracle.active_oracle_types}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

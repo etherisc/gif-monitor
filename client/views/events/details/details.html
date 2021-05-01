@@ -1,0 +1,122 @@
+<template name="EventsDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> EventsDetailsForm}}
+	</div>
+</template>
+
+<template name="EventsDetailsForm">
+	<div id="events-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Event Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-chain_id">
+				<label for="chain_id" class="col-sm-3 control-label">
+					Chain Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-chain_id">
+						{{event.chain_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-block_number">
+				<label for="block_number" class="col-sm-3 control-label">
+					Block Number
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-block_number">
+						{{event.block_number}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-transaction_hash">
+				<label for="transaction_hash" class="col-sm-3 control-label">
+					Transaction Hash
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-transaction_hash">
+						{{txLink event.transaction_hash event}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-log_index">
+				<label for="log_index" class="col-sm-3 control-label">
+					Log Index
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-log_index">
+						{{event.log_index}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-contract">
+				<label for="contract" class="col-sm-3 control-label">
+					Contract
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-contract">
+						{{event.contract}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-address">
+				<label for="address" class="col-sm-3 control-label">
+					Address
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-address">
+						{{addressLink event.address event}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-event">
+				<label for="event" class="col-sm-3 control-label">
+					Event
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-event">
+						{{event.event}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-values">
+				<label for="values" class="col-sm-3 control-label">
+					Values
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-values">
+						{{event.values}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

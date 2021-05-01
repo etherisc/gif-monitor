@@ -1,0 +1,69 @@
+<template name="Admin">
+	<div class="page-container container">
+		<div class="row">
+			<div class="col-md-12" id="content">
+				<div class="row" id="title_row">
+					<div class="col-md-12">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div id="menu" class="col-sm-3 col-md-2">
+				<h2>
+				</h2>
+				{{> AdminSideMenu}}
+			</div>
+			<div id="subcontent" class="col-sm-9 col-md-10">
+				{{> yield region='AdminSubcontent'}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="AdminSideMenu">
+	<ul id="menu-items" class="nav nav-stacked nav-pills">
+		<li id="menu-item-simple" class="{{menuItemClass 'admin.users'}}">
+			<a href="{{pathFor 'admin.users'}}">
+				<span class="item-title">
+					Users
+				</span>
+			</a>
+		</li>
+		<li id="menu-item-collapse" class="menu-item-collapse ">
+			<a href="#FsRnX" class="dropdown-toggle" data-toggle="collapse">
+				<span class="item-title">
+					Logs
+				</span>
+				<b class="caret">
+				</b>
+			</a>
+			<div id="FsRnX" class="collapse">
+				<ul id="menu-items" class="nav nav-stacked nav-pills">
+					<li class="{{menuItemClass 'admin.logs_browser'}}">
+						<a href="{{pathFor 'admin.logs_browser'}}">
+							<span class="item-title">
+								Browser
+							</span>
+						</a>
+					</li>
+					<li class="{{menuItemClass 'admin.logs_server'}}">
+						<a href="{{pathFor 'admin.logs_server'}}">
+							<span class="item-title">
+								Server
+							</span>
+						</a>
+					</li>
+					<li class="{{menuItemClass 'admin.logs_analytics'}}">
+						<a href="{{pathFor 'admin.logs_analytics'}}">
+							<span class="item-title">
+								Analytics
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</template>
+

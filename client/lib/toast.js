@@ -1,0 +1,116 @@
+
+console.log('loading toast.js');
+
+
+toast_error = function(message, options) {
+
+	logger.error('Toast error: ' + message);
+
+	bootbox.alert({
+		title: '<span style="color:red; font-weight:bold;">Error</span>',
+		message: message,
+		backdrop: true,
+		...options
+	});
+
+};
+
+toast_autoclose = function(title, color, message, options) {
+
+	var dialog = bootbox.dialog({
+		title: '<span style="color:' + (color || 'black') + '; font-weight:bold;">' + title + '</span>',
+		message: message,
+		onEscape: true,
+		buttons: {
+			confirm: {
+				label: '<i class="fa fa-check"></i> OK'
+			}
+		},
+		backdrop: true,
+		...options
+	});
+
+	dialog.init(function(){
+		setTimeout(function(){
+			dialog.modal('hide');
+		}, 3000);
+	});
+};
+
+toast_success = function(message, options) {
+
+	logger.info('Toast success: ' + message);
+	toast_autoclose('Success', 'green', message, options);
+
+};
+
+toast_info = function(message, options) {
+
+	logger.info('Toast info: ' + message);
+	toast_autoclose('Info', 'blue', message, options);
+
+};
+
+toast_warning = function(message, options) {
+
+	logger.info('Toast warning: ' + message);
+	toast_autoclose('Warning', 'red', message, options);
+
+};
+
+toast_confirm = function(message, options) {
+
+	logger.info('Toast confirm: ' + message);
+	return new Promise((resolve, reject) => {
+		bootbox.confirm({
+			title: '<span style="color:blue; font-weight:bold;">Confirm</span>',
+			message: message,
+			backdrop: true,
+			buttons: {
+				confirm: {
+					label: 'Yes',
+					className: 'btn-success'
+				},
+				cancel: {
+					label: 'No',
+					className: 'btn-danger'
+				}
+			},
+			callback: function (result) {
+				logger.info('Toast confirm result: ' + result);	
+				resolve(result);
+			},
+			...options
+		});
+	});
+
+};
+
+toast_prompt = function(message, options) {
+
+	logger.info('Toast prompt: ' + message);
+	return new Promise((resolve, reject) => {
+		bootbox.prompt({
+			title: '<span style="color:blue; font-weight:bold;">Confirm</span>',
+			message,
+			backdrop: true,
+			buttons: {
+				confirm: {
+					label: 'Yes',
+					className: 'btn-success'
+				},
+				cancel: {
+					label: 'No',
+					className: 'btn-danger'
+				}
+			},
+			callback: function (result) {
+				logger.info('Toast confirm result: ' + result);	
+				resolve(result);
+			}, 
+			...options
+		});
+	});
+}
+
+
