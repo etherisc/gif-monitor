@@ -11,7 +11,7 @@ dotenv.config( {
 const ethers = require('ethers');
 
 eth = {}
-eth.provider = new ethers.providers.JsonRpcProvider('https://xdai-rpc.etherisc.com');
+eth.provider = new ethers.providers.JsonRpcProvider(process.env.HTTP_PROVIDER);
 eth.provider.getBlockNumber().then(console.log);
 eth.wallet = ethers.Wallet.fromMnemonic(process.env.MNEMONIC).connect(eth.provider)
 
