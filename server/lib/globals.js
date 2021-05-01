@@ -59,4 +59,4 @@ getContract = async (contractName, mode) => {
 	contracts[contractName] = Contract
 	
 	return Contract;
-}
+} 
