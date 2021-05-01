@@ -1,0 +1,82 @@
+<template name="AdminDetailsModal">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminDetailsModalForm}}
+	</div>
+</template>
+
+<template name="AdminDetailsModalForm">
+	<div id="admin-details-modal-form" class="">
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-timestamp">
+				<label for="timestamp" class="col-sm-3 control-label">
+					Timestamp
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-timestamp">
+						{{formatDate logline.timestamp 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-type">
+				<label for="type" class="col-sm-3 control-label">
+					Type
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-type">
+						{{logline.type}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-source">
+				<label for="source" class="col-sm-3 control-label">
+					Source
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-source">
+						{{logline.source}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-message">
+				<label for="message" class="col-sm-3 control-label">
+					Message
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-message">
+						{{logline.message}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-args">
+				<label for="args" class="col-sm-3 control-label">
+					Arguments
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-args">
+						{{pre logline.args logline}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

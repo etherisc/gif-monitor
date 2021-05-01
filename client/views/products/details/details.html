@@ -1,0 +1,152 @@
+<template name="ProductsDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> ProductsDetailsForm}}
+	</div>
+</template>
+
+<template name="ProductsDetailsForm">
+	<div id="products-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Product Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-name">
+				<label for="name" class="col-sm-3 control-label">
+					Name
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-name">
+						{{product.name}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-product_id">
+				<label for="product_id" class="col-sm-3 control-label">
+					Product Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-product_id">
+						{{product.product_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-owner">
+				<label for="owner" class="col-sm-3 control-label">
+					Owner
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-owner">
+						{{addressLink product.owner product}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-address">
+				<label for="address" class="col-sm-3 control-label">
+					Address
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-address">
+						{{addressLink product.address product}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-policy_flow">
+				<label for="policy_flow" class="col-sm-3 control-label">
+					Policy Flow
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-policy_flow">
+						{{product.policy_flow}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-policy_token">
+				<label for="policy_token" class="col-sm-3 control-label">
+					Policy Token
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-policy_token">
+						{{addressLink product.policy_token product}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-release">
+				<label for="release" class="col-sm-3 control-label">
+					Release
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-release">
+						{{product.release}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-approved">
+				<label for="approved" class="col-sm-3 control-label">
+					Approved
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-approved">
+						{{booleanToYesNo product.approved}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-paused">
+				<label for="paused" class="col-sm-3 control-label">
+					Paused
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-paused">
+						{{booleanToYesNo product.paused}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+					{{> ProductsDetailsFormCustomActions}}
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
+<template name="ProductsDetailsFormCustomActions">
+	<button class="btn btn-warning" id="btn-pause">
+		{{#if isPaused}}
+			Unpause Product
+		{{/if}}
+		{{#unless isPaused}}
+			Pause Product
+		{{/unless}}
+	</button>
+	{{#unless isApproved}}
+	<button class="btn btn-warning" id="btn-approve">
+		Approve Product
+	</button>
+	{{/unless}}
+	<button class="btn btn-warning" id="btn-reload">
+		Reload Product
+	</button>
+</template>
+

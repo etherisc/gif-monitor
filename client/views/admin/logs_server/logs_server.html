@@ -1,0 +1,114 @@
+<template name="AdminLogsServer">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminLogsServerView}}
+	</div>
+</template>
+
+<template name="AdminLogsServerView">
+	<div id="admin-logs-server-view" class="">
+		<h2 id="component-title">
+			Loglines  / Server
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+				{{> AdminLogsServerViewCustomActions}}
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> AdminLogsServerViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="AdminLogsServerViewTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="timestamp">
+					Timestamp
+				</th>
+				<th class="th-sortable" data-sort="type">
+					Type
+				</th>
+				<th class="th-sortable" data-sort="source">
+					Source
+				</th>
+				<th class="th-sortable" data-sort="message">
+					Message
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each logline_list_server_paged}} {{> AdminLogsServerViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="AdminLogsServerViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{formatDate timestamp 'DD/MM/YYYY HH:mm:ss'}}
+		</td>
+		<td>
+			{{type}}
+		</td>
+		<td>
+			{{source}}
+		</td>
+		<td>
+			{{message}}
+		</td>
+	</tr>
+</template>
+
+<template name="AdminLogsServerViewCustomActions">
+	<button class="btn btn-warning" id="btn-clear">
+		Clear logs
+	</button>
+</template>
+
