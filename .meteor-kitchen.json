@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "7383bd626b521cf5ba08859d87de9c43d62dabc0"
+			"checksum": "b7e5153c0ce0137f9780127848d6b80a87a7129e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -546,7 +546,7 @@
 		},
 		{
 			"path": "both/collections/logs.js",
-			"checksum": "55632a6cf603af05557cf3e4db927a27d9e787b8"
+			"checksum": "5b72efb8697cf4878e8270a64d66a962959338ea"
 		},
 		{
 			"path": "server/methods/logs.js",
