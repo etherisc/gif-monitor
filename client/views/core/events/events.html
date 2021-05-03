@@ -68,23 +68,20 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="timestamp">
+					Timestamp
+				</th>
 				<th class="th-sortable" data-sort="block_number">
 					Block Number
 				</th>
 				<th class="th-sortable" data-sort="transaction_hash">
 					Transaction Hash
 				</th>
-				<th class="th-sortable" data-sort="log_index">
-					Log Index
-				</th>
 				<th class="th-sortable" data-sort="contract">
 					Contract
 				</th>
 				<th class="th-sortable" data-sort="event">
 					Event
-				</th>
-				<th class="th-sortable" data-sort="timestamp">
-					Timestamp
 				</th>
 			</tr>
 		</thead>
@@ -97,22 +94,19 @@
 <template name="CoreEventsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
+			{{timestamp}}
+		</td>
+		<td>
 			{{block_number}}
 		</td>
 		<td>
 			{{txLink transaction_hash this}}
 		</td>
 		<td>
-			{{log_index}}
-		</td>
-		<td>
 			{{contract}}
 		</td>
 		<td>
 			{{event}}
-		</td>
-		<td>
-			{{timestamp}}
 		</td>
 	</tr>
 </template>
