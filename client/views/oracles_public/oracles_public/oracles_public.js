@@ -1,12 +1,12 @@
-Template.Oracles.onCreated(function() {
+Template.OraclesPublicOraclesPublic.onCreated(function() {
 	
 });
 
-Template.Oracles.onDestroyed(function() {
+Template.OraclesPublicOraclesPublic.onDestroyed(function() {
 	
 });
 
-Template.Oracles.onRendered(function() {
+Template.OraclesPublicOraclesPublic.onRendered(function() {
 	
 	Meteor.defer(function() {
 		globalOnRendered();
@@ -14,28 +14,28 @@ Template.Oracles.onRendered(function() {
 	});
 });
 
-Template.Oracles.events({
+Template.OraclesPublicOraclesPublic.events({
 	
 });
 
-Template.Oracles.helpers({
+Template.OraclesPublicOraclesPublic.helpers({
 	
 });
 
 
-var OraclesViewExport = function(fileType) {
+var OraclesPublicOraclesPublicViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("OracleListPagedSearchString") || "",
-		searchFields: Session.get("OracleListPagedSearchFields") || ["name", "description", "oracle_type_id", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
-		sortBy: Session.get("OracleListPagedSortBy") || "",
-		sortAscending: Session.get("OracleListPagedSortAscending") || true
+		searchText: Session.get("OracleList1PagedSearchString") || "",
+		searchFields: Session.get("OracleList1PagedSearchFields") || ["name", "description", "oracle_type_id", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
+		sortBy: Session.get("OracleList1PagedSortBy") || "",
+		sortAscending: Session.get("OracleList1PagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("oracleListPagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("oracleList1PagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -46,20 +46,20 @@ var OraclesViewExport = function(fileType) {
 	});
 };
 
-Template.OraclesView.onCreated(function() {
+Template.OraclesPublicOraclesPublicView.onCreated(function() {
 	
 });
 
-Template.OraclesView.onDestroyed(function() {
+Template.OraclesPublicOraclesPublicView.onDestroyed(function() {
 	
 });
 
-Template.OraclesView.onRendered(function() {
-	Session.set("OraclesViewStyle", "table");
+Template.OraclesPublicOraclesPublicView.onRendered(function() {
+	Session.set("OraclesPublicOraclesPublicViewStyle", "table");
 	
 });
 
-Template.OraclesView.events({
+Template.OraclesPublicOraclesPublicView.events({
 	"submit #dataview-controls": function(e, t) {
 		return false;
 	},
@@ -72,7 +72,7 @@ Template.OraclesView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("OracleListPagedSearchString", searchString);
+				Session.set("OracleList1PagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.OraclesView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("OracleListPagedSearchString", searchString);
+					Session.set("OracleList1PagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.OraclesView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("OracleListPagedSearchString", "");
+					Session.set("OracleList1PagedSearchString", "");
 				}
 
 			}
@@ -120,132 +120,132 @@ Template.OraclesView.events({
 
 	"click #dataview-export-default": function(e, t) {
 		e.preventDefault();
-		OraclesViewExport.call(this, "csv");
+		OraclesPublicOraclesPublicViewExport.call(this, "csv");
 	},
 
 	"click #dataview-export-csv": function(e, t) {
 		e.preventDefault();
-		OraclesViewExport.call(this, "csv");
+		OraclesPublicOraclesPublicViewExport.call(this, "csv");
 	},
 
 	"click #dataview-export-tsv": function(e, t) {
 		e.preventDefault();
-		OraclesViewExport.call(this, "tsv");
+		OraclesPublicOraclesPublicViewExport.call(this, "tsv");
 	},
 
 	"click #dataview-export-json": function(e, t) {
 		e.preventDefault();
-		OraclesViewExport.call(this, "json");
+		OraclesPublicOraclesPublicViewExport.call(this, "json");
 	},
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("OracleListPagedPageNo") || 0;
+		var currentPage = Session.get("OracleList1PagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("OracleListPagedPageNo", currentPage - 1);
+			Session.set("OracleList1PagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("OracleListPagedPageNo") || 0;
-		if(currentPage < this.oracle_list_paged_page_count - 1) {
-			Session.set("OracleListPagedPageNo", currentPage + 1);
+		let currentPage = Session.get("OracleList1PagedPageNo") || 0;
+		if(currentPage < this.oracle_list1paged_page_count - 1) {
+			Session.set("OracleList1PagedPageNo", currentPage + 1);
 		}
 	}
 
 	
 });
 
-Template.OraclesView.helpers({
+Template.OraclesPublicOraclesPublicView.helpers({
 
 	"insertButtonClass": function() {
 		return Oracles.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
-		return !this.oracle_list_paged || this.oracle_list_paged.count() == 0;
+		return !this.oracle_list1_paged || this.oracle_list1_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.oracle_list_paged && this.oracle_list_paged.count() > 0;
+		return this.oracle_list1_paged && this.oracle_list1_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.oracle_list_paged && this.oracle_list_paged.count() == 0 && Session.get("OracleListPagedSearchString");
+		return this.oracle_list1_paged && this.oracle_list1_paged.count() == 0 && Session.get("OracleList1PagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("OracleListPagedPageNo");
+		return !!Session.get("OracleList1PagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("OracleListPagedPageNo") || 0) < this.oracle_list_paged_page_count - 1;
+		return (Session.get("OracleList1PagedPageNo") || 0) < this.oracle_list1paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("OracleListPagedSearchString");
+		return Session.get("OracleList1PagedSearchString");
 	},
 	"viewAsTable": function() {
-		return Session.get("OraclesViewStyle") == "table";
+		return Session.get("OraclesPublicOraclesPublicViewStyle") == "table";
 	},
 	"viewAsBlog": function() {
-		return Session.get("OraclesViewStyle") == "blog";
+		return Session.get("OraclesPublicOraclesPublicViewStyle") == "blog";
 	},
 	"viewAsList": function() {
-		return Session.get("OraclesViewStyle") == "list";
+		return Session.get("OraclesPublicOraclesPublicViewStyle") == "list";
 	},
 	"viewAsGallery": function() {
-		return Session.get("OraclesViewStyle") == "gallery";
+		return Session.get("OraclesPublicOraclesPublicViewStyle") == "gallery";
 	}
 
 	
 });
 
 
-Template.OraclesViewTable.onCreated(function() {
+Template.OraclesPublicOraclesPublicViewTable.onCreated(function() {
 	
 });
 
-Template.OraclesViewTable.onDestroyed(function() {
+Template.OraclesPublicOraclesPublicViewTable.onDestroyed(function() {
 	
 });
 
-Template.OraclesViewTable.onRendered(function() {
+Template.OraclesPublicOraclesPublicViewTable.onRendered(function() {
 	
 });
 
-Template.OraclesViewTable.events({
+Template.OraclesPublicOraclesPublicViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("OracleListPagedSortBy");
+		var oldSortBy = Session.get("OracleList1PagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("OracleListPagedSortBy", newSortBy);
+		Session.set("OracleList1PagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("OracleListPagedSortAscending");
+			var sortAscending = Session.get("OracleList1PagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("OracleListPagedSortAscending", !sortAscending);
+			Session.set("OracleList1PagedSortAscending", !sortAscending);
 		} else {
-			Session.set("OracleListPagedSortAscending", true);
+			Session.set("OracleList1PagedSortAscending", true);
 		}
 	}
 });
 
-Template.OraclesViewTable.helpers({
+Template.OraclesPublicOraclesPublicViewTable.helpers({
 });
 
 
-Template.OraclesViewTableItems.onCreated(function() {
+Template.OraclesPublicOraclesPublicViewTableItems.onCreated(function() {
 	
 });
 
-Template.OraclesViewTableItems.onDestroyed(function() {
+Template.OraclesPublicOraclesPublicViewTableItems.onDestroyed(function() {
 	
 });
 
-Template.OraclesViewTableItems.onRendered(function() {
+Template.OraclesPublicOraclesPublicViewTableItems.onRendered(function() {
 	
 });
 
-Template.OraclesViewTableItems.events({
+Template.OraclesPublicOraclesPublicViewTableItems.events({
 	
 
 	"click td": function(e, t) {
@@ -254,7 +254,7 @@ Template.OraclesViewTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("oracles_public.details", mergeObjects(Router.currentRouteParams(), {oracleId: this._id}));
+		Router.go("oracles_public.oracles_public.details", mergeObjects(Router.currentRouteParams(), {oracleId: this._id}));
 		return false;
 	},
 
@@ -312,7 +312,7 @@ Template.OraclesViewTableItems.events({
 	}
 });
 
-Template.OraclesViewTableItems.helpers({
+Template.OraclesPublicOraclesPublicViewTableItems.helpers({
 	
 
 	"checked": function(value) { return value ? "checked" : "" }, 
@@ -322,29 +322,5 @@ Template.OraclesViewTableItems.helpers({
 
 	"deleteButtonClass": function() {
 		return Oracles.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
-	}
-});
-
-Template.OraclesViewCustomActions.created = function() {
-
-};
-
-Template.OraclesViewCustomActions.destroyed = function() {
-
-};
-
-Template.OraclesViewCustomActions.rendered = function() {
-
-};
-
-Template.OraclesViewCustomActions.helpers({
-
-});
-
-Template.OraclesViewCustomActions.events({
-	"click #btn-reload": function (e,t) {
-		e.preventDefault();
-
-		Meteor.call('reload.oracles');
 	}
 });

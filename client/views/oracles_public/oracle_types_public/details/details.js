@@ -1,14 +1,14 @@
 var pageSession = new ReactiveDict();
 
-Template.OraclesDetails.onCreated(function() {
+Template.OraclesPublicOracleTypesPublicDetails.onCreated(function() {
 	
 });
 
-Template.OraclesDetails.onDestroyed(function() {
+Template.OraclesPublicOracleTypesPublicDetails.onDestroyed(function() {
 	
 });
 
-Template.OraclesDetails.onRendered(function() {
+Template.OraclesPublicOracleTypesPublicDetails.onRendered(function() {
 	
 	Meteor.defer(function() {
 		globalOnRendered();
@@ -16,27 +16,27 @@ Template.OraclesDetails.onRendered(function() {
 	});
 });
 
-Template.OraclesDetails.events({
+Template.OraclesPublicOracleTypesPublicDetails.events({
 	
 });
 
-Template.OraclesDetails.helpers({
+Template.OraclesPublicOracleTypesPublicDetails.helpers({
 	
 });
 
-Template.OraclesDetailsForm.onCreated(function() {
+Template.OraclesPublicOracleTypesPublicDetailsForm.onCreated(function() {
 	
 });
 
-Template.OraclesDetailsForm.onDestroyed(function() {
+Template.OraclesPublicOracleTypesPublicDetailsForm.onDestroyed(function() {
 	
 });
 
-Template.OraclesDetailsForm.onRendered(function() {
+Template.OraclesPublicOracleTypesPublicDetailsForm.onRendered(function() {
 	
 
-	pageSession.set("oraclesDetailsFormInfoMessage", "");
-	pageSession.set("oraclesDetailsFormErrorMessage", "");
+	pageSession.set("oraclesPublicOracleTypesPublicDetailsFormInfoMessage", "");
+	pageSession.set("oraclesPublicOracleTypesPublicDetailsFormErrorMessage", "");
 
 	$(".input-group.date").each(function() {
 		var format = $(this).find("input[type='text']").attr("data-format");
@@ -64,25 +64,25 @@ Template.OraclesDetailsForm.onRendered(function() {
 	$("input[autofocus]").focus();
 });
 
-Template.OraclesDetailsForm.events({
+Template.OraclesPublicOracleTypesPublicDetailsForm.events({
 	"submit": function(e, t) {
 		e.preventDefault();
-		pageSession.set("oraclesDetailsFormInfoMessage", "");
-		pageSession.set("oraclesDetailsFormErrorMessage", "");
+		pageSession.set("oraclesPublicOracleTypesPublicDetailsFormInfoMessage", "");
+		pageSession.set("oraclesPublicOracleTypesPublicDetailsFormErrorMessage", "");
 
 		var self = this;
 
 		function submitAction(result, msg) {
-			var oraclesDetailsFormMode = "read_only";
+			var oraclesPublicOracleTypesPublicDetailsFormMode = "read_only";
 			if(!t.find("#form-cancel-button")) {
-				switch(oraclesDetailsFormMode) {
+				switch(oraclesPublicOracleTypesPublicDetailsFormMode) {
 					case "insert": {
 						$(e.target)[0].reset();
 					}; break;
 
 					case "update": {
 						var message = msg || "Saved.";
-						pageSession.set("oraclesDetailsFormInfoMessage", message);
+						pageSession.set("oraclesPublicOracleTypesPublicDetailsFormInfoMessage", message);
 					}; break;
 				}
 			}
@@ -93,7 +93,7 @@ Template.OraclesDetailsForm.events({
 		function errorAction(msg) {
 			msg = msg || "";
 			var message = msg.message || msg || "Error.";
-			pageSession.set("oraclesDetailsFormErrorMessage", message);
+			pageSession.set("oraclesPublicOracleTypesPublicDetailsFormErrorMessage", message);
 		}
 
 		validateForm(
@@ -123,23 +123,23 @@ Template.OraclesDetailsForm.events({
 	"click #form-close-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("oracles_public", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("oracles_public.oracle_types_public", mergeObjects(Router.currentRouteParams(), {}));
 	},
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("oracles_public", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("oracles_public.oracle_types_public", mergeObjects(Router.currentRouteParams(), {}));
 	}
 
 	
 });
 
-Template.OraclesDetailsForm.helpers({
+Template.OraclesPublicOracleTypesPublicDetailsForm.helpers({
 	"infoMessage": function() {
-		return pageSession.get("oraclesDetailsFormInfoMessage");
+		return pageSession.get("oraclesPublicOracleTypesPublicDetailsFormInfoMessage");
 	},
 	"errorMessage": function() {
-		return pageSession.get("oraclesDetailsFormErrorMessage");
+		return pageSession.get("oraclesPublicOracleTypesPublicDetailsFormErrorMessage");
 	}
 	
 });

@@ -12,11 +12,16 @@ Router.publicRoutes = [
 	"verify_email",
 	"forgot_password",
 	"reset_password",
-	"core",
-	"core.core_contracts",
-	"core.core_contracts.details",
-	"core.events",
-	"core.events.details"
+	"core_public",
+	"core_public.core_contracts_public",
+	"core_public.core_contracts_public.details",
+	"core_public.events_public",
+	"core_public.events_public.details",
+	"oracles_public",
+	"oracles_public.oracle_types_public",
+	"oracles_public.oracle_types_public.details",
+	"oracles_public.oracles_public",
+	"oracles_public.oracles_public.details"
 ];
 
 Router.privateRoutes = [
@@ -112,11 +117,16 @@ Router.map(function () {
 	this.route("/verify_email/:verifyEmailToken", {name: "verify_email", title: "", controller: "VerifyEmailController"});
 	this.route("/forgot_password", {name: "forgot_password", title: "", controller: "ForgotPasswordController"});
 	this.route("/reset_password/:resetPasswordToken", {name: "reset_password", title: "", controller: "ResetPasswordController"});
-	this.route("/core", {name: "core", title: "", controller: "CoreController"});
-	this.route("/core/core_contracts", {name: "core.core_contracts", title: "", controller: "CoreCoreContractsController"});
-	this.route("/core/core_contracts/details/:contractId", {name: "core.core_contracts.details", title: "", controller: "CoreCoreContractsDetailsController"});
-	this.route("/core/events", {name: "core.events", title: "", controller: "CoreEventsController"});
-	this.route("/core/events/details/:eventId", {name: "core.events.details", title: "", controller: "CoreEventsDetailsController"});
+	this.route("/core_public", {name: "core_public", title: "", controller: "CorePublicController"});
+	this.route("/core_public/core_contracts_public", {name: "core_public.core_contracts_public", title: "Core Contracts", controller: "CorePublicCoreContractsPublicController"});
+	this.route("/core_public/core_contracts_public/details/:contractId", {name: "core_public.core_contracts_public.details", title: "Core Contracts", controller: "CorePublicCoreContractsPublicDetailsController"});
+	this.route("/core_public/events_public", {name: "core_public.events_public", title: "Core Events", controller: "CorePublicEventsPublicController"});
+	this.route("/core_public/events_public/details/:eventId", {name: "core_public.events_public.details", title: "Core Events", controller: "CorePublicEventsPublicDetailsController"});
+	this.route("/oracles_public", {name: "oracles_public", title: "", controller: "OraclesPublicController"});
+	this.route("/oracles_public/oracle_types_public", {name: "oracles_public.oracle_types_public", title: "Oracle Types", controller: "OraclesPublicOracleTypesPublicController"});
+	this.route("/oracles_public/oracle_types_public/details/:oracleTypeId", {name: "oracles_public.oracle_types_public.details", title: "Oracle Types", controller: "OraclesPublicOracleTypesPublicDetailsController"});
+	this.route("/oracles_public/oracles_public", {name: "oracles_public.oracles_public", title: "", controller: "OraclesPublicOraclesPublicController"});
+	this.route("/oracles_public/oracles_public/details/:oracleId", {name: "oracles_public.oracles_public.details", title: "", controller: "OraclesPublicOraclesPublicDetailsController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});

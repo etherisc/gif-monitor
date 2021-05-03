@@ -1,0 +1,49 @@
+this.CorePublicController = RouteController.extend({
+	template: "CorePublic",
+	
+
+	yieldTemplates: {
+		/*YIELD_TEMPLATES*/
+	},
+
+	onBeforeAction: function() {
+		this.next();
+	},
+
+	action: function() {
+		this.redirect('core_public.core_contracts_public', this.params || {}, { replaceState: true });
+		/*ACTION_FUNCTION*/
+	},
+
+	isReady: function() {
+
+
+		
+
+		var subs = [
+		];
+		var ready = true;
+		_.each(subs, function(sub) {
+			if(!sub.ready())
+				ready = false;
+		});
+		return ready;
+	},
+
+	data: function() {
+		
+
+		var data = {
+			params: this.params || {}
+		};
+		
+
+		
+
+		return data;
+	},
+
+	onAfterAction: function() {
+		
+	}
+});

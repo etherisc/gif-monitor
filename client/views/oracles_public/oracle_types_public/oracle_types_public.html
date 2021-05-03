@@ -1,0 +1,134 @@
+<template name="OraclesPublicOracleTypesPublic">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<h2 id="page_title" class="pull-left">
+					Oracle Types
+				</h2>
+			</div>
+		</div>
+		{{> OraclesPublicOracleTypesPublicView}}
+	</div>
+</template>
+
+<template name="OraclesPublicOracleTypesPublicView">
+	<div id="oracles-public-oracle-types-public-view" class="">
+		<h2 id="component-title">
+			Oracle Types
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> OraclesPublicOracleTypesPublicViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="OraclesPublicOracleTypesPublicViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="name">
+					Name
+				</th>
+				<th class="th-sortable" data-sort="initialized">
+					Initialized
+				</th>
+				<th class="th-sortable" data-sort="activated">
+					Activated
+				</th>
+				<th class="th-sortable" data-sort="input_format">
+					Input Format
+				</th>
+				<th class="th-sortable" data-sort="callback_format">
+					Callback Format
+				</th>
+				<th class="th-sortable" data-sort="active_oracles">
+					Active Oracles
+				</th>
+				<th class="th-sortable" data-sort="assigned_oracles">
+					Assigned Oracles
+				</th>
+				<th class="th-sortable" data-sort="index">
+					Index
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each oracle_type_list1_paged}} {{> OraclesPublicOracleTypesPublicViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="OraclesPublicOracleTypesPublicViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{name}}
+		</td>
+		<td>
+			{{booleanToYesNo initialized}}
+		</td>
+		<td>
+			{{booleanToYesNo activated}}
+		</td>
+		<td>
+			{{input_format}}
+		</td>
+		<td>
+			{{callback_format}}
+		</td>
+		<td>
+			{{active_oracles}}
+		</td>
+		<td>
+			{{assigned_oracles}}
+		</td>
+		<td>
+			{{index}}
+		</td>
+	</tr>
+</template>
+

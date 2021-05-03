@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "66e0fb4fcdbcc28dd6f0fa5a0a064860ea3bfe7e"
+			"checksum": "7fd1683899a52afa9fa8d8ffeb9f90d3f0693587"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "a2b1c3bde8d63e7fb1463b1a12db591301b1c792"
+			"checksum": "3aa76da6a9fcd0292d7d5abb3489e9d0958ddff2"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -50,7 +50,7 @@
 		},
 		{
 			"path": "client/views/home_public/home_public.js",
-			"checksum": "5ef0c2062c0aab3f2da71015f4adfddec270c5c9"
+			"checksum": "cbae659f1b186a7ba861dd713ad1c2377e791dbd"
 		},
 		{
 			"path": "client/views/home_public/home_public_controller.js",
@@ -117,64 +117,124 @@
 			"checksum": "2135c4a7f8496142c1cbfb00bbe31c11559cc0e8"
 		},
 		{
-			"path": "client/views/core/core.html",
-			"checksum": "f1519b6a834492b7158b9b2f68a4695cbb0c3371"
+			"path": "client/views/core_public/core_public.html",
+			"checksum": "f866f53d5bd5cb3cb95ffb739cd469bef2246fe6"
 		},
 		{
-			"path": "client/views/core/core.js",
-			"checksum": "33caceecaf0f697ed9ac5436a169bf65cd8fb1fb"
+			"path": "client/views/core_public/core_public.js",
+			"checksum": "b84c63884fedc5fb23c509c2bc9929776fce9f39"
 		},
 		{
-			"path": "client/views/core/core_controller.js",
-			"checksum": "4e9017b50264b1cbae37220a515eba3836af204c"
+			"path": "client/views/core_public/core_public_controller.js",
+			"checksum": "1ae4657d847da0c2bb6ce687327ed2f4c65c64d7"
 		},
 		{
-			"path": "client/views/core/core_contracts/core_contracts.html",
-			"checksum": "da331caa8ecf264452580afe35beec2563a066b7"
+			"path": "client/views/core_public/core_contracts_public/core_contracts_public.html",
+			"checksum": "810f00ef7e7f83712c33c4a845c98ce94d7a3ca2"
 		},
 		{
-			"path": "client/views/core/core_contracts/core_contracts.js",
-			"checksum": "7d0d3c673e055a8b42606b10fa199701a1ce262a"
+			"path": "client/views/core_public/core_contracts_public/core_contracts_public.js",
+			"checksum": "a85a61e263a0bd22c8b5c35f70422b013e333a61"
 		},
 		{
-			"path": "client/views/core/core_contracts/core_contracts_controller.js",
-			"checksum": "83aececc2b176fb417463dfaff999d51db79a250"
+			"path": "client/views/core_public/core_contracts_public/core_contracts_public_controller.js",
+			"checksum": "5ebe7cf4bc9265a23f94a139af3abaf07a6515db"
 		},
 		{
-			"path": "client/views/core/core_contracts/details/details.html",
-			"checksum": "bff794ace276210a77c92dda8f79836d2f77ac18"
+			"path": "client/views/core_public/core_contracts_public/details/details.html",
+			"checksum": "6526be6dd21db692c896fb0821f91dad49c29362"
 		},
 		{
-			"path": "client/views/core/core_contracts/details/details.js",
-			"checksum": "3d56774a73c83d7d1c6f68c205c1882c8f761612"
+			"path": "client/views/core_public/core_contracts_public/details/details.js",
+			"checksum": "88f820c18c92403ba696c9630e051b4dbf1ef2ea"
 		},
 		{
-			"path": "client/views/core/core_contracts/details/details_controller.js",
-			"checksum": "479417ec20d12f7b17e71772bb6db5fcb105ffdd"
+			"path": "client/views/core_public/core_contracts_public/details/details_controller.js",
+			"checksum": "ed4b7e195d10e7ac0c720aa5ac13725427c27f3d"
 		},
 		{
-			"path": "client/views/core/events/events.html",
-			"checksum": "52739aab394bd743e882dc470f439a19543891de"
+			"path": "client/views/core_public/events_public/events_public.html",
+			"checksum": "1d331f3c30d83a8089b9b5ddba2dd42fa3379c0b"
 		},
 		{
-			"path": "client/views/core/events/events.js",
-			"checksum": "c111338a873062677a20384d3c8ceb6f4a437ba4"
+			"path": "client/views/core_public/events_public/events_public.js",
+			"checksum": "350f2a4bd2d5749757f7f805879148eed74423a8"
 		},
 		{
-			"path": "client/views/core/events/events_controller.js",
-			"checksum": "45a2836d7315ada2cf1e25bfe4bc74695b3bd954"
+			"path": "client/views/core_public/events_public/events_public_controller.js",
+			"checksum": "6cfac6e8ab2786a2c0b5672ef60bed29a6482061"
 		},
 		{
-			"path": "client/views/core/events/details/details.html",
-			"checksum": "23bad558f97a6613bafc813882dfd4b895322306"
+			"path": "client/views/core_public/events_public/details/details.html",
+			"checksum": "347125b247569e604a327c18aa92eda3d6614b42"
 		},
 		{
-			"path": "client/views/core/events/details/details.js",
-			"checksum": "dee368d5e2fe087e1c5584eb0d0055b8808520f6"
+			"path": "client/views/core_public/events_public/details/details.js",
+			"checksum": "9c325e0616382efaf5e1f242b386499bb17c892f"
 		},
 		{
-			"path": "client/views/core/events/details/details_controller.js",
-			"checksum": "2e0120e38ab7017b6352883769702341307c7731"
+			"path": "client/views/core_public/events_public/details/details_controller.js",
+			"checksum": "ccec6c2276090bdaeb518cd18bec3daad7785595"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public.html",
+			"checksum": "1da4c81d831776d1fe04ed871a02c566658d6d60"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public.js",
+			"checksum": "40e1f0ca72ed6ac7bcd35929b0c8e4c494d243d1"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public_controller.js",
+			"checksum": "7b7208af6979d39bab3e8b283a882ce91188d7a5"
+		},
+		{
+			"path": "client/views/oracles_public/oracle_types_public/oracle_types_public.html",
+			"checksum": "0032e94bfaba9240fb70a21505e735db006edeec"
+		},
+		{
+			"path": "client/views/oracles_public/oracle_types_public/oracle_types_public.js",
+			"checksum": "bae22d5b8ed2e818b216a13cd92d9aaba3e257dd"
+		},
+		{
+			"path": "client/views/oracles_public/oracle_types_public/oracle_types_public_controller.js",
+			"checksum": "9f1bf62024e7709ae3974219ac5352f2ef0ba7d2"
+		},
+		{
+			"path": "client/views/oracles_public/oracle_types_public/details/details.html",
+			"checksum": "6a9afae01f3ddad42703bc785a0ca9aa2e22177f"
+		},
+		{
+			"path": "client/views/oracles_public/oracle_types_public/details/details.js",
+			"checksum": "8902737c85467f69a616477e59db8aad9de12311"
+		},
+		{
+			"path": "client/views/oracles_public/oracle_types_public/details/details_controller.js",
+			"checksum": "800326edfb9a4bcc448f401b2474b92f65f6706f"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public/oracles_public.html",
+			"checksum": "6fefa1ffa0d5335f144f20a69ee1d1d8aa7d00da"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public/oracles_public.js",
+			"checksum": "0fd208e2d9059ca5d5f8546a5b2a9d01ba19e7f4"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public/oracles_public_controller.js",
+			"checksum": "c6b32f0fe1b1988a7838040f2325d6d78ce928ba"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public/details/details.html",
+			"checksum": "c1a63f3c27e5ff5730a7b96974cf739e386f3b03"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public/details/details.js",
+			"checksum": "363d578f0ecd34bbd2816c9594bd6239419108f8"
+		},
+		{
+			"path": "client/views/oracles_public/oracles_public/details/details_controller.js",
+			"checksum": "f82aa22876736b781830a63ef370466f6263e7c7"
 		},
 		{
 			"path": "client/views/home_private/home_private.html",
@@ -190,7 +250,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "eac2df660c742728c6035e08efd93d8407c0ade2"
+			"checksum": "704f311351572c4c33b4465f4eadcdad4a3871b5"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -470,7 +530,7 @@
 		},
 		{
 			"path": "client/views/oracles/oracles.js",
-			"checksum": "e6839fca9144acf110d2d77efb787951855c9523"
+			"checksum": "c273bfaa65d854b6393ba19b01d558ee9575dbf6"
 		},
 		{
 			"path": "client/views/oracles/oracles_controller.js",
@@ -482,7 +542,7 @@
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
-			"checksum": "84e7ced475e9536cd8b4a103208b6de05f0ffee6"
+			"checksum": "2e3661aca92b8720b6656dd29ba6178ff8fda5cf"
 		},
 		{
 			"path": "client/views/oracles/details/details_controller.js",
@@ -642,7 +702,7 @@
 		},
 		{
 			"path": "server/publish/oracles.js",
-			"checksum": "eef92ef009227395ee4f98393ceb5d5caa03dc0a"
+			"checksum": "022845d09f0e775eff649bc8b7e5f8a1dd72a252"
 		},
 		{
 			"path": "both/collections/oracle_types.js",
@@ -658,7 +718,7 @@
 		},
 		{
 			"path": "server/publish/oracle_types.js",
-			"checksum": "508f76923b9d7257c8332fb3fb145b05b6894751"
+			"checksum": "d062592e4665b96964e713d9a526a38221fdbcd2"
 		},
 		{
 			"path": "both/collections/products.js",
@@ -974,11 +1034,11 @@
 		"client/views/chains/update/",
 		"client/views/contracts/",
 		"client/views/contracts/details/",
-		"client/views/core/",
-		"client/views/core/core_contracts/",
-		"client/views/core/core_contracts/details/",
-		"client/views/core/events/",
-		"client/views/core/events/details/",
+		"client/views/core_public/",
+		"client/views/core_public/core_contracts_public/",
+		"client/views/core_public/core_contracts_public/details/",
+		"client/views/core_public/events_public/",
+		"client/views/core_public/events_public/details/",
 		"client/views/events/",
 		"client/views/events/details/",
 		"client/views/forgot_password/",
@@ -993,6 +1053,11 @@
 		"client/views/oracle_types/details/",
 		"client/views/oracles/",
 		"client/views/oracles/details/",
+		"client/views/oracles_public/",
+		"client/views/oracles_public/oracle_types_public/",
+		"client/views/oracles_public/oracle_types_public/details/",
+		"client/views/oracles_public/oracles_public/",
+		"client/views/oracles_public/oracles_public/details/",
 		"client/views/products/",
 		"client/views/products/details/",
 		"client/views/register/",
