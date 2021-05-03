@@ -130,19 +130,19 @@
 		},
 		{
 			"path": "client/views/core/core_contracts/core_contracts.html",
-			"checksum": "bcb758df1adf28dd40875ff9cf5baf4cfc9ad17a"
+			"checksum": "5dd59efcd6ac4db345be9d122da06953ecaba2f2"
 		},
 		{
 			"path": "client/views/core/core_contracts/core_contracts.js",
-			"checksum": "d9405f0f38fc0761f2a7c7097f5fde18fffa7ad7"
+			"checksum": "f734871d27f309637dcf980a90b66788d16a8a6b"
 		},
 		{
 			"path": "client/views/core/core_contracts/core_contracts_controller.js",
-			"checksum": "ed9210011d3b5b65f4ffeaac146ac6a5ff8467e2"
+			"checksum": "1639664a7d79dbb50a6179ee2baa0dfb53f2377f"
 		},
 		{
 			"path": "client/views/core/core_contracts/details/details.html",
-			"checksum": "34b3712490528e65dd6404b77d49d38fb477399a"
+			"checksum": "9fae60fc4e90a3707e2558951e234c9191065b7e"
 		},
 		{
 			"path": "client/views/core/core_contracts/details/details.js",
@@ -150,7 +150,7 @@
 		},
 		{
 			"path": "client/views/core/core_contracts/details/details_controller.js",
-			"checksum": "8d5881cc797f36ce83becdffd8693e45c61eacf4"
+			"checksum": "479417ec20d12f7b17e71772bb6db5fcb105ffdd"
 		},
 		{
 			"path": "client/views/home_private/home_private.html",
@@ -166,7 +166,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "c88c3a904659118561c03a9ec781c7a08be6c4dd"
+			"checksum": "0fb154020218de92641d534978d49df5df32fc51"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -506,7 +506,7 @@
 		},
 		{
 			"path": "server/publish/contracts.js",
-			"checksum": "0624791d3907ff97dd595222fc1166e828c71543"
+			"checksum": "5f616397a634e2a914acf36191bccf0b17432e7e"
 		},
 		{
 			"path": "both/collections/chains.js",

@@ -18,25 +18,25 @@ Meteor.publish("contract1", function(contractId) {
 	return Contracts.publishJoinedCursors(Contracts.find({_id:contractId}, {}));
 });
 
-Meteor.publish("contract_list2", function() {
+Meteor.publish("contract_list_public", function() {
 	return Contracts.publishJoinedCursors(Contracts.find({}, {}));
 });
 
-Meteor.publish("contract2", function(contractId) {
+Meteor.publish("contract_public", function(contractId) {
 	return Contracts.publishJoinedCursors(Contracts.find({_id:contractId}, {}));
 });
 
-Meteor.publish("contract_list2_paged", function(extraOptions) {
+Meteor.publish("contract_list_public_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
 	return Contracts.publishJoinedCursors(Contracts.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)));
 });
 
-Meteor.publish("contract_list2_paged_count", function(extraOptions) {
-	Counts.publish(this, "contract_list2_paged_count", Contracts.find(databaseUtils.extendFilter({}, extraOptions), { fields: { _id: 1 } }));
+Meteor.publish("contract_list_public_paged_count", function(extraOptions) {
+	Counts.publish(this, "contract_list_public_paged_count", Contracts.find(databaseUtils.extendFilter({}, extraOptions), { fields: { _id: 1 } }));
 });
 
 Meteor.methods({
-	"contractList2PagedExport": function(extraOptions, exportFields, fileType) {
+	"contractListPublicPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
 		var data = Contracts.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);

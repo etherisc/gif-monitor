@@ -17,13 +17,13 @@ this.CoreCoreContractsController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.contractList2PagedExtraParams = {
-			searchText: Session.get("ContractList2PagedSearchString") || "",
-			searchFields: Session.get("ContractList2PagedSearchFields") || ["chain_id", "address", "name", "abi", "deployment_txhash", "deployed_at_block", "chain_data.name"],
-			sortBy: Session.get("ContractList2PagedSortBy") || "",
-			sortAscending: Session.get("ContractList2PagedSortAscending"),
-			pageNo: Session.get("ContractList2PagedPageNo") || 0,
-			pageSize: Session.get("ContractList2PagedPageSize") || 0
+		this.contractListPublicPagedExtraParams = {
+			searchText: Session.get("ContractListPublicPagedSearchString") || "",
+			searchFields: Session.get("ContractListPublicPagedSearchFields") || ["chain_id", "chain_data.name", "address", "name", "abi", "deployment_txhash", "deployed_at_block"],
+			sortBy: Session.get("ContractListPublicPagedSortBy") || "",
+			sortAscending: Session.get("ContractListPublicPagedSortAscending"),
+			pageNo: Session.get("ContractListPublicPagedPageNo") || 0,
+			pageSize: Session.get("ContractListPublicPagedPageSize") || 0
 		};
 
 
@@ -31,8 +31,8 @@ this.CoreCoreContractsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("contract_list2_paged", this.contractList2PagedExtraParams),
-			Meteor.subscribe("contract_list2_paged_count", this.contractList2PagedExtraParams)
+			Meteor.subscribe("contract_list_public_paged", this.contractListPublicPagedExtraParams),
+			Meteor.subscribe("contract_list_public_paged_count", this.contractListPublicPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -47,15 +47,15 @@ this.CoreCoreContractsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			contract_list2_paged: Contracts.find(databaseUtils.extendFilter({}, this.contractList2PagedExtraParams), databaseUtils.extendOptions({}, this.contractList2PagedExtraParams)),
-			contract_list2_paged_count: Counts.get("contract_list2_paged_count")
+			contract_list_public_paged: Contracts.find(databaseUtils.extendFilter({}, this.contractListPublicPagedExtraParams), databaseUtils.extendOptions({}, this.contractListPublicPagedExtraParams)),
+			contract_list_public_paged_count: Counts.get("contract_list_public_paged_count")
 		};
 		
 
 		
-		data.contract_list2_paged_page_count = this.contractList2PagedExtraParams && this.contractList2PagedExtraParams.pageSize ? Math.ceil(data.contract_list2_paged_count / this.contractList2PagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.contractList2PagedExtraParams.pageNo >= data.contract_list2_paged_page_count) {
-			Session.set("ContractList2PagedPageNo", data.contract_list2_paged_page_count > 0 ? data.contract_list2_paged_page_count - 1 : 0);
+		data.contract_list_public_paged_page_count = this.contractListPublicPagedExtraParams && this.contractListPublicPagedExtraParams.pageSize ? Math.ceil(data.contract_list_public_paged_count / this.contractListPublicPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.contractListPublicPagedExtraParams.pageNo >= data.contract_list_public_paged_page_count) {
+			Session.set("ContractListPublicPagedPageNo", data.contract_list_public_paged_page_count > 0 ? data.contract_list_public_paged_page_count - 1 : 0);
 		}
 
 
