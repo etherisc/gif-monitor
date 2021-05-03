@@ -27,11 +27,23 @@ reloadProduct = async (productId) => {
 setProductPaused = async (productId, pause) => {
 
 
+	const handleError = (message, args) => {
+		alert(message),
+		error(message, args);
+	}
+	
+	const handleInfo = (message, args) => {
+		alert(message),
+		info(message, args);
+	}
+	
+	
+	
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
 	
 	if (!ios || !license) {
-		alert (`Could not create contract instances`);
+		handleError(`Could not create contract instances (ios/license)`);
 		return;
 	}
 	
@@ -40,26 +52,28 @@ setProductPaused = async (productId, pause) => {
 	try {
 		product = await license.products(productId);
 	} catch (err) {
-		alert(`Could not access product; (${err.message})`);
+		handleError(`Could not access product ${productId}; (${err.message})`);
 		return;
 	}
 
+	info(`Trying to pause/unpause product ${productId}`, product);
+	
 	if(pause && !product.paused) {
 		try {
 			res = await ios.pauseProduct(productId);
 			alert('Transaction submitted, TxHash: ' + res.hash.slice(7) + '...');
 		} catch (err) {
-			alert(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`);
+			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
 	} else if (!pause && product.paused) {
 		try {
 			res = await ios.unpauseProduct(productId);
-			alert('Transaction submitted, TxHash: ' + res.hash.slice(7) + '...');
+			handleInfo(`Transaction submitted, TxHash: ${res.hash.slice(7)} ...`, res);
 		} catch (err) {
-			alert(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`);
+			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
 	} else {
-		alert(`Product ${product.name} already in state <${product.paused ? 'paused' : 'unpaused'}>`);
+		handleInfo(`Product ${product.name} already in state <${product.paused ? 'paused' : 'unpaused'}>`);
 	}
 }
 
