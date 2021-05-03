@@ -18,7 +18,7 @@ this.OraclesController = RouteController.extend({
 	isReady: function() {
 		this.oracleListPagedExtraParams = {
 			searchText: Session.get("OracleListPagedSearchString") || "",
-			searchFields: Session.get("OracleListPagedSearchFields") || ["name", "description", "oracle_type_id", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
+			searchFields: Session.get("OracleListPagedSearchFields") || ["description", "oracle_type_id", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
 			sortBy: Session.get("OracleListPagedSortBy") || "",
 			sortAscending: Session.get("OracleListPagedSortAscending"),
 			pageNo: Session.get("OracleListPagedPageNo") || 0,

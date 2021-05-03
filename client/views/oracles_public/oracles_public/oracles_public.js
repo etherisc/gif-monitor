@@ -26,7 +26,7 @@ Template.OraclesPublicOraclesPublic.helpers({
 var OraclesPublicOraclesPublicViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("OracleList1PagedSearchString") || "",
-		searchFields: Session.get("OracleList1PagedSearchFields") || ["name", "description", "oracle_type_id", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
+		searchFields: Session.get("OracleList1PagedSearchFields") || ["description", "oracle_type_id", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
 		sortBy: Session.get("OracleList1PagedSortBy") || "",
 		sortAscending: Session.get("OracleList1PagedSortAscending") || true
 	};
