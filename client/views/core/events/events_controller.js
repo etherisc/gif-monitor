@@ -19,7 +19,7 @@ this.CoreEventsController = RouteController.extend({
 	isReady: function() {
 		this.eventList1PagedExtraParams = {
 			searchText: Session.get("EventList1PagedSearchString") || "",
-			searchFields: Session.get("EventList1PagedSearchFields") || ["chain_id", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values", "timestamp"],
+			searchFields: Session.get("EventList1PagedSearchFields") || ["chain_id", "timestamp", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values"],
 			sortBy: Session.get("EventList1PagedSortBy") || "",
 			sortAscending: Session.get("EventList1PagedSortAscending"),
 			pageNo: Session.get("EventList1PagedPageNo") || 0,

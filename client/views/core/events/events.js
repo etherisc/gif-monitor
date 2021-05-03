@@ -26,7 +26,7 @@ Template.CoreEvents.helpers({
 var CoreEventsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("EventList1PagedSearchString") || "",
-		searchFields: Session.get("EventList1PagedSearchFields") || ["chain_id", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values", "timestamp"],
+		searchFields: Session.get("EventList1PagedSearchFields") || ["chain_id", "timestamp", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values"],
 		sortBy: Session.get("EventList1PagedSortBy") || "",
 		sortAscending: Session.get("EventList1PagedSortAscending") || true
 	};
