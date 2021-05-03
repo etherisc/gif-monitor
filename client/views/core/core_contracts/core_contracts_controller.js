@@ -19,7 +19,7 @@ this.CoreCoreContractsController = RouteController.extend({
 	isReady: function() {
 		this.contractList2PagedExtraParams = {
 			searchText: Session.get("ContractList2PagedSearchString") || "",
-			searchFields: Session.get("ContractList2PagedSearchFields") || ["chain_id", "address", "name", "abi", "deployment_txhash", "deployed_at_block"],
+			searchFields: Session.get("ContractList2PagedSearchFields") || ["chain_id", "address", "name", "abi", "deployment_txhash", "deployed_at_block", "chain_data.name"],
 			sortBy: Session.get("ContractList2PagedSortBy") || "",
 			sortAscending: Session.get("ContractList2PagedSortAscending"),
 			pageNo: Session.get("ContractList2PagedPageNo") || 0,

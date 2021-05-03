@@ -130,19 +130,19 @@
 		},
 		{
 			"path": "client/views/core/core_contracts/core_contracts.html",
-			"checksum": "f2419dd2d2f93ab648cab4a31c0aacdd968e3600"
+			"checksum": "bcb758df1adf28dd40875ff9cf5baf4cfc9ad17a"
 		},
 		{
 			"path": "client/views/core/core_contracts/core_contracts.js",
-			"checksum": "3149ad93db1d218e2dbfbe3bc7affbec4f5b2be7"
+			"checksum": "d9405f0f38fc0761f2a7c7097f5fde18fffa7ad7"
 		},
 		{
 			"path": "client/views/core/core_contracts/core_contracts_controller.js",
-			"checksum": "831cec27b33b36e0d9135142c84ecabc5697d4e4"
+			"checksum": "ed9210011d3b5b65f4ffeaac146ac6a5ff8467e2"
 		},
 		{
 			"path": "client/views/core/core_contracts/details/details.html",
-			"checksum": "f2696b27da674a5b54fe5ba0d490b3dff24ba3ea"
+			"checksum": "34b3712490528e65dd6404b77d49d38fb477399a"
 		},
 		{
 			"path": "client/views/core/core_contracts/details/details.js",
@@ -166,7 +166,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "f7442cd44b3af1ed717b48e8a0bf2fb4bc1e76c4"
+			"checksum": "b3121facc0ae53dea93d947ac7ece8cb67b2ddc1"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -654,7 +654,7 @@
 		},
 		{
 			"path": "both/joins/joins.js",
-			"checksum": "60f651b43a170a58d35883a1a80e67a3464646d6"
+			"checksum": "b828a7c0509e5d5f13d424c345df68c9f3fe2ddc"
 		},
 		{
 			"path": "server/startup.js",
