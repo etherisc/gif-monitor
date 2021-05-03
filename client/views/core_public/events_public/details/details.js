@@ -35,7 +35,7 @@ Template.CorePublicEventsPublicDetailsForm.onDestroyed(function() {
 Template.CorePublicEventsPublicDetailsForm.onRendered(function() {
 	// console.log(this);
 
-$('.control-field-values').jsonViewer(this.data.event_public.values);
+$('.control-field-values').jsonViewer(this.data.event.values);
 
 	pageSession.set("corePublicEventsPublicDetailsFormInfoMessage", "");
 	pageSession.set("corePublicEventsPublicDetailsFormErrorMessage", "");
