@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "d1c1e4771fa3ee8389e9bd82c6b86f465510d1bd"
+			"checksum": "0fc241b19de03dd79703546861dea937857a6956"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -478,11 +478,11 @@
 		},
 		{
 			"path": "server/publish/users.js",
-			"checksum": "435f02b2c70f5637f3da569d088e74a1605ab565"
+			"checksum": "16d198ea716570d6a64af8fe4fe08697d13e4205"
 		},
 		{
 			"path": "both/collections/contracts.js",
-			"checksum": "c5348b2fa5054afdbf7070c674ab15e1b3957092"
+			"checksum": "65b6ba643840f811b64d63141f1b46e70ff83157"
 		},
 		{
 			"path": "server/methods/contracts.js",
@@ -494,11 +494,11 @@
 		},
 		{
 			"path": "server/publish/contracts.js",
-			"checksum": "8ecd3154f34f58643bfd5f8d24593163708a9a43"
+			"checksum": "7a9c7fcda76ae969d66b0321bc6fe98edbbdc6a0"
 		},
 		{
 			"path": "both/collections/chains.js",
-			"checksum": "e3fec4fd49d43fdaef3936122b49724bc421c8b5"
+			"checksum": "65f9ab3ec6513795784926d5b94f4e64d98d983b"
 		},
 		{
 			"path": "server/methods/chains.js",
@@ -510,11 +510,11 @@
 		},
 		{
 			"path": "server/publish/chains.js",
-			"checksum": "7aad1bad9e75bac9d2bee856215e43f4114045db"
+			"checksum": "def85228e86013dd7b0df90b918508aaecaf13f6"
 		},
 		{
 			"path": "both/collections/transactions.js",
-			"checksum": "3ec45b5c9b07d7997f13eb242836ef367b7a9561"
+			"checksum": "c2aa7981f349189552d4a5bf11596ad338012059"
 		},
 		{
 			"path": "server/methods/transactions.js",
@@ -530,7 +530,7 @@
 		},
 		{
 			"path": "both/collections/addresses.js",
-			"checksum": "61dc7244066950f6ac25be77681002cadfbfdb0e"
+			"checksum": "2821057e2e223ab717aec33deed2e9b517576b84"
 		},
 		{
 			"path": "server/methods/addresses.js",
@@ -562,7 +562,7 @@
 		},
 		{
 			"path": "both/collections/events.js",
-			"checksum": "805d71c9de1ef9865905ba5388ad16ebc954a024"
+			"checksum": "423ea6434b95e0940006f2d025ff2e7dc247cec5"
 		},
 		{
 			"path": "server/methods/events.js",
@@ -574,7 +574,7 @@
 		},
 		{
 			"path": "server/publish/events.js",
-			"checksum": "774ef56c41f99fc2e9cbf9733ed7fc219c7ddb45"
+			"checksum": "6a9033f8cfaf1df51d258fa168f0a2f7f26c4a05"
 		},
 		{
 			"path": "both/collections/event_last_seen.js",
@@ -594,7 +594,7 @@
 		},
 		{
 			"path": "both/collections/oracles.js",
-			"checksum": "fea5f97dd612c22360f087e964271764faac39b5"
+			"checksum": "899feee26f46802744e989dddd06b1aaed55c27c"
 		},
 		{
 			"path": "server/methods/oracles.js",
@@ -606,11 +606,11 @@
 		},
 		{
 			"path": "server/publish/oracles.js",
-			"checksum": "54312e836c9a4a46af4b5ebc74b4f10a5486bc8d"
+			"checksum": "eef92ef009227395ee4f98393ceb5d5caa03dc0a"
 		},
 		{
 			"path": "both/collections/oracle_types.js",
-			"checksum": "b5b33e5e81cba161b395430d962179ac23666b46"
+			"checksum": "b49d46e322eaf7a508e8715be0a97523638d2a2d"
 		},
 		{
 			"path": "server/methods/oracle_types.js",
@@ -622,11 +622,11 @@
 		},
 		{
 			"path": "server/publish/oracle_types.js",
-			"checksum": "54bab5d751926f2c882cd4387897aa25335f7248"
+			"checksum": "508f76923b9d7257c8332fb3fb145b05b6894751"
 		},
 		{
 			"path": "both/collections/products.js",
-			"checksum": "9f29da544b9731d097caab13492f343f1f4cc226"
+			"checksum": "515c2436cf10072b26b215a340ec268fda5d93c3"
 		},
 		{
 			"path": "server/methods/products.js",
@@ -638,7 +638,7 @@
 		},
 		{
 			"path": "server/publish/products.js",
-			"checksum": "8661099857c114da888e971208353e18b111acb9"
+			"checksum": "263eec3a24c888378b007e824d33d54044bba2c6"
 		},
 		{
 			"path": "both/joins/joins.js",
