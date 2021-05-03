@@ -45,17 +45,17 @@ Template.ChainsHeader.events({
 
 var ChainsViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("ChainList1PagedSearchString") || "",
-		searchFields: Session.get("ChainList1PagedSearchFields") || ["chain_id", "name", "native_coin", "explorer_tx_url", "explorer_address_url"],
-		sortBy: Session.get("ChainList1PagedSortBy") || "",
-		sortAscending: Session.get("ChainList1PagedSortAscending") || true
+		searchText: Session.get("ChainListPagedSearchString") || "",
+		searchFields: Session.get("ChainListPagedSearchFields") || ["chain_id", "name", "native_coin", "explorer_tx_url", "explorer_address_url"],
+		sortBy: Session.get("ChainListPagedSortBy") || "",
+		sortAscending: Session.get("ChainListPagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("chainList1PagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("chainListPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -92,7 +92,7 @@ Template.ChainsView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("ChainList1PagedSearchString", searchString);
+				Session.set("ChainListPagedSearchString", searchString);
 			}
 
 		}
@@ -108,7 +108,7 @@ Template.ChainsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("ChainList1PagedSearchString", searchString);
+					Session.set("ChainListPagedSearchString", searchString);
 				}
 
 			}
@@ -123,7 +123,7 @@ Template.ChainsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("ChainList1PagedSearchString", "");
+					Session.set("ChainListPagedSearchString", "");
 				}
 
 			}
@@ -160,17 +160,17 @@ Template.ChainsView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("ChainList1PagedPageNo") || 0;
+		var currentPage = Session.get("ChainListPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("ChainList1PagedPageNo", currentPage - 1);
+			Session.set("ChainListPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("ChainList1PagedPageNo") || 0;
-		if(currentPage < this.chain_list1paged_page_count - 1) {
-			Session.set("ChainList1PagedPageNo", currentPage + 1);
+		let currentPage = Session.get("ChainListPagedPageNo") || 0;
+		if(currentPage < this.chain_list_paged_page_count - 1) {
+			Session.set("ChainListPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -184,22 +184,22 @@ Template.ChainsView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.chain_list1_paged || this.chain_list1_paged.count() == 0;
+		return !this.chain_list_paged || this.chain_list_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.chain_list1_paged && this.chain_list1_paged.count() > 0;
+		return this.chain_list_paged && this.chain_list_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.chain_list1_paged && this.chain_list1_paged.count() == 0 && Session.get("ChainList1PagedSearchString");
+		return this.chain_list_paged && this.chain_list_paged.count() == 0 && Session.get("ChainListPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("ChainList1PagedPageNo");
+		return !!Session.get("ChainListPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("ChainList1PagedPageNo") || 0) < this.chain_list1paged_page_count - 1;
+		return (Session.get("ChainListPagedPageNo") || 0) < this.chain_list_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("ChainList1PagedSearchString");
+		return Session.get("ChainListPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("ChainsViewStyle") == "table";
@@ -233,18 +233,18 @@ Template.ChainsViewTable.onRendered(function() {
 Template.ChainsViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("ChainList1PagedSortBy");
+		var oldSortBy = Session.get("ChainListPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("ChainList1PagedSortBy", newSortBy);
+		Session.set("ChainListPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("ChainList1PagedSortAscending");
+			var sortAscending = Session.get("ChainListPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("ChainList1PagedSortAscending", !sortAscending);
+			Session.set("ChainListPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("ChainList1PagedSortAscending", true);
+			Session.set("ChainListPagedSortAscending", true);
 		}
 	}
 });
