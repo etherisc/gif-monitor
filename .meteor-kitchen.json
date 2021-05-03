@@ -38,11 +38,11 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "0ec1061bcd2dbaa413805496623f7333ab779921"
+			"checksum": "098738e6b0a54a6699120db64e1dd4f185c4903c"
 		},
 		{
 			"path": "client/views/layout/layout.js",
-			"checksum": "9055e67d10945778fbff16dc6cf546b8efbec46c"
+			"checksum": "9a9abe709cd51be265b3fdba0f68c8b8e1f2daf4"
 		},
 		{
 			"path": "client/views/home_public/home_public.html",
@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "652480f4f9387cdf8dd28411a7652f767dd9b970"
+			"checksum": "94949315d77a8e6fcf307405a46de3e2a983d2e1"
 		},
 		{
 			"path": "client/views/admin/admin.js",
