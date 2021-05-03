@@ -6,25 +6,25 @@ Meteor.publish("event", function(eventId) {
 	return Events.find({_id:eventId}, {});
 });
 
-Meteor.publish("event_list1", function() {
+Meteor.publish("event_list_public", function() {
 	return Events.find({}, {});
 });
 
-Meteor.publish("event1", function(eventId) {
+Meteor.publish("event_public", function(eventId) {
 	return Events.find({_id:eventId}, {});
 });
 
-Meteor.publish("event_list1_paged", function(extraOptions) {
+Meteor.publish("event_list_public_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
 	return Events.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
 });
 
-Meteor.publish("event_list1_paged_count", function(extraOptions) {
-	Counts.publish(this, "event_list1_paged_count", Events.find(databaseUtils.extendFilter({}, extraOptions), { fields: { _id: 1 } }));
+Meteor.publish("event_list_public_paged_count", function(extraOptions) {
+	Counts.publish(this, "event_list_public_paged_count", Events.find(databaseUtils.extendFilter({}, extraOptions), { fields: { _id: 1 } }));
 });
 
 Meteor.methods({
-	"eventList1PagedExport": function(extraOptions, exportFields, fileType) {
+	"eventListPublicPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
 		var data = Events.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);

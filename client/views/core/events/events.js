@@ -25,17 +25,17 @@ Template.CoreEvents.helpers({
 
 var CoreEventsViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("EventList1PagedSearchString") || "",
-		searchFields: Session.get("EventList1PagedSearchFields") || ["chain_id", "timestamp", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values"],
-		sortBy: Session.get("EventList1PagedSortBy") || "",
-		sortAscending: Session.get("EventList1PagedSortAscending") || true
+		searchText: Session.get("EventListPublicPagedSearchString") || "",
+		searchFields: Session.get("EventListPublicPagedSearchFields") || ["chain_id", "timestamp", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values"],
+		sortBy: Session.get("EventListPublicPagedSortBy") || "",
+		sortAscending: Session.get("EventListPublicPagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("eventList1PagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("eventListPublicPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -72,7 +72,7 @@ Template.CoreEventsView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("EventList1PagedSearchString", searchString);
+				Session.set("EventListPublicPagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.CoreEventsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("EventList1PagedSearchString", searchString);
+					Session.set("EventListPublicPagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.CoreEventsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("EventList1PagedSearchString", "");
+					Session.set("EventListPublicPagedSearchString", "");
 				}
 
 			}
@@ -140,17 +140,17 @@ Template.CoreEventsView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("EventList1PagedPageNo") || 0;
+		var currentPage = Session.get("EventListPublicPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("EventList1PagedPageNo", currentPage - 1);
+			Session.set("EventListPublicPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("EventList1PagedPageNo") || 0;
-		if(currentPage < this.event_list1paged_page_count - 1) {
-			Session.set("EventList1PagedPageNo", currentPage + 1);
+		let currentPage = Session.get("EventListPublicPagedPageNo") || 0;
+		if(currentPage < this.event_list_public_paged_page_count - 1) {
+			Session.set("EventListPublicPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -164,22 +164,22 @@ Template.CoreEventsView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.event_list1_paged || this.event_list1_paged.count() == 0;
+		return !this.event_list_public_paged || this.event_list_public_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.event_list1_paged && this.event_list1_paged.count() > 0;
+		return this.event_list_public_paged && this.event_list_public_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.event_list1_paged && this.event_list1_paged.count() == 0 && Session.get("EventList1PagedSearchString");
+		return this.event_list_public_paged && this.event_list_public_paged.count() == 0 && Session.get("EventListPublicPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("EventList1PagedPageNo");
+		return !!Session.get("EventListPublicPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("EventList1PagedPageNo") || 0) < this.event_list1paged_page_count - 1;
+		return (Session.get("EventListPublicPagedPageNo") || 0) < this.event_list_public_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("EventList1PagedSearchString");
+		return Session.get("EventListPublicPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("CoreEventsViewStyle") == "table";
@@ -213,18 +213,18 @@ Template.CoreEventsViewTable.onRendered(function() {
 Template.CoreEventsViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("EventList1PagedSortBy");
+		var oldSortBy = Session.get("EventListPublicPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("EventList1PagedSortBy", newSortBy);
+		Session.set("EventListPublicPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("EventList1PagedSortAscending");
+			var sortAscending = Session.get("EventListPublicPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("EventList1PagedSortAscending", !sortAscending);
+			Session.set("EventListPublicPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("EventList1PagedSortAscending", true);
+			Session.set("EventListPublicPagedSortAscending", true);
 		}
 	}
 });
