@@ -83,20 +83,15 @@ Template.FreeLayout.helpers({
 	
 });
 
-Template.PublicLayout.onCreated(function() {
-	
-	var subs = [
-		];
-});
+
 
 Template.PublicLayout.events({
-	
+
 });
 
 Template.PublicLayout.helpers({
-	
-});
 
+});
 Template.PublicLayoutLeftMenu.onCreated(function() {
 	
 });
