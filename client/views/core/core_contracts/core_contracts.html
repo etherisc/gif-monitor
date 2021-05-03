@@ -68,6 +68,9 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="chain_data.name">
+					Chain Id
+				</th>
 				<th class="th-sortable" data-sort="address">
 					Address
 				</th>
@@ -84,6 +87,9 @@
 
 <template name="CoreCoreContractsViewTableItems">
 	<tr id="dataview-table-items-row">
+		<td>
+			{{chain_data.name}}
+		</td>
 		<td>
 			{{addressLink address this}}
 		</td>
