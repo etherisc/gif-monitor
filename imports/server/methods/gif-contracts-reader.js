@@ -8,6 +8,31 @@ const ethers = require('ethers');
 const abiDecoder = require('abi-decoder');
 const GifCli = require('@etherisc/gifcli');
 
+contracts = {}; // global contracts object
+
+const getContract = async (contractName, mode) => {
+		
+	if (contracts[contractName]) {
+		return contracts[contractName];
+	}
+	
+	const contractConfig = Contracts.findOne({name: contractName});
+	if (!contractConfig) {
+		error(`Contract ${contractName} not found!`);
+		return;
+	}
+
+	const Contract = new ethers.Contract(
+		contractConfig.address, 
+		contractConfig.abi, 
+		eth.wallet
+	);		
+	
+	contracts[contractName] = Contract
+	
+	return Contract;
+}
+
 
 const loadContracts = async() => {
 
@@ -15,8 +40,15 @@ const loadContracts = async() => {
 		const gif = await GifCli.connect();
 
 		const { _id } = Chains.findOne({name: 'xDai'});
+		
+		// Bootstrap Registry
 
-		const Registry = await getContract('Registry')
+		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
+		const Registry = new ethers.Contract(
+			RegistryConfig.address, 
+			RegistryConfig.abi, 
+			eth.wallet
+		);		
 
 		let next = false;
 		const release = await Registry.release();
