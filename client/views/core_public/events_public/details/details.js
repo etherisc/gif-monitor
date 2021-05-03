@@ -1,14 +1,14 @@
 var pageSession = new ReactiveDict();
 
-Template.OraclesDetails.onCreated(function() {
+Template.CorePublicEventsPublicDetails.onCreated(function() {
 	
 });
 
-Template.OraclesDetails.onDestroyed(function() {
+Template.CorePublicEventsPublicDetails.onDestroyed(function() {
 	
 });
 
-Template.OraclesDetails.onRendered(function() {
+Template.CorePublicEventsPublicDetails.onRendered(function() {
 	
 	Meteor.defer(function() {
 		globalOnRendered();
@@ -16,27 +16,27 @@ Template.OraclesDetails.onRendered(function() {
 	});
 });
 
-Template.OraclesDetails.events({
+Template.CorePublicEventsPublicDetails.events({
 	
 });
 
-Template.OraclesDetails.helpers({
+Template.CorePublicEventsPublicDetails.helpers({
 	
 });
 
-Template.OraclesDetailsForm.onCreated(function() {
+Template.CorePublicEventsPublicDetailsForm.onCreated(function() {
 	
 });
 
-Template.OraclesDetailsForm.onDestroyed(function() {
+Template.CorePublicEventsPublicDetailsForm.onDestroyed(function() {
 	
 });
 
-Template.OraclesDetailsForm.onRendered(function() {
+Template.CorePublicEventsPublicDetailsForm.onRendered(function() {
 	
 
-	pageSession.set("oraclesDetailsFormInfoMessage", "");
-	pageSession.set("oraclesDetailsFormErrorMessage", "");
+	pageSession.set("corePublicEventsPublicDetailsFormInfoMessage", "");
+	pageSession.set("corePublicEventsPublicDetailsFormErrorMessage", "");
 
 	$(".input-group.date").each(function() {
 		var format = $(this).find("input[type='text']").attr("data-format");
@@ -64,25 +64,25 @@ Template.OraclesDetailsForm.onRendered(function() {
 	$("input[autofocus]").focus();
 });
 
-Template.OraclesDetailsForm.events({
+Template.CorePublicEventsPublicDetailsForm.events({
 	"submit": function(e, t) {
 		e.preventDefault();
-		pageSession.set("oraclesDetailsFormInfoMessage", "");
-		pageSession.set("oraclesDetailsFormErrorMessage", "");
+		pageSession.set("corePublicEventsPublicDetailsFormInfoMessage", "");
+		pageSession.set("corePublicEventsPublicDetailsFormErrorMessage", "");
 
 		var self = this;
 
 		function submitAction(result, msg) {
-			var oraclesDetailsFormMode = "read_only";
+			var corePublicEventsPublicDetailsFormMode = "read_only";
 			if(!t.find("#form-cancel-button")) {
-				switch(oraclesDetailsFormMode) {
+				switch(corePublicEventsPublicDetailsFormMode) {
 					case "insert": {
 						$(e.target)[0].reset();
 					}; break;
 
 					case "update": {
 						var message = msg || "Saved.";
-						pageSession.set("oraclesDetailsFormInfoMessage", message);
+						pageSession.set("corePublicEventsPublicDetailsFormInfoMessage", message);
 					}; break;
 				}
 			}
@@ -93,7 +93,7 @@ Template.OraclesDetailsForm.events({
 		function errorAction(msg) {
 			msg = msg || "";
 			var message = msg.message || msg || "Error.";
-			pageSession.set("oraclesDetailsFormErrorMessage", message);
+			pageSession.set("corePublicEventsPublicDetailsFormErrorMessage", message);
 		}
 
 		validateForm(
@@ -123,23 +123,23 @@ Template.OraclesDetailsForm.events({
 	"click #form-close-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("oracles_public", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("core_public.events_public", mergeObjects(Router.currentRouteParams(), {}));
 	},
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("oracles_public", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("core_public.events_public", mergeObjects(Router.currentRouteParams(), {}));
 	}
 
 	
 });
 
-Template.OraclesDetailsForm.helpers({
+Template.CorePublicEventsPublicDetailsForm.helpers({
 	"infoMessage": function() {
-		return pageSession.get("oraclesDetailsFormInfoMessage");
+		return pageSession.get("corePublicEventsPublicDetailsFormInfoMessage");
 	},
 	"errorMessage": function() {
-		return pageSession.get("oraclesDetailsFormErrorMessage");
+		return pageSession.get("corePublicEventsPublicDetailsFormErrorMessage");
 	}
 	
 });

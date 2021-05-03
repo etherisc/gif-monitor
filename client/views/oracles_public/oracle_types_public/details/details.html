@@ -1,0 +1,122 @@
+<template name="OraclesPublicOracleTypesPublicDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> OraclesPublicOracleTypesPublicDetailsForm}}
+	</div>
+</template>
+
+<template name="OraclesPublicOracleTypesPublicDetailsForm">
+	<div id="oracles-public-oracle-types-public-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Oracle Type Details
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-name">
+				<label for="name">
+					Name
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-name">
+						{{oracle_type1.name}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-initialized">
+				<label for="initialized">
+					Initialized
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-initialized">
+						{{booleanToYesNo oracle_type1.initialized}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-activated">
+				<label for="activated">
+					Activated
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-activated">
+						{{booleanToYesNo oracle_type1.activated}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-input_format">
+				<label for="input_format">
+					Input Format
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-input_format">
+						{{oracle_type1.input_format}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-callback_format">
+				<label for="callback_format">
+					Callback Format
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-callback_format">
+						{{oracle_type1.callback_format}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-active_oracles">
+				<label for="active_oracles">
+					Active Oracles
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-active_oracles">
+						{{oracle_type1.active_oracles}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-assigned_oracles">
+				<label for="assigned_oracles">
+					Assigned Oracles
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-assigned_oracles">
+						{{oracle_type1.assigned_oracles}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-index">
+				<label for="index">
+					Index
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-index">
+						{{oracle_type1.index}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
