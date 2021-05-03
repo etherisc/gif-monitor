@@ -8,32 +8,6 @@ const ethers = require('ethers');
 const abiDecoder = require('abi-decoder');
 const GifCli = require('@etherisc/gifcli');
 
-contracts = {}; // global contracts object
-
-const getContract = async (contractName, mode) => {
-		
-	if (contracts[contractName]) {
-		return contracts[contractName];
-	}
-	
-	const contractConfig = Contracts.findOne({name: contractName});
-	if (!contractConfig) {
-		error(`Contract ${contractName} not found!`);
-		return;
-	}
-
-	const Contract = new ethers.Contract(
-		contractConfig.address, 
-		contractConfig.abi, 
-		eth.wallet
-	);		
-	
-	contracts[contractName] = Contract
-	
-	return Contract;
-}
-
-
 const loadContracts = async() => {
 
 	try {
