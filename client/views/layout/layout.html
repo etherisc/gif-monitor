@@ -50,8 +50,8 @@
 
 <template name="PublicLayout">
 	<div id="content" class="sticky-wrapper">
-		<div id="navbar" class="navbar" role="navigation">
-			<div class="navbar-container">
+		<div id="navbar" class="navbar navbar-fixed-top navbar-default" role="navigation">
+			<div class="navbar-container container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">
@@ -65,9 +65,7 @@
 						</span>
 					</button>
 					<a class="navbar-brand" href="/">
-						<span>
-							<img src="/images/logo.png" height="30px" alt="Etherisc" />							GIF Monitor
-						</span>
+						GIF Monitor
 					</a>
 				</div>
 				<div id="menu" class="collapse navbar-collapse">
@@ -80,7 +78,7 @@
 		{{> yield}}
 	</div>
 	<div id="footer" class="sticky-footer">
-		<div class="footer-container">
+		<div class="footer-container container">
 		</div>
 	</div>
 </template>
