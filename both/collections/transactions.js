@@ -1,13 +1,13 @@
 this.Transactions = new Mongo.Collection("transactions");
 
 this.Transactions.userCanInsert = function(userId, doc) {
-	return Users.isInRoles(userId, ["admin"]);
+	return true;
 };
 
 this.Transactions.userCanUpdate = function(userId, doc) {
-	return userId && (doc.createdBy == userId || Users.isInRoles(userId, ["admin"]));
+	return true;
 };
 
 this.Transactions.userCanRemove = function(userId, doc) {
-	return userId && (doc.createdBy == userId || Users.isInRoles(userId, ["admin"]));
+	return true;
 };
