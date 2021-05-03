@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9befd33fc985cbd3ca924cc6af7c6fa7411e45d9"
+			"checksum": "10f1715f79d72101cd343affadde8f7d72110952"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -706,7 +706,7 @@
 		},
 		{
 			"path": "client/lib/ios.js",
-			"checksum": "2f39c1e8fad98185f58d02e264f0562a96b9f7d5"
+			"checksum": "6795163241e70268e9087f4fd3fb466ffd0794e6"
 		},
 		{
 			"path": "lib/string_utils.js",
