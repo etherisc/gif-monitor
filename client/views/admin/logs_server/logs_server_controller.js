@@ -51,14 +51,10 @@ this.AdminLogsServerController = RouteController.extend({
 			logline_list_server_paged_count: Counts.get("logline_list_server_paged_count")
 		};
 
-		console.log(">>>>", data);
-
 		data.logline_list_server_paged_page_count = this.loglineListServerPagedExtraParams && this.loglineListServerPagedExtraParams.pageSize ? Math.ceil(data.logline_list_server_paged_count / this.loglineListServerPagedExtraParams.pageSize) : 1;
 		if(this.isReady() && this.loglineListServerPagedExtraParams.pageNo >= data.logline_list_server_paged_page_count) {
 			Session.set("LoglineListServerPagedPageNo", data.logline_list_server_paged_page_count > 0 ? data.logline_list_server_paged_page_count - 1 : 0);
 		}
-
-		console.log(">>", data);
 
 		return data;
 	},
