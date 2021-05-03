@@ -7,7 +7,7 @@ Meteor.publish("event", function(eventId) {
 });
 
 Meteor.publish("event_list_public", function() {
-	return Events.find({}, {});
+	return Events.find({}, {sort:{timestamp:-1}});
 });
 
 Meteor.publish("event_public", function(eventId) {
@@ -16,7 +16,7 @@ Meteor.publish("event_public", function(eventId) {
 
 Meteor.publish("event_list_public_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
-	return Events.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return Events.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions));
 });
 
 Meteor.publish("event_list_public_paged_count", function(extraOptions) {
@@ -26,7 +26,7 @@ Meteor.publish("event_list_public_paged_count", function(extraOptions) {
 Meteor.methods({
 	"eventListPublicPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = Events.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Events.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });

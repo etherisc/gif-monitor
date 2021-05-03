@@ -47,7 +47,7 @@ this.CoreEventsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			event_list_public_paged: Events.find(databaseUtils.extendFilter({}, this.eventListPublicPagedExtraParams), databaseUtils.extendOptions({}, this.eventListPublicPagedExtraParams)),
+			event_list_public_paged: Events.find(databaseUtils.extendFilter({}, this.eventListPublicPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.eventListPublicPagedExtraParams)),
 			event_list_public_paged_count: Counts.get("event_list_public_paged_count")
 		};
 		
