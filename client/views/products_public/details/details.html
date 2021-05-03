@@ -1,0 +1,132 @@
+<template name="ProductsPublicDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> ProductsPublicDetailsForm}}
+	</div>
+</template>
+
+<template name="ProductsPublicDetailsForm">
+	<div id="products-public-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Product Details
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-name">
+				<label for="name">
+					Name
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-name">
+						{{product1.name}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-product_id">
+				<label for="product_id">
+					Product Id
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-product_id">
+						{{product1.product_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-owner">
+				<label for="owner">
+					Owner
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-owner">
+						{{addressLink product1.owner product1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-address">
+				<label for="address">
+					Address
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-address">
+						{{addressLink product1.address product1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-policy_flow">
+				<label for="policy_flow">
+					Policy Flow
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-policy_flow">
+						{{product1.policy_flow}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-policy_token">
+				<label for="policy_token">
+					Policy Token
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-policy_token">
+						{{addressLink product1.policy_token product1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-release">
+				<label for="release">
+					Release
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-release">
+						{{product1.release}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-approved">
+				<label for="approved">
+					Approved
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-approved">
+						{{booleanToYesNo product1.approved}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-paused">
+				<label for="paused">
+					Paused
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-paused">
+						{{booleanToYesNo product1.paused}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

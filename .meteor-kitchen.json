@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "b397e3b8ef291ae97cea99671d7a05735f59a0a0"
+			"checksum": "308ca2e651ceb1b975a5bd0d49a363c8b27b154b"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "3aa76da6a9fcd0292d7d5abb3489e9d0958ddff2"
+			"checksum": "5de23c93a8d0ffa5b604fbd59888b25cdf77456d"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -237,6 +237,30 @@
 			"checksum": "f82aa22876736b781830a63ef370466f6263e7c7"
 		},
 		{
+			"path": "client/views/products_public/products_public.html",
+			"checksum": "01da8e2228674f2740867feb11314de39727da3f"
+		},
+		{
+			"path": "client/views/products_public/products_public.js",
+			"checksum": "2cb62d59a9b02e0ec62e45a34592bce5ab103f39"
+		},
+		{
+			"path": "client/views/products_public/products_public_controller.js",
+			"checksum": "47ff556b98cca3d123ed016c34b99f2e49a52699"
+		},
+		{
+			"path": "client/views/products_public/details/details.html",
+			"checksum": "a196565a1a5dacb064e7f1d49515da4cb69cd060"
+		},
+		{
+			"path": "client/views/products_public/details/details.js",
+			"checksum": "e079fa573c7943760d8cefa03a39aa25eb43e8b6"
+		},
+		{
+			"path": "client/views/products_public/details/details_controller.js",
+			"checksum": "b03563f51bdba3685efb7f65f6606f1348c03ee4"
+		},
+		{
 			"path": "client/views/home_private/home_private.html",
 			"checksum": "a61dfd500ce6148761f0604cac08b3bdb10f1a6d"
 		},
@@ -250,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5de2fcf611c9ae9cf0524b9638f10852e54b6206"
+			"checksum": "63c976390eeaa49a35732bc416fa5f41a1f2bc3b"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -734,7 +758,7 @@
 		},
 		{
 			"path": "server/publish/products.js",
-			"checksum": "263eec3a24c888378b007e824d33d54044bba2c6"
+			"checksum": "c45577acee0629adc27692a5e2ce24f5db7232c6"
 		},
 		{
 			"path": "both/joins/joins.js",
@@ -1060,6 +1084,8 @@
 		"client/views/oracles_public/oracles_public/details/",
 		"client/views/products/",
 		"client/views/products/details/",
+		"client/views/products_public/",
+		"client/views/products_public/details/",
 		"client/views/register/",
 		"client/views/reset_password/",
 		"client/views/user_settings/",

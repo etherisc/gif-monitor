@@ -1,0 +1,137 @@
+<template name="ProductsPublic">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> ProductsPublicView}}
+	</div>
+</template>
+
+<template name="ProductsPublicView">
+	<div id="products-public-view" class="">
+		<h2 id="component-title">
+			Products
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> ProductsPublicViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="ProductsPublicViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="name">
+					Name
+				</th>
+				<th class="th-sortable" data-sort="product_id">
+					Product Id
+				</th>
+				<th class="th-sortable" data-sort="owner">
+					Owner
+				</th>
+				<th class="th-sortable" data-sort="address">
+					Address
+				</th>
+				<th class="th-sortable" data-sort="policy_flow">
+					Policy Flow
+				</th>
+				<th class="th-sortable" data-sort="policy_token">
+					Policy Token
+				</th>
+				<th class="th-sortable" data-sort="release">
+					Release
+				</th>
+				<th class="th-sortable" data-sort="approved">
+					Approved
+				</th>
+				<th class="th-sortable" data-sort="paused">
+					Paused
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each product_list1_paged}} {{> ProductsPublicViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="ProductsPublicViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{name}}
+		</td>
+		<td>
+			{{product_id}}
+		</td>
+		<td>
+			{{addressLink owner this}}
+		</td>
+		<td>
+			{{addressLink address this}}
+		</td>
+		<td>
+			{{policy_flow}}
+		</td>
+		<td>
+			{{addressLink policy_token this}}
+		</td>
+		<td>
+			{{release}}
+		</td>
+		<td>
+			{{booleanToYesNo approved}}
+		</td>
+		<td>
+			{{booleanToYesNo paused}}
+		</td>
+	</tr>
+</template>
+
