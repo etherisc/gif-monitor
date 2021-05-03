@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "fbc35be6be7f02323056621c42b7feb50255cc74"
+			"checksum": "5d5e88b20c869307e830529ec420cbe20ca75f4b"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -682,7 +682,7 @@
 		},
 		{
 			"path": "client/lib/meteorCallWrapper.js",
-			"checksum": "b3c48c743b109458df58f89f00527011a41d3b1a"
+			"checksum": "48a71293a43e0ea02ce3fa4b2863e664f8ddfd28"
 		},
 		{
 			"path": "client/lib/toast.js",
