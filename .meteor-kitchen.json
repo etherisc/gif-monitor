@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "136c8f71f5bee3d58e83ffe9e0a6256198adc189"
+			"checksum": "cd6ad36d585c95814bd1ea7bcc8f7b3eea4e251c"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "2c6d19edc68d3b1c4bacbefdcd4cb53675a5f684"
+			"checksum": "e9cb07f751e38cd379642114d85d40b8d1c86c7f"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -117,6 +117,42 @@
 			"checksum": "2135c4a7f8496142c1cbfb00bbe31c11559cc0e8"
 		},
 		{
+			"path": "client/views/core/core.html",
+			"checksum": "3583c318fbb1777e4d6ba1be2f92db144271a908"
+		},
+		{
+			"path": "client/views/core/core.js",
+			"checksum": "33caceecaf0f697ed9ac5436a169bf65cd8fb1fb"
+		},
+		{
+			"path": "client/views/core/core_controller.js",
+			"checksum": "4e9017b50264b1cbae37220a515eba3836af204c"
+		},
+		{
+			"path": "client/views/core/core_contracts/core_contracts.html",
+			"checksum": "f2419dd2d2f93ab648cab4a31c0aacdd968e3600"
+		},
+		{
+			"path": "client/views/core/core_contracts/core_contracts.js",
+			"checksum": "3149ad93db1d218e2dbfbe3bc7affbec4f5b2be7"
+		},
+		{
+			"path": "client/views/core/core_contracts/core_contracts_controller.js",
+			"checksum": "831cec27b33b36e0d9135142c84ecabc5697d4e4"
+		},
+		{
+			"path": "client/views/core/core_contracts/details/details.html",
+			"checksum": "f2696b27da674a5b54fe5ba0d490b3dff24ba3ea"
+		},
+		{
+			"path": "client/views/core/core_contracts/details/details.js",
+			"checksum": "3d56774a73c83d7d1c6f68c205c1882c8f761612"
+		},
+		{
+			"path": "client/views/core/core_contracts/details/details_controller.js",
+			"checksum": "8d5881cc797f36ce83becdffd8693e45c61eacf4"
+		},
+		{
 			"path": "client/views/home_private/home_private.html",
 			"checksum": "a61dfd500ce6148761f0604cac08b3bdb10f1a6d"
 		},
@@ -130,7 +166,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "ef52c23a547eb113460f3f3db3bfb4675688fc13"
+			"checksum": "58dd8924f4c2a19df0a4ff55e8b657aa43ede8e9"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -470,7 +506,7 @@
 		},
 		{
 			"path": "server/publish/contracts.js",
-			"checksum": "7a9c7fcda76ae969d66b0321bc6fe98edbbdc6a0"
+			"checksum": "0624791d3907ff97dd595222fc1166e828c71543"
 		},
 		{
 			"path": "both/collections/chains.js",
@@ -914,6 +950,9 @@
 		"client/views/chains/update/",
 		"client/views/contracts/",
 		"client/views/contracts/details/",
+		"client/views/core/",
+		"client/views/core/core_contracts/",
+		"client/views/core/core_contracts/details/",
 		"client/views/events/",
 		"client/views/events/details/",
 		"client/views/forgot_password/",

@@ -11,7 +11,10 @@ Router.publicRoutes = [
 	"register",
 	"verify_email",
 	"forgot_password",
-	"reset_password"
+	"reset_password",
+	"core",
+	"core.core_contracts",
+	"core.core_contracts.details"
 ];
 
 Router.privateRoutes = [
@@ -107,6 +110,9 @@ Router.map(function () {
 	this.route("/verify_email/:verifyEmailToken", {name: "verify_email", title: "", controller: "VerifyEmailController"});
 	this.route("/forgot_password", {name: "forgot_password", title: "", controller: "ForgotPasswordController"});
 	this.route("/reset_password/:resetPasswordToken", {name: "reset_password", title: "", controller: "ResetPasswordController"});
+	this.route("/core", {name: "core", title: "", controller: "CoreController"});
+	this.route("/core/core_contracts", {name: "core.core_contracts", title: "", controller: "CoreCoreContractsController"});
+	this.route("/core/core_contracts/details/:contractId", {name: "core.core_contracts.details", title: "", controller: "CoreCoreContractsDetailsController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});
