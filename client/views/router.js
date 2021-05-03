@@ -34,8 +34,6 @@ Router.privateRoutes = [
 	"chains.update",
 	"chains.details",
 	"contracts",
-	"contracts.insert",
-	"contracts.update",
 	"contracts.details",
 	"events",
 	"events.details",
@@ -128,8 +126,6 @@ Router.map(function () {
 	this.route("/chains/update/:chainId", {name: "chains.update", title: "", controller: "ChainsUpdateController"});
 	this.route("/chains/details/:chainId", {name: "chains.details", title: "", controller: "ChainsDetailsController"});
 	this.route("/contracts", {name: "contracts", title: "", controller: "ContractsController"});
-	this.route("/contracts/insert", {name: "contracts.insert", title: "", controller: "ContractsInsertController"});
-	this.route("/contracts/update/:contractId", {name: "contracts.update", title: "", controller: "ContractsUpdateController"});
 	this.route("/contracts/details/:contractId", {name: "contracts.details", title: "", controller: "ContractsDetailsController"});
 	this.route("/events", {name: "events", title: "", controller: "EventsController"});
 	this.route("/events/details/:eventId", {name: "events.details", title: "", controller: "EventsDetailsController"});

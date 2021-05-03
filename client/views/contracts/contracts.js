@@ -135,7 +135,7 @@ Template.ContractsView.events({
 
 	"click #dataview-insert-button": function(e, t) {
 		e.preventDefault();
-		Router.go("contracts.insert", mergeObjects(Router.currentRouteParams(), {}));
+		/**/
 	},
 
 	"click #dataview-export-default": function(e, t) {
@@ -327,7 +327,7 @@ Template.ContractsViewTableItems.events({
 	},
 	"click #edit-button": function(e, t) {
 		e.preventDefault();
-		Router.go("contracts.update", mergeObjects(Router.currentRouteParams(), {contractId: this._id}));
+		/**/
 		return false;
 	}
 });
