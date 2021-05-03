@@ -21,7 +21,7 @@ this.ProductsPublicDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("product1", this.params.productId)
+			Meteor.subscribe("product", this.params.productId)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -36,7 +36,7 @@ this.ProductsPublicDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			product1: Products.findOne({_id:this.params.productId}, {})
+			product: Products.findOne({_id:this.params.productId}, {})
 		};
 		
 

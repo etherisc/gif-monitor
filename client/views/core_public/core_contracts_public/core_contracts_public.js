@@ -25,17 +25,17 @@ Template.CorePublicCoreContractsPublic.helpers({
 
 var CorePublicCoreContractsPublicViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("ContractListPublicPagedSearchString") || "",
-		searchFields: Session.get("ContractListPublicPagedSearchFields") || ["address", "name", "abi", "deployment_txhash", "deployed_at_block"],
-		sortBy: Session.get("ContractListPublicPagedSortBy") || "",
-		sortAscending: Session.get("ContractListPublicPagedSortAscending") || true
+		searchText: Session.get("ContractListPagedSearchString") || "",
+		searchFields: Session.get("ContractListPagedSearchFields") || ["address", "name", "abi", "deployment_txhash", "deployed_at_block"],
+		sortBy: Session.get("ContractListPagedSortBy") || "",
+		sortAscending: Session.get("ContractListPagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("contractListPublicPagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("contractListPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -72,7 +72,7 @@ Template.CorePublicCoreContractsPublicView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("ContractListPublicPagedSearchString", searchString);
+				Session.set("ContractListPagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.CorePublicCoreContractsPublicView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("ContractListPublicPagedSearchString", searchString);
+					Session.set("ContractListPagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.CorePublicCoreContractsPublicView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("ContractListPublicPagedSearchString", "");
+					Session.set("ContractListPagedSearchString", "");
 				}
 
 			}
@@ -140,17 +140,17 @@ Template.CorePublicCoreContractsPublicView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("ContractListPublicPagedPageNo") || 0;
+		var currentPage = Session.get("ContractListPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("ContractListPublicPagedPageNo", currentPage - 1);
+			Session.set("ContractListPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("ContractListPublicPagedPageNo") || 0;
-		if(currentPage < this.contract_list_public_paged_page_count - 1) {
-			Session.set("ContractListPublicPagedPageNo", currentPage + 1);
+		let currentPage = Session.get("ContractListPagedPageNo") || 0;
+		if(currentPage < this.contract_list_paged_page_count - 1) {
+			Session.set("ContractListPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -164,22 +164,22 @@ Template.CorePublicCoreContractsPublicView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.contract_list_public_paged || this.contract_list_public_paged.count() == 0;
+		return !this.contract_list_paged || this.contract_list_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.contract_list_public_paged && this.contract_list_public_paged.count() > 0;
+		return this.contract_list_paged && this.contract_list_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.contract_list_public_paged && this.contract_list_public_paged.count() == 0 && Session.get("ContractListPublicPagedSearchString");
+		return this.contract_list_paged && this.contract_list_paged.count() == 0 && Session.get("ContractListPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("ContractListPublicPagedPageNo");
+		return !!Session.get("ContractListPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("ContractListPublicPagedPageNo") || 0) < this.contract_list_public_paged_page_count - 1;
+		return (Session.get("ContractListPagedPageNo") || 0) < this.contract_list_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("ContractListPublicPagedSearchString");
+		return Session.get("ContractListPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("CorePublicCoreContractsPublicViewStyle") == "table";
@@ -213,18 +213,18 @@ Template.CorePublicCoreContractsPublicViewTable.onRendered(function() {
 Template.CorePublicCoreContractsPublicViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("ContractListPublicPagedSortBy");
+		var oldSortBy = Session.get("ContractListPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("ContractListPublicPagedSortBy", newSortBy);
+		Session.set("ContractListPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("ContractListPublicPagedSortAscending");
+			var sortAscending = Session.get("ContractListPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("ContractListPublicPagedSortAscending", !sortAscending);
+			Session.set("ContractListPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("ContractListPublicPagedSortAscending", true);
+			Session.set("ContractListPagedSortAscending", true);
 		}
 	}
 });

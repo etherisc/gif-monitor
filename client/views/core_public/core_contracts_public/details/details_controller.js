@@ -22,7 +22,7 @@ this.CorePublicCoreContractsPublicDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("contract_public", this.params.contractId)
+			Meteor.subscribe("contract", this.params.contractId)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -37,7 +37,7 @@ this.CorePublicCoreContractsPublicDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			contract_public: Contracts.findOne({_id:this.params.contractId}, {})
+			contract: Contracts.findOne({_id:this.params.contractId}, {})
 		};
 		
 

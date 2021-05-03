@@ -17,13 +17,13 @@ this.CorePublicEventsPublicController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.eventListPublicPagedExtraParams = {
-			searchText: Session.get("EventListPublicPagedSearchString") || "",
-			searchFields: Session.get("EventListPublicPagedSearchFields") || ["chain_id", "timestamp", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values"],
-			sortBy: Session.get("EventListPublicPagedSortBy") || "",
-			sortAscending: Session.get("EventListPublicPagedSortAscending"),
-			pageNo: Session.get("EventListPublicPagedPageNo") || 0,
-			pageSize: Session.get("EventListPublicPagedPageSize") || 0
+		this.eventListPagedExtraParams = {
+			searchText: Session.get("EventListPagedSearchString") || "",
+			searchFields: Session.get("EventListPagedSearchFields") || ["chain_id", "timestamp", "block_number", "transaction_hash", "log_index", "contract", "address", "event", "values"],
+			sortBy: Session.get("EventListPagedSortBy") || "",
+			sortAscending: Session.get("EventListPagedSortAscending"),
+			pageNo: Session.get("EventListPagedPageNo") || 0,
+			pageSize: Session.get("EventListPagedPageSize") || 0
 		};
 
 
@@ -31,8 +31,8 @@ this.CorePublicEventsPublicController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("event_list_public_paged", this.eventListPublicPagedExtraParams),
-			Meteor.subscribe("event_list_public_paged_count", this.eventListPublicPagedExtraParams)
+			Meteor.subscribe("event_list_paged", this.eventListPagedExtraParams),
+			Meteor.subscribe("event_list_paged_count", this.eventListPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -47,15 +47,15 @@ this.CorePublicEventsPublicController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			event_list_public_paged: Events.find(databaseUtils.extendFilter({}, this.eventListPublicPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.eventListPublicPagedExtraParams)),
-			event_list_public_paged_count: Counts.get("event_list_public_paged_count")
+			event_list_paged: Events.find(databaseUtils.extendFilter({}, this.eventListPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.eventListPagedExtraParams)),
+			event_list_paged_count: Counts.get("event_list_paged_count")
 		};
 		
 
 		
-		data.event_list_public_paged_page_count = this.eventListPublicPagedExtraParams && this.eventListPublicPagedExtraParams.pageSize ? Math.ceil(data.event_list_public_paged_count / this.eventListPublicPagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.eventListPublicPagedExtraParams.pageNo >= data.event_list_public_paged_page_count) {
-			Session.set("EventListPublicPagedPageNo", data.event_list_public_paged_page_count > 0 ? data.event_list_public_paged_page_count - 1 : 0);
+		data.event_list_paged_page_count = this.eventListPagedExtraParams && this.eventListPagedExtraParams.pageSize ? Math.ceil(data.event_list_paged_count / this.eventListPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.eventListPagedExtraParams.pageNo >= data.event_list_paged_page_count) {
+			Session.set("EventListPagedPageNo", data.event_list_paged_page_count > 0 ? data.event_list_paged_page_count - 1 : 0);
 		}
 
 

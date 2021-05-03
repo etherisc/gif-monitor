@@ -25,17 +25,17 @@ Template.OraclesPublicOraclesPublic.helpers({
 
 var OraclesPublicOraclesPublicViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("OracleList1PagedSearchString") || "",
-		searchFields: Session.get("OracleList1PagedSearchFields") || ["description", "oracle_contract", "oracle_owner", "active_oracle_types"],
-		sortBy: Session.get("OracleList1PagedSortBy") || "",
-		sortAscending: Session.get("OracleList1PagedSortAscending") || true
+		searchText: Session.get("OracleListPagedSearchString") || "",
+		searchFields: Session.get("OracleListPagedSearchFields") || ["description", "oracle_contract", "oracle_owner", "active_oracle_types"],
+		sortBy: Session.get("OracleListPagedSortBy") || "",
+		sortAscending: Session.get("OracleListPagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("oracleList1PagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("oracleListPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -72,7 +72,7 @@ Template.OraclesPublicOraclesPublicView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("OracleList1PagedSearchString", searchString);
+				Session.set("OracleListPagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.OraclesPublicOraclesPublicView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("OracleList1PagedSearchString", searchString);
+					Session.set("OracleListPagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.OraclesPublicOraclesPublicView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("OracleList1PagedSearchString", "");
+					Session.set("OracleListPagedSearchString", "");
 				}
 
 			}
@@ -140,17 +140,17 @@ Template.OraclesPublicOraclesPublicView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("OracleList1PagedPageNo") || 0;
+		var currentPage = Session.get("OracleListPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("OracleList1PagedPageNo", currentPage - 1);
+			Session.set("OracleListPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("OracleList1PagedPageNo") || 0;
-		if(currentPage < this.oracle_list1paged_page_count - 1) {
-			Session.set("OracleList1PagedPageNo", currentPage + 1);
+		let currentPage = Session.get("OracleListPagedPageNo") || 0;
+		if(currentPage < this.oracle_list_paged_page_count - 1) {
+			Session.set("OracleListPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -164,22 +164,22 @@ Template.OraclesPublicOraclesPublicView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.oracle_list1_paged || this.oracle_list1_paged.count() == 0;
+		return !this.oracle_list_paged || this.oracle_list_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.oracle_list1_paged && this.oracle_list1_paged.count() > 0;
+		return this.oracle_list_paged && this.oracle_list_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.oracle_list1_paged && this.oracle_list1_paged.count() == 0 && Session.get("OracleList1PagedSearchString");
+		return this.oracle_list_paged && this.oracle_list_paged.count() == 0 && Session.get("OracleListPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("OracleList1PagedPageNo");
+		return !!Session.get("OracleListPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("OracleList1PagedPageNo") || 0) < this.oracle_list1paged_page_count - 1;
+		return (Session.get("OracleListPagedPageNo") || 0) < this.oracle_list_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("OracleList1PagedSearchString");
+		return Session.get("OracleListPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("OraclesPublicOraclesPublicViewStyle") == "table";
@@ -213,18 +213,18 @@ Template.OraclesPublicOraclesPublicViewTable.onRendered(function() {
 Template.OraclesPublicOraclesPublicViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("OracleList1PagedSortBy");
+		var oldSortBy = Session.get("OracleListPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("OracleList1PagedSortBy", newSortBy);
+		Session.set("OracleListPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("OracleList1PagedSortAscending");
+			var sortAscending = Session.get("OracleListPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("OracleList1PagedSortAscending", !sortAscending);
+			Session.set("OracleListPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("OracleList1PagedSortAscending", true);
+			Session.set("OracleListPagedSortAscending", true);
 		}
 	}
 });

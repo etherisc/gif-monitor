@@ -25,17 +25,17 @@ Template.ProductsPublic.helpers({
 
 var ProductsPublicViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("ProductList1PagedSearchString") || "",
-		searchFields: Session.get("ProductList1PagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "approved", "paused"],
-		sortBy: Session.get("ProductList1PagedSortBy") || "",
-		sortAscending: Session.get("ProductList1PagedSortAscending") || true
+		searchText: Session.get("ProductListPagedSearchString") || "",
+		searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "approved", "paused"],
+		sortBy: Session.get("ProductListPagedSortBy") || "",
+		sortAscending: Session.get("ProductListPagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("productList1PagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("productListPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -72,7 +72,7 @@ Template.ProductsPublicView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("ProductList1PagedSearchString", searchString);
+				Session.set("ProductListPagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.ProductsPublicView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("ProductList1PagedSearchString", searchString);
+					Session.set("ProductListPagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.ProductsPublicView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("ProductList1PagedSearchString", "");
+					Session.set("ProductListPagedSearchString", "");
 				}
 
 			}
@@ -140,17 +140,17 @@ Template.ProductsPublicView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("ProductList1PagedPageNo") || 0;
+		var currentPage = Session.get("ProductListPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("ProductList1PagedPageNo", currentPage - 1);
+			Session.set("ProductListPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("ProductList1PagedPageNo") || 0;
-		if(currentPage < this.product_list1paged_page_count - 1) {
-			Session.set("ProductList1PagedPageNo", currentPage + 1);
+		let currentPage = Session.get("ProductListPagedPageNo") || 0;
+		if(currentPage < this.product_list_paged_page_count - 1) {
+			Session.set("ProductListPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -164,22 +164,22 @@ Template.ProductsPublicView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.product_list1_paged || this.product_list1_paged.count() == 0;
+		return !this.product_list_paged || this.product_list_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.product_list1_paged && this.product_list1_paged.count() > 0;
+		return this.product_list_paged && this.product_list_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.product_list1_paged && this.product_list1_paged.count() == 0 && Session.get("ProductList1PagedSearchString");
+		return this.product_list_paged && this.product_list_paged.count() == 0 && Session.get("ProductListPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("ProductList1PagedPageNo");
+		return !!Session.get("ProductListPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("ProductList1PagedPageNo") || 0) < this.product_list1paged_page_count - 1;
+		return (Session.get("ProductListPagedPageNo") || 0) < this.product_list_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("ProductList1PagedSearchString");
+		return Session.get("ProductListPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("ProductsPublicViewStyle") == "table";
@@ -213,18 +213,18 @@ Template.ProductsPublicViewTable.onRendered(function() {
 Template.ProductsPublicViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("ProductList1PagedSortBy");
+		var oldSortBy = Session.get("ProductListPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("ProductList1PagedSortBy", newSortBy);
+		Session.set("ProductListPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("ProductList1PagedSortAscending");
+			var sortAscending = Session.get("ProductListPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("ProductList1PagedSortAscending", !sortAscending);
+			Session.set("ProductListPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("ProductList1PagedSortAscending", true);
+			Session.set("ProductListPagedSortAscending", true);
 		}
 	}
 });

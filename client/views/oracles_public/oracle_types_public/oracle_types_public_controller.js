@@ -17,13 +17,13 @@ this.OraclesPublicOracleTypesPublicController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.oracleTypeList1PagedExtraParams = {
-			searchText: Session.get("OracleTypeList1PagedSearchString") || "",
-			searchFields: Session.get("OracleTypeList1PagedSearchFields") || ["name", "initialized", "activated", "input_format", "callback_format", "active_oracles", "assigned_oracles", "index"],
-			sortBy: Session.get("OracleTypeList1PagedSortBy") || "",
-			sortAscending: Session.get("OracleTypeList1PagedSortAscending"),
-			pageNo: Session.get("OracleTypeList1PagedPageNo") || 0,
-			pageSize: Session.get("OracleTypeList1PagedPageSize") || 0
+		this.oracleTypeListPagedExtraParams = {
+			searchText: Session.get("OracleTypeListPagedSearchString") || "",
+			searchFields: Session.get("OracleTypeListPagedSearchFields") || ["name", "initialized", "activated", "input_format", "callback_format", "active_oracles", "assigned_oracles", "index"],
+			sortBy: Session.get("OracleTypeListPagedSortBy") || "",
+			sortAscending: Session.get("OracleTypeListPagedSortAscending"),
+			pageNo: Session.get("OracleTypeListPagedPageNo") || 0,
+			pageSize: Session.get("OracleTypeListPagedPageSize") || 0
 		};
 
 
@@ -31,8 +31,8 @@ this.OraclesPublicOracleTypesPublicController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("oracle_type_list1_paged", this.oracleTypeList1PagedExtraParams),
-			Meteor.subscribe("oracle_type_list1_paged_count", this.oracleTypeList1PagedExtraParams)
+			Meteor.subscribe("oracle_type_list_paged", this.oracleTypeListPagedExtraParams),
+			Meteor.subscribe("oracle_type_list_paged_count", this.oracleTypeListPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -47,15 +47,15 @@ this.OraclesPublicOracleTypesPublicController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			oracle_type_list1_paged: OracleTypes.find(databaseUtils.extendFilter({}, this.oracleTypeList1PagedExtraParams), databaseUtils.extendOptions({}, this.oracleTypeList1PagedExtraParams)),
-			oracle_type_list1_paged_count: Counts.get("oracle_type_list1_paged_count")
+			oracle_type_list_paged: OracleTypes.find(databaseUtils.extendFilter({}, this.oracleTypeListPagedExtraParams), databaseUtils.extendOptions({}, this.oracleTypeListPagedExtraParams)),
+			oracle_type_list_paged_count: Counts.get("oracle_type_list_paged_count")
 		};
 		
 
 		
-		data.oracle_type_list1_paged_page_count = this.oracleTypeList1PagedExtraParams && this.oracleTypeList1PagedExtraParams.pageSize ? Math.ceil(data.oracle_type_list1_paged_count / this.oracleTypeList1PagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.oracleTypeList1PagedExtraParams.pageNo >= data.oracle_type_list1_paged_page_count) {
-			Session.set("OracleTypeList1PagedPageNo", data.oracle_type_list1_paged_page_count > 0 ? data.oracle_type_list1_paged_page_count - 1 : 0);
+		data.oracle_type_list_paged_page_count = this.oracleTypeListPagedExtraParams && this.oracleTypeListPagedExtraParams.pageSize ? Math.ceil(data.oracle_type_list_paged_count / this.oracleTypeListPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.oracleTypeListPagedExtraParams.pageNo >= data.oracle_type_list_paged_page_count) {
+			Session.set("OracleTypeListPagedPageNo", data.oracle_type_list_paged_page_count > 0 ? data.oracle_type_list_paged_page_count - 1 : 0);
 		}
 
 
