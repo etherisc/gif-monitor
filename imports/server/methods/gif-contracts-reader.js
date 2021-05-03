@@ -18,7 +18,6 @@ const loadContracts = async() => {
 		// Bootstrap Registry
 
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
-		console.log(RegistryConfig);
 		const Registry = new ethers.Contract(
 			RegistryConfig.address, 
 			JSON.parse(RegistryConfig.abi), 
@@ -28,7 +27,7 @@ const loadContracts = async() => {
 		let next = false;
 		const release = await Registry.release();
 		const contractsInRelease = await Registry.contractsInRelease(release);
-		console.log(`Release: ${ethers.utils.parseBytes32String(release)} / ${contractsInRelease} contracts`);
+		info(`Release: ${ethers.utils.parseBytes32String(release)} / ${contractsInRelease} contracts`);
 		for(var index = 0; index < contractsInRelease; index += 1) {
 
 			const contractNameB32 = await Registry.contractNames(release, index);
