@@ -1,14 +1,13 @@
 
 console.log('loading meteorCallWrapper.js');
 
-logger = {};
 
-logger.info = function (message, args={}, source = 'browser') {
+info = function (message, args={}, source = 'browser') {
 	Meteor.call('logger.info', {message, args, source});
 };
 
 
-logger.error = function (message, args={}, source = 'browser') {
+error = function (message, args={}, source = 'browser') {
 	Meteor.call('logger.error', {message, args, source});
 };
 
