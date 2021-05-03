@@ -35,7 +35,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-chain_id">
-						{{event_public.chain_id}}
+						{{event.chain_id}}
 					</p>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-timestamp">
-						{{formatDate event_public.timestamp 'DD/MM/YYYY HH:mm:ss'}}
+						{{formatDate event.timestamp 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-block_number">
-						{{event_public.block_number}}
+						{{event.block_number}}
 					</p>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-transaction_hash">
-						{{txLink event_public.transaction_hash event_public}}
+						{{txLink event.transaction_hash event}}
 					</p>
 				</div>
 			</div>
@@ -75,7 +75,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-log_index">
-						{{event_public.log_index}}
+						{{event.log_index}}
 					</p>
 				</div>
 			</div>
@@ -85,7 +85,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-contract">
-						{{event_public.contract}}
+						{{event.contract}}
 					</p>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-address">
-						{{addressLink event_public.address event_public}}
+						{{addressLink event.address event}}
 					</p>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-event">
-						{{event_public.event}}
+						{{event.event}}
 					</p>
 				</div>
 			</div>
@@ -115,7 +115,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-values">
-						{{event_public.values}}
+						{{event.values}}
 					</p>
 				</div>
 			</div>

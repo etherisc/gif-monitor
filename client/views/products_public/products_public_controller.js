@@ -16,13 +16,13 @@ this.ProductsPublicController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.productList1PagedExtraParams = {
-			searchText: Session.get("ProductList1PagedSearchString") || "",
-			searchFields: Session.get("ProductList1PagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "approved", "paused"],
-			sortBy: Session.get("ProductList1PagedSortBy") || "",
-			sortAscending: Session.get("ProductList1PagedSortAscending"),
-			pageNo: Session.get("ProductList1PagedPageNo") || 0,
-			pageSize: Session.get("ProductList1PagedPageSize") || 0
+		this.productListPagedExtraParams = {
+			searchText: Session.get("ProductListPagedSearchString") || "",
+			searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "approved", "paused"],
+			sortBy: Session.get("ProductListPagedSortBy") || "",
+			sortAscending: Session.get("ProductListPagedSortAscending"),
+			pageNo: Session.get("ProductListPagedPageNo") || 0,
+			pageSize: Session.get("ProductListPagedPageSize") || 0
 		};
 
 
@@ -30,8 +30,8 @@ this.ProductsPublicController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("product_list1_paged", this.productList1PagedExtraParams),
-			Meteor.subscribe("product_list1_paged_count", this.productList1PagedExtraParams)
+			Meteor.subscribe("product_list_paged", this.productListPagedExtraParams),
+			Meteor.subscribe("product_list_paged_count", this.productListPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -46,15 +46,15 @@ this.ProductsPublicController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			product_list1_paged: Products.find(databaseUtils.extendFilter({}, this.productList1PagedExtraParams), databaseUtils.extendOptions({}, this.productList1PagedExtraParams)),
-			product_list1_paged_count: Counts.get("product_list1_paged_count")
+			product_list_paged: Products.find(databaseUtils.extendFilter({}, this.productListPagedExtraParams), databaseUtils.extendOptions({}, this.productListPagedExtraParams)),
+			product_list_paged_count: Counts.get("product_list_paged_count")
 		};
 		
 
 		
-		data.product_list1_paged_page_count = this.productList1PagedExtraParams && this.productList1PagedExtraParams.pageSize ? Math.ceil(data.product_list1_paged_count / this.productList1PagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.productList1PagedExtraParams.pageNo >= data.product_list1_paged_page_count) {
-			Session.set("ProductList1PagedPageNo", data.product_list1_paged_page_count > 0 ? data.product_list1_paged_page_count - 1 : 0);
+		data.product_list_paged_page_count = this.productListPagedExtraParams && this.productListPagedExtraParams.pageSize ? Math.ceil(data.product_list_paged_count / this.productListPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.productListPagedExtraParams.pageNo >= data.product_list_paged_page_count) {
+			Session.set("ProductListPagedPageNo", data.product_list_paged_page_count > 0 ? data.product_list_paged_page_count - 1 : 0);
 		}
 
 

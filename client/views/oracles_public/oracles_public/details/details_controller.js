@@ -22,7 +22,7 @@ this.OraclesPublicOraclesPublicDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("oracle1", this.params.oracleId)
+			Meteor.subscribe("oracle", this.params.oracleId)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -37,7 +37,7 @@ this.OraclesPublicOraclesPublicDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			oracle1: Oracles.findOne({_id:this.params.oracleId}, {})
+			oracle: Oracles.findOne({_id:this.params.oracleId}, {})
 		};
 		
 
