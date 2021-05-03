@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "cd6ad36d585c95814bd1ea7bcc8f7b3eea4e251c"
+			"checksum": "66e0fb4fcdbcc28dd6f0fa5a0a064860ea3bfe7e"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -118,7 +118,7 @@
 		},
 		{
 			"path": "client/views/core/core.html",
-			"checksum": "cd48fe44f61ba61ec5fd712d7e6c148263bcc87e"
+			"checksum": "f1519b6a834492b7158b9b2f68a4695cbb0c3371"
 		},
 		{
 			"path": "client/views/core/core.js",
@@ -153,6 +153,30 @@
 			"checksum": "479417ec20d12f7b17e71772bb6db5fcb105ffdd"
 		},
 		{
+			"path": "client/views/core/events/events.html",
+			"checksum": "1522770d6627dfcc3436f9ff6206682fae2f3337"
+		},
+		{
+			"path": "client/views/core/events/events.js",
+			"checksum": "326a84207a6a51c59aa83f6e1a77170c0fbffef2"
+		},
+		{
+			"path": "client/views/core/events/events_controller.js",
+			"checksum": "a3f4c0b69ce1a3eda6f132239965498f8bc34c52"
+		},
+		{
+			"path": "client/views/core/events/details/details.html",
+			"checksum": "c15ca95415243bb6c36f9dd4efcedd75aeba5b67"
+		},
+		{
+			"path": "client/views/core/events/details/details.js",
+			"checksum": "dee368d5e2fe087e1c5584eb0d0055b8808520f6"
+		},
+		{
+			"path": "client/views/core/events/details/details_controller.js",
+			"checksum": "dc9e5d96b50b9a1404d9ee1cd436e682fb7687cd"
+		},
+		{
 			"path": "client/views/home_private/home_private.html",
 			"checksum": "a61dfd500ce6148761f0604cac08b3bdb10f1a6d"
 		},
@@ -166,7 +190,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a0e207a7393bac687815770acc351e308831a67c"
+			"checksum": "81d7eceb430198a5c9a6d3bc81dccd908ca8c4e6"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -586,7 +610,7 @@
 		},
 		{
 			"path": "server/publish/events.js",
-			"checksum": "188a31d17164f19793f2632693f459cc60b0ce52"
+			"checksum": "264e094c64cbd17321006d2f2664dd757f63c7c9"
 		},
 		{
 			"path": "both/collections/event_last_seen.js",
@@ -953,6 +977,8 @@
 		"client/views/core/",
 		"client/views/core/core_contracts/",
 		"client/views/core/core_contracts/details/",
+		"client/views/core/events/",
+		"client/views/core/events/details/",
 		"client/views/events/",
 		"client/views/events/details/",
 		"client/views/forgot_password/",

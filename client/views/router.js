@@ -14,7 +14,9 @@ Router.publicRoutes = [
 	"reset_password",
 	"core",
 	"core.core_contracts",
-	"core.core_contracts.details"
+	"core.core_contracts.details",
+	"core.events",
+	"core.events.details"
 ];
 
 Router.privateRoutes = [
@@ -113,6 +115,8 @@ Router.map(function () {
 	this.route("/core", {name: "core", title: "", controller: "CoreController"});
 	this.route("/core/core_contracts", {name: "core.core_contracts", title: "", controller: "CoreCoreContractsController"});
 	this.route("/core/core_contracts/details/:contractId", {name: "core.core_contracts.details", title: "", controller: "CoreCoreContractsDetailsController"});
+	this.route("/core/events", {name: "core.events", title: "", controller: "CoreEventsController"});
+	this.route("/core/events/details/:eventId", {name: "core.events.details", title: "", controller: "CoreEventsDetailsController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});
