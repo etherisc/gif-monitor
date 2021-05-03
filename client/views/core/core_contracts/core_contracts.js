@@ -26,7 +26,7 @@ Template.CoreCoreContracts.helpers({
 var CoreCoreContractsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ContractList2PagedSearchString") || "",
-		searchFields: Session.get("ContractList2PagedSearchFields") || ["chain_id", "address", "name", "abi", "deployment_txhash", "deployed_at_block"],
+		searchFields: Session.get("ContractList2PagedSearchFields") || ["chain_id", "address", "name", "abi", "deployment_txhash", "deployed_at_block", "chain_data.name"],
 		sortBy: Session.get("ContractList2PagedSortBy") || "",
 		sortAscending: Session.get("ContractList2PagedSortAscending") || true
 	};
