@@ -61,7 +61,7 @@ setProductPaused = async (productId, pause) => {
 	if(pause && !product.paused) {
 		try {
 			const res = await ios.pauseProduct(productId)
-			info(`Transaction submitted} ...`, res);
+			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
 			await reloadProduct(productId);
@@ -71,7 +71,7 @@ setProductPaused = async (productId, pause) => {
 	} else if (!pause && product.paused) {
 		try {
 			res = await ios.unpauseProduct(productId);
-			info(`Transaction submitted} ...`, res);
+			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
 			await reloadProduct(productId);
