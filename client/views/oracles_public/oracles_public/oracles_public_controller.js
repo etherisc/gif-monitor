@@ -19,7 +19,7 @@ this.OraclesPublicOraclesPublicController = RouteController.extend({
 	isReady: function() {
 		this.oracleList1PagedExtraParams = {
 			searchText: Session.get("OracleList1PagedSearchString") || "",
-			searchFields: Session.get("OracleList1PagedSearchFields") || ["description", "oracle_type_id", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
+			searchFields: Session.get("OracleList1PagedSearchFields") || ["description", "oracle_contract", "oracle_owner", "index", "active_oracle_types"],
 			sortBy: Session.get("OracleList1PagedSortBy") || "",
 			sortAscending: Session.get("OracleList1PagedSortAscending"),
 			pageNo: Session.get("OracleList1PagedPageNo") || 0,
