@@ -68,12 +68,14 @@ const loadEvents = async () => {
 
 		abiDecoder.addABI(contractAbi);
 		const Contract = await getContract(contractName);
+		
 
 
 		for(var idx = 0; idx < contractEvents.length; idx += 1) {
 
 			const eventName = contractEvents[idx].name;
 			const filter = Contract.filters[eventName]();
+			Contract.removeAllListeners(eventName);
 			Contract.on(
 				eventName, 
 				Meteor.bindEnvironment(processRecentEvents(contractName, eventName, filter))

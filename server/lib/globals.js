@@ -36,27 +36,3 @@ eth.transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
 	
 });
 
-contracts = {};
-
-getContract = async (contractName, mode) => {
-		
-	if (contracts[contractName]) {
-		return contracts[contractName];
-	}
-	
-	const contractConfig = Contracts.findOne({name: contractName});
-	if (!contractConfig) {
-		error(`Contract ${contractName} not found!`);
-		return;
-	}
-
-	const Contract = new ethers.Contract(
-		contractConfig.address, 
-		contractConfig.abi, 
-		eth.wallet
-	);		
-	
-	contracts[contractName] = Contract
-	
-	return Contract;
-}
