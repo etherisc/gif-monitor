@@ -47,7 +47,7 @@ const loadContracts = async() => {
 		console.log(RegistryConfig);
 		const Registry = new ethers.Contract(
 			RegistryConfig.address, 
-			RegistryConfig.abi, 
+			JSON.parse(RegistryConfig.abi), 
 			eth.wallet
 		);		
 
