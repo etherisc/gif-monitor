@@ -17,7 +17,7 @@
 			</a>
 			Contract Details
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -30,57 +30,57 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-address">
-				<label for="address">
+				<label for="address" class="col-sm-3 control-label">
 					Address
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-address">
 						{{addressLink contract_public.address contract_public}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-name">
-				<label for="name">
+				<label for="name" class="col-sm-3 control-label">
 					Name
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-name">
 						{{contract_public.name}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-abi">
-				<label for="abi">
+				<label for="abi" class="col-sm-3 control-label">
 					Abi
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-abi">
 						{{contract_public.abi}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-deployment_txhash">
-				<label for="deployment_txhash">
+				<label for="deployment_txhash" class="col-sm-3 control-label">
 					Deployment Txhash
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-deployment_txhash">
 						{{contract_public.deployment_txhash}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-deployed_at_block">
-				<label for="deployed_at_block">
+				<label for="deployed_at_block" class="col-sm-3 control-label">
 					Deployed At Block
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-deployed_at_block">
 						{{contract_public.deployed_at_block}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>

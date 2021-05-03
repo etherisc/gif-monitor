@@ -142,11 +142,11 @@
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/details/details.html",
-			"checksum": "6526be6dd21db692c896fb0821f91dad49c29362"
+			"checksum": "4a9d1288f22f84834a6f5d82c61d0854ca84cbfe"
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/details/details.js",
-			"checksum": "ceb0cc401c5753eca6b09fc8c4d4aea931647875"
+			"checksum": "0978f34b13fd69bdcc8b4f06d3110d45660bd317"
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/details/details_controller.js",
@@ -166,7 +166,7 @@
 		},
 		{
 			"path": "client/views/core_public/events_public/details/details.html",
-			"checksum": "347125b247569e604a327c18aa92eda3d6614b42"
+			"checksum": "1ef0e4a6b7c5295c60d748130865167e02a54bb2"
 		},
 		{
 			"path": "client/views/core_public/events_public/details/details.js",
@@ -250,7 +250,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5271c910c53f99a5ad73fd5f3242dc6a9d1def18"
+			"checksum": "5de2fcf611c9ae9cf0524b9638f10852e54b6206"
 		},
 		{
 			"path": "client/views/admin/admin.js",

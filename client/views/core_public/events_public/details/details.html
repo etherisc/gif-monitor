@@ -17,7 +17,7 @@
 			</a>
 			Event Details
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -30,97 +30,97 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-chain_id">
-				<label for="chain_id">
+				<label for="chain_id" class="col-sm-3 control-label">
 					Chain Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-chain_id">
 						{{event_public.chain_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-timestamp">
-				<label for="timestamp">
+				<label for="timestamp" class="col-sm-3 control-label">
 					Timestamp
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-timestamp">
 						{{formatDate event_public.timestamp 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-block_number">
-				<label for="block_number">
+				<label for="block_number" class="col-sm-3 control-label">
 					Block Number
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-block_number">
 						{{event_public.block_number}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-transaction_hash">
-				<label for="transaction_hash">
+				<label for="transaction_hash" class="col-sm-3 control-label">
 					Transaction Hash
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-transaction_hash">
 						{{txLink event_public.transaction_hash event_public}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-log_index">
-				<label for="log_index">
+				<label for="log_index" class="col-sm-3 control-label">
 					Log Index
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-log_index">
 						{{event_public.log_index}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-contract">
-				<label for="contract">
+				<label for="contract" class="col-sm-3 control-label">
 					Contract
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-contract">
 						{{event_public.contract}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-address">
-				<label for="address">
+				<label for="address" class="col-sm-3 control-label">
 					Address
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-address">
 						{{addressLink event_public.address event_public}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-event">
-				<label for="event">
+				<label for="event" class="col-sm-3 control-label">
 					Event
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-event">
 						{{event_public.event}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-values">
-				<label for="values">
+				<label for="values" class="col-sm-3 control-label">
 					Values
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-values">
 						{{event_public.values}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>
