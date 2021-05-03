@@ -50,7 +50,7 @@
 		},
 		{
 			"path": "client/views/home_public/home_public.js",
-			"checksum": "e07b4063543587a8034e9d5b00bad48e7bcb2968"
+			"checksum": "5ef0c2062c0aab3f2da71015f4adfddec270c5c9"
 		},
 		{
 			"path": "client/views/home_public/home_public_controller.js",
@@ -190,7 +190,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "026be12a32b865f050f07928cab456809d864be9"
+			"checksum": "173b60f6d14ec92eb780a63470164778c806e16c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
