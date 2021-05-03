@@ -178,7 +178,7 @@
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public.html",
-			"checksum": "1da4c81d831776d1fe04ed871a02c566658d6d60"
+			"checksum": "238aea9c4fe723743872c005c9c31c1ce36d1013"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public.js",
@@ -214,19 +214,19 @@
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/oracles_public.html",
-			"checksum": "6fefa1ffa0d5335f144f20a69ee1d1d8aa7d00da"
+			"checksum": "abacdbd309d7ee921c824304ca95111acc65d258"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/oracles_public.js",
-			"checksum": "0fd208e2d9059ca5d5f8546a5b2a9d01ba19e7f4"
+			"checksum": "d91ec5e94309aa21a3a5af6d16475e1b67c26f8e"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/oracles_public_controller.js",
-			"checksum": "c6b32f0fe1b1988a7838040f2325d6d78ce928ba"
+			"checksum": "19943d487a32db2d926d237c8ccd99596c79f70d"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/details/details.html",
-			"checksum": "c1a63f3c27e5ff5730a7b96974cf739e386f3b03"
+			"checksum": "f54ba7e53b86be8363a8dd286bd74c3a1736cf5e"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/details/details.js",
@@ -250,7 +250,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "36cd275ca87155b0b95ef46487522f8a764fba2c"
+			"checksum": "93c53e5440680c368c061fa4bc183f2364fc7a2c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -526,19 +526,19 @@
 		},
 		{
 			"path": "client/views/oracles/oracles.html",
-			"checksum": "543189d1d8e186784341ea3a022cfd33d34ea732"
+			"checksum": "4c2d7bcc20235176e6333c34d7adc25c68a30fda"
 		},
 		{
 			"path": "client/views/oracles/oracles.js",
-			"checksum": "c273bfaa65d854b6393ba19b01d558ee9575dbf6"
+			"checksum": "5dd71c9979483cdb69c4680219c4b23e7e397bbe"
 		},
 		{
 			"path": "client/views/oracles/oracles_controller.js",
-			"checksum": "0ae286153e4538245ff9562caa8146e8b36b9cb7"
+			"checksum": "3390991331648302c63a3379cb39930146d30287"
 		},
 		{
 			"path": "client/views/oracles/details/details.html",
-			"checksum": "df8f86222fb8710e60d377b25bb1ae7e1c89a29a"
+			"checksum": "c2c8ff5bca1d58ba3b83e5d3b01f793b4738e114"
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
