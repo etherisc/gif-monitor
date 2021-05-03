@@ -54,6 +54,15 @@ const processRecentEvents = async (contractName, eventName, filter) => {
 	}	
 }
 
+
+processRecentEvents_sync = Meteor.wrapAsync(function (contractName, eventName, filter, done) {
+	
+	processRecentEvents(contractName, eventName, filter)
+	.then((res) => done(null, res))
+	.catch((err) => done(err, null));
+	
+})
+
 const loadEvents = async () => {
 
 	const contracts = Contracts.find({}).fetch();
@@ -79,7 +88,7 @@ const loadEvents = async () => {
 			Contract.removeAllListeners(eventName);
 			Contract.on(
 				eventName, 
-				processRecentEvents(contractName, eventName, filter)
+				Meteor.bindEnvironment(processRecentEvents_sync(contractName, eventName, filter))
 			);
 			await processRecentEvents(contractName, eventName, filter);
 
