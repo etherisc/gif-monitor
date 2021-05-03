@@ -60,8 +60,11 @@ setProductPaused = async (productId, pause) => {
 	
 	if(pause && !product.paused) {
 		try {
-			res = await ios.pauseProduct(productId);
-			alert('Transaction submitted, TxHash: ' + res.hash.slice(7) + '...');
+			const res = await ios.pauseProduct(productId)
+			handleInfo(`Transaction submitted, TxHash: ${res.hash.slice(7)} ...`, res);
+			const receipt = await res.wait();
+			handleInfo(`Transaction confirmed`, receipt);
+			await reloadProduct(productId);
 		} catch (err) {
 			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
@@ -69,6 +72,9 @@ setProductPaused = async (productId, pause) => {
 		try {
 			res = await ios.unpauseProduct(productId);
 			handleInfo(`Transaction submitted, TxHash: ${res.hash.slice(7)} ...`, res);
+			const receipt = await res.wait();
+			handleInfo(`Transaction confirmed`, receipt);
+			await reloadProduct(productId);
 		} catch (err) {
 			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
