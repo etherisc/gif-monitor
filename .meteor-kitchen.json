@@ -154,19 +154,19 @@
 		},
 		{
 			"path": "client/views/core/events/events.html",
-			"checksum": "d15b87833b54f3cd5e4d08ab0113aa529879f850"
+			"checksum": "52739aab394bd743e882dc470f439a19543891de"
 		},
 		{
 			"path": "client/views/core/events/events.js",
-			"checksum": "11a5e3eb58a5b0215e488ee4ab883b8a02837460"
+			"checksum": "c111338a873062677a20384d3c8ceb6f4a437ba4"
 		},
 		{
 			"path": "client/views/core/events/events_controller.js",
-			"checksum": "3e404633695dd6d1653eda80d414cd18ca2173da"
+			"checksum": "58d58d636edebe0f2c5d8951603792f38a73d2a6"
 		},
 		{
 			"path": "client/views/core/events/details/details.html",
-			"checksum": "837ed845a3282515757aff8abede3ea311bf8bcb"
+			"checksum": "23bad558f97a6613bafc813882dfd4b895322306"
 		},
 		{
 			"path": "client/views/core/events/details/details.js",
@@ -174,7 +174,7 @@
 		},
 		{
 			"path": "client/views/core/events/details/details_controller.js",
-			"checksum": "dc9e5d96b50b9a1404d9ee1cd436e682fb7687cd"
+			"checksum": "2e0120e38ab7017b6352883769702341307c7731"
 		},
 		{
 			"path": "client/views/home_private/home_private.html",
@@ -190,7 +190,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "20915efe664f23a5704ad49fba92e8be4adf902c"
+			"checksum": "16ea0c2a18dfd754c9f2e1f6626065e682f9e2d3"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -610,7 +610,7 @@
 		},
 		{
 			"path": "server/publish/events.js",
-			"checksum": "264e094c64cbd17321006d2f2664dd757f63c7c9"
+			"checksum": "fe3a6afa2edecb58360faa2a92fb8614949dc52d"
 		},
 		{
 			"path": "both/collections/event_last_seen.js",

@@ -22,7 +22,7 @@ this.CoreEventsDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("event1", this.params.eventId)
+			Meteor.subscribe("event_public", this.params.eventId)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -37,7 +37,7 @@ this.CoreEventsDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			event1: Events.findOne({_id:this.params.eventId}, {})
+			event_public: Events.findOne({_id:this.params.eventId}, {})
 		};
 		
 
