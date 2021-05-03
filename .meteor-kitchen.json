@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "947f1a805e5634a6d647c1676f8122f6872614e3"
+			"checksum": "136c8f71f5bee3d58e83ffe9e0a6256198adc189"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a0844bbc90c8ceb476308754b8de157f437eb1dc"
+			"checksum": "dbe1cddf1619ac4176e0cb2f68d548c37290a371"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -334,47 +334,23 @@
 		},
 		{
 			"path": "client/views/contracts/contracts.html",
-			"checksum": "4fd5a43709b7873329ee0cfc3eb17ce694eb6d79"
+			"checksum": "8f78ebbb946a1340cdbfe2ff72c96eeedf2710b5"
 		},
 		{
 			"path": "client/views/contracts/contracts.js",
-			"checksum": "84bb5da0e296f3f7b4789c0bf50a861824d0fe78"
+			"checksum": "0c118afa74df2e07757058d2ccddf8ac34d3f329"
 		},
 		{
 			"path": "client/views/contracts/contracts_controller.js",
 			"checksum": "1dc5ae71b53b79e2c021277677b1d2cd55a63d32"
 		},
 		{
-			"path": "client/views/contracts/insert/insert.html",
-			"checksum": "ac0db8f381b928a77434bb010bd12bc410d7cc3c"
-		},
-		{
-			"path": "client/views/contracts/insert/insert.js",
-			"checksum": "0bd3e59ca6dfb9044b05e38b895911088ba89067"
-		},
-		{
-			"path": "client/views/contracts/insert/insert_controller.js",
-			"checksum": "ff211810072c56119904e0daefe947fa45f2552a"
-		},
-		{
-			"path": "client/views/contracts/update/update.html",
-			"checksum": "1d6676c366985d6a6037610f1b70bbe1e8cc444f"
-		},
-		{
-			"path": "client/views/contracts/update/update.js",
-			"checksum": "dde3496367772d685df1f1727df7dc20c3a2bf70"
-		},
-		{
-			"path": "client/views/contracts/update/update_controller.js",
-			"checksum": "70a8b75911fbdca52bf042ce56594dcc68de7e38"
-		},
-		{
 			"path": "client/views/contracts/details/details.html",
-			"checksum": "3793c8e6f88f4a64b0c09d26229148fdfde01166"
+			"checksum": "454c5f75bc73579818d8403f8a3bcb345b290bfa"
 		},
 		{
 			"path": "client/views/contracts/details/details.js",
-			"checksum": "173a1f0dd40a89f23b0490da5f9097d7cec55a6d"
+			"checksum": "a4c04bdb7ed938c868c16c0bd408700d196e28f0"
 		},
 		{
 			"path": "client/views/contracts/details/details_controller.js",
@@ -678,7 +654,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-logs-reader.js",
-			"checksum": "96291ebc9fa39391571209c5fcfcd692aa24cfe0"
+			"checksum": "1a33d31e92d6ee6a7283eff14a8f41fbf3b09863"
 		},
 		{
 			"path": "client/lib/meteorCallWrapper.js",
@@ -938,8 +914,6 @@
 		"client/views/chains/update/",
 		"client/views/contracts/",
 		"client/views/contracts/details/",
-		"client/views/contracts/insert/",
-		"client/views/contracts/update/",
 		"client/views/events/",
 		"client/views/events/details/",
 		"client/views/forgot_password/",

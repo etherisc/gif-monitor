@@ -38,6 +38,7 @@ const processEvent = (contractName, event) => {
 
 const processRecentEvents = async (contractName, eventName, filter) => {
 
+	info(`processRecentEvents`, {contractName, eventName, filter});
 	const last = EventLastSeen.findOne({name: eventName});
 	filter.fromBlock = last ? last.last_seen + 1 : 0;
 	filter.toBlock = 'latest';

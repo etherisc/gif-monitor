@@ -145,23 +145,3 @@ Template.ContractsDetailsForm.helpers({
 	}
 	
 });
-
-Template.ContractsDetailsContractActions.created = function() {
-
-};
-
-Template.ContractsDetailsContractActions.destroyed = function() {
-
-};
-
-Template.ContractsDetailsContractActions.rendered = function() {
-
-};
-
-Template.ContractsDetailsContractActions.helpers({
-
-});
-
-Template.ContractsDetailsContractActions.events({
-
-});
