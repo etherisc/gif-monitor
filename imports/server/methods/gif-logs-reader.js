@@ -79,7 +79,7 @@ const loadEvents = async () => {
 			Contract.removeAllListeners(eventName);
 			Contract.on(
 				eventName, 
-				Meteor.bindEnvironment(processRecentEvents(contractName, eventName, filter))
+				processRecentEvents(contractName, eventName, filter)
 			);
 			await processRecentEvents(contractName, eventName, filter);
 
