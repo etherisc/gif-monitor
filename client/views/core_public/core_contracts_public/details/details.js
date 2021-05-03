@@ -33,7 +33,9 @@ Template.CorePublicCoreContractsPublicDetailsForm.onDestroyed(function() {
 });
 
 Template.CorePublicCoreContractsPublicDetailsForm.onRendered(function() {
-	
+	// console.log(this);
+
+$('.control-field-abi').jsonViewer(this.data.contract.abi, {collapsed: true});
 
 	pageSession.set("corePublicCoreContractsPublicDetailsFormInfoMessage", "");
 	pageSession.set("corePublicCoreContractsPublicDetailsFormErrorMessage", "");
