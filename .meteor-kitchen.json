@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "87a8c664a9b45ed29265ab378e4be4c51b244d02"
+			"checksum": "1a01de2977222a88f07606721c3a8cce37c8b8b9"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -366,11 +366,11 @@
 		},
 		{
 			"path": "client/views/events/events_controller.js",
-			"checksum": "fbacdb7170e719be62de3e0163411b9daa309d94"
+			"checksum": "01df5b6afe318bf8ac4efefa50abb75cd28ad6a4"
 		},
 		{
 			"path": "client/views/events/details/details.html",
-			"checksum": "8a1a67adbf65b0a26b3d0e70c5af89e13bd91073"
+			"checksum": "fcff57da1ad7a745ee43e81bec98e07e310a5427"
 		},
 		{
 			"path": "client/views/events/details/details.js",
@@ -550,7 +550,7 @@
 		},
 		{
 			"path": "server/publish/events.js",
-			"checksum": "6a9033f8cfaf1df51d258fa168f0a2f7f26c4a05"
+			"checksum": "188a31d17164f19793f2632693f459cc60b0ce52"
 		},
 		{
 			"path": "both/collections/event_last_seen.js",
@@ -654,7 +654,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-logs-reader.js",
-			"checksum": "3e47d8262f8e25eb48357ea7e592ba91ab70623f"
+			"checksum": "af6b8165dd8c095cf3422ad8f4cd9c7cbb604dad"
 		},
 		{
 			"path": "client/lib/meteorCallWrapper.js",
