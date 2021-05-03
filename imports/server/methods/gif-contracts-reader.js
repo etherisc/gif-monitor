@@ -44,6 +44,7 @@ const loadContracts = async() => {
 		// Bootstrap Registry
 
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
+		console.log(RegistryConfig);
 		const Registry = new ethers.Contract(
 			RegistryConfig.address, 
 			RegistryConfig.abi, 
