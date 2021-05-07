@@ -254,7 +254,7 @@ Template.OraclesViewTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("oracles_public.details", mergeObjects(Router.currentRouteParams(), {oracleId: this._id}));
+		Router.go("oracles.details", mergeObjects(Router.currentRouteParams(), {oracleId: this._id}));
 		return false;
 	},
 
