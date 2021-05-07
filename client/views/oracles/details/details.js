@@ -123,12 +123,12 @@ Template.OraclesDetailsForm.events({
 	"click #form-close-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("oracles_public", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("oracles", mergeObjects(Router.currentRouteParams(), {}));
 	},
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("oracles_public", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("oracles", mergeObjects(Router.currentRouteParams(), {}));
 	}
 
 	
