@@ -5,11 +5,12 @@ console.log('loading gif-logs-reader.js');
 const ethers = require('ethers');
 const abiDecoder = require('abi-decoder');
 
+const listeners=[];
 
+const processEvent = (contractName, eventData) => {
 
-const processEvent = (contractName, event) => {
-
-	const decodedLog = abiDecoder.decodeLogs([event])[0];
+	const decodedLog = abiDecoder.decodeLogs([eventData])[0];
+	const { blockNumber, transactionHash, logIndex, address } = eventData
 
 	const valuesWithText = decodedLog.events.map(
 		value => {
@@ -19,22 +20,47 @@ const processEvent = (contractName, event) => {
 			return value;
 		});
 
+	const event = decodedLog.name;
+
 	Events.upsert(
-		{block_number: event.blockNumber, log_index: event.logIndex}, 
+		{block_number: blockNumber, log_index: logIndex}, 
 		{$set: {
-			block_number: event.blockNumber,
+			block_number: blockNumber,
 			contract: contractName,
-			address: event.address,
-			transaction_hash: event.transactionHash,
-			log_index: event.logIndex,
-			event: decodedLog.name,
+			address: address,
+			transaction_hash: transactionHash,
+			log_index: logIndex,
+			event,
 			values: decodedLog.events, 
-			timestamp: new Date(eth.blockTimestamp(event.blockNumber))
+			timestamp: new Date(eth.blockTimestamp(blockNumber))
 		}}
 	);
-	EventLastSeen.upsert({name: decodedLog.name}, {$set: {last_seen: event.blockNumber}});
+	EventLastSeen.upsert({event}, {$set: {last_seen: blockNumber}});
+
+	if (listeners[event]) {
+		listeners[event].map(cb => cb(eventData, decodedLog));
+	}
+
 };
 
+
+const addListener = (event, cb) => {
+
+	const addOneListener = (event, cb) => {
+
+		if (listeners[event]) {
+			listeners[event].push(cb);
+		} else {
+			listeners[event] = [cb];
+		}
+	}
+
+	if (Array.isArray(event)) {
+		event.map(ev => addOneListener(ev, cb));
+	} else {
+		addOneListener(event, cb);
+	}
+}
 
 const processRecentEvents = async (contractName, eventName, filter) => {
 
@@ -70,7 +96,7 @@ const loadEvents = async () => {
 
 		abiDecoder.addABI(contractAbi);
 		const Contract = await getContract(contractName);
-		
+
 
 
 		for(var idx = 0; idx < contractEvents.length; idx += 1) {
@@ -98,5 +124,5 @@ const reloadEvents = () => {
 };
 
 
-module.exports = { loadEvents, reloadEvents };
+module.exports = { addListener, loadEvents, reloadEvents };
 
