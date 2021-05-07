@@ -39,6 +39,7 @@ const loadOracles = async() => {
 				info(`Found oracle #${oracleIndex} (${oracle.description})`, { oracle });
 
 				Oracles.upsert({oracle_contract: oracle.oracleContract}, {$set: {
+					oracle_id: oracleIndex,
 					oracle_contract: oracle.oracleContract,
 					description: oracle.description,
 					oracle_owner: oracle.oracleOwner,

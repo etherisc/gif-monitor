@@ -214,19 +214,19 @@
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/oracles_public.html",
-			"checksum": "4f533812bb714d4d594cec7c9f047622e150a45d"
+			"checksum": "fc3f0492cc50d653d31739861e792f297f69d05d"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/oracles_public.js",
-			"checksum": "2558e772a5022c5a00685b6c8acdbb39bf650963"
+			"checksum": "c0e2758555a50635f8141c87b8444d6daf49203d"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/oracles_public_controller.js",
-			"checksum": "8e7ad98b5346a0464dddbb1c627c6464234f1584"
+			"checksum": "aff871c8fbb0eb31336db47f38f10abf76d27554"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/details/details.html",
-			"checksum": "04f79e01c138ecd221d28ca424c61dba7d0e8cab"
+			"checksum": "7f99295e751347f40d16d7aaf94f8bc727b0bfd0"
 		},
 		{
 			"path": "client/views/oracles_public/oracles_public/details/details.js",
@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "60172018e82db9a50baabeaf0447c41baa0fe90e"
+			"checksum": "6845025d90eb362555ffe9adfb0f43bba8916fce"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -550,19 +550,19 @@
 		},
 		{
 			"path": "client/views/oracles/oracles.html",
-			"checksum": "22b3a8c0f5a801b690422f3ccfb0e9b99df59dfd"
+			"checksum": "1c21d65386643f0d2d84e4941c649e476ed727df"
 		},
 		{
 			"path": "client/views/oracles/oracles.js",
-			"checksum": "9faeed9133367e22b18c67dd779e03c6ecd75be0"
+			"checksum": "7a06c577aea99805e98c2f430d22df7810b208f6"
 		},
 		{
 			"path": "client/views/oracles/oracles_controller.js",
-			"checksum": "7a3c517325fd7bcdf9aabb1fb7f2ce87e4e6fb41"
+			"checksum": "f33d2c1e8143c97d786fd7b6d97aa1da2f3b5725"
 		},
 		{
 			"path": "client/views/oracles/details/details.html",
-			"checksum": "58acbc66d5f644dd4d708d5464f5a2d5a6c96f04"
+			"checksum": "fd0b152e8f0a0fbdf95992cef82c068dfbcc407e"
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
@@ -814,7 +814,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
-			"checksum": "b4dcbb00653a59b9cc6376c973deb13b38b759f7"
+			"checksum": "81ffed49b09730776f34b3c4bc62b4448b8f1ce8"
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",

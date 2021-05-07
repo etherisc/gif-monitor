@@ -68,6 +68,9 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="oracle_id">
+					Oracle Id
+				</th>
 				<th class="th-sortable" data-sort="description">
 					Description
 				</th>
@@ -90,6 +93,9 @@
 
 <template name="OraclesPublicOraclesPublicViewTableItems">
 	<tr id="dataview-table-items-row">
+		<td>
+			{{oracle_id}}
+		</td>
 		<td>
 			{{description}}
 		</td>
