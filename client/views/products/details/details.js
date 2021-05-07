@@ -182,6 +182,9 @@ Template.ProductsDetailsFormCustomActions.events({
 		e.preventDefault();
 
 		console.log(`Approve product ${t.data.product.product_id}`);
+		approveProduct(
+			t.data.product.product_id
+		);
 	},
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
