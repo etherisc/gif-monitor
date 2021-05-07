@@ -22,7 +22,7 @@ this.ProductsController = RouteController.extend({
 			sortBy: Session.get("ProductListPagedSortBy") || "",
 			sortAscending: Session.get("ProductListPagedSortAscending"),
 			pageNo: Session.get("ProductListPagedPageNo") || 0,
-			pageSize: Session.get("ProductListPagedPageSize") || 0
+			pageSize: Session.get("ProductListPagedPageSize") || 20
 		};
 
 
