@@ -5,7 +5,7 @@ import { reloadSingleProduct } from "/imports/server/methods/gif-products-reader
 
 
 const getValue = (name, decodedLog) => {
-	return decodedLog.event.filter(value => value.name == name)[0].value;
+	return decodedLog.events.filter(value => value.name == name)[0].value;
 }
 
 const reloadSingleProductFromLog = (eventData, decodedLog) => {
