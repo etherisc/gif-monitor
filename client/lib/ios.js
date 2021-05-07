@@ -35,17 +35,17 @@ const handleInfo = (message, args) => {
 }
 
 
-const ios = await getContract('InstanceOperatorService');
-const license = await getContract('License');	
-
-
-if (!ios || !license) {
-	handleError(`Could not create contract instances (ios/license)`);
-	return;
-}
-
-
 setProductPaused = async (productId, pause) => {
+
+	const ios = await getContract('InstanceOperatorService');
+	const license = await getContract('License');	
+
+
+	if (!ios || !license) {
+		handleError(`Could not create contract instances (ios/license)`);
+		return;
+	}
+
 
 	let product;
 
@@ -84,6 +84,16 @@ setProductPaused = async (productId, pause) => {
 }
 
 approveProduct = async (productId) => {
+
+	const ios = await getContract('InstanceOperatorService');
+	const license = await getContract('License');	
+
+
+	if (!ios || !license) {
+		handleError(`Could not create contract instances (ios/license)`);
+		return;
+	}
+
 
 	let product;
 
