@@ -1,6 +1,6 @@
 /* Event Listeners */
 
-console.log('loading gif-product-reader.js');import { addListener } from "/imports/server/methods/gif-logs-reader.js";
+console.log('loading event-listeners.js');import { addListener } from "/imports/server/methods/gif-logs-reader.js";
 import { reloadSingleProduct } from "/imports/server/methods/gif-products-reader.js";
 
 
