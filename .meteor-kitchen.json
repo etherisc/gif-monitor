@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "c5a603708d1d53b80e7afa3ac11f5f72a0a04883"
+			"checksum": "35ba06c803baf411bb443f0ef99fc54279d1014d"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -798,7 +798,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-logs-reader.js",
-			"checksum": "1d4b98e320b418f69aa74eaf753606b18bd272f8"
+			"checksum": "b90ed9eb4db12e53ce53bbe289b32556a8c561f9"
 		},
 		{
 			"path": "client/lib/meteorCallWrapper.js",

@@ -41,7 +41,7 @@ const processEvent = (contractName, eventData) => {
 		console.log('In Event execute Listeners..');
 		listeners[event].map(cb => {
 			console.log('Listener detected, executing...');
-			cb(eventData, decodedLog));
+			cb(eventData, decodedLog);
 		});
 	}
 
