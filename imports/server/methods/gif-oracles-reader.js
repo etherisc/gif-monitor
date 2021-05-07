@@ -11,7 +11,7 @@ const loadOracles = async() => {
 	try {
 		const Query = await getContract('Query');
 		const oracleTypeNamesIncrement = await Query.oracleTypeNamesIncrement();
-		info(`${oracleTypeNamesIncrement} OracleTypes found`);
+		info(`${ oracleTypeNamesIncrement - 1 } OracleTypes found`);
 
 		for (var oracleTypeIndex = 0; oracleTypeIndex < oracleTypeNamesIncrement - 1; oracleTypeIndex += 1) {
 			const oracleTypeNameB32 = await Query.oracleTypeNames(oracleTypeIndex);
@@ -31,7 +31,7 @@ const loadOracles = async() => {
 			}})
 
 			const oracleIdIncrement = await Query.oracleIdIncrement();
-			info(`${oracleIdIncrement} Oracles found`);
+			info(`${ oracleIdIncrement - 1 } Oracles found`);
 
 			for (var oracleIndex = 1; oracleIndex < oracleIdIncrement; oracleIndex += 1) {
 				const oracle = await Query.oracles(oracleIndex);
@@ -66,3 +66,4 @@ const reloadOracles = () => {
 
 module.exports = { loadOracles, reloadOracles };
 
+ 
