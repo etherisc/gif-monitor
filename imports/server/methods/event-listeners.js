@@ -10,8 +10,9 @@ const getValue = (name, decodedLog) => {
 
 const reloadSingleProductFromLog = (eventData, decodedLog) => {
 	
-	console.log('In reloadSingle...', decodedLog.productId);
-	reloadSingleProduct({productId: parseInt(getValue('productId', decodedLog))});
+	const productId = parseInt(getValue('productId', decodedLog));
+	console.log('In reloadSingle...', productId);
+	reloadSingleProduct({ productId });
 	
 };
 
