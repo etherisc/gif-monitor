@@ -38,7 +38,11 @@ const processEvent = (contractName, eventData) => {
 	EventLastSeen.upsert({event}, {$set: {last_seen: blockNumber}});
 
 	if (listeners[event]) {
-		listeners[event].map(cb => cb(eventData, decodedLog));
+		console.log('In Event execute Listeners..');
+		listeners[event].map(cb => {
+			console.log('Listener detected, executing...');
+			cb(eventData, decodedLog));
+		});
 	}
 
 };

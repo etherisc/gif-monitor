@@ -6,6 +6,7 @@ import { reloadSingleProduct } from "/imports/server/methods/gif-products-reader
 
 const reloadSingleProductFromLog = (eventData, decodedLog) => {
 	
+	console.log('In reloadSingle...');
 	reloadSingleProduct({productId: decodedLog.productId});
 	
 };
