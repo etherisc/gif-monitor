@@ -4,10 +4,14 @@ console.log('loading event-listeners.js');import { addListener } from "/imports/
 import { reloadSingleProduct } from "/imports/server/methods/gif-products-reader.js";
 
 
+const getValue = (name, decodedLog) => {
+	return decodedLog.event.filter(value => value.name == name)[0].value;
+}
+
 const reloadSingleProductFromLog = (eventData, decodedLog) => {
 	
-	console.log('In reloadSingle...');
-	reloadSingleProduct({productId: decodedLog.productId});
+	console.log('In reloadSingle...', decodedLog.productId);
+	reloadSingleProduct({productId: parseInt(getValue('productId', decodedLog))});
 	
 };
 
