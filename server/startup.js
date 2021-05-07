@@ -18,4 +18,6 @@ loadContracts()
 	.then(() => loadOracles())
 	.then(() => loadProducts());
 
+addListeners;
+
 info('Server started');

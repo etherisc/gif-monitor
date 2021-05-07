@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9b020419eee180347a9c2ada52c6ab600524e021"
+			"checksum": "1dde99d3ae73a637dad7b0a3bd571815ff2b66ac"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -766,7 +766,7 @@
 		},
 		{
 			"path": "server/startup.js",
-			"checksum": "7d3169e84922b0d0c2d885c3aac1dc1e89bfd2aa"
+			"checksum": "31ee12220126eff2c2766e453e9f49296449a17e"
 		},
 		{
 			"path": "imports/server/methods/logger.js",
@@ -830,7 +830,7 @@
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",
-			"checksum": "7169dc04c361add5aa7ce4874f4fb5497a9402e3"
+			"checksum": "70a9c74079ce3669c1c44be12bd54a2de831a4d5"
 		},
 		{
 			"path": "lib/string_utils.js",
