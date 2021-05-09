@@ -54,7 +54,12 @@ Router.privateRoutes = [
 	"oracles",
 	"oracles.details",
 	"products",
-	"products.details"
+	"products.details",
+	"metadata",
+	"applications",
+	"policies",
+	"claims",
+	"payouts"
 ];
 
 Router.freeRoutes = [
@@ -159,4 +164,9 @@ Router.map(function () {
 	this.route("/oracles/details/:oracleId", {name: "oracles.details", title: "", controller: "OraclesDetailsController"});
 	this.route("/products", {name: "products", title: "", controller: "ProductsController"});
 	this.route("/products/details/:productId", {name: "products.details", title: "", controller: "ProductsDetailsController"});
+	this.route("/metadata", {name: "metadata", title: "", controller: "MetadataController"});
+	this.route("/applications", {name: "applications", title: "", controller: "ApplicationsController"});
+	this.route("/policies", {name: "policies", title: "", controller: "PoliciesController"});
+	this.route("/claims", {name: "claims", title: "", controller: "ClaimsController"});
+	this.route("/payouts", {name: "payouts", title: "", controller: "PayoutsController"});
 });
