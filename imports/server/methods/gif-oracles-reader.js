@@ -15,7 +15,7 @@ const loadOracles = async() => {
 
 		for (var oracleTypeIndex = 0; oracleTypeIndex < oracleTypeNamesIncrement - 1; oracleTypeIndex += 1) {
 			const oracleTypeNameB32 = await Query.oracleTypeNames(oracleTypeIndex);
-			const oracleTypeName = ethers.utils.parseBytes32String(oracleTypeNameB32);
+			const oracleTypeName = b32s(oracleTypeNameB32);
 			const oracleType = await Query.oracleTypes(oracleTypeNameB32);
 
 			info(`Found oracleType ${oracleTypeName}`, { oracleType });

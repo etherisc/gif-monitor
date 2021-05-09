@@ -5,6 +5,7 @@ import { reloadContracts } from '/imports/server/methods/gif-contracts-reader.js
 import { reloadEvents } from '/imports/server/methods/gif-logs-reader.js';
 import { reloadOracles } from '/imports/server/methods/gif-oracles-reader.js';
 import { reloadProducts, reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
+import { reloadPolicies, reloadSinglePolicy } from '/imports/server/methods/gif-policies-reader.js';
 
 Meteor.methods({
 
@@ -17,5 +18,6 @@ Meteor.methods({
 	"reload.oracles": reloadOracles,
 	"reload.products": reloadProducts,
 	"product.reload": reloadSingleProduct,
-
+	"reload.policies": reloadPolicies,
+	"policy.reload": reloadSinglePolicy
 });
