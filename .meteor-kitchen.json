@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9a93844ed6265628ec304dba82ee83c379670e5a"
+			"checksum": "e905b954cfa844c1ef1cdeb1e50409c29954c48e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -974,7 +974,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "a8e0976d264d1660ed79d19323dfa81d370950cb"
+			"checksum": "e482a1d58a834a3a2f95b7550da4004cfe4e896f"
 		},
 		{
 			"path": "client/lib/helpers.js",
@@ -990,7 +990,7 @@
 		},
 		{
 			"path": "server/lib/globals.js",
-			"checksum": "8f761c6b3fbe8e8ba164cad63e6e8abdfcf35912"
+			"checksum": "91e86d2e3f751f473b387b00bd9c88203b6b90c0"
 		},
 		{
 			"path": "imports/server/methods/blockscout.js",
@@ -998,7 +998,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-logs-reader.js",
-			"checksum": "5a6577005a7277b2f255ad8a1a2c4f7b06f9b313"
+			"checksum": "b87ff600dd4ed8c50f0a2d4dd4aace86bc3d5df4"
 		},
 		{
 			"path": "client/lib/meteorCallWrapper.js",
@@ -1010,15 +1010,15 @@
 		},
 		{
 			"path": "imports/server/methods/gif-contracts-reader.js",
-			"checksum": "3266ced1b7f89129b8717ba151c3839dfead9ba4"
+			"checksum": "3044a3d6884e83c4eafde6020db7df5e36a3cb4f"
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
-			"checksum": "81ffed49b09730776f34b3c4bc62b4448b8f1ce8"
+			"checksum": "9f5a3d060a4219acc269c1332a229dcc18c6b48f"
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",
-			"checksum": "edfcb19152cf4494ccdc6c1c7acf7d5c5faee2eb"
+			"checksum": "7eaebe92eb9f789a89f052e66c056c3aca2b3bb6"
 		},
 		{
 			"path": "client/lib/wallet.js",
@@ -1031,6 +1031,10 @@
 		{
 			"path": "imports/server/methods/event-listeners.js",
 			"checksum": "e3b9d17e6a91bbd61dc9343867662955a4325b83"
+		},
+		{
+			"path": "imports/server/methods/gif-policies-reader.js",
+			"checksum": "1ef778ea1d4e7b26057b2ee2d928cc033afa667e"
 		},
 		{
 			"path": "lib/string_utils.js",

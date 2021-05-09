@@ -13,7 +13,7 @@ const reloadSingleProduct = async function (args) {
 		const License = await getContract('License');
 		const { productId } = args;
 		const product = await License.products(productId);
-		const productName = ethers.utils.parseBytes32String(product.name);
+		const productName = b32s(product.name);
 
 		info(`Found product ${productName}`, { product });
 
@@ -22,8 +22,8 @@ const reloadSingleProduct = async function (args) {
 			name: productName,
 			owner: product.productOwner,
 			address: product.addr,
-			policy_flow: ethers.utils.parseBytes32String(product.policyFlow),
-			release: ethers.utils.parseBytes32String(product.release),
+			policy_flow: b32s(product.policyFlow),
+			release: b32s(product.release),
 			policy_token: product.policyToken,
 			approved: product.approved,
 			paused: product.paused

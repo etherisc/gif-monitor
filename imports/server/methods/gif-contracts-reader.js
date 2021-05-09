@@ -27,11 +27,11 @@ const loadContracts = async() => {
 		let next = false;
 		const release = await Registry.release();
 		const contractsInRelease = await Registry.contractsInRelease(release);
-		info(`Release: ${ethers.utils.parseBytes32String(release)} / ${contractsInRelease} contracts`);
+		info(`Release: ${b32s(release)} / ${contractsInRelease} contracts`);
 		for(var index = 0; index < contractsInRelease; index += 1) {
 
 			const contractNameB32 = await Registry.contractNames(release, index);
-			const contractName = ethers.utils.parseBytes32String(contractNameB32);
+			const contractName = b32s(contractNameB32);
 
 			if (!Contracts.findOne({name: contractName})) {
 				try {

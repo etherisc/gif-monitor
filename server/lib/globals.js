@@ -61,3 +61,6 @@ getContract = async (contractName, mode) => {
 	return Contract;
 }
 
+b32s = (b32) => {
+	return ethers.utils.parseBytes32String(b32);
+}
