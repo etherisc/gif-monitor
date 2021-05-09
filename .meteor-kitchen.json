@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "308ca2e651ceb1b975a5bd0d49a363c8b27b154b"
+			"checksum": "ee94ef5f4c01908c67f79af188e2141fed8438c1"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "e1d463d0015d3bffbfd827f38323a3a6850210b4"
+			"checksum": "9fe72e617e0a85bb287990a6f13744f9d841c141"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "6a59916184a0ad150984e8e1041fe7de92f2870a"
+			"checksum": "d0444c12a0ac982e7c105d20f58dba5a24c70da6"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -597,6 +597,66 @@
 			"checksum": "4474e27da2ba56ab06a7a2cc745e7356842edd0c"
 		},
 		{
+			"path": "client/views/metadata/metadata.html",
+			"checksum": "b50a4dbf202646264b3042211bcc8e84b19f580a"
+		},
+		{
+			"path": "client/views/metadata/metadata.js",
+			"checksum": "c635a046dd82c23587ca1adc516fd67a12c1a760"
+		},
+		{
+			"path": "client/views/metadata/metadata_controller.js",
+			"checksum": "38c7012670daf75dbb6b01d0b60c9ed20593d2ed"
+		},
+		{
+			"path": "client/views/applications/applications.html",
+			"checksum": "06a45b924645bb554642b519b190fc191eabba5d"
+		},
+		{
+			"path": "client/views/applications/applications.js",
+			"checksum": "c0aa372f318d1a4ee4ddc793e9b8e6bbf6c2f669"
+		},
+		{
+			"path": "client/views/applications/applications_controller.js",
+			"checksum": "7f8c290d75b6d74ab765c692128384cd4e555256"
+		},
+		{
+			"path": "client/views/policies/policies.html",
+			"checksum": "31e80968c68130bd426284a7be237a06cb93a44a"
+		},
+		{
+			"path": "client/views/policies/policies.js",
+			"checksum": "2f8d95b27e57a103a08951ac2df6d7fcb860bb10"
+		},
+		{
+			"path": "client/views/policies/policies_controller.js",
+			"checksum": "98a2f632da51d790db28a7f6ff3f1a05a00ab0e7"
+		},
+		{
+			"path": "client/views/claims/claims.html",
+			"checksum": "abb630c70c8ec2678e7a94ccb6c58c6dceffb0a0"
+		},
+		{
+			"path": "client/views/claims/claims.js",
+			"checksum": "6b61526fb2714a1985c643114b7c105ad843eb9b"
+		},
+		{
+			"path": "client/views/claims/claims_controller.js",
+			"checksum": "156f55981faeb82c072e620da2c450813d921dfe"
+		},
+		{
+			"path": "client/views/payouts/payouts.html",
+			"checksum": "e838cfded7d650898f410afc62c6e5beb8b564ee"
+		},
+		{
+			"path": "client/views/payouts/payouts.js",
+			"checksum": "563b58e519a30446da221ade8ca12f7b310dc1af"
+		},
+		{
+			"path": "client/views/payouts/payouts_controller.js",
+			"checksum": "712f30832fc603aa3e60e6769c8caca801092845"
+		},
+		{
 			"path": "server/publish/users.js",
 			"checksum": "16d198ea716570d6a64af8fe4fe08697d13e4205"
 		},
@@ -759,6 +819,86 @@
 		{
 			"path": "server/publish/products.js",
 			"checksum": "263eec3a24c888378b007e824d33d54044bba2c6"
+		},
+		{
+			"path": "both/collections/metadata.js",
+			"checksum": "e47c8be6c8b0ef374a867994b0cca7fa0e53944b"
+		},
+		{
+			"path": "server/methods/metadata.js",
+			"checksum": "0fdb54fd32a9ef844ff83f3e0da10a31e2f69b39"
+		},
+		{
+			"path": "server/collections/metadata.js",
+			"checksum": "553553fd59627efe9992b02a2926d0eee9d0d64e"
+		},
+		{
+			"path": "server/publish/metadata.js",
+			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+		},
+		{
+			"path": "both/collections/policies.js",
+			"checksum": "b204a25de80733efa43ef5900989df6719d9d153"
+		},
+		{
+			"path": "server/methods/policies.js",
+			"checksum": "0112e0ee3db9bc8eed71f636eb0c744bb426e594"
+		},
+		{
+			"path": "server/collections/policies.js",
+			"checksum": "9254f55fddb563cec1bcad527514773a561785ce"
+		},
+		{
+			"path": "server/publish/policies.js",
+			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+		},
+		{
+			"path": "both/collections/applications.js",
+			"checksum": "388f0400bdca1c2531708cf146fecb9a5ee01233"
+		},
+		{
+			"path": "server/methods/applications.js",
+			"checksum": "63469bb50298b5d80a72a7304b0df4eb21a018d8"
+		},
+		{
+			"path": "server/collections/applications.js",
+			"checksum": "6b58aa3555ad0eb3d493664689ee31c44e7e58c4"
+		},
+		{
+			"path": "server/publish/applications.js",
+			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+		},
+		{
+			"path": "both/collections/claims.js",
+			"checksum": "eac7183dded075a375ed1217fa55f10aac0ce4db"
+		},
+		{
+			"path": "server/methods/claims.js",
+			"checksum": "767d060af83321ab50cc92c59ee92179aeb1e8f3"
+		},
+		{
+			"path": "server/collections/claims.js",
+			"checksum": "19c78c32c65b2ca25218ade483b9743ddafcca2c"
+		},
+		{
+			"path": "server/publish/claims.js",
+			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+		},
+		{
+			"path": "both/collections/payouts.js",
+			"checksum": "2a48896f98a38edf014a2c95073a0e9246b5f971"
+		},
+		{
+			"path": "server/methods/payouts.js",
+			"checksum": "59a4ce1b4e5b5100387ffcbaf2df9119163aaf3a"
+		},
+		{
+			"path": "server/collections/payouts.js",
+			"checksum": "430142fd80535e0e87a6d909030788dcfd811f88"
+		},
+		{
+			"path": "server/publish/payouts.js",
+			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
 		},
 		{
 			"path": "both/joins/joins.js",
@@ -1056,10 +1196,12 @@
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",
 		"client/views/admin/users/insert/",
+		"client/views/applications/",
 		"client/views/chains/",
 		"client/views/chains/details/",
 		"client/views/chains/insert/",
 		"client/views/chains/update/",
+		"client/views/claims/",
 		"client/views/contracts/",
 		"client/views/contracts/details/",
 		"client/views/core_public/",
@@ -1076,6 +1218,7 @@
 		"client/views/loading/",
 		"client/views/login/",
 		"client/views/logout/",
+		"client/views/metadata/",
 		"client/views/not_found/",
 		"client/views/oracle_types/",
 		"client/views/oracle_types/details/",
@@ -1086,6 +1229,8 @@
 		"client/views/oracles_public/oracle_types_public/details/",
 		"client/views/oracles_public/oracles_public/",
 		"client/views/oracles_public/oracles_public/details/",
+		"client/views/payouts/",
+		"client/views/policies/",
 		"client/views/products/",
 		"client/views/products/details/",
 		"client/views/products_public/",
