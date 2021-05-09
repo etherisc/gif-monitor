@@ -4,6 +4,134 @@
 			<div class="col-md-12">
 			</div>
 		</div>
+		{{> PayoutsView}}
 	</div>
+</template>
+
+<template name="PayoutsView">
+	<div id="payouts-view" class="">
+		<h2 id="component-title">
+			Payouts
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> PayoutsViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="PayoutsViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="payout_id">
+					Payout Id
+				</th>
+				<th class="th-sortable" data-sort="metadata_id">
+					Metadata Id
+				</th>
+				<th class="th-sortable" data-sort="claim_id">
+					Claim Id
+				</th>
+				<th class="th-sortable" data-sort="expected_amount">
+					Expected Amount
+				</th>
+				<th class="th-sortable" data-sort="actual_amount">
+					Actual Amount
+				</th>
+				<th class="th-sortable" data-sort="state">
+					State
+				</th>
+				<th class="th-sortable" data-sort="state_message">
+					State Message
+				</th>
+				<th class="th-sortable" data-sort="created_at">
+					Created At
+				</th>
+				<th class="th-sortable" data-sort="updated_at">
+					Updated At
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each payout_list_paged}} {{> PayoutsViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="PayoutsViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{payout_id}}
+		</td>
+		<td>
+			{{metadata_id}}
+		</td>
+		<td>
+			{{claim_id}}
+		</td>
+		<td>
+			{{expected_amount}}
+		</td>
+		<td>
+			{{actual_amount}}
+		</td>
+		<td>
+			{{state}}
+		</td>
+		<td>
+			{{state_message}}
+		</td>
+		<td>
+			{{formatDate created_at 'DD/MM/YYYY HH:mm:ss'}}
+		</td>
+		<td>
+			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
+		</td>
+	</tr>
 </template>
 

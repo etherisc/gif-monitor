@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "ee94ef5f4c01908c67f79af188e2141fed8438c1"
+			"checksum": "eb379281a45947128d079717cf6d5d2e67945637"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "f04460e84b46f6fdce1c5bd41a78b685f58bc249"
+			"checksum": "f52d735649d386cbf3c51a32cc80fea40b1ff422"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -598,63 +598,123 @@
 		},
 		{
 			"path": "client/views/metadata/metadata.html",
-			"checksum": "b50a4dbf202646264b3042211bcc8e84b19f580a"
+			"checksum": "705509e4f82bdb8f52c717668d24283b56c9bc69"
 		},
 		{
 			"path": "client/views/metadata/metadata.js",
-			"checksum": "c635a046dd82c23587ca1adc516fd67a12c1a760"
+			"checksum": "621745451ed8eaeb822dd31194f6dc7a03553e63"
 		},
 		{
 			"path": "client/views/metadata/metadata_controller.js",
-			"checksum": "38c7012670daf75dbb6b01d0b60c9ed20593d2ed"
+			"checksum": "c7a3950b9bc05f85fc7adf8f86df0deb9ff4b747"
+		},
+		{
+			"path": "client/views/metadata/details/details.html",
+			"checksum": "9d44a580a3acd4939c49a902276d89e73796274c"
+		},
+		{
+			"path": "client/views/metadata/details/details.js",
+			"checksum": "3aafdd731cff2972db82840b516c26f5356970a9"
+		},
+		{
+			"path": "client/views/metadata/details/details_controller.js",
+			"checksum": "d33c1386b785d1df94019cb803acb86fe799c20f"
 		},
 		{
 			"path": "client/views/applications/applications.html",
-			"checksum": "06a45b924645bb554642b519b190fc191eabba5d"
+			"checksum": "93492f368e4add85a8286194bf31cbcf5b63327a"
 		},
 		{
 			"path": "client/views/applications/applications.js",
-			"checksum": "c0aa372f318d1a4ee4ddc793e9b8e6bbf6c2f669"
+			"checksum": "7ce379de4368e0528885d73b2a088c452d18f7a0"
 		},
 		{
 			"path": "client/views/applications/applications_controller.js",
-			"checksum": "7f8c290d75b6d74ab765c692128384cd4e555256"
+			"checksum": "76c6dccf59800b1b55b11608734afb561dd5d64a"
+		},
+		{
+			"path": "client/views/applications/details/details.html",
+			"checksum": "989a58bca08a9711ee7c69b7dc4fa8542a8e026f"
+		},
+		{
+			"path": "client/views/applications/details/details.js",
+			"checksum": "d84cc31edd9d48e68a6b450cb2aed0ae5faa6590"
+		},
+		{
+			"path": "client/views/applications/details/details_controller.js",
+			"checksum": "aed55cc61d305a4d8f3a7eef81df19e356316ab9"
 		},
 		{
 			"path": "client/views/policies/policies.html",
-			"checksum": "31e80968c68130bd426284a7be237a06cb93a44a"
+			"checksum": "1a4b6ba048aa71566a7c11f0fed236ffa0fb631c"
 		},
 		{
 			"path": "client/views/policies/policies.js",
-			"checksum": "2f8d95b27e57a103a08951ac2df6d7fcb860bb10"
+			"checksum": "28f15ab1026182fe0a3494ba978efcb6cff20f1c"
 		},
 		{
 			"path": "client/views/policies/policies_controller.js",
-			"checksum": "98a2f632da51d790db28a7f6ff3f1a05a00ab0e7"
+			"checksum": "54119c1826a30a2b67445bc17b8f9d962336fcc2"
+		},
+		{
+			"path": "client/views/policies/details/details.html",
+			"checksum": "f5a05d3f361d4106b56bf3c8b2a0afba4fc5180a"
+		},
+		{
+			"path": "client/views/policies/details/details.js",
+			"checksum": "40fa921ba945553af9a707e31e30b6f72596477f"
+		},
+		{
+			"path": "client/views/policies/details/details_controller.js",
+			"checksum": "79c0e0ffc8ca7fef262b2cfc4440f052cff62a88"
 		},
 		{
 			"path": "client/views/claims/claims.html",
-			"checksum": "abb630c70c8ec2678e7a94ccb6c58c6dceffb0a0"
+			"checksum": "bf51fda5adefbef0f3028b67cd00b891cefd2651"
 		},
 		{
 			"path": "client/views/claims/claims.js",
-			"checksum": "6b61526fb2714a1985c643114b7c105ad843eb9b"
+			"checksum": "910a72f52c5e2d1fb6a1cd3d1be3eb54cb15cfa1"
 		},
 		{
 			"path": "client/views/claims/claims_controller.js",
-			"checksum": "156f55981faeb82c072e620da2c450813d921dfe"
+			"checksum": "6f2595e54a64b8f21ac86074013543afeeb05016"
+		},
+		{
+			"path": "client/views/claims/details/details.html",
+			"checksum": "91fdf521460c9129037ae935fdf7a8941427be0e"
+		},
+		{
+			"path": "client/views/claims/details/details.js",
+			"checksum": "12e06f8685b8c2de4d669c73fcf1c573980e3530"
+		},
+		{
+			"path": "client/views/claims/details/details_controller.js",
+			"checksum": "4348f5aa81e899908617f77eb7e30637b7e9e4f3"
 		},
 		{
 			"path": "client/views/payouts/payouts.html",
-			"checksum": "e838cfded7d650898f410afc62c6e5beb8b564ee"
+			"checksum": "9d6f0516b836b3795966f56a4c39e9f12dff50f9"
 		},
 		{
 			"path": "client/views/payouts/payouts.js",
-			"checksum": "563b58e519a30446da221ade8ca12f7b310dc1af"
+			"checksum": "fc567c746ddeef56386961fd4045475e3151f0eb"
 		},
 		{
 			"path": "client/views/payouts/payouts_controller.js",
-			"checksum": "712f30832fc603aa3e60e6769c8caca801092845"
+			"checksum": "eced437a485d1611d6d4943cf63d5dc9bde98fa1"
+		},
+		{
+			"path": "client/views/payouts/details/details.html",
+			"checksum": "969baabf6cf03148d4d390352901bee0cf14d9df"
+		},
+		{
+			"path": "client/views/payouts/details/details.js",
+			"checksum": "db69950cc5ba5a8f31aa8e3a7fd97715062700f2"
+		},
+		{
+			"path": "client/views/payouts/details/details_controller.js",
+			"checksum": "4e88b7f3f10a66daefbe84228168213c1ecd3cd6"
 		},
 		{
 			"path": "server/publish/users.js",
@@ -834,7 +894,7 @@
 		},
 		{
 			"path": "server/publish/metadata.js",
-			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+			"checksum": "1d36aa6b0e30893ca5280d70b104f42f6ebefb99"
 		},
 		{
 			"path": "both/collections/policies.js",
@@ -850,7 +910,7 @@
 		},
 		{
 			"path": "server/publish/policies.js",
-			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+			"checksum": "048e6a3067a9f83a67d7b4b1d3492bde83ae9271"
 		},
 		{
 			"path": "both/collections/applications.js",
@@ -866,7 +926,7 @@
 		},
 		{
 			"path": "server/publish/applications.js",
-			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+			"checksum": "8580fae14ab832f27dc87e9119d48f5ed466afd8"
 		},
 		{
 			"path": "both/collections/claims.js",
@@ -882,7 +942,7 @@
 		},
 		{
 			"path": "server/publish/claims.js",
-			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+			"checksum": "72f7d125a767f5ec9c580c86188f653fac820271"
 		},
 		{
 			"path": "both/collections/payouts.js",
@@ -898,7 +958,7 @@
 		},
 		{
 			"path": "server/publish/payouts.js",
-			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+			"checksum": "aece142b4c97d18a6dce69f064e74fee287b780c"
 		},
 		{
 			"path": "both/joins/joins.js",
@@ -1197,11 +1257,13 @@
 		"client/views/admin/users/edit/",
 		"client/views/admin/users/insert/",
 		"client/views/applications/",
+		"client/views/applications/details/",
 		"client/views/chains/",
 		"client/views/chains/details/",
 		"client/views/chains/insert/",
 		"client/views/chains/update/",
 		"client/views/claims/",
+		"client/views/claims/details/",
 		"client/views/contracts/",
 		"client/views/contracts/details/",
 		"client/views/core_public/",
@@ -1219,6 +1281,7 @@
 		"client/views/login/",
 		"client/views/logout/",
 		"client/views/metadata/",
+		"client/views/metadata/details/",
 		"client/views/not_found/",
 		"client/views/oracle_types/",
 		"client/views/oracle_types/details/",
@@ -1230,7 +1293,9 @@
 		"client/views/oracles_public/oracles_public/",
 		"client/views/oracles_public/oracles_public/details/",
 		"client/views/payouts/",
+		"client/views/payouts/details/",
 		"client/views/policies/",
+		"client/views/policies/details/",
 		"client/views/products/",
 		"client/views/products/details/",
 		"client/views/products_public/",
