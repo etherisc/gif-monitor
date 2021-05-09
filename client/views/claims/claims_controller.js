@@ -16,11 +16,22 @@ this.ClaimsController = RouteController.extend({
 	},
 
 	isReady: function() {
+		this.claimListPagedExtraParams = {
+			searchText: Session.get("ClaimListPagedSearchString") || "",
+			searchFields: Session.get("ClaimListPagedSearchFields") || ["claim_id", "metadata_id", "data", "state", "state_message", "created_at", "updated_at", "metadata_mongo_id"],
+			sortBy: Session.get("ClaimListPagedSortBy") || "",
+			sortAscending: Session.get("ClaimListPagedSortAscending"),
+			pageNo: Session.get("ClaimListPagedPageNo") || 0,
+			pageSize: Session.get("ClaimListPagedPageSize") || 0
+		};
+
 
 
 		
 
 		var subs = [
+			Meteor.subscribe("claim_list_paged", this.claimListPagedExtraParams),
+			Meteor.subscribe("claim_list_paged_count", this.claimListPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -34,11 +45,18 @@ this.ClaimsController = RouteController.extend({
 		
 
 		var data = {
-			params: this.params || {}
+			params: this.params || {},
+			claim_list_paged: Claims.find(databaseUtils.extendFilter({}, this.claimListPagedExtraParams), databaseUtils.extendOptions({}, this.claimListPagedExtraParams)),
+			claim_list_paged_count: Counts.get("claim_list_paged_count")
 		};
 		
 
 		
+		data.claim_list_paged_page_count = this.claimListPagedExtraParams && this.claimListPagedExtraParams.pageSize ? Math.ceil(data.claim_list_paged_count / this.claimListPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.claimListPagedExtraParams.pageNo >= data.claim_list_paged_page_count) {
+			Session.set("ClaimListPagedPageNo", data.claim_list_paged_page_count > 0 ? data.claim_list_paged_page_count - 1 : 0);
+		}
+
 
 		return data;
 	},
