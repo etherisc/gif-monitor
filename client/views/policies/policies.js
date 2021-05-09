@@ -324,3 +324,27 @@ Template.PoliciesViewTableItems.helpers({
 		return Policies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+
+Template.PoliciesViewCustomActions.created = function() {
+
+};
+
+Template.PoliciesViewCustomActions.destroyed = function() {
+
+};
+
+Template.PoliciesViewCustomActions.rendered = function() {
+
+};
+
+Template.PoliciesViewCustomActions.helpers({
+
+});
+
+Template.PoliciesViewCustomActions.events({
+	"click #btn-reload": function (e,t) {
+		e.preventDefault();
+
+		Meteor.call('reload.policies');
+	}
+});

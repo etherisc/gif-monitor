@@ -62,6 +62,7 @@
 		{{/if}}
 		{{/if}}
 	</div>
+	{{> PoliciesViewCustomActions}}
 </template>
 
 <template name="PoliciesViewTable">
@@ -115,5 +116,11 @@
 			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
 		</td>
 	</tr>
+</template>
+
+<template name="PoliciesViewCustomActions">
+	<button class="btn btn-warning" id="btn-reload">
+		Reload Policies
+	</button>
 </template>
 
