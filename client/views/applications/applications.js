@@ -254,7 +254,7 @@ Template.ApplicationsViewTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("applications_public.details", mergeObjects(Router.currentRouteParams(), {applicationId: this._id}));
+		Router.go("applications.details", mergeObjects(Router.currentRouteParams(), {applicationId: this._id}));
 		return false;
 	},
 
