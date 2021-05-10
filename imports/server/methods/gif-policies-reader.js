@@ -74,6 +74,8 @@ const configs = {
 				product_id: data.productId.toNumber(),
 				application_id: data.applicationId.toNumber(),
 				policy_id: data.policyId.toNumber(),
+				claim_ids: data.claimIds.map(item => item.toNumber()),
+				payout_ids: data.payoutIds.map(item => item.toNumber()),
 				has_policy: data.hasPolicy,
 				has_application: data.hasApplication,
 				token_contract: data.tokenContract,
