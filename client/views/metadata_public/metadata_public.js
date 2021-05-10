@@ -1,12 +1,12 @@
-Template.Metadata.onCreated(function() {
+Template.MetadataPublic.onCreated(function() {
 	
 });
 
-Template.Metadata.onDestroyed(function() {
+Template.MetadataPublic.onDestroyed(function() {
 	
 });
 
-Template.Metadata.onRendered(function() {
+Template.MetadataPublic.onRendered(function() {
 	
 	Meteor.defer(function() {
 		globalOnRendered();
@@ -14,16 +14,16 @@ Template.Metadata.onRendered(function() {
 	});
 });
 
-Template.Metadata.events({
+Template.MetadataPublic.events({
 	
 });
 
-Template.Metadata.helpers({
+Template.MetadataPublic.helpers({
 	
 });
 
 
-var MetadataViewExport = function(fileType) {
+var MetadataPublicViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("MetadataListPagedSearchString") || "",
 		searchFields: Session.get("MetadataListPagedSearchFields") || ["metadata_id", "application_id", "policy_id", "claims_ids", "payout_ids", "has_policy", "has_application", "token", "registry", "release", "state", "state_message", "bp_external_key", "created_at", "updated_at", "application_mongo_id", "policy_mongo_id"],
@@ -46,20 +46,20 @@ var MetadataViewExport = function(fileType) {
 	});
 };
 
-Template.MetadataView.onCreated(function() {
+Template.MetadataPublicView.onCreated(function() {
 	
 });
 
-Template.MetadataView.onDestroyed(function() {
+Template.MetadataPublicView.onDestroyed(function() {
 	
 });
 
-Template.MetadataView.onRendered(function() {
-	Session.set("MetadataViewStyle", "table");
+Template.MetadataPublicView.onRendered(function() {
+	Session.set("MetadataPublicViewStyle", "table");
 	
 });
 
-Template.MetadataView.events({
+Template.MetadataPublicView.events({
 	"submit #dataview-controls": function(e, t) {
 		return false;
 	},
@@ -120,22 +120,22 @@ Template.MetadataView.events({
 
 	"click #dataview-export-default": function(e, t) {
 		e.preventDefault();
-		MetadataViewExport.call(this, "csv");
+		MetadataPublicViewExport.call(this, "csv");
 	},
 
 	"click #dataview-export-csv": function(e, t) {
 		e.preventDefault();
-		MetadataViewExport.call(this, "csv");
+		MetadataPublicViewExport.call(this, "csv");
 	},
 
 	"click #dataview-export-tsv": function(e, t) {
 		e.preventDefault();
-		MetadataViewExport.call(this, "tsv");
+		MetadataPublicViewExport.call(this, "tsv");
 	},
 
 	"click #dataview-export-json": function(e, t) {
 		e.preventDefault();
-		MetadataViewExport.call(this, "json");
+		MetadataPublicViewExport.call(this, "json");
 	},
 
 	"click .prev-page-link": function(e, t) {
@@ -157,7 +157,7 @@ Template.MetadataView.events({
 	
 });
 
-Template.MetadataView.helpers({
+Template.MetadataPublicView.helpers({
 
 	"insertButtonClass": function() {
 		return Metadata.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
@@ -182,35 +182,35 @@ Template.MetadataView.helpers({
 		return Session.get("MetadataListPagedSearchString");
 	},
 	"viewAsTable": function() {
-		return Session.get("MetadataViewStyle") == "table";
+		return Session.get("MetadataPublicViewStyle") == "table";
 	},
 	"viewAsBlog": function() {
-		return Session.get("MetadataViewStyle") == "blog";
+		return Session.get("MetadataPublicViewStyle") == "blog";
 	},
 	"viewAsList": function() {
-		return Session.get("MetadataViewStyle") == "list";
+		return Session.get("MetadataPublicViewStyle") == "list";
 	},
 	"viewAsGallery": function() {
-		return Session.get("MetadataViewStyle") == "gallery";
+		return Session.get("MetadataPublicViewStyle") == "gallery";
 	}
 
 	
 });
 
 
-Template.MetadataViewTable.onCreated(function() {
+Template.MetadataPublicViewTable.onCreated(function() {
 	
 });
 
-Template.MetadataViewTable.onDestroyed(function() {
+Template.MetadataPublicViewTable.onDestroyed(function() {
 	
 });
 
-Template.MetadataViewTable.onRendered(function() {
+Template.MetadataPublicViewTable.onRendered(function() {
 	
 });
 
-Template.MetadataViewTable.events({
+Template.MetadataPublicViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
 		var oldSortBy = Session.get("MetadataListPagedSortBy");
@@ -229,23 +229,23 @@ Template.MetadataViewTable.events({
 	}
 });
 
-Template.MetadataViewTable.helpers({
+Template.MetadataPublicViewTable.helpers({
 });
 
 
-Template.MetadataViewTableItems.onCreated(function() {
+Template.MetadataPublicViewTableItems.onCreated(function() {
 	
 });
 
-Template.MetadataViewTableItems.onDestroyed(function() {
+Template.MetadataPublicViewTableItems.onDestroyed(function() {
 	
 });
 
-Template.MetadataViewTableItems.onRendered(function() {
+Template.MetadataPublicViewTableItems.onRendered(function() {
 	
 });
 
-Template.MetadataViewTableItems.events({
+Template.MetadataPublicViewTableItems.events({
 	
 
 	"click td": function(e, t) {
@@ -254,7 +254,7 @@ Template.MetadataViewTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("metadata.details", mergeObjects(Router.currentRouteParams(), {metadataSingleId: this._id}));
+		Router.go("metadata_public.details", mergeObjects(Router.currentRouteParams(), {id: this._id}));
 		return false;
 	},
 
@@ -312,7 +312,7 @@ Template.MetadataViewTableItems.events({
 	}
 });
 
-Template.MetadataViewTableItems.helpers({
+Template.MetadataPublicViewTableItems.helpers({
 	
 
 	"checked": function(value) { return value ? "checked" : "" }, 
@@ -323,29 +323,4 @@ Template.MetadataViewTableItems.helpers({
 	"deleteButtonClass": function() {
 		return Metadata.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
-});
-
-Template.MetadataViewCustomActions.created = function() {
-
-};
-
-Template.MetadataViewCustomActions.destroyed = function() {
-
-};
-
-Template.MetadataViewCustomActions.rendered = function() {
-
-};
-
-Template.MetadataViewCustomActions.helpers({
-
-});
-
-Template.MetadataViewCustomActions.events({
-	"click #btn-reload": function (e,t) {
-		e.preventDefault();
-
-		Meteor.call('reload.metadata');
-	}
-
 });
