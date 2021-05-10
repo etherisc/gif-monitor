@@ -2,56 +2,97 @@
 
 console.log('loading gif-policies-reader.js');
 
-const ethers = require('ethers');
-const abiDecoder = require('abi-decoder');
-
-
-
-const reloadSinglePolicy = async function (args) {
+/*
+ *
+ *	Policies
+ *
+ */
+const reloadSingleItem = async function (config, id) {
 
 	try {
-		const Policy = await getContract('Policy');
-		const { policyId } = args;
-		const policy = await Policy.policies(policyId);
+		const data = await config.storage[config.collection](id);
 
-		info(`Found policy ${policyId}`, { policy });
+		info(`Found ${config.collection} item ${id}`, { data });
 
-		Policies.upsert({policy_id: policyId}, {$set: {
-			policy_id: policyId,
-			state: policy.state,
-			metadata_id: policy.metadataId.toNumber(),
-			state_message: b32s(policy.stateMessage),
-			created_at: unix2Date(policy.createdAt),
-			updated_at: unix2Date(policy.updatedAt)			
-		}})
+		config.callback(id, data);
+
 	} catch (err) {
-		error(`Error ReloadSinglePolicy, ${err.message}`);
+		error(`Error ReloadSingleItem, ${err.message}`, {message: err.message, stack: err.stack});
 	}
 }
 
-const loadPolicies = async() => {
+const loadItems = async function (config) {
 
 	try {		
-		const Policy = await getContract('Policy');
-		const policyIdIncrement = await Policy.policyIdIncrement();
+		const count = await config.storage[config.increment]();
 
-		info(`Policy: ${policyIdIncrement} policies found`);
+		info(`${config.collection}: ${count} items found`);
 
-		for (var policyId = 1; policyId <= policyIdIncrement; policyId += 1) {
-			await reloadSinglePolicy({policyId });
+		for (var id = 1; id <= count; id += 1) {
+			await reloadSingleItem(config, id );
 		}
 	} catch (err) {
-		error(`Error loadPolicies, ${err.message}`);
+		error(`Error loading ${config.collection}, ${err.message}`, {message: err.message, stack: err.stack});
 	}
 
 };
 
-const reloadPolicies = () => {
 
-	Policies.remove({});
-	loadPolicies();
-
+const configs = {
+	policies: {
+		collection: "policies",
+		increment: "policyIdIncrement",
+		storage: await getContract('Policy'),
+		upsert: (id, data) => {
+			Policies.upsert({policy_id: id}, {$set: {
+				policy_id: id,
+				state: data.state,
+				metadata_id: data.metadataId.toNumber(),
+				state_message: b32s(data.stateMessage),
+				created_at: unix2Date(data.createdAt),
+				updated_at: unix2Date(data.updatedAt)			
+			}})
+		},
+	metadata: {
+		collection: "metadata",
+		increment: "metadataIdIncrement",
+		storage: await getContract('Policy'),
+		upsert: (id, data) => {
+			Metadata.upsert({metadata_id: id}, {$set: {
+				metadata_id: id,
+				state: data.state,
+				metadata_id: data.metadataId.toNumber(),
+				state_message: b32s(data.stateMessage),
+				created_at: unix2Date(data.createdAt),
+				updated_at: unix2Date(data.updatedAt)			
+			}})
+		}
+	}
 }
 
-module.exports = { loadPolicies, reloadPolicies, reloadSinglePolicy };
+const reloadPolicies = async () => {
+
+	Policies.remove({});
+	await loadItems(configs.policies);
+}
+
+const reloadMetadata = async () => {
+
+	Metadata.remove({});
+	await loadItems(configs.metadata);
+}
+
+const loadPolicies = () => loadItems(configs.policies);
+const loadMetadata = () => loadItems(configs.metadata);
+const reloadSinglePolicy = (id) => reloadSingleItem(configs.policies, id);
+const reloadSingleMetadata = (id) => reloadSingleItem(configs.metadata, id);
+
+module.exports = { 
+	loadPolicies, 
+	reloadPolicies, 
+	reloadSinglePolicy,
+	loadMetadata,
+	reloadMetadata,
+	reloadSingleMetadata
+};
 
