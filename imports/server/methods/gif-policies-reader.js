@@ -1,5 +1,6 @@
 /* GIF Policies Reader */
 
+
 console.log('loading gif-policies-reader.js');
 
 /*
@@ -82,7 +83,7 @@ const configs = {
 			Applications.upsert({application_id: id}, {$set: {
 				application_id: id,
 				metadata_id: data.metadataId.toNumber(),
-				premium: data.premium.toNumber(),
+				premium: toEther(data.premium),
 				currency: b32s(data.currency),
 				payout_options: data.payoutOptions.map(item => item.toNumber()),
 				state: data.state,

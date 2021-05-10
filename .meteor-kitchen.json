@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "8ca24a12e106119f7035b7b4dfd6340c721ffb39"
+			"checksum": "6e37a869514f9c622e25b778b2934eeac2b9fd7f"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -990,7 +990,7 @@
 		},
 		{
 			"path": "server/lib/globals.js",
-			"checksum": "e31c46fe8b40d739e2589d45222fe8b222a41bce"
+			"checksum": "3fa9ca22f52ff275cf472c91d7b2bfdb3e25ef48"
 		},
 		{
 			"path": "imports/server/methods/blockscout.js",
@@ -1034,7 +1034,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-policies-reader.js",
-			"checksum": "737d06078b9e7e3586797f04d7ce57084a3a3ab2"
+			"checksum": "2e4d74ec3efeeb0e46825813f5a85ae81d4d72c5"
 		},
 		{
 			"path": "lib/string_utils.js",
