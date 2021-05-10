@@ -324,3 +324,28 @@ Template.MetadataViewTableItems.helpers({
 		return Metadata.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+
+Template.MetadataViewCustomActions.created = function() {
+
+};
+
+Template.MetadataViewCustomActions.destroyed = function() {
+
+};
+
+Template.MetadataViewCustomActions.rendered = function() {
+
+};
+
+Template.MetadataViewCustomActions.helpers({
+
+});
+
+Template.MetadataViewCustomActions.events({
+	"click #btn-reload": function (e,t) {
+		e.preventDefault();
+
+		Meteor.call('reload.metadata');
+	}
+
+});

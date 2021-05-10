@@ -24,6 +24,7 @@
 						</button>
 					</span>
 				</div>
+				{{> MetadataViewCustomActions}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}
@@ -139,5 +140,11 @@
 			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
 		</td>
 	</tr>
+</template>
+
+<template name="MetadataViewCustomActions">
+	<button class="btn btn-warning" id="btn-reload">
+		Reload Policies
+	</button>
 </template>
 
