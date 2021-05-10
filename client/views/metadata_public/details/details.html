@@ -15,9 +15,9 @@
 				<span class="fa fa-chevron-left">
 				</span>
 			</a>
-			Mds Details
+			Metadata Details
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -30,147 +30,147 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-metadata_id">
-				<label for="metadata_id">
+				<label for="metadata_id" class="col-sm-3 control-label">
 					Metadata Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-metadata_id">
 						{{metadata.metadata_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-application_id">
-				<label for="application_id">
+				<label for="application_id" class="col-sm-3 control-label">
 					Application Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-application_id">
 						{{metadata.application_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-policy_id">
-				<label for="policy_id">
+				<label for="policy_id" class="col-sm-3 control-label">
 					Policy Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-policy_id">
 						{{metadata.policy_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-claims_ids">
-				<label for="claims_ids">
+				<label for="claims_ids" class="col-sm-3 control-label">
 					Claims Ids
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-claims_ids">
 						{{metadata.claims_ids}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-payout_ids">
-				<label for="payout_ids">
+				<label for="payout_ids" class="col-sm-3 control-label">
 					Payout Ids
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-payout_ids">
 						{{metadata.payout_ids}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-has_policy">
-				<label for="has_policy">
+				<label for="has_policy" class="col-sm-3 control-label">
 					Has Policy
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-has_policy">
 						{{booleanToYesNo metadata.has_policy}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-has_application">
-				<label for="has_application">
+				<label for="has_application" class="col-sm-3 control-label">
 					Has Application
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-has_application">
 						{{booleanToYesNo metadata.has_application}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-token">
-				<label for="token">
+				<label for="token" class="col-sm-3 control-label">
 					Token
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-token">
 						{{metadata.token}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-registry">
-				<label for="registry">
+				<label for="registry" class="col-sm-3 control-label">
 					Registry
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-registry">
 						{{metadata.registry}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-release">
-				<label for="release">
+				<label for="release" class="col-sm-3 control-label">
 					Release
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-release">
 						{{metadata.release}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-state">
-				<label for="state">
+				<label for="state" class="col-sm-3 control-label">
 					State
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-state">
 						{{metadata.state}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-bp_external_key">
-				<label for="bp_external_key">
+				<label for="bp_external_key" class="col-sm-3 control-label">
 					Bp External Key
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-bp_external_key">
 						{{metadata.bp_external_key}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-created_at">
-				<label for="created_at">
+				<label for="created_at" class="col-sm-3 control-label">
 					Created At
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-created_at">
 						{{formatDate metadata.created_at 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-updated_at">
-				<label for="updated_at">
+				<label for="updated_at" class="col-sm-3 control-label">
 					Updated At
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-updated_at">
 						{{formatDate metadata.updated_at 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>
