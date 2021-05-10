@@ -49,21 +49,6 @@ const loadItems = async function (config) {
 
 
 const configs = {
-	policies: {
-		collection: "policies",
-		increment: "policyIdIncrement",
-		storage: getContract('Policy'),
-		upsert: (id, data) => {
-			Policies.upsert({policy_id: id}, {$set: {
-				policy_id: id,
-				state: data.state,
-				metadata_id: data.metadataId.toNumber(),
-				state_message: b32s(data.stateMessage),
-				created_at: unix2Date(data.createdAt),
-				updated_at: unix2Date(data.updatedAt)			
-			}})
-		}
-	},
 	metadata: {
 		collection: "getMetadata",
 		increment: "metadataIdIncrement",
@@ -88,7 +73,46 @@ const configs = {
 				updated_at: unix2Date(data.updatedAt)			
 			}})
 		}
-	}
+	},
+	applications: {
+		collection: "getApplication",
+		increment: "applicationIdIncrement",
+		storage: getContract('Policy'),
+		upsert: (id, data) => {
+			Applications.upsert({application_id: id}, {$set: {
+				application_id: id,
+				metadata_id: data.metadataId.toNumber(),
+				premium: data.premium.toNumber(),
+				currency: b32s(data.currency),
+				payout_options: data.payoutOptions.map(item => item.toNumber()),
+				state: data.state,
+				state_message: b32s(data.stateMessage),
+				created_at: unix2Date(data.createdAt),
+				updated_at: unix2Date(data.updatedAt)			
+			}})
+		}
+	},
+	policies: {
+		collection: "policies",
+		increment: "policyIdIncrement",
+		storage: getContract('Policy'),
+		upsert: (id, data) => {
+			Policies.upsert({policy_id: id}, {$set: {
+				policy_id: id,
+				state: data.state,
+				metadata_id: data.metadataId.toNumber(),
+				state_message: b32s(data.stateMessage),
+				created_at: unix2Date(data.createdAt),
+				updated_at: unix2Date(data.updatedAt)			
+			}})
+		}
+	},
+}
+
+const reloadApplications = async () => {
+
+	Applications.remove({});
+	await loadItems(configs.applications);
 }
 
 const reloadPolicies = async () => {
@@ -103,17 +127,26 @@ const reloadMetadata = async () => {
 	await loadItems(configs.metadata);
 }
 
+const loadApplications = () => loadItems(configs.applications);
 const loadPolicies = () => loadItems(configs.policies);
 const loadMetadata = () => loadItems(configs.metadata);
+const reloadSingleApplication = (id) => reloadSingleItem(configs.applications, id);
 const reloadSinglePolicy = (id) => reloadSingleItem(configs.policies, id);
 const reloadSingleMetadata = (id) => reloadSingleItem(configs.metadata, id);
 
 module.exports = { 
+	
+	loadApplications,
+	reloadApplications, 
+	reloadSingleApplication,
+	
 	loadPolicies, 
 	reloadPolicies, 
 	reloadSinglePolicy,
+	
 	loadMetadata,
 	reloadMetadata,
 	reloadSingleMetadata
+	
 };
 
