@@ -46,7 +46,9 @@ const loadContracts = async() => {
 							if (controllerConfig.address) {
 								info(`${contractName} is Storage with controller ${contractName}Controller; enriching ABI..`, {controllerAddress: controllerConfig.address});
 								abiObj = abiObj.concat(JSON.parse(JSON.parse(controllerConfig.abi)));
+								console.log('Before: ', abiObj.length);
 								abiObj = abiObj.reduce((acc, item) => acc.some((it) => it.name === item.name) ? acc : acc.push(item));
+								console.log('After: ', abiObj.length);
 								abi = JSON.stringify(abiObj);
 							}
 						}						
