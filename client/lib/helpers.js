@@ -17,6 +17,38 @@ Helpers.addressLink = function(address) {
 };
 
 
+stateMessage = {
+	policy: [
+		'Active',
+		'Expired'
+		],
+	claim: [
+		'Applied',
+		'Confirmed',
+		'Declined'
+		],
+	application: [
+		'Applied',
+		'Revoked',
+		'Underwritten',
+		'Declined'
+		],
+	policyFlow: [
+		'Started',
+		'Paused',
+		'Finished'
+		],
+	payout: [
+		'Expected',
+		'PaidOut'
+		]
+};
+
+Helpers.policyState = (state) => statemessage.policy[state];
+Helpers.applicationState = (state) => statemessage.application[state];
+Helpers.claimState = (state) => statemessage.claim[state];
+Helpers.policyFlowState = (state) => statemessage.policyFlow[state];
+Helpers.payoutState = (state) => statemessage.payout[state];
 
 /********************* INSERT NEW HELPERS ABOVE *************************/
 
