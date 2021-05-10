@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "a3270eb4ad8331a87e597d9627e9e9c38e0da25a"
+			"checksum": "3074a8d5e91b477d6c2607c82f163e8d92083b7c"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -286,7 +286,7 @@
 		},
 		{
 			"path": "client/views/applications_public/applications_public.html",
-			"checksum": "9c5e77d6ee939f9386486f6d4ba524508c7d9693"
+			"checksum": "3d86641cfaa84e7a7956f40ce2b1628b27c1caad"
 		},
 		{
 			"path": "client/views/applications_public/applications_public.js",
@@ -298,7 +298,7 @@
 		},
 		{
 			"path": "client/views/applications_public/details/details.html",
-			"checksum": "9d73a7577ca5bbe7acb60aa93232174ed84821d7"
+			"checksum": "3cc6b6ee0b589ca0df1ffc7a233898a6d8c3e2a6"
 		},
 		{
 			"path": "client/views/applications_public/details/details.js",
@@ -307,6 +307,30 @@
 		{
 			"path": "client/views/applications_public/details/details_controller.js",
 			"checksum": "15486d014fa39e4732b99bbd58e4a54f5c9dfbdc"
+		},
+		{
+			"path": "client/views/policies_public/policies_public.html",
+			"checksum": "7c216c4d761660f42b47a51fe72d03bd6cf5eee8"
+		},
+		{
+			"path": "client/views/policies_public/policies_public.js",
+			"checksum": "58c29cecf4caf146f137683f9894e68c7cfef184"
+		},
+		{
+			"path": "client/views/policies_public/policies_public_controller.js",
+			"checksum": "d929b4487f4f1954857dddfae8c8a96b46ca3288"
+		},
+		{
+			"path": "client/views/policies_public/details/details.html",
+			"checksum": "b93155b017a7bfa54ea443ed232d308d629eba12"
+		},
+		{
+			"path": "client/views/policies_public/details/details.js",
+			"checksum": "43769c8c4225d6db8cb39fb9ba8715a566c23c8f"
+		},
+		{
+			"path": "client/views/policies_public/details/details_controller.js",
+			"checksum": "500d3315ff3630978b4d1c623bd1fcd900dac321"
 		},
 		{
 			"path": "client/views/home_private/home_private.html",
@@ -322,7 +346,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "ef21d7a14f8bd278cd35e812e9eba9d41e14c93d"
+			"checksum": "748bfde78a8467722d8fd894c81a3f06b34642f2"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -958,7 +982,7 @@
 		},
 		{
 			"path": "server/publish/policies.js",
-			"checksum": "048e6a3067a9f83a67d7b4b1d3492bde83ae9271"
+			"checksum": "18a0f748d4c75042135fbb706ff3363c443503c1"
 		},
 		{
 			"path": "both/collections/applications.js",
@@ -1352,6 +1376,8 @@
 		"client/views/payouts/details/",
 		"client/views/policies/",
 		"client/views/policies/details/",
+		"client/views/policies_public/",
+		"client/views/policies_public/details/",
 		"client/views/products/",
 		"client/views/products/details/",
 		"client/views/products_public/",

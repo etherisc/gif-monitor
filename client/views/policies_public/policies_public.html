@@ -1,17 +1,17 @@
-<template name="ApplicationsPublic">
+<template name="PoliciesPublic">
 	<div class="page-container container" id="content">
 		<div class="row" id="title_row">
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ApplicationsPublicView}}
+		{{> PoliciesPublicView}}
 	</div>
 </template>
 
-<template name="ApplicationsPublicView">
-	<div id="applications-public-view" class="">
+<template name="PoliciesPublicView">
+	<div id="policies-public-view" class="">
 		<h2 id="component-title">
-			Applications
+			Policies
 		</h2>
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-search">
@@ -28,7 +28,7 @@
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
-			{{#if viewAsTable}} {{> ApplicationsPublicViewTable}} {{/if}}
+			{{#if viewAsTable}} {{> PoliciesPublicViewTable}} {{/if}}
 		</div>
 		<nav aria-label="...">
 			<ul class="pager">
@@ -64,24 +64,15 @@
 	</div>
 </template>
 
-<template name="ApplicationsPublicViewTable">
+<template name="PoliciesPublicViewTable">
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="application_id">
-					Application Id
+				<th class="th-sortable" data-sort="policy_id">
+					Policy Id
 				</th>
 				<th class="th-sortable" data-sort="metadata_id">
 					Metadata Id
-				</th>
-				<th class="th-sortable" data-sort="premium">
-					Premium
-				</th>
-				<th class="th-sortable" data-sort="currency">
-					Currency
-				</th>
-				<th class="th-sortable" data-sort="payout_options">
-					Payout Options
 				</th>
 				<th class="th-sortable" data-sort="state">
 					State
@@ -95,30 +86,21 @@
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
-			{{#each application_list_paged}} {{> ApplicationsPublicViewTableItems}} {{/each}}
+			{{#each policy_list_paged}} {{> PoliciesPublicViewTableItems}} {{/each}}
 		</tbody>
 	</table>
 </template>
 
-<template name="ApplicationsPublicViewTableItems">
+<template name="PoliciesPublicViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{application_id}}
+			{{policy_id}}
 		</td>
 		<td>
 			{{metadata_id}}
 		</td>
 		<td>
-			{{premium}}
-		</td>
-		<td>
-			{{currency}}
-		</td>
-		<td>
-			{{payout_options}}
-		</td>
-		<td>
-			{{applicationState state this}}
+			{{policyState state this}}
 		</td>
 		<td>
 			{{formatDate created_at 'DD/MM/YYYY HH:mm:ss'}}
