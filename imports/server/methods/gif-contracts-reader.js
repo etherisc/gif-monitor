@@ -45,10 +45,10 @@ const loadContracts = async() => {
 							const controllerConfig = await gif.artifact.get('platform', 'development', contractName + 'Controller');
 							if (controllerConfig.address) {
 								info(`${contractName} is Storage with controller ${contractName}Controller; enriching ABI..`, {controllerAddress: controllerConfig.address});
-								abiObj = abiObj.concat(JSON.parse(JSON.parse(controllerConfig.abi)));
-								console.log('Before: ', abiObj.length);
-								abiObj = abiObj.reduce((acc, item) => acc.some((it) => it.name === item.name) ? acc : acc.push(item), []);
-								console.log('After: ', abiObj.length);
+								let controllerAbiObj = JSON.parse(JSON.parse(controllerConfig.abi));
+								controllerAbiObj.foreach(item => if (!abiObj.some(it => it.name === item.name)) {
+									abiObj.push(item); 
+								}
 								abi = JSON.stringify(abiObj);
 							}
 						}						
