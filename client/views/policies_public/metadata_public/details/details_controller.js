@@ -1,9 +1,10 @@
-this.PoliciesPublicController = RouteController.extend({
+this.PoliciesPublicMetadataPublicDetailsController = RouteController.extend({
 	template: "PoliciesPublic",
 	
 
 	yieldTemplates: {
-		/*YIELD_TEMPLATES*/
+		'PoliciesPublicMetadataPublicDetails': { to: 'PoliciesPublicSubcontent'}
+		
 	},
 
 	onBeforeAction: function() {
@@ -11,7 +12,7 @@ this.PoliciesPublicController = RouteController.extend({
 	},
 
 	action: function() {
-		this.redirect('policies_public.metadata_public', this.params || {}, { replaceState: true });
+		if(this.isReady()) { this.render(); } else { this.render("PoliciesPublic"); this.render("loading", { to: "PoliciesPublicSubcontent" });}
 		/*ACTION_FUNCTION*/
 	},
 
@@ -21,6 +22,7 @@ this.PoliciesPublicController = RouteController.extend({
 		
 
 		var subs = [
+			Meteor.subscribe("metadata", this.params.id)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -34,7 +36,8 @@ this.PoliciesPublicController = RouteController.extend({
 		
 
 		var data = {
-			params: this.params || {}
+			params: this.params || {},
+			metadata: Metadata.findOne({_id:this.params.id}, {})
 		};
 		
 
