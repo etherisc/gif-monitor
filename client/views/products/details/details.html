@@ -140,11 +140,14 @@
 			Pause Product
 		{{/unless}}
 	</button>
-	{{#unless isApproved}}
 	<button class="btn btn-warning" id="btn-approve">
-		Approve Product
+		{{#if isApproved}}
+			Disapprove Product
+		{{/if}}
+		{{#unless isApproved}}
+			Approve Product
+		{{/unless}}
 	</button>
-	{{/unless}}
 	<button class="btn btn-warning" id="btn-reload">
 		Reload Product
 	</button>

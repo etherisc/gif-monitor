@@ -171,7 +171,6 @@ Template.ProductsDetailsFormCustomActions.helpers({
 Template.ProductsDetailsFormCustomActions.events({
 	"click #btn-pause": function (e,t) {
 		e.preventDefault();
-		console.log(`${t.data.product.paused ? 'Unpause' : 'Pause'} product ${t.data.product.product_id}`);
 		setProductPaused(
 			t.data.product.product_id,
 			!t.data.product.paused
@@ -181,15 +180,14 @@ Template.ProductsDetailsFormCustomActions.events({
 	"click #btn-approve": function (e,t) {
 		e.preventDefault();
 
-		console.log(`Approve product ${t.data.product.product_id}`);
-		approveProduct(
-			t.data.product.product_id
+		setProductApproved(
+			t.data.product.product_id,
+			!t.data.product.approved
 		);
 	},
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		console.log(`Reload product ${t.data.product.product_id}`);
 		reloadProduct(
 			t.data.product.product_id
 		)

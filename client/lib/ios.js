@@ -56,21 +56,11 @@ setProductPaused = async (productId, pause) => {
 		return;
 	}
 
-	info(`Trying to pause/unpause product ${productId}`, product);
+	info(`Trying to ${pause ? 'pause' : 'unpause'} product #${productId} ${product.name}`, product);
 
-	if(pause && !product.paused) {
+	if((pause && !product.paused) || (!pause && product.paused) {
 		try {
-			const res = await ios.pauseProduct(productId)
-			info(`Transaction submitted`, res);
-			const receipt = await res.wait();
-			info(`Transaction confirmed`, receipt);
-			await reloadProduct(productId);
-		} catch (err) {
-			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		}
-	} else if (!pause && product.paused) {
-		try {
-			res = await ios.unpauseProduct(productId);
+			const res = await ios.setProductPaused(productId, pause)
 			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
@@ -79,11 +69,11 @@ setProductPaused = async (productId, pause) => {
 			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
 	} else {
-		handleInfo(`Product ${product.name} already in state <${product.paused ? 'paused' : 'unpaused'}>`);
+		handleInfo(`Product ${product.name} already in state <${pause ? 'paused' : 'unpaused'}>`);
 	}
 }
 
-approveProduct = async (productId) => {
+setProductApproved = async (productId, approve) => {
 
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
@@ -104,11 +94,11 @@ approveProduct = async (productId) => {
 		return;
 	}
 
-	info(`Trying to approve product ${productId}`, product);
+	info(`Trying to ${approve ? 'approve' : 'disapprove'} product #${productId} ${product.name}`, product);
 
-	if(!product.approved) {
+	if((approve && !product.approved) || (!approve && product.approved)) {
 		try {
-			const res = await ios.approveProduct(productId)
+			const res = await ios.setProductApproved(productId, approve)
 			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
@@ -117,7 +107,7 @@ approveProduct = async (productId) => {
 			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
 	} else {
-		handleInfo(`Product ${product.name} already approved`);
+		handleInfo(`Product ${product.name} already in state ${approve ? 'approved' : 'disapproved'}`);
 	}
 }
 
