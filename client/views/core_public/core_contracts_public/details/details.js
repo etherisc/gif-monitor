@@ -145,3 +145,4 @@ Template.CorePublicCoreContractsPublicDetailsForm.helpers({
 	}
 	
 });
+
