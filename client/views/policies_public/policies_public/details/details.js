@@ -123,12 +123,12 @@ Template.PoliciesPublicPoliciesPublicDetailsForm.events({
 	"click #form-close-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("policies_public2", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("policies_public.policies_public", mergeObjects(Router.currentRouteParams(), {}));
 	},
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("policies_public2", mergeObjects(Router.currentRouteParams(), {}));
+		Router.go("policies_public.policies_public", mergeObjects(Router.currentRouteParams(), {}));
 	}
 
 	
