@@ -324,3 +324,28 @@ Template.ApplicationsViewTableItems.helpers({
 		return Applications.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+
+Template.ApplicationsViewCustomActions.created = function() {
+
+};
+
+Template.ApplicationsViewCustomActions.destroyed = function() {
+
+};
+
+Template.ApplicationsViewCustomActions.rendered = function() {
+
+};
+
+Template.ApplicationsViewCustomActions.helpers({
+
+});
+
+Template.ApplicationsViewCustomActions.events({
+	"click #btn-reload": function (e,t) {
+		e.preventDefault();
+
+		Meteor.call('reload.applications');
+	}
+
+});
