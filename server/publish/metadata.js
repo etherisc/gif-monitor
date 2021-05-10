@@ -2,8 +2,8 @@ Meteor.publish("metadata_list", function() {
 	return Metadata.find({}, {});
 });
 
-Meteor.publish("metadata", function(id) {
-	return Metadata.find({_id:id}, {});
+Meteor.publish("metadata", function(metadataId) {
+	return Metadata.find({_id:metadataId}, {});
 });
 
 Meteor.publish("mds_list", function() {
