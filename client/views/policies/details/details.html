@@ -17,7 +17,7 @@
 			</a>
 			Policy Details
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -30,67 +30,67 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-policy_id">
-				<label for="policy_id">
+				<label for="policy_id" class="col-sm-3 control-label">
 					Policy Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-policy_id">
 						{{policy.policy_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-metadata_id">
-				<label for="metadata_id">
+				<label for="metadata_id" class="col-sm-3 control-label">
 					Metadata Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-metadata_id">
 						{{policy.metadata_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-state">
-				<label for="state">
+				<label for="state" class="col-sm-3 control-label">
 					State
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-state">
 						{{policy.state}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-state_message">
-				<label for="state_message">
+				<label for="state_message" class="col-sm-3 control-label">
 					State Message
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-state_message">
 						{{policy.state_message}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-created_at">
-				<label for="created_at">
+				<label for="created_at" class="col-sm-3 control-label">
 					Created At
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-created_at">
 						{{formatDate policy.created_at 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-updated_at">
-				<label for="updated_at">
+				<label for="updated_at" class="col-sm-3 control-label">
 					Updated At
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-updated_at">
 						{{formatDate policy.updated_at 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>
