@@ -1,113 +1,49 @@
 <template name="PoliciesPublic">
-	<div class="page-container container" id="content">
-		<div class="row" id="title_row">
-			<div class="col-md-12">
-			</div>
-		</div>
-		{{> PoliciesPublicView}}
-	</div>
-</template>
-
-<template name="PoliciesPublicView">
-	<div id="policies-public-view" class="">
-		<h2 id="component-title">
-			Policies
-		</h2>
-		<form id="dataview-controls" class="form-inline">
-			<div id="dataview-controls-search">
-				<div id="dataview-controls-search-group" class="input-group">
-					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
-					<span class="input-group-btn">
-						<button type="button" id="dataview-search-button" class="btn btn-primary">
-							<span class="fa fa-search">
-							</span>
-						</button>
-					</span>
+	<div class="page-container container">
+		<div class="row">
+			<div class="col-md-12" id="content">
+				<div class="row" id="title_row">
+					<div class="col-md-12">
+					</div>
 				</div>
 			</div>
-		</form>
-		{{#if isNotEmpty}}
-		<div id="dataview-data">
-			{{#if viewAsTable}} {{> PoliciesPublicViewTable}} {{/if}}
 		</div>
-		<nav aria-label="...">
-			<ul class="pager">
-				{{#if gotPrevPage}}
-				<li>
-					<a href="#" class="prev-page-link">
-						Previous page
-					</a>
-					&nbsp;
-				</li>
-				{{/if}}
-					{{#if gotNextPage}}
-				<li>
-					&nbsp;
-					<a href="#" class="next-page-link">
-						Next page
-					</a>
-				</li>
-				{{/if}}
-			</ul>
-		</nav>
-		{{else}}
-			{{#if isNotFound}}
-		<div class="alert alert-warning">
-			"{{searchString}}" not found.
+		<div class="row">
+			<div id="menu" class="col-sm-3 col-md-2">
+				<h2>
+				</h2>
+				{{> PoliciesPublicSideMenu}}
+			</div>
+			<div id="subcontent" class="col-sm-9 col-md-10">
+				{{> yield region='PoliciesPublicSubcontent'}}
+			</div>
 		</div>
-		{{else}}
-		<div class="alert alert-info">
-			Empty.
-		</div>
-		{{/if}}
-		{{/if}}
 	</div>
 </template>
 
-<template name="PoliciesPublicViewTable">
-	<table id="dataview-table" class="table table-striped table-hover">
-		<thead id="dataview-table-header">
-			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="policy_id">
-					Policy Id
-				</th>
-				<th class="th-sortable" data-sort="metadata_id">
-					Metadata Id
-				</th>
-				<th class="th-sortable" data-sort="state">
-					State
-				</th>
-				<th class="th-sortable" data-sort="created_at">
-					Created At
-				</th>
-				<th class="th-sortable" data-sort="updated_at">
-					Updated At
-				</th>
-			</tr>
-		</thead>
-		<tbody id="dataview-table-items">
-			{{#each policy_list_paged}} {{> PoliciesPublicViewTableItems}} {{/each}}
-		</tbody>
-	</table>
-</template>
-
-<template name="PoliciesPublicViewTableItems">
-	<tr id="dataview-table-items-row">
-		<td>
-			{{policy_id}}
-		</td>
-		<td>
-			{{metadata_id}}
-		</td>
-		<td>
-			{{policyState state this}}
-		</td>
-		<td>
-			{{formatDate created_at 'DD/MM/YYYY HH:mm:ss'}}
-		</td>
-		<td>
-			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
-		</td>
-	</tr>
+<template name="PoliciesPublicSideMenu">
+	<ul id="menu-items" class="nav nav-stacked nav-pills">
+		<li id="menu-item-simple" class="{{menuItemClass 'policies_public.metadata_public'}}">
+			<a href="{{pathFor 'policies_public.metadata_public'}}">
+				<span class="item-title">
+					Metadata
+				</span>
+			</a>
+		</li>
+		<li id="menu-item-simple" class="{{menuItemClass 'policies_public.applications_public'}}">
+			<a href="{{pathFor 'policies_public.applications_public'}}">
+				<span class="item-title">
+					Applications
+				</span>
+			</a>
+		</li>
+		<li id="menu-item-simple" class="{{menuItemClass 'policies_public.policies_public'}}">
+			<a href="{{pathFor 'policies_public.policies_public'}}">
+				<span class="item-title">
+					Policies
+				</span>
+			</a>
+		</li>
+	</ul>
 </template>
 

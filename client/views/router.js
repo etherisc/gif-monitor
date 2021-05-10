@@ -24,12 +24,13 @@ Router.publicRoutes = [
 	"oracles_public.oracles_public.details",
 	"products_public",
 	"products_public.details",
-	"metadata_public",
-	"metadata_public.details",
-	"applications_public",
-	"applications_public.details",
 	"policies_public",
-	"policies_public.details"
+	"policies_public.metadata_public",
+	"policies_public.metadata_public.details",
+	"policies_public.applications_public",
+	"policies_public.applications_public.details",
+	"policies_public.policies_public",
+	"policies_public.policies_public.details"
 ];
 
 Router.privateRoutes = [
@@ -147,12 +148,13 @@ Router.map(function () {
 	this.route("/oracles_public/oracles_public/details/:oracleId", {name: "oracles_public.oracles_public.details", title: "", controller: "OraclesPublicOraclesPublicDetailsController"});
 	this.route("/products_public", {name: "products_public", title: "", controller: "ProductsPublicController"});
 	this.route("/products_public/details/:productId", {name: "products_public.details", title: "", controller: "ProductsPublicDetailsController"});
-	this.route("/metadata_public", {name: "metadata_public", title: "", controller: "MetadataPublicController"});
-	this.route("/metadata_public/details/:id", {name: "metadata_public.details", title: "", controller: "MetadataPublicDetailsController"});
-	this.route("/applications_public", {name: "applications_public", title: "", controller: "ApplicationsPublicController"});
-	this.route("/applications_public/details/:applicationId", {name: "applications_public.details", title: "", controller: "ApplicationsPublicDetailsController"});
 	this.route("/policies_public", {name: "policies_public", title: "", controller: "PoliciesPublicController"});
-	this.route("/policies_public/details/:policyId", {name: "policies_public.details", title: "", controller: "PoliciesPublicDetailsController"});
+	this.route("/policies_public/metadata_public", {name: "policies_public.metadata_public", title: "", controller: "PoliciesPublicMetadataPublicController"});
+	this.route("/policies_public/metadata_public/details/:id", {name: "policies_public.metadata_public.details", title: "", controller: "PoliciesPublicMetadataPublicDetailsController"});
+	this.route("/policies_public/applications_public", {name: "policies_public.applications_public", title: "", controller: "PoliciesPublicApplicationsPublicController"});
+	this.route("/policies_public/applications_public/details/:applicationId", {name: "policies_public.applications_public.details", title: "", controller: "PoliciesPublicApplicationsPublicDetailsController"});
+	this.route("/policies_public/policies_public", {name: "policies_public.policies_public", title: "", controller: "PoliciesPublicPoliciesPublicController"});
+	this.route("/policies_public/policies_public/details/:policyId", {name: "policies_public.policies_public.details", title: "", controller: "PoliciesPublicPoliciesPublicDetailsController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});
