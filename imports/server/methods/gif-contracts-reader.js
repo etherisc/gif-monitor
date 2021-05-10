@@ -38,7 +38,15 @@ const loadContracts = async() => {
 					const contractAddress = await Registry.contracts(release, contractNameB32);
 					const contractConfig = await gif.artifact.get('platform', 'development', contractName);
 					if (contractConfig.address) {
-						const abi = JSON.parse(contractConfig.abi);
+						let abi = JSON.parse(contractConfig.abi);
+						
+						// Check if contract is storage with controller
+						if (abi.some(item => item.name === 'assignController')) {
+							const controllerConfig = await gif.artifact.get('platform', 'development', contractName + 'Controller');
+							if (controllerConfig.address) {
+								info(`${contractName} is Storage with controller ${contractName}Controller; enriching ABI..`, {controllerAddress: controllerConfig.address});
+								abi = abi.concat(JSON.parse(controllerConfig.abi));
+						}						
 						info(`Inserting contract ${contractName} at ${contractAddress}`);
 						Contracts.insert({
 							chain_id: _id,
