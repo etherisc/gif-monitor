@@ -85,7 +85,7 @@ const configs = {
 				metadata_id: data.metadataId.toNumber(),
 				premium: toEther(data.premium),
 				currency: b32s(data.currency),
-				payout_options: data.payoutOptions.map(item => item.toNumber()),
+				payout_options: data.payoutOptions.map(item => toEther(item)),
 				state: data.state,
 				state_message: b32s(data.stateMessage),
 				created_at: unix2Date(data.createdAt),
