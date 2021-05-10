@@ -117,7 +117,18 @@ contracts, including itself!
   The Policy Contract
   
 - Service Contracts
-  Service Contracts provide functionality which requires 
+  Service Contracts provide functionality which requires
+  cross-contract access of data.
+  
+- PolicyFlow Contracts
+  PolicyFlow Contracts incorporate the business logic of an 
+  insurance policy. Depending on the product, the logic may be 
+  different. One product may offer a prolongation option, while
+  other products don't offer such an option.
+  This product specific behavior can be modeled by specialized 
+  PolicyFlow Contracts.
+  Currently, we support a very generic `PolicyFlowDefault` workflow
+  which already covers a broad range of products.
 	{{/markdown}}
 </template>
 
