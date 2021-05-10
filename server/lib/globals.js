@@ -38,7 +38,7 @@ eth.transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
 
 contracts = {}; // global contracts object
 
-getContract = async (contractName, mode) => {
+getContract = (contractName, mode) => {
 		
 	if (contracts[contractName]) {
 		return contracts[contractName];

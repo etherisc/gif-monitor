@@ -42,7 +42,7 @@ const configs = {
 	policies: {
 		collection: "policies",
 		increment: "policyIdIncrement",
-		storage: await getContract('Policy'),
+		storage: getContract('Policy'),
 		upsert: (id, data) => {
 			Policies.upsert({policy_id: id}, {$set: {
 				policy_id: id,
@@ -56,7 +56,7 @@ const configs = {
 	metadata: {
 		collection: "metadata",
 		increment: "metadataIdIncrement",
-		storage: await getContract('Policy'),
+		storage: getContract('Policy'),
 		upsert: (id, data) => {
 			Metadata.upsert({metadata_id: id}, {$set: {
 				metadata_id: id,
