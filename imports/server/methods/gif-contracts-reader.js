@@ -39,6 +39,7 @@ const loadContracts = async() => {
 					const contractConfig = await gif.artifact.get('platform', 'development', contractName);
 					if (contractConfig.address) {
 						let abi = JSON.parse(contractConfig.abi);
+						abi = typeof abi === 'string' ? JSON.parse(abi) : abi;
 						console.log(typeof abi);
 						// Check if contract is storage with controller
 						if (abi.some(item => item.name === 'assignController')) {
