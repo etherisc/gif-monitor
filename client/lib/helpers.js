@@ -44,11 +44,11 @@ stateMessage = {
 		]
 };
 
-Helpers.policyState = (state) => statemessage.policy[state];
-Helpers.applicationState = (state) => statemessage.application[state];
-Helpers.claimState = (state) => statemessage.claim[state];
-Helpers.policyFlowState = (state) => statemessage.policyFlow[state];
-Helpers.payoutState = (state) => statemessage.payout[state];
+Helpers.policyState = (state) => stateMessage.policy[state];
+Helpers.applicationState = (state) => stateMessage.application[state];
+Helpers.claimState = (state) => stateMessage.claim[state];
+Helpers.policyFlowState = (state) => stateMessage.policyFlow[state];
+Helpers.payoutState = (state) => stateMessage.payout[state];
 
 /********************* INSERT NEW HELPERS ABOVE *************************/
 
