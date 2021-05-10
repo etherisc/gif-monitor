@@ -23,10 +23,7 @@ const reloadSingleItem = async function (config, id) {
 
 	try {
 		const data = sanitizeData(await config.storage[config.collection](id));
-		console.log(data);
-
 		info(`Found ${config.collection} item ${id}`, data);
-
 		config.upsert(id, data);
 
 	} catch (err) {
