@@ -7,11 +7,23 @@ console.log('loading gif-policies-reader.js');
  *	Policies
  *
  */
+
+
+const sanitizeData = (data) => {
+	
+	const keys = Object.keys(data).filter((key) => !isNaN(key));
+	let sanitized = {};
+	keys.forEach(key => sanitized[key] = data[key]);
+	return sanitized;
+	
+}
+
+
 const reloadSingleItem = async function (config, id) {
 
 	try {
-		const data = await config.storage[config.collection](id);
-		console.log(data, Object.keys(data));
+		const data = sanitizeData(await config.storage[config.collection](id))0;
+		console.log(data);
 
 		info(`Found ${config.collection} item ${id}`, data);
 
