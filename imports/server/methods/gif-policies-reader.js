@@ -45,6 +45,9 @@ const loadPoliciesForProduct = async(productId) => {
 
 };
 
+const loadPolicies = () => {
+}
+
 const reloadPolicies = () => {
 
 	Policies.remove({});
