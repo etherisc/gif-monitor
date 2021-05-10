@@ -184,7 +184,7 @@ Router.map(function () {
 	this.route("/products", {name: "products", title: "", controller: "ProductsController"});
 	this.route("/products/details/:productId", {name: "products.details", title: "", controller: "ProductsDetailsController"});
 	this.route("/metadata", {name: "metadata", title: "", controller: "MetadataController"});
-	this.route("/metadata/details/:newParam", {name: "metadata.details", title: "", controller: "MetadataDetailsController"});
+	this.route("/metadata/details/:metadataId", {name: "metadata.details", title: "", controller: "MetadataDetailsController"});
 	this.route("/applications", {name: "applications", title: "", controller: "ApplicationsController"});
 	this.route("/applications/details/:applicationId", {name: "applications.details", title: "", controller: "ApplicationsDetailsController"});
 	this.route("/policies", {name: "policies", title: "", controller: "PoliciesController"});

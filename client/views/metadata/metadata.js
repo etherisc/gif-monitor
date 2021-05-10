@@ -254,7 +254,7 @@ Template.MetadataViewTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("metadata.details", mergeObjects(Router.currentRouteParams(), {metadataSingleId: this._id}));
+		Router.go("metadata.details", mergeObjects(Router.currentRouteParams(), {metadataId: this._id}));
 		return false;
 	},
 
