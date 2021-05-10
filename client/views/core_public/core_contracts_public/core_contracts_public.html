@@ -103,6 +103,9 @@ There are three different types of core contracts:
 
 - Storage Contracts
   Storage Contracts store data and provide the basic accessor functions.
+Storage Contracts implement the delegator pattern, 
+i.e. the on-chain storage is separated from the accessor functionality,
+which can be updated.
   - Registry Contract  
 The `Registry Contract` stores the metadata of all 
 contracts, including itself!
@@ -114,7 +117,7 @@ contracts, including itself!
   The Policy Contract
   
 - Service Contracts
-  - 
+  Service Contracts provide functionality which requires 
 	{{/markdown}}
 </template>
 
