@@ -254,7 +254,7 @@ Template.PoliciesPublicMetadataPublicViewTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("metadata_public.details", mergeObjects(Router.currentRouteParams(), {id: this._id}));
+		Router.go("policies_public.metadata_public.details", mergeObjects(Router.currentRouteParams(), {id: this._id}));
 		return false;
 	},
 
