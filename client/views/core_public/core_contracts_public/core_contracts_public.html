@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> CorePublicCoreContractsPublicView}}
+		{{> CorePublicCoreContractsPublicView}}{{> CorePublicCoreContractsPublicExplanationMd}}
 	</div>
 </template>
 
@@ -91,5 +91,19 @@
 			{{name}}
 		</td>
 	</tr>
+</template>
+
+<template name="CorePublicCoreContractsPublicExplanationMd">
+	{{#markdown}}## What do you see here?
+
+This dialog displays the list of GIF core contracts.
+GIF core contracts are the backbone of the GIF instance.
+
+There are three different types of core contracts: 
+
+1. Storage Contracts
+1.1. Registry Contract
+	The `Registry Contract` stores the metadata of all contracts, including itself!
+	{{/markdown}}
 </template>
 
