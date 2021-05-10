@@ -64,3 +64,8 @@ getContract = async (contractName, mode) => {
 b32s = (b32) => {
 	return ethers.utils.parseBytes32String(b32);
 }
+
+unix2Date = (unixDate) => {
+	
+	return new Date(unixDate * 1000);
+}
