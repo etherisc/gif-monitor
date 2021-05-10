@@ -48,7 +48,7 @@ const loadContracts = async() => {
 								let controllerAbiObj = JSON.parse(JSON.parse(controllerConfig.abi));
 								controllerAbiObj.foreach(item => if (!abiObj.some(it => it.name === item.name)) {
 									abiObj.push(item); 
-								}
+								});
 								abi = JSON.stringify(abiObj);
 							}
 						}						
