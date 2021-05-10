@@ -107,18 +107,17 @@ Storage Contracts implement the delegator pattern,
 i.e. the on-chain storage is separated from the accessor functionality,
 which can be updated.
   - Registry Contract  
-The `Registry Contract` stores the metadata of all 
-contracts, including itself!
   - License Contract
-  The License Contract ...
   - Query Contract
-  The Query Contract ...
   - Policy Contract
-  The Policy Contract
   
 - **Service Contracts**
   Service Contracts provide functionality which requires
   cross-contract access of data.
+  - InstanceOperatorService
+  - ProductService
+  - OracleService
+  - OracleOwnerService
   
 - **PolicyFlow Contracts**
   PolicyFlow Contracts incorporate the business logic of an 
