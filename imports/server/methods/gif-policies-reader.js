@@ -11,8 +11,8 @@ const reloadSinglePolicy = async function (args) {
 
 	try {
 		const Policy = await getContract('Policy');
-		const { productId, policyId } = args;
-		const policy = await Policy.policies(productId, policyId);
+		const { policyId } = args;
+		const policy = await Policy.policies(policyId);
 
 		info(`Found policy ${policyId}`, { policy });
 
@@ -28,7 +28,7 @@ const reloadSinglePolicy = async function (args) {
 	}
 }
 
-const loadPoliciesForProduct = async(productId) => {
+const loadPolicies = async() => {
 
 	try {		
 		const Policy = await getContract('Policy');
@@ -37,16 +37,13 @@ const loadPoliciesForProduct = async(productId) => {
 		info(`Policy: ${policyIdIncrement} policies found`);
 
 		for (var policyId = 1; policyId <= policyIdIncrement; policyId += 1) {
-			await reloadSinglePolicy({ productId, policyId });
+			await reloadSinglePolicy({policyId });
 		}
 	} catch (err) {
 		error(`Error loadPolicies, ${err.message}`);
 	}
 
 };
-
-const loadPolicies = () => {
-}
 
 const reloadPolicies = () => {
 
