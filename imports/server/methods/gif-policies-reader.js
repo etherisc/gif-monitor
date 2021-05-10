@@ -65,7 +65,7 @@ const configs = {
 		}
 	},
 	metadata: {
-		collection: "metadata",
+		collection: "getMetadata",
 		increment: "metadataIdIncrement",
 		storage: getContract('Policy'),
 		upsert: (id, data) => {
