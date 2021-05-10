@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "f98ed07f9dab698cab3bc56217da444ccd5c461c"
+			"checksum": "89b2c7459911a370deb777b7b7474973dbecb3ae"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -358,7 +358,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "8d88b2d686681f9e1f458503c86a101986077b81"
+			"checksum": "aba30c8bceb4ad5aa75df4701d8edeaa53c0b89f"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -686,7 +686,7 @@
 		},
 		{
 			"path": "client/views/metadata/metadata.js",
-			"checksum": "9c4a43b68b8939776b4bec64897681892b9c4901"
+			"checksum": "d4d6fd0cb599efe99cf84b44936e72d5cf94d72f"
 		},
 		{
 			"path": "client/views/metadata/metadata_controller.js",
