@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "eb379281a45947128d079717cf6d5d2e67945637"
+			"checksum": "681873c0d1f252b2e99a69724a2a2db6d73ac619"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -261,6 +261,30 @@
 			"checksum": "ed4e790f3f844e10369b0158d2fa5d67ec57a3b4"
 		},
 		{
+			"path": "client/views/metadata_public/metadata_public.html",
+			"checksum": "817fb068e103a5e538bc3640f7afc5c3ce54cd8d"
+		},
+		{
+			"path": "client/views/metadata_public/metadata_public.js",
+			"checksum": "1da5fcd6e2b42bc4a3be51d569051bc762d6732f"
+		},
+		{
+			"path": "client/views/metadata_public/metadata_public_controller.js",
+			"checksum": "e52367b19a42c20ba9e5fbfb9a77d48ff5ccbbc3"
+		},
+		{
+			"path": "client/views/metadata_public/details/details.html",
+			"checksum": "a71fb9325e0c8388ff5d6f55d3c673cebabb7e2e"
+		},
+		{
+			"path": "client/views/metadata_public/details/details.js",
+			"checksum": "c6d9dd68fd09e2ad375a7f54001ba5da13cb34df"
+		},
+		{
+			"path": "client/views/metadata_public/details/details_controller.js",
+			"checksum": "ae168e8f094f2c47b39f280bae76287d569b4ab8"
+		},
+		{
 			"path": "client/views/home_private/home_private.html",
 			"checksum": "a61dfd500ce6148761f0604cac08b3bdb10f1a6d"
 		},
@@ -274,7 +298,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "618db9fa406b7c3f807de1328864106073f455c6"
+			"checksum": "d74f19d97c2f7e4cf6a976ee4a594b00320273d7"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -598,19 +622,19 @@
 		},
 		{
 			"path": "client/views/metadata/metadata.html",
-			"checksum": "53ad85454263ae1b34df6231fbcb06e719d8ef92"
+			"checksum": "fadcaa28c2212187f194f4080729de850a8029e1"
 		},
 		{
 			"path": "client/views/metadata/metadata.js",
-			"checksum": "0efb16fa0f9ae89e1ea80d2bf4c26d6a490f56e1"
+			"checksum": "9c4a43b68b8939776b4bec64897681892b9c4901"
 		},
 		{
 			"path": "client/views/metadata/metadata_controller.js",
-			"checksum": "c7a3950b9bc05f85fc7adf8f86df0deb9ff4b747"
+			"checksum": "bb754fe145cb273411e5c5d013515f4f7222c199"
 		},
 		{
 			"path": "client/views/metadata/details/details.html",
-			"checksum": "70b918c96847c5fba63416589c0bfc069a523a75"
+			"checksum": "1797e0106d7bc5ae73588e0239a7e11ee3251eec"
 		},
 		{
 			"path": "client/views/metadata/details/details.js",
@@ -618,7 +642,7 @@
 		},
 		{
 			"path": "client/views/metadata/details/details_controller.js",
-			"checksum": "d33c1386b785d1df94019cb803acb86fe799c20f"
+			"checksum": "3397db97d8106537af6a22bf68cad2f1153c367b"
 		},
 		{
 			"path": "client/views/applications/applications.html",
@@ -894,7 +918,7 @@
 		},
 		{
 			"path": "server/publish/metadata.js",
-			"checksum": "1d36aa6b0e30893ca5280d70b104f42f6ebefb99"
+			"checksum": "084b4df56ca1292dd52715136fcde81ad042cb91"
 		},
 		{
 			"path": "both/collections/policies.js",
@@ -1286,6 +1310,8 @@
 		"client/views/logout/",
 		"client/views/metadata/",
 		"client/views/metadata/details/",
+		"client/views/metadata_public/",
+		"client/views/metadata_public/details/",
 		"client/views/not_found/",
 		"client/views/oracle_types/",
 		"client/views/oracle_types/details/",

@@ -1,5 +1,5 @@
-this.MetadataDetailsController = RouteController.extend({
-	template: "MetadataDetails",
+this.MetadataPublicDetailsController = RouteController.extend({
+	template: "MetadataPublicDetails",
 	
 
 	yieldTemplates: {

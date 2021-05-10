@@ -1,17 +1,17 @@
-<template name="Metadata">
+<template name="MetadataPublic">
 	<div class="page-container container" id="content">
 		<div class="row" id="title_row">
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> MetadataView}}
+		{{> MetadataPublicView}}
 	</div>
 </template>
 
-<template name="MetadataView">
-	<div id="metadata-view" class="">
+<template name="MetadataPublicView">
+	<div id="metadata-public-view" class="">
 		<h2 id="component-title">
-			Metadata
+			Mdsp
 		</h2>
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-search">
@@ -24,12 +24,11 @@
 						</button>
 					</span>
 				</div>
-				{{> MetadataViewCustomActions}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
-			{{#if viewAsTable}} {{> MetadataViewTable}} {{/if}}
+			{{#if viewAsTable}} {{> MetadataPublicViewTable}} {{/if}}
 		</div>
 		<nav aria-label="...">
 			<ul class="pager">
@@ -65,7 +64,7 @@
 	</div>
 </template>
 
-<template name="MetadataViewTable">
+<template name="MetadataPublicViewTable">
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
@@ -93,12 +92,12 @@
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
-			{{#each metadata_list_paged}} {{> MetadataViewTableItems}} {{/each}}
+			{{#each metadata_list_paged}} {{> MetadataPublicViewTableItems}} {{/each}}
 		</tbody>
 	</table>
 </template>
 
-<template name="MetadataViewTableItems">
+<template name="MetadataPublicViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
 			{{metadata_id}}
@@ -122,11 +121,5 @@
 			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
 		</td>
 	</tr>
-</template>
-
-<template name="MetadataViewCustomActions">
-	<button class="btn btn-warning" id="btn-reload">
-		Reload Metadata
-	</button>
 </template>
 
