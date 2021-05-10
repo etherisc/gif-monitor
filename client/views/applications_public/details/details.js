@@ -1,14 +1,14 @@
 var pageSession = new ReactiveDict();
 
-Template.ApplicationsDetails.onCreated(function() {
+Template.ApplicationsPublicDetails.onCreated(function() {
 	
 });
 
-Template.ApplicationsDetails.onDestroyed(function() {
+Template.ApplicationsPublicDetails.onDestroyed(function() {
 	
 });
 
-Template.ApplicationsDetails.onRendered(function() {
+Template.ApplicationsPublicDetails.onRendered(function() {
 	
 	Meteor.defer(function() {
 		globalOnRendered();
@@ -16,27 +16,27 @@ Template.ApplicationsDetails.onRendered(function() {
 	});
 });
 
-Template.ApplicationsDetails.events({
+Template.ApplicationsPublicDetails.events({
 	
 });
 
-Template.ApplicationsDetails.helpers({
+Template.ApplicationsPublicDetails.helpers({
 	
 });
 
-Template.ApplicationsDetailsForm.onCreated(function() {
+Template.ApplicationsPublicDetailsForm.onCreated(function() {
 	
 });
 
-Template.ApplicationsDetailsForm.onDestroyed(function() {
+Template.ApplicationsPublicDetailsForm.onDestroyed(function() {
 	
 });
 
-Template.ApplicationsDetailsForm.onRendered(function() {
+Template.ApplicationsPublicDetailsForm.onRendered(function() {
 	
 
-	pageSession.set("applicationsDetailsFormInfoMessage", "");
-	pageSession.set("applicationsDetailsFormErrorMessage", "");
+	pageSession.set("applicationsPublicDetailsFormInfoMessage", "");
+	pageSession.set("applicationsPublicDetailsFormErrorMessage", "");
 
 	$(".input-group.date").each(function() {
 		var format = $(this).find("input[type='text']").attr("data-format");
@@ -64,25 +64,25 @@ Template.ApplicationsDetailsForm.onRendered(function() {
 	$("input[autofocus]").focus();
 });
 
-Template.ApplicationsDetailsForm.events({
+Template.ApplicationsPublicDetailsForm.events({
 	"submit": function(e, t) {
 		e.preventDefault();
-		pageSession.set("applicationsDetailsFormInfoMessage", "");
-		pageSession.set("applicationsDetailsFormErrorMessage", "");
+		pageSession.set("applicationsPublicDetailsFormInfoMessage", "");
+		pageSession.set("applicationsPublicDetailsFormErrorMessage", "");
 
 		var self = this;
 
 		function submitAction(result, msg) {
-			var applicationsDetailsFormMode = "read_only";
+			var applicationsPublicDetailsFormMode = "read_only";
 			if(!t.find("#form-cancel-button")) {
-				switch(applicationsDetailsFormMode) {
+				switch(applicationsPublicDetailsFormMode) {
 					case "insert": {
 						$(e.target)[0].reset();
 					}; break;
 
 					case "update": {
 						var message = msg || "Saved.";
-						pageSession.set("applicationsDetailsFormInfoMessage", message);
+						pageSession.set("applicationsPublicDetailsFormInfoMessage", message);
 					}; break;
 				}
 			}
@@ -93,7 +93,7 @@ Template.ApplicationsDetailsForm.events({
 		function errorAction(msg) {
 			msg = msg || "";
 			var message = msg.message || msg || "Error.";
-			pageSession.set("applicationsDetailsFormErrorMessage", message);
+			pageSession.set("applicationsPublicDetailsFormErrorMessage", message);
 		}
 
 		validateForm(
@@ -134,12 +134,12 @@ Template.ApplicationsDetailsForm.events({
 	
 });
 
-Template.ApplicationsDetailsForm.helpers({
+Template.ApplicationsPublicDetailsForm.helpers({
 	"infoMessage": function() {
-		return pageSession.get("applicationsDetailsFormInfoMessage");
+		return pageSession.get("applicationsPublicDetailsFormInfoMessage");
 	},
 	"errorMessage": function() {
-		return pageSession.get("applicationsDetailsFormErrorMessage");
+		return pageSession.get("applicationsPublicDetailsFormErrorMessage");
 	}
 	
 });
