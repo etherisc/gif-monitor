@@ -46,6 +46,7 @@ const loadContracts = async() => {
 							if (controllerConfig.address) {
 								info(`${contractName} is Storage with controller ${contractName}Controller; enriching ABI..`, {controllerAddress: controllerConfig.address});
 								abi = abi.concat(JSON.parse(controllerConfig.abi));
+							}
 						}						
 						info(`Inserting contract ${contractName} at ${contractAddress}`);
 						Contracts.insert({
