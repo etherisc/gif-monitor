@@ -13,11 +13,16 @@ Meteor.methods({
 	"logger.error": logger.method_error,
 	"logger.warning": logger.method_warning,
 	"logger.clear": logger.method_clear,
+	
 	"reload.events": reloadEvents,
 	"reload.contracts": reloadContracts,
 	"reload.oracles": reloadOracles,
+
 	"reload.products": reloadProducts,
 	"product.reload": reloadSingleProduct,
 	"reload.policies": reloadPolicies,
 	"policy.reload": reloadSinglePolicy
+	"reload.metadata": reloadMetadata,
+	"metadata.reload": reloadSingleMetadata
+
 });
