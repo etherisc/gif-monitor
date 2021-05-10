@@ -1,12 +1,12 @@
-Template.Applications.onCreated(function() {
+Template.ApplicationsPublic.onCreated(function() {
 	
 });
 
-Template.Applications.onDestroyed(function() {
+Template.ApplicationsPublic.onDestroyed(function() {
 	
 });
 
-Template.Applications.onRendered(function() {
+Template.ApplicationsPublic.onRendered(function() {
 	
 	Meteor.defer(function() {
 		globalOnRendered();
@@ -14,16 +14,16 @@ Template.Applications.onRendered(function() {
 	});
 });
 
-Template.Applications.events({
+Template.ApplicationsPublic.events({
 	
 });
 
-Template.Applications.helpers({
+Template.ApplicationsPublic.helpers({
 	
 });
 
 
-var ApplicationsViewExport = function(fileType) {
+var ApplicationsPublicViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ApplicationListPagedSearchString") || "",
 		searchFields: Session.get("ApplicationListPagedSearchFields") || ["application_id", "metadata_id", "premium", "currency", "payout_options", "state", "state_message", "created_at", "updated_at", "metadata_mongo_id"],
@@ -46,20 +46,20 @@ var ApplicationsViewExport = function(fileType) {
 	});
 };
 
-Template.ApplicationsView.onCreated(function() {
+Template.ApplicationsPublicView.onCreated(function() {
 	
 });
 
-Template.ApplicationsView.onDestroyed(function() {
+Template.ApplicationsPublicView.onDestroyed(function() {
 	
 });
 
-Template.ApplicationsView.onRendered(function() {
-	Session.set("ApplicationsViewStyle", "table");
+Template.ApplicationsPublicView.onRendered(function() {
+	Session.set("ApplicationsPublicViewStyle", "table");
 	
 });
 
-Template.ApplicationsView.events({
+Template.ApplicationsPublicView.events({
 	"submit #dataview-controls": function(e, t) {
 		return false;
 	},
@@ -120,22 +120,22 @@ Template.ApplicationsView.events({
 
 	"click #dataview-export-default": function(e, t) {
 		e.preventDefault();
-		ApplicationsViewExport.call(this, "csv");
+		ApplicationsPublicViewExport.call(this, "csv");
 	},
 
 	"click #dataview-export-csv": function(e, t) {
 		e.preventDefault();
-		ApplicationsViewExport.call(this, "csv");
+		ApplicationsPublicViewExport.call(this, "csv");
 	},
 
 	"click #dataview-export-tsv": function(e, t) {
 		e.preventDefault();
-		ApplicationsViewExport.call(this, "tsv");
+		ApplicationsPublicViewExport.call(this, "tsv");
 	},
 
 	"click #dataview-export-json": function(e, t) {
 		e.preventDefault();
-		ApplicationsViewExport.call(this, "json");
+		ApplicationsPublicViewExport.call(this, "json");
 	},
 
 	"click .prev-page-link": function(e, t) {
@@ -157,7 +157,7 @@ Template.ApplicationsView.events({
 	
 });
 
-Template.ApplicationsView.helpers({
+Template.ApplicationsPublicView.helpers({
 
 	"insertButtonClass": function() {
 		return Applications.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
@@ -182,35 +182,35 @@ Template.ApplicationsView.helpers({
 		return Session.get("ApplicationListPagedSearchString");
 	},
 	"viewAsTable": function() {
-		return Session.get("ApplicationsViewStyle") == "table";
+		return Session.get("ApplicationsPublicViewStyle") == "table";
 	},
 	"viewAsBlog": function() {
-		return Session.get("ApplicationsViewStyle") == "blog";
+		return Session.get("ApplicationsPublicViewStyle") == "blog";
 	},
 	"viewAsList": function() {
-		return Session.get("ApplicationsViewStyle") == "list";
+		return Session.get("ApplicationsPublicViewStyle") == "list";
 	},
 	"viewAsGallery": function() {
-		return Session.get("ApplicationsViewStyle") == "gallery";
+		return Session.get("ApplicationsPublicViewStyle") == "gallery";
 	}
 
 	
 });
 
 
-Template.ApplicationsViewTable.onCreated(function() {
+Template.ApplicationsPublicViewTable.onCreated(function() {
 	
 });
 
-Template.ApplicationsViewTable.onDestroyed(function() {
+Template.ApplicationsPublicViewTable.onDestroyed(function() {
 	
 });
 
-Template.ApplicationsViewTable.onRendered(function() {
+Template.ApplicationsPublicViewTable.onRendered(function() {
 	
 });
 
-Template.ApplicationsViewTable.events({
+Template.ApplicationsPublicViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
 		var oldSortBy = Session.get("ApplicationListPagedSortBy");
@@ -229,23 +229,23 @@ Template.ApplicationsViewTable.events({
 	}
 });
 
-Template.ApplicationsViewTable.helpers({
+Template.ApplicationsPublicViewTable.helpers({
 });
 
 
-Template.ApplicationsViewTableItems.onCreated(function() {
+Template.ApplicationsPublicViewTableItems.onCreated(function() {
 	
 });
 
-Template.ApplicationsViewTableItems.onDestroyed(function() {
+Template.ApplicationsPublicViewTableItems.onDestroyed(function() {
 	
 });
 
-Template.ApplicationsViewTableItems.onRendered(function() {
+Template.ApplicationsPublicViewTableItems.onRendered(function() {
 	
 });
 
-Template.ApplicationsViewTableItems.events({
+Template.ApplicationsPublicViewTableItems.events({
 	
 
 	"click td": function(e, t) {
@@ -312,7 +312,7 @@ Template.ApplicationsViewTableItems.events({
 	}
 });
 
-Template.ApplicationsViewTableItems.helpers({
+Template.ApplicationsPublicViewTableItems.helpers({
 	
 
 	"checked": function(value) { return value ? "checked" : "" }, 
@@ -323,29 +323,4 @@ Template.ApplicationsViewTableItems.helpers({
 	"deleteButtonClass": function() {
 		return Applications.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
-});
-
-Template.ApplicationsViewCustomActions.created = function() {
-
-};
-
-Template.ApplicationsViewCustomActions.destroyed = function() {
-
-};
-
-Template.ApplicationsViewCustomActions.rendered = function() {
-
-};
-
-Template.ApplicationsViewCustomActions.helpers({
-
-});
-
-Template.ApplicationsViewCustomActions.events({
-	"click #btn-reload": function (e,t) {
-		e.preventDefault();
-
-		Meteor.call('reload.applications');
-	}
-
 });

@@ -26,8 +26,8 @@ Router.publicRoutes = [
 	"products_public.details",
 	"metadata_public",
 	"metadata_public.details",
-	"applications",
-	"applications.details"
+	"applications_public",
+	"applications_public.details"
 ];
 
 Router.privateRoutes = [
@@ -147,8 +147,8 @@ Router.map(function () {
 	this.route("/products_public/details/:productId", {name: "products_public.details", title: "", controller: "ProductsPublicDetailsController"});
 	this.route("/metadata_public", {name: "metadata_public", title: "", controller: "MetadataPublicController"});
 	this.route("/metadata_public/details/:id", {name: "metadata_public.details", title: "", controller: "MetadataPublicDetailsController"});
-	this.route("/applications", {name: "applications", title: "", controller: "ApplicationsController"});
-	this.route("/applications/details/:applicationId", {name: "applications.details", title: "", controller: "ApplicationsDetailsController"});
+	this.route("/applications_public", {name: "applications_public", title: "", controller: "ApplicationsPublicController"});
+	this.route("/applications_public/details/:applicationId", {name: "applications_public.details", title: "", controller: "ApplicationsPublicDetailsController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});
