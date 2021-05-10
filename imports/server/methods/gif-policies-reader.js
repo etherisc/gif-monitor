@@ -74,9 +74,17 @@ const configs = {
 		upsert: (id, data) => {
 			Metadata.upsert({metadata_id: id}, {$set: {
 				metadata_id: id,
+				product_id: data.productId.toNumber(),
+				application_id: data.applicationId.toNumber(),
+				policy_id: data.policyId.toNumber(),
+				has_policy: data.hasPolicy,
+				has_application: data.hasApplication,
+				token_contract: data.tokenContract,
+				registry_contract: data.registryContract,
+				release: data.release.toNumber(),
 				state: data.state,
-				metadata_id: data.metadataId.toNumber(),
 				state_message: b32s(data.stateMessage),
+				bp_external_key: data.bpExternalKey,
 				created_at: unix2Date(data.createdAt),
 				updated_at: unix2Date(data.updatedAt)			
 			}})
