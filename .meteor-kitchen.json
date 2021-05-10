@@ -274,7 +274,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "03811c2e8d3a790498780852f3a0992bb5c5aec9"
+			"checksum": "8700396524537d9bae52ae0d64faba2ea463fcc3"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -978,7 +978,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "357799f72bfab989116f25925260a0e9aa3a8d05"
+			"checksum": "61c51c73980cc381c7ee8989c8bfab1cbdc9ce39"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
@@ -990,7 +990,7 @@
 		},
 		{
 			"path": "server/lib/globals.js",
-			"checksum": "2047697f6261ea7978ac9b3f89c1b0cc88d1cb39"
+			"checksum": "c63e1087107f33f12094e4fe09075326d89a9379"
 		},
 		{
 			"path": "imports/server/methods/blockscout.js",
