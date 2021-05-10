@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> CorePublicCoreContractsPublicDetailsForm}}
+		{{> CorePublicCoreContractsPublicDetailsForm}}{{> CorePublicCoreContractsPublicDetailsExplanationMd}}
 	</div>
 </template>
 
@@ -68,5 +68,14 @@
 			</div>
 		</form>
 	</div>
+</template>
+
+<template name="CorePublicCoreContractsPublicDetailsExplanationMd">
+	{{#markdown}}## What do you see here? ##
+
+This dialog shows the details of a core contract.
+To view the ABI (Application Binary Interface), click on the grey twister triangles.
+This will open the next level of the ABI JSON.
+{{/markdown}}
 </template>
 
