@@ -21,7 +21,7 @@ Meteor.methods({
 	"reload.products": reloadProducts,
 	"product.reload": reloadSingleProduct,
 	"reload.policies": reloadPolicies,
-	"policy.reload": reloadSinglePolicy
+	"policy.reload": reloadSinglePolicy,
 	"reload.metadata": reloadMetadata,
 	"metadata.reload": reloadSingleMetadata
 
