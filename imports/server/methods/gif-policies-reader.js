@@ -11,7 +11,7 @@ console.log('loading gif-policies-reader.js');
 
 const sanitizeData = (data) => {
 	
-	const keys = Object.keys(data).filter((key) => !isNaN(key));
+	const keys = Object.keys(data).filter((key) => isNaN(key));
 	let sanitized = {};
 	keys.forEach(key => sanitized[key] = data[key]);
 	return sanitized;
