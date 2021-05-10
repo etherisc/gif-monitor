@@ -52,7 +52,8 @@ const configs = {
 				created_at: unix2Date(data.createdAt),
 				updated_at: unix2Date(data.updatedAt)			
 			}})
-		},
+		}
+	},
 	metadata: {
 		collection: "metadata",
 		increment: "metadataIdIncrement",
