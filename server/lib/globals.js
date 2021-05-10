@@ -77,4 +77,4 @@ unix2Date = (unixDate) => {
 	return new Date(unixDate * 1000);
 }
 
-toEther = (wei) => ethers.utils.formatEther(wei);
+toEther = (wei) => Math.round(ethers.utils.formatEther(wei) * 100.0) / 100.0;
