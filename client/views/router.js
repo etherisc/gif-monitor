@@ -150,7 +150,7 @@ Router.map(function () {
 	this.route("/products_public/details/:productId", {name: "products_public.details", title: "", controller: "ProductsPublicDetailsController"});
 	this.route("/policies_public", {name: "policies_public", title: "", controller: "PoliciesPublicController"});
 	this.route("/policies_public/metadata_public", {name: "policies_public.metadata_public", title: "", controller: "PoliciesPublicMetadataPublicController"});
-	this.route("/policies_public/metadata_public/details/:id", {name: "policies_public.metadata_public.details", title: "", controller: "PoliciesPublicMetadataPublicDetailsController"});
+	this.route("/policies_public/metadata_public/details/:metadataId", {name: "policies_public.metadata_public.details", title: "", controller: "PoliciesPublicMetadataPublicDetailsController"});
 	this.route("/policies_public/applications_public", {name: "policies_public.applications_public", title: "", controller: "PoliciesPublicApplicationsPublicController"});
 	this.route("/policies_public/applications_public/details/:applicationId", {name: "policies_public.applications_public.details", title: "", controller: "PoliciesPublicApplicationsPublicDetailsController"});
 	this.route("/policies_public/policies_public", {name: "policies_public.policies_public", title: "", controller: "PoliciesPublicPoliciesPublicController"});
@@ -184,7 +184,7 @@ Router.map(function () {
 	this.route("/products", {name: "products", title: "", controller: "ProductsController"});
 	this.route("/products/details/:productId", {name: "products.details", title: "", controller: "ProductsDetailsController"});
 	this.route("/metadata", {name: "metadata", title: "", controller: "MetadataController"});
-	this.route("/metadata/details/:metadataSingleId", {name: "metadata.details", title: "", controller: "MetadataDetailsController"});
+	this.route("/metadata/details/:newParam", {name: "metadata.details", title: "", controller: "MetadataDetailsController"});
 	this.route("/applications", {name: "applications", title: "", controller: "ApplicationsController"});
 	this.route("/applications/details/:applicationId", {name: "applications.details", title: "", controller: "ApplicationsDetailsController"});
 	this.route("/policies", {name: "policies", title: "", controller: "PoliciesController"});

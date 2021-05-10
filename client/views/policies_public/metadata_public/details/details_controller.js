@@ -22,7 +22,7 @@ this.PoliciesPublicMetadataPublicDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("metadata", this.params.id)
+			Meteor.subscribe("metadata", this.params.metadataId)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -37,7 +37,7 @@ this.PoliciesPublicMetadataPublicDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			metadata: Metadata.findOne({_id:this.params.id}, {})
+			metadata: Metadata.findOne({_id:this.params.metadataId}, {})
 		};
 		
 
