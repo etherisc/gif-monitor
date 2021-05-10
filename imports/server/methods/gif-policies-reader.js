@@ -11,9 +11,9 @@ const reloadSingleItem = async function (config, id) {
 
 	try {
 		const data = await config.storage[config.collection](id);
-		console.log(data);
+		console.log(data, Object.keys(data));
 
-		info(`Found ${config.collection} item ${id}`, { data });
+		info(`Found ${config.collection} item ${id}`, data);
 
 		config.upsert(id, data);
 
