@@ -19,6 +19,7 @@ const reloadSinglePolicy = async function (args) {
 		Policies.upsert({policy_id: policyId}, {$set: {
 			policy_id: policyId,
 			state: policy.state,
+			metadata_id: policy.metadataId,
 			state_message: b32s(policy.stateMessage),
 			created_at: unix2Date(policy.createdAt),
 			updated_at: unix2Date(policy.updatedAt)			
