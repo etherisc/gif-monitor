@@ -324,3 +324,4 @@ Template.CorePublicCoreContractsPublicViewTableItems.helpers({
 		return Contracts.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+
