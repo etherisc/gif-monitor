@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/core_contracts_public.html",
-			"checksum": "122417736459cc1312dc707ce82c1bb1c7992dd8"
+			"checksum": "11207163019f42fc059cf4fe768185091a3e2e57"
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/core_contracts_public.js",
@@ -358,7 +358,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "f159b04390ec3bf0a73a7360334d25bec5f6e5ce"
+			"checksum": "720ad9a698d89052f9003d61354adb0daa1ca4ab"
 		},
 		{
 			"path": "client/views/admin/admin.js",
