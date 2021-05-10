@@ -46,7 +46,7 @@ const loadContracts = async() => {
 							if (controllerConfig.address) {
 								info(`${contractName} is Storage with controller ${contractName}Controller; enriching ABI..`, {controllerAddress: controllerConfig.address});
 								let controllerAbiObj = JSON.parse(JSON.parse(controllerConfig.abi));
-								controllerAbiObj.foreach(item => { if (!abiObj.some((it) => it.name === item.name)) {
+								controllerAbiObj.forEach(item => { if (!abiObj.some((it) => it.name === item.name)) {
 									abiObj.push(item); 
 								}});
 								abi = JSON.stringify(abiObj);
