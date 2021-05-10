@@ -45,7 +45,7 @@ const loadContracts = async() => {
 							const controllerConfig = await gif.artifact.get('platform', 'development', contractName + 'Controller');
 							if (controllerConfig.address) {
 								info(`${contractName} is Storage with controller ${contractName}Controller; enriching ABI..`, {controllerAddress: controllerConfig.address});
-								abiObj = abiObj.concat(JSON.parse(controllerConfig.abi));
+								abiObj = abiObj.concat(JSON.parse(JSON.parse(controllerConfig.abi)));
 								abi = JSON.stringify(abiObj);
 							}
 						}						
