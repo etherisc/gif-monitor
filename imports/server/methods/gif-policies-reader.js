@@ -14,7 +14,7 @@ const reloadSingleItem = async function (config, id) {
 
 		info(`Found ${config.collection} item ${id}`, { data });
 
-		config.callback(id, data);
+		config.upsert(id, data);
 
 	} catch (err) {
 		error(`Error ReloadSingleItem, ${err.message}`, {message: err.message, stack: err.stack});
