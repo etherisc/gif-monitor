@@ -58,7 +58,7 @@ const loadContracts = async() => {
 						});
 					}
 				} catch(e) {
-					error(`Error loading contract ${contractName}`, e);
+					error(`Error loading contract ${contractName}`, {message: e.message, stack: e.stack});
 				}
 			}
 		}
