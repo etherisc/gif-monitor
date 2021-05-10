@@ -58,7 +58,7 @@ setProductPaused = async (productId, pause) => {
 
 	info(`Trying to ${pause ? 'pause' : 'unpause'} product #${productId} ${product.name}`, product);
 
-	if((pause && !product.paused) || (!pause && product.paused) {
+	if((pause && !product.paused) || (!pause && product.paused)) {
 		try {
 			const res = await ios.setProductPaused(productId, pause)
 			info(`Transaction submitted`, res);
