@@ -13,7 +13,7 @@ const loadOracles = async() => {
 		const oracleTypeNamesIncrement = await Query.oracleTypeNamesIncrement();
 		info(`${ oracleTypeNamesIncrement - 1 } OracleTypes found`);
 
-		for (var oracleTypeIndex = 0; oracleTypeIndex < oracleTypeNamesIncrement - 1; oracleTypeIndex += 1) {
+		for (var oracleTypeIndex = 1; oracleTypeIndex < oracleTypeNamesIncrement; oracleTypeIndex += 1) {
 			const oracleTypeNameB32 = await Query.oracleTypeNames(oracleTypeIndex);
 			const oracleTypeName = b32s(oracleTypeNameB32);
 			const oracleType = await Query.oracleTypes(oracleTypeNameB32);
