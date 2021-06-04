@@ -192,9 +192,10 @@ Template.CorePublicCoreContractsPublicView.helpers({
 	},
 	"viewAsGallery": function() {
 		return Session.get("CorePublicCoreContractsPublicViewStyle") == "gallery";
-	}
+	}, 
 
-	
+	/** Helpers **/
+
 });
 
 

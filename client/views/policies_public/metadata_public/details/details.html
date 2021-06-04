@@ -29,13 +29,23 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-metadata_id">
-				<label for="metadata_id" class="col-sm-3 control-label">
-					Metadata Id
+			<div class="form-group  field-bp_external_key">
+				<label for="bp_external_key" class="col-sm-3 control-label">
+					Bp External Key
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-metadata_id">
-						{{metadata.metadata_id}}
+					<p class="form-control-static  control-field-bp_external_key">
+						{{metadata.bp_external_key}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-product_id">
+				<label for="product_id" class="col-sm-3 control-label">
+					Product Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-product_id">
+						{{metadata.product_id}}
 					</p>
 				</div>
 			</div>
@@ -99,16 +109,6 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-token">
-				<label for="token" class="col-sm-3 control-label">
-					Token
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-token">
-						{{metadata.token}}
-					</p>
-				</div>
-			</div>
 			<div class="form-group  field-registry">
 				<label for="registry" class="col-sm-3 control-label">
 					Registry
@@ -116,6 +116,16 @@
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-registry">
 						{{metadata.registry}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-token">
+				<label for="token" class="col-sm-3 control-label">
+					Token
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-token">
+						{{metadata.token}}
 					</p>
 				</div>
 			</div>
@@ -136,16 +146,6 @@
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-state">
 						{{metadata.state}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-bp_external_key">
-				<label for="bp_external_key" class="col-sm-3 control-label">
-					Bp External Key
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-bp_external_key">
-						{{metadata.bp_external_key}}
 					</p>
 				</div>
 			</div>

@@ -324,3 +324,4 @@ Template.ProductsPublicViewTableItems.helpers({
 		return Products.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+

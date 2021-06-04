@@ -324,3 +324,4 @@ Template.OraclesPublicOracleTypesPublicViewTableItems.helpers({
 		return OracleTypes.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+

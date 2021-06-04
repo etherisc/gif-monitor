@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> PoliciesPublicPoliciesPublicView}}
+		{{> PoliciesPublicPoliciesPublicView}}{{> PoliciesPublicPoliciesPublicExplanationMd}}
 	</div>
 </template>
 
@@ -109,5 +109,18 @@
 			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
 		</td>
 	</tr>
+</template>
+
+<template name="PoliciesPublicPoliciesPublicExplanationMd">
+	{{#markdown}}## What do you see here? ##
+
+This dialog shows the currently stored policies. Policies have two possible statuses:
+
+* active - this is the state of a policy which can be claimed (either full or partially)
+* expired - this is the state of a policy which cannot be claimed any more.
+
+
+For more details, please click on an item.
+{{/markdown}}
 </template>
 

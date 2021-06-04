@@ -23,7 +23,7 @@ this.CorePublicCoreContractsPublicController = RouteController.extend({
 			sortBy: Session.get("ContractListPagedSortBy") || "",
 			sortAscending: Session.get("ContractListPagedSortAscending"),
 			pageNo: Session.get("ContractListPagedPageNo") || 0,
-			pageSize: Session.get("ContractListPagedPageSize") || 0
+			pageSize: Session.get("ContractListPagedPageSize") || 20
 		};
 
 
