@@ -33,6 +33,9 @@ logger.info = logger._logline('info');
 logger.error = logger._logline('error');
 logger.warning = logger._logline('warning');
 
+info = (message, args) => logger.info(message, args, 'server');
+warning = (message, args) => logger.warning(message, args, 'server');
+error = (message, args) => logger.error(message, args, 'server');
 
 logger.method_info = function (args) { 
 	logger.info(args.message, args.args, args.source);

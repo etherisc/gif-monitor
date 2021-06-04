@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> PoliciesPublicMetadataPublicView}}
+		{{> PoliciesPublicMetadataPublicView}}{{> PoliciesPublicMetadataPublicExplanationMd}}
 	</div>
 </template>
 
@@ -68,8 +68,8 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="metadata_id">
-					Metadata Id
+				<th class="th-sortable" data-sort="product_id">
+					Product Id
 				</th>
 				<th class="th-sortable" data-sort="application_id">
 					Application Id
@@ -100,7 +100,7 @@
 <template name="PoliciesPublicMetadataPublicViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{metadata_id}}
+			{{product_id}}
 		</td>
 		<td>
 			{{application_id}}
@@ -121,5 +121,20 @@
 			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
 		</td>
 	</tr>
+</template>
+
+<template name="PoliciesPublicMetadataPublicExplanationMd">
+	{{#markdown}}## What do you see here? ##
+
+For each policy, we generate a business process which collects the data needed for the different 
+stages of a policy, from application, underwriting, claims handling and payouts.
+
+The data which is common for all stages is called "Metadata". Data which is specific for a stage
+is stored in additional "Application, "Policy", "Claim" and "Payout" objects.
+
+This dialog shows a list of metadata objects of all business processes. 
+
+For more details, please click on an item.
+{{/markdown}}
 </template>
 

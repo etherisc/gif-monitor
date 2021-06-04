@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> CorePublicEventsPublicView}}
+		{{> CorePublicEventsPublicView}}{{> CorePublicEventsPublicExplanationMd}}
 	</div>
 </template>
 
@@ -109,5 +109,33 @@
 			{{event}}
 		</td>
 	</tr>
+</template>
+
+<template name="CorePublicEventsPublicExplanationMd">
+	{{#markdown}}## What do you see here? ##
+
+This dialog shows the events of the core contracts.
+Events are a part of the Ethereum protocol. They are emitted by smart contracts during
+code execution and they are stored permanently on chain. They can be read without any cost.
+Typically, they are used to document important changes in the smart contracts data, the "state".
+
+Some events which are used in the GIF core contracts: 
+
+| Contract | Event | Description |
+| -------- | ----- | ----------- |
+| License | LogNewProduct | A new product is created. |
+| License | LogProductSetApproved | A product has been approved. | 
+| License | LogProductSetPaused | A product has been paused = temporarily deactivated |
+| Policy | LogApplicationStateChanged | An application has changed state, e.g. from "approved" to "underwritten" |
+| Policy | LogNewApplication | A new application has been registered. |
+| Policy | LogNewPolicy | A new policy has been created. |
+| Query | LogOracleActivated | An oracle has been activated. |
+| Query | LogOracleAssignedToOracleType | An oracle has been assigned to an oracle type. |
+| Query | LogOracleProposed | A new oracle has been proposed. |
+| Query	| LogOracleProposedToOracleType | An oracle has been proposed to an oracle type. |
+| Query | LogOracleResponded | An oracle has responded to a request. |
+| Query	| LogOracleTypeActivated | An oracle type has been activated. |
+| Query	| LogOracleTypeProposed | A new oracle type has been proposed. |
+| Registry | LogContractRegistered | A core contract has been registered in the Registry | {{/markdown}}
 </template>
 

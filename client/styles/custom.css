@@ -1,0 +1,48 @@
+#home-image {
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+ border-radius: 6px;
+ background-color: #fff;
+}
+
+.navbar-default .navbar-brand {
+ color: #fff;
+}
+
+.navbar-default {
+ background-color: #5081F4 ;
+ border-color: #5081F4;
+}
+
+body {
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+a {
+    color: #104fb5;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1e61f6;
+    border-color: #1e61f6;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+ color: #fff;
+ background-color: #1e61f6;
+}
+
+.navbar-default .navbar-nav > li > a {
+ color: #fff;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+ color: #fff;
+ background-color: #1e61f6;
+}

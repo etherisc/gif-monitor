@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> OraclesPublicOracleTypesPublicView}}
+		{{> OraclesPublicOracleTypesPublicView}}{{> OraclesPublicOracleTypesPublicExplanationMd}}
 	</div>
 </template>
 
@@ -127,5 +127,20 @@
 			{{index}}
 		</td>
 	</tr>
+</template>
+
+<template name="OraclesPublicOracleTypesPublicExplanationMd">
+	{{#markdown}}## What do you see here? ##
+
+This dialog shows the available oracle types. An oracle type describes
+a whole class of similar oracles, i.e. oracles which take a specific input format
+and deliver a specific callback format.
+
+Oracles can be assigned to oracle types, and products can request oracles which
+have the right signature for their purpose.
+
+The input and callback formats are defined by Solidity's `abi.encode` function described in the 
+[Solidity documentation](https://docs.soliditylang.org/en/latest/units-and-global-variables.html?highlight=abi%20encode#abi-encoding-and-decoding-functions).
+{{/markdown}}
 </template>
 

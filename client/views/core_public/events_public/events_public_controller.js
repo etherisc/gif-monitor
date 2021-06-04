@@ -23,7 +23,7 @@ this.CorePublicEventsPublicController = RouteController.extend({
 			sortBy: Session.get("EventListPagedSortBy") || "",
 			sortAscending: Session.get("EventListPagedSortAscending"),
 			pageNo: Session.get("EventListPagedPageNo") || 0,
-			pageSize: Session.get("EventListPagedPageSize") || 0
+			pageSize: Session.get("EventListPagedPageSize") || 20
 		};
 
 

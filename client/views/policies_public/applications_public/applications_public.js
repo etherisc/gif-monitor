@@ -324,3 +324,4 @@ Template.PoliciesPublicApplicationsPublicViewTableItems.helpers({
 		return Applications.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+

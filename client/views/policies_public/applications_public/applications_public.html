@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> PoliciesPublicApplicationsPublicView}}
+		{{> PoliciesPublicApplicationsPublicView}}{{> PoliciesPublicApplicationsPublicExplanationMd}}
 	</div>
 </template>
 
@@ -127,5 +127,19 @@
 			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
 		</td>
 	</tr>
+</template>
+
+<template name="PoliciesPublicApplicationsPublicExplanationMd">
+	{{#markdown}}## What do you see here? ##
+
+The first stage of every business process is called "Application". 
+The application contains already all details needed for countersigning by the insurance.
+An application can either be declined or underwritten. 
+
+After underwriting, an application is turned into an active policy, which represents
+the actual risk transfer.
+
+For more details, please click on an item.
+{{/markdown}}
 </template>
 

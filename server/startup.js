@@ -9,10 +9,6 @@ import { loadOracles } from '/imports/server/methods/gif-oracles-reader.js';
 import { loadProducts } from '/imports/server/methods/gif-products-reader.js';
 import { addListeners } from '/imports/server/methods/event-listeners.js';
 
-info = (message, args) => logger.info(message, args, 'server');
-warning = (message, args) => logger.warning(message, args, 'server');
-error = (message, args) => logger.error(message, args, 'server');
-
 loadContracts()
 	.then(() => loadEvents())
 	.then(() => loadOracles())

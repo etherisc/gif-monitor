@@ -22,6 +22,26 @@ Template.HomePublic.helpers({
 	
 });
 
+Template.HomePublicSpacer.created = function() {
+
+};
+
+Template.HomePublicSpacer.destroyed = function() {
+
+};
+
+Template.HomePublicSpacer.rendered = function() {
+
+};
+
+Template.HomePublicSpacer.helpers({
+
+});
+
+Template.HomePublicSpacer.events({
+
+});
+
 Template.HomePublicHomeJumbotron.onCreated(function() {
 	
 });

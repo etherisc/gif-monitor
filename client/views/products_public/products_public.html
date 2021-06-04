@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ProductsPublicView}}
+		{{> ProductsPublicView}}{{> ProductsPublicExplanationMd}}
 	</div>
 </template>
 
@@ -133,5 +133,12 @@
 			{{booleanToYesNo paused}}
 		</td>
 	</tr>
+</template>
+
+<template name="ProductsPublicExplanationMd">
+	{{#markdown}}## What do you see here? ##
+This dialog shows the products which have been registered in the framework. 
+Click on a Product and you will get detailed information of the product.
+{{/markdown}}
 </template>
 

@@ -76,6 +76,26 @@
 This dialog shows the details of a core contract.
 To view the ABI (Application Binary Interface), click on the grey twister triangles.
 This will open the next level of the ABI JSON.
-{{/markdown}}
+
+The top level items of the ABI describe the public accessible functions of the contract.
+
+A function description is a JSON object with the fields:
+
+* `type`: "function", "constructor", or "fallback" (the unnamed “default” function);
+* `name`: the name of the function;
+* `inputs`: an array of objects, each of which contains:
+	* `name`: the name of the parameter;
+	* `type`: the canonical type of the parameter (more below).
+	* `components`: used for tuple types (more below).
+* `outputs`: an array of objects similar to inputs, can be omitted if function doesn’t return anything;
+* `stateMutability`: a string with one of the following values: 
+	* `pure` (specified to not read blockchain state), 
+	* `view` (specified to not modify the blockchain state), 
+	* `nonpayable` (function does not accept Ether) and `payable` (function accepts Ether);
+* `payable`: true if function accepts Ether, false otherwise;
+* `constant`: true if function is either pure or view, false otherwise.
+
+For an in-depth reference on the ABI definition, please have a look at 
+the [Solidity documentation](https://docs.soliditylang.org/en/latest/abi-spec.html).{{/markdown}}
 </template>
 
