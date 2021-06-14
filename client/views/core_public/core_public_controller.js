@@ -11,7 +11,7 @@ this.CorePublicController = RouteController.extend({
 	},
 
 	action: function() {
-		this.redirect('core_public.core_contracts_public', this.params || {}, { replaceState: true });
+		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/
 	},
 

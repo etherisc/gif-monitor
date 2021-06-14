@@ -1,42 +1,9 @@
 <template name="CorePublic">
-	<div class="page-container container">
-		<div class="row">
-			<div class="col-md-12" id="content">
-				<div class="row" id="title_row">
-					<div class="col-md-12">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div id="menu" class="col-sm-3 col-md-2">
-				<h2>
-				</h2>
-				{{> CorePublicSideMenu}}
-			</div>
-			<div id="subcontent" class="col-sm-9 col-md-10">
-				{{> yield region='CorePublicSubcontent'}}
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
 			</div>
 		</div>
 	</div>
-</template>
-
-<template name="CorePublicSideMenu">
-	<ul id="menu-items" class="nav nav-stacked nav-pills">
-		<li id="menu-item-simple" class="{{menuItemClass 'core_public.core_contracts_public'}}">
-			<a href="{{pathFor 'core_public.core_contracts_public'}}">
-				<span class="item-title">
-					Core Contracts
-				</span>
-			</a>
-		</li>
-		<li id="menu-item-simple" class="{{menuItemClass 'core_public.events_public'}}">
-			<a href="{{pathFor 'core_public.events_public'}}">
-				<span class="item-title">
-					Events
-				</span>
-			</a>
-		</li>
-	</ul>
 </template>
 

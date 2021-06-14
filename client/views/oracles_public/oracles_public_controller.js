@@ -11,7 +11,7 @@ this.OraclesPublicController = RouteController.extend({
 	},
 
 	action: function() {
-		this.redirect('oracles_public.oracle_types_public', this.params || {}, { replaceState: true });
+		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/
 	},
 

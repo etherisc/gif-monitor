@@ -1,10 +1,9 @@
 this.PoliciesPublicPoliciesPublicDetailsController = RouteController.extend({
-	template: "PoliciesPublic",
+	template: "PoliciesPublicPoliciesPublicDetails",
 	
 
 	yieldTemplates: {
-		'PoliciesPublicPoliciesPublicDetails': { to: 'PoliciesPublicSubcontent'}
-		
+		/*YIELD_TEMPLATES*/
 	},
 
 	onBeforeAction: function() {
@@ -12,7 +11,7 @@ this.PoliciesPublicPoliciesPublicDetailsController = RouteController.extend({
 	},
 
 	action: function() {
-		if(this.isReady()) { this.render(); } else { this.render("PoliciesPublic"); this.render("loading", { to: "PoliciesPublicSubcontent" });}
+		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/
 	},
 

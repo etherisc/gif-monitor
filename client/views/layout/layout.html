@@ -92,19 +92,55 @@
 				</span>
 			</a>
 		</li>
-		<li id="menu-item-simple" class="{{menuItemClass 'core_public'}}">
-			<a href="{{pathFor 'core_public'}}">
+		<li id="menu-item-dropdown" class="dropdown ">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<span class="item-title">
 					Core
 				</span>
+				<b class="caret">
+				</b>
 			</a>
+			<ul id="menu-items" class="dropdown-menu">
+				<li class="{{menuItemClass 'core_public.core_contracts_public'}}">
+					<a href="{{pathFor 'core_public.core_contracts_public'}}">
+						<span class="item-title">
+							Core Contracts
+						</span>
+					</a>
+				</li>
+				<li class="{{menuItemClass 'core_public.events_public'}}">
+					<a href="{{pathFor 'core_public.events_public'}}">
+						<span class="item-title">
+							Core Events
+						</span>
+					</a>
+				</li>
+			</ul>
 		</li>
-		<li id="menu-item-simple" class="{{menuItemClass 'oracles_public'}}">
-			<a href="{{pathFor 'oracles_public'}}">
+		<li id="menu-item-dropdown" class="dropdown {{menuItemClass 'oracles_public'}}">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<span class="item-title">
 					Oracles
 				</span>
+				<b class="caret">
+				</b>
 			</a>
+			<ul id="menu-items" class="dropdown-menu">
+				<li class="{{menuItemClass 'oracles_public.oracle_types_public'}}">
+					<a href="{{pathFor 'oracles_public.oracle_types_public'}}">
+						<span class="item-title">
+							Oracle Types
+						</span>
+					</a>
+				</li>
+				<li class="{{menuItemClass 'oracles_public.oracles_public'}}">
+					<a href="{{pathFor 'oracles_public.oracles_public'}}">
+						<span class="item-title">
+							Oracles
+						</span>
+					</a>
+				</li>
+			</ul>
 		</li>
 		<li id="menu-item-simple" class="{{menuItemClass 'products_public'}}">
 			<a href="{{pathFor 'products_public'}}">
@@ -113,12 +149,51 @@
 				</span>
 			</a>
 		</li>
-		<li id="menu-item-simple" class="{{menuItemClass 'policies_public'}}">
-			<a href="{{pathFor 'policies_public'}}">
+		<li id="menu-item-dropdown" class="dropdown {{menuItemClass 'policies_public'}}">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<span class="item-title">
 					Policies
 				</span>
+				<b class="caret">
+				</b>
 			</a>
+			<ul id="menu-items" class="dropdown-menu">
+				<li class="{{menuItemClass 'policies_public.metadata_public'}}">
+					<a href="{{pathFor 'policies_public.metadata_public'}}">
+						<span class="item-title">
+							Metadata
+						</span>
+					</a>
+				</li>
+				<li class="{{menuItemClass 'policies_public.applications_public'}}">
+					<a href="{{pathFor 'policies_public.applications_public'}}">
+						<span class="item-title">
+							Applications
+						</span>
+					</a>
+				</li>
+				<li class="{{menuItemClass 'policies_public.policies_public'}}">
+					<a href="{{pathFor 'policies_public.policies_public'}}">
+						<span class="item-title">
+							Policies
+						</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="#">
+						<span class="item-title">
+							Claims
+						</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="#">
+						<span class="item-title">
+							Payouts
+						</span>
+					</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 </template>
@@ -181,26 +256,37 @@
 				</span>
 			</a>
 		</li>
-		<li id="menu-item-simple" class="{{menuItemClass 'chains'}}">
-			<a href="{{pathFor 'chains'}}">
+		<li id="menu-item-dropdown" class="dropdown ">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<span class="item-title">
-					Chains
+					Core
 				</span>
+				<b class="caret">
+				</b>
 			</a>
-		</li>
-		<li id="menu-item-simple" class="{{menuItemClass 'contracts'}}">
-			<a href="{{pathFor 'contracts'}}">
-				<span class="item-title">
-					Contracts
-				</span>
-			</a>
-		</li>
-		<li id="menu-item-simple" class="{{menuItemClass 'events'}}">
-			<a href="{{pathFor 'events'}}">
-				<span class="item-title">
-					Events
-				</span>
-			</a>
+			<ul id="menu-items" class="dropdown-menu">
+				<li class="{{menuItemClass 'chains'}}">
+					<a href="{{pathFor 'chains'}}">
+						<span class="item-title">
+							Chains
+						</span>
+					</a>
+				</li>
+				<li class="{{menuItemClass 'contracts'}}">
+					<a href="{{pathFor 'contracts'}}">
+						<span class="item-title">
+							Core Contracts
+						</span>
+					</a>
+				</li>
+				<li class="{{menuItemClass 'events'}}">
+					<a href="{{pathFor 'events'}}">
+						<span class="item-title">
+							Core Events
+						</span>
+					</a>
+				</li>
+			</ul>
 		</li>
 		<li id="menu-item-dropdown" class="dropdown ">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">

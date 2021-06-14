@@ -1,10 +1,9 @@
 this.OraclesPublicOraclesPublicDetailsController = RouteController.extend({
-	template: "OraclesPublic",
+	template: "OraclesPublicOraclesPublicDetails",
 	
 
 	yieldTemplates: {
-		'OraclesPublicOraclesPublicDetails': { to: 'OraclesPublicSubcontent'}
-		
+		/*YIELD_TEMPLATES*/
 	},
 
 	onBeforeAction: function() {
@@ -12,7 +11,7 @@ this.OraclesPublicOraclesPublicDetailsController = RouteController.extend({
 	},
 
 	action: function() {
-		if(this.isReady()) { this.render(); } else { this.render("OraclesPublic"); this.render("loading", { to: "OraclesPublicSubcontent" });}
+		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/
 	},
 
