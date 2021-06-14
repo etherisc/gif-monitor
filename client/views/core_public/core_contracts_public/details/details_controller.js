@@ -1,10 +1,9 @@
 this.CorePublicCoreContractsPublicDetailsController = RouteController.extend({
-	template: "CorePublic",
+	template: "CorePublicCoreContractsPublicDetails",
 	
 
 	yieldTemplates: {
-		'CorePublicCoreContractsPublicDetails': { to: 'CorePublicSubcontent'}
-		
+		/*YIELD_TEMPLATES*/
 	},
 
 	onBeforeAction: function() {
@@ -12,7 +11,7 @@ this.CorePublicCoreContractsPublicDetailsController = RouteController.extend({
 	},
 
 	action: function() {
-		if(this.isReady()) { this.render(); } else { this.render("CorePublic"); this.render("loading", { to: "CorePublicSubcontent" });}
+		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/
 	},
 

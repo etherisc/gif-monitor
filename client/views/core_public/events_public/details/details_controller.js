@@ -1,10 +1,9 @@
 this.CorePublicEventsPublicDetailsController = RouteController.extend({
-	template: "CorePublic",
+	template: "CorePublicEventsPublicDetails",
 	
 
 	yieldTemplates: {
-		'CorePublicEventsPublicDetails': { to: 'CorePublicSubcontent'}
-		
+		/*YIELD_TEMPLATES*/
 	},
 
 	onBeforeAction: function() {
@@ -12,7 +11,7 @@ this.CorePublicEventsPublicDetailsController = RouteController.extend({
 	},
 
 	action: function() {
-		if(this.isReady()) { this.render(); } else { this.render("CorePublic"); this.render("loading", { to: "CorePublicSubcontent" });}
+		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/
 	},
 

@@ -11,7 +11,7 @@ this.PoliciesPublicController = RouteController.extend({
 	},
 
 	action: function() {
-		this.redirect('policies_public.metadata_public', this.params || {}, { replaceState: true });
+		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/
 	},
 
