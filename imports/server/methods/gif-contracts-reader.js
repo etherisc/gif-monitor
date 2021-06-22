@@ -10,7 +10,7 @@ const abiDecoder = require('abi-decoder');
 const GifCli = require('@etherisc/gifcli');
 
 const cborDecode = (bytecode) => {
-	const bytes = eth.utils.hexToBytes(bytecode);
+	const bytes = ethers.utils.arrayify(bytecode);
 	const cborLength = bytes[bytes.length - 2] * 0x100 + bytes[bytes.length - 1];
 	const bytecodeBuffer = Buffer.from(bytes.slice(bytes.length - 2 - cborLength, -2));
 	return cbor.decodeFirstSync(bytecodeBuffer);
