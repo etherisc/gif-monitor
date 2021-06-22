@@ -89,8 +89,6 @@ const loadContracts = async () => {
 
 						const ipfs = await ipfsLink(contractConfig.address);
 						info(`ipfs Link: ${JSON.stringify(ipfs)}`);
-
-						ipfs Link: {"ipfs":{"type":"Buffer","data":[18,32,34,15,6,254,16,248,81,190,237,217,80,78,109,221,117,236,237,29,87,136,72,123,218,132,221,235,254,2,34,75,86,155]},"solc":{"type":"Buffer","data":[0,8,0]}}
 						info(`Inserting contract ${contractName} at ${contractAddress}`);
 						Contracts.insert({
 							chain_id: _id,
