@@ -107,7 +107,7 @@ const loadContracts = async () => {
 			}
 		}
 	} catch (err) {
-		error(`Error fetching contracts, ${err.message}`);
+		error(`Error fetching contracts, ${err.message}`, err.stack);
 	}
 };
 
