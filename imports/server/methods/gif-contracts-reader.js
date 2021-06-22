@@ -40,6 +40,14 @@ const ipfsLink = async (addr) => {
 
 }
 
+const getAbiIpfs = async (addr) => {
+	
+	const regIPFS = await ipfsLink(addr);
+	const test = await fetch(`https://ipfs.infura.io/ipfs/${regIPFS.ipfs}`);
+	const json = await test.json();
+	
+	return json.output.abi;
+}	
 
 const loadContracts = async () => {
 
@@ -51,19 +59,11 @@ const loadContracts = async () => {
 		// Bootstrap Registry
 
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
-		
-		const regIPFS = await ipfsLink(registry_addr);
-		const test = await fetch(`https://ipfs.infura.io/ipfs/${regIPFS.ipfs}`);
-		const json = await test.text();
-		try {
-			info('Test: ', {regIPFS, js: JSON.parse(json)});
-		} catch (err) {
-			error('Test Error: ', {msg: err.message, stack: err.stack});
-		}
-		
+
+
 		const Registry = new ethers.Contract(
-			RegistryConfig.address, 
-			JSON.parse(RegistryConfig.abi), 
+			registry_addr, 						// RegistryConfig.address, 
+			await getAbiIpfs(registry_addr), 	// JSON.parse(RegistryConfig.abi), 
 			eth.wallet
 		);		
 
