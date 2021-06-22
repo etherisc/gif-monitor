@@ -40,6 +40,9 @@ const ipfsLink = async (addr) => {
 
 }
 
+const ipfsGetFile = async (hash) => {
+	
+
 const loadContracts = async () => {
 
 	try {
@@ -52,7 +55,7 @@ const loadContracts = async () => {
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
 		
 		const regIPFS = await ipfsLink(registry_addr)
-		const test = await ipfs.get(`/ipfs/${regIPFS}`);
+		const test = await fetch(`https://ipfs.infura.io/ipfs/${regIPFS}`);
 		info('Test: ', {regIPFS, test});
 		
 		const Registry = new ethers.Contract(

@@ -382,7 +382,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a47b3704c604827b87373bbe6a3f5127ae4b5732"
+			"checksum": "0399d66789338a42b63f53dfa12c4204f9c0b558"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1098,7 +1098,7 @@
 		},
 		{
 			"path": "server/lib/globals.js",
-			"checksum": "b44d0b084c0e4375792b2e58e24bd14f14c735de"
+			"checksum": "c63e1087107f33f12094e4fe09075326d89a9379"
 		},
 		{
 			"path": "imports/server/methods/blockscout.js",
@@ -1118,7 +1118,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-contracts-reader.js",
-			"checksum": "df26a97e27dee597a79ae2ad7cd4698afdfcc029"
+			"checksum": "d8c689b7141cf4ec10ff73a2136c7e3046bad909"
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
@@ -1448,6 +1448,7 @@
 	],
 	"packages": {
 		"meteor": [
+			"fetch",
 			"accounts-password",
 			"perak:joins",
 			"tmeasday:publish-counts",
@@ -1480,7 +1481,6 @@
 			"@etherisc/gifcli",
 			"cbor",
 			"multihashes",
-			"ipfs-http-client",
 			"bcrypt"
 		],
 		"mrt": [
