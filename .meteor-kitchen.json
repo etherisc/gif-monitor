@@ -382,7 +382,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "4f51e363410b5fbf2e722684cb5a1454d2cee948"
+			"checksum": "4ad185e70e08aef670e3a17e6c5e6a69060105cd"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1118,7 +1118,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-contracts-reader.js",
-			"checksum": "a030fc49e51091223efd16d688e280c6fe62f253"
+			"checksum": "d6452659fb763b3930d641d327e113f0e85df751"
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
