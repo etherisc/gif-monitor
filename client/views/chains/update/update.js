@@ -107,7 +107,7 @@ Template.ChainsUpdateForm.events({
 			function(values) {
 				
 
-				Meteor.call("chainsUpdate", t.data.chain._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("instancesUpdate", t.data.instance._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

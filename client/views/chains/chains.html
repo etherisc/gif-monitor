@@ -78,20 +78,14 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="chain_id">
-					Chain Id
-				</th>
 				<th class="th-sortable" data-sort="name">
 					Name
 				</th>
-				<th class="th-sortable" data-sort="native_coin">
-					Native Coin
+				<th class="th-sortable" data-sort="chain_id">
+					Chain Id
 				</th>
-				<th class="th-sortable" data-sort="explorer_tx_url">
-					Explorer Tx Url
-				</th>
-				<th class="th-sortable" data-sort="explorer_address_url">
-					Explorer Address Url
+				<th class="th-sortable" data-sort="registry_addr">
+					Registry Address
 				</th>
 				<th>
 					&nbsp;
@@ -102,7 +96,7 @@
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
-			{{#each chain_list_paged}} {{> ChainsViewTableItems}} {{/each}}
+			{{#each instance_list_paged}} {{> ChainsViewTableItems}} {{/each}}
 		</tbody>
 	</table>
 </template>
@@ -110,19 +104,13 @@
 <template name="ChainsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{chain_id}}
-		</td>
-		<td>
 			{{name}}
 		</td>
 		<td>
-			{{native_coin}}
+			{{chain_id}}
 		</td>
 		<td>
-			{{explorer_tx_url}}
-		</td>
-		<td>
-			{{explorer_address_url}}
+			{{registry_addr}}
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">

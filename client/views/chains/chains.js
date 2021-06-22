@@ -45,17 +45,17 @@ Template.ChainsHeader.events({
 
 var ChainsViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("ChainListPagedSearchString") || "",
-		searchFields: Session.get("ChainListPagedSearchFields") || ["chain_id", "name", "native_coin", "explorer_tx_url", "explorer_address_url"],
-		sortBy: Session.get("ChainListPagedSortBy") || "",
-		sortAscending: Session.get("ChainListPagedSortAscending") || true
+		searchText: Session.get("InstanceListPagedSearchString") || "",
+		searchFields: Session.get("InstanceListPagedSearchFields") || ["name", "chain_id", "registry_addr"],
+		sortBy: Session.get("InstanceListPagedSortBy") || "",
+		sortAscending: Session.get("InstanceListPagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("chainListPagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("instanceListPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -92,7 +92,7 @@ Template.ChainsView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("ChainListPagedSearchString", searchString);
+				Session.set("InstanceListPagedSearchString", searchString);
 			}
 
 		}
@@ -108,7 +108,7 @@ Template.ChainsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("ChainListPagedSearchString", searchString);
+					Session.set("InstanceListPagedSearchString", searchString);
 				}
 
 			}
@@ -123,7 +123,7 @@ Template.ChainsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("ChainListPagedSearchString", "");
+					Session.set("InstanceListPagedSearchString", "");
 				}
 
 			}
@@ -160,17 +160,17 @@ Template.ChainsView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("ChainListPagedPageNo") || 0;
+		var currentPage = Session.get("InstanceListPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("ChainListPagedPageNo", currentPage - 1);
+			Session.set("InstanceListPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("ChainListPagedPageNo") || 0;
-		if(currentPage < this.chain_list_paged_page_count - 1) {
-			Session.set("ChainListPagedPageNo", currentPage + 1);
+		let currentPage = Session.get("InstanceListPagedPageNo") || 0;
+		if(currentPage < this.instance_list_paged_page_count - 1) {
+			Session.set("InstanceListPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -180,26 +180,26 @@ Template.ChainsView.events({
 Template.ChainsView.helpers({
 
 	"insertButtonClass": function() {
-		return Chains.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return Instances.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
-		return !this.chain_list_paged || this.chain_list_paged.count() == 0;
+		return !this.instance_list_paged || this.instance_list_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.chain_list_paged && this.chain_list_paged.count() > 0;
+		return this.instance_list_paged && this.instance_list_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.chain_list_paged && this.chain_list_paged.count() == 0 && Session.get("ChainListPagedSearchString");
+		return this.instance_list_paged && this.instance_list_paged.count() == 0 && Session.get("InstanceListPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("ChainListPagedPageNo");
+		return !!Session.get("InstanceListPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("ChainListPagedPageNo") || 0) < this.chain_list_paged_page_count - 1;
+		return (Session.get("InstanceListPagedPageNo") || 0) < this.instance_list_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("ChainListPagedSearchString");
+		return Session.get("InstanceListPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("ChainsViewStyle") == "table";
@@ -233,18 +233,18 @@ Template.ChainsViewTable.onRendered(function() {
 Template.ChainsViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("ChainListPagedSortBy");
+		var oldSortBy = Session.get("InstanceListPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("ChainListPagedSortBy", newSortBy);
+		Session.set("InstanceListPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("ChainListPagedSortAscending");
+			var sortAscending = Session.get("InstanceListPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("ChainListPagedSortAscending", !sortAscending);
+			Session.set("InstanceListPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("ChainListPagedSortAscending", true);
+			Session.set("InstanceListPagedSortAscending", true);
 		}
 	}
 });
@@ -289,7 +289,7 @@ Template.ChainsViewTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("chainsUpdate", this._id, values, function(err, res) {
+		Meteor.call("instancesUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -310,7 +310,7 @@ Template.ChainsViewTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("chainsRemove", me._id, function(err, res) {
+						Meteor.call("instancesRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -337,10 +337,10 @@ Template.ChainsViewTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return Chains.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return Instances.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return Chains.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return Instances.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });

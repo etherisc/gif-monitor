@@ -16,13 +16,13 @@ this.ChainsController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.chainListPagedExtraParams = {
-			searchText: Session.get("ChainListPagedSearchString") || "",
-			searchFields: Session.get("ChainListPagedSearchFields") || ["chain_id", "name", "native_coin", "explorer_tx_url", "explorer_address_url"],
-			sortBy: Session.get("ChainListPagedSortBy") || "",
-			sortAscending: Session.get("ChainListPagedSortAscending"),
-			pageNo: Session.get("ChainListPagedPageNo") || 0,
-			pageSize: Session.get("ChainListPagedPageSize") || 0
+		this.instanceListPagedExtraParams = {
+			searchText: Session.get("InstanceListPagedSearchString") || "",
+			searchFields: Session.get("InstanceListPagedSearchFields") || ["name", "chain_id", "registry_addr"],
+			sortBy: Session.get("InstanceListPagedSortBy") || "",
+			sortAscending: Session.get("InstanceListPagedSortAscending"),
+			pageNo: Session.get("InstanceListPagedPageNo") || 0,
+			pageSize: Session.get("InstanceListPagedPageSize") || 0
 		};
 
 
@@ -30,8 +30,8 @@ this.ChainsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("chain_list_paged", this.chainListPagedExtraParams),
-			Meteor.subscribe("chain_list_paged_count", this.chainListPagedExtraParams)
+			Meteor.subscribe("instance_list_paged", this.instanceListPagedExtraParams),
+			Meteor.subscribe("instance_list_paged_count", this.instanceListPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -46,15 +46,15 @@ this.ChainsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			chain_list_paged: Chains.find(databaseUtils.extendFilter({}, this.chainListPagedExtraParams), databaseUtils.extendOptions({sort:["name","asc"]}, this.chainListPagedExtraParams)),
-			chain_list_paged_count: Counts.get("chain_list_paged_count")
+			instance_list_paged: Instances.find(databaseUtils.extendFilter({}, this.instanceListPagedExtraParams), databaseUtils.extendOptions({sort:["name","asc"]}, this.instanceListPagedExtraParams)),
+			instance_list_paged_count: Counts.get("instance_list_paged_count")
 		};
 		
 
 		
-		data.chain_list_paged_page_count = this.chainListPagedExtraParams && this.chainListPagedExtraParams.pageSize ? Math.ceil(data.chain_list_paged_count / this.chainListPagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.chainListPagedExtraParams.pageNo >= data.chain_list_paged_page_count) {
-			Session.set("ChainListPagedPageNo", data.chain_list_paged_page_count > 0 ? data.chain_list_paged_page_count - 1 : 0);
+		data.instance_list_paged_page_count = this.instanceListPagedExtraParams && this.instanceListPagedExtraParams.pageSize ? Math.ceil(data.instance_list_paged_count / this.instanceListPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.instanceListPagedExtraParams.pageNo >= data.instance_list_paged_page_count) {
+			Session.set("InstanceListPagedPageNo", data.instance_list_paged_page_count > 0 ? data.instance_list_paged_page_count - 1 : 0);
 		}
 
 

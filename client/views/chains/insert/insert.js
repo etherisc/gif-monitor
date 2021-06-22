@@ -107,7 +107,7 @@ Template.ChainsInsertForm.events({
 			function(values) {
 				
 
-				Meteor.call("chainsInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("instancesInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 
