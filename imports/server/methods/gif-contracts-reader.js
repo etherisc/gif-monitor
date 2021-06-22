@@ -24,7 +24,6 @@ const cborDecode = (bytecode) => {
 	info(`data: ${JSON.stringify(data)}`);
 	for (const cborProcessor of CBOR_PROCESSORS) {
 		const cborbytes = data[cborProcessor.origin];
-		info(`proc: ${cborProcessor}, cborbytes: ${JSON.stringify(cborbytes)}`);
 		if (cborbytes) {
 			const metadataId = cborProcessor.process(cborbytes);
 			return {[cborProcessor.origin]: metadataId};
@@ -89,7 +88,6 @@ const loadContracts = async () => {
 						}		
 
 						const ipfs = await ipfsLink(contractConfig.address);
-						info(`ipfs Link: ${JSON.stringify(ipfs)}`);
 						info(`Inserting contract ${contractName} at ${contractAddress}`);
 						Contracts.insert({
 							chain_id: _id,
