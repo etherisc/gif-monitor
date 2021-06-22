@@ -30,7 +30,7 @@ const cborDecode = (bytecode) => {
 		}
 	}
 
-	const msg = `Unsupported metadata file format: ${Object.keys(cborData)}`;
+	const msg = `Unsupported metadata file format: ${Object.keys(data)}`;
 	throw new Error(msg);
 };
 
