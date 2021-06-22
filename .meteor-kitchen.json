@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "89b2c7459911a370deb777b7b7474973dbecb3ae"
+			"checksum": "bbdf071e573437fa61b8b4ea9385f167f8b4dbfa"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "f40fa3ff76b34385425fd40bb39a2ec05eb3a272"
+			"checksum": "2542708af8e3fbeabe2fd8c2f5a5261b1e082b05"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -50,7 +50,7 @@
 		},
 		{
 			"path": "client/views/home_public/home_public.js",
-			"checksum": "cd34b59a157ee015e2e13be38df0bd46d3eb2f72"
+			"checksum": "40c82adb447ba273cb2afe0b1784b973b7359682"
 		},
 		{
 			"path": "client/views/home_public/home_public_controller.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/details/details.html",
-			"checksum": "03e87606ff72cb57e523dda3f8843b511dced297"
+			"checksum": "43330fc3c946d199d9d2bb94034ae374b1034cb0"
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/details/details.js",
@@ -345,6 +345,30 @@
 			"checksum": "f9a67950789a267eeb06da801b5a47fa778d85bd"
 		},
 		{
+			"path": "client/views/policies_public/claims_public/claims_public.html",
+			"checksum": "e4a440575d1edcca153fcfa085560c37dc6c8049"
+		},
+		{
+			"path": "client/views/policies_public/claims_public/claims_public.js",
+			"checksum": "17440eea2eeb63605cc0f919063988313fc9790b"
+		},
+		{
+			"path": "client/views/policies_public/claims_public/claims_public_controller.js",
+			"checksum": "bff8634ad846f1ffe8104030810ebd7565bb1be8"
+		},
+		{
+			"path": "client/views/policies_public/payouts_public/payouts_public.html",
+			"checksum": "d4c319b5cf125a244152a94d2fb0dc0d873e9546"
+		},
+		{
+			"path": "client/views/policies_public/payouts_public/payouts_public.js",
+			"checksum": "a385f4971eeed06196602a4f68bed5d63ebcbbcc"
+		},
+		{
+			"path": "client/views/policies_public/payouts_public/payouts_public_controller.js",
+			"checksum": "75b5deca3edfe6f79a6780f2d7874667bb07e804"
+		},
+		{
 			"path": "client/views/home_private/home_private.html",
 			"checksum": "a61dfd500ce6148761f0604cac08b3bdb10f1a6d"
 		},
@@ -358,7 +382,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "1f5cc05d747bf088821378c3e78dfa80810e56f4"
+			"checksum": "2f814587f5c88d045c5f7df7b92152af6535d7f9"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1094,7 +1118,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-contracts-reader.js",
-			"checksum": "80e899069d25dcf6e43e492bac917d270ada9fc7"
+			"checksum": "4d5370152a340bc0460af00e219e727d9c41b8b9"
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
@@ -1391,8 +1415,10 @@
 		"client/views/policies_public/",
 		"client/views/policies_public/applications_public/",
 		"client/views/policies_public/applications_public/details/",
+		"client/views/policies_public/claims_public/",
 		"client/views/policies_public/metadata_public/",
 		"client/views/policies_public/metadata_public/details/",
+		"client/views/policies_public/payouts_public/",
 		"client/views/policies_public/policies_public/",
 		"client/views/policies_public/policies_public/details/",
 		"client/views/products/",
@@ -1452,6 +1478,7 @@
 			"dotenv",
 			"abi-decoder",
 			"@etherisc/gifcli",
+			"cbor",
 			"bcrypt"
 		],
 		"mrt": [

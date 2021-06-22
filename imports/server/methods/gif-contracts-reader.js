@@ -5,16 +5,32 @@ console.log('loading gif-contracts-reader.js');
 import { loadEvents } from '/imports/server/methods/gif-logs-reader.js';
 
 const ethers = require('ethers');
+const cbor = require('cbor');
 const abiDecoder = require('abi-decoder');
 const GifCli = require('@etherisc/gifcli');
 
-const loadContracts = async() => {
+const cborDecode = (bytecode) => {
+	const bytes = eth.utils.hexToBytes(bytecode);
+	const cborLength = bytes[bytes.length - 2] * 0x100 + bytes[bytes.length - 1];
+	const bytecodeBuffer = Buffer.from(bytes.slice(bytes.length - 2 - cborLength, -2));
+	return cbor.decodeFirstSync(bytecodeBuffer);
+};
+
+const ipfsLink = async (addr) => {
+
+	const byteCode = await eth.provider.getCode(addr);
+	return cborDecode(byteCode);
+
+}
+
+
+const loadContracts = async () => {
 
 	try {
 		const gif = await GifCli.connect();
 
 		const { _id } = Chains.findOne({name: 'xDai'});
-		
+
 		// Bootstrap Registry
 
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
@@ -51,14 +67,20 @@ const loadContracts = async() => {
 								}});
 								abi = JSON.stringify(abiObj);
 							}
-						}						
+						}		
+
+						const ipfs = ipfsLink(controllerConfig.address);
+						info(`ipfs Link: ${ipfs}`);
+
+
 						info(`Inserting contract ${contractName} at ${contractAddress}`);
 						Contracts.insert({
 							chain_id: _id,
 							name: contractName,
 							abi, 
 							address: contractAddress,
-							deployed_at_block: 0
+							deployed_at_block: 0,
+							ipfs
 						});
 					}
 				} catch(e) {
