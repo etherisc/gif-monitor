@@ -54,7 +54,7 @@ const loadContracts = async () => {
 
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
 		
-		const regIPFS = await ipfsLink(registry_addr)
+		const regIPFS = await ipfsLink(registry_addr);
 		const test = await fetch(`https://ipfs.infura.io/ipfs/${regIPFS}`);
 		info('Test: ', {regIPFS, test});
 		
