@@ -52,7 +52,7 @@ const loadContracts = async () => {
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
 		
 		const regIPFS = await ipfsLink(registry_addr)
-		const test = await ipfs.get(regIPFS);
+		const test = await ipfs.get(`/ipfs/${regIPFS}`);
 		info('Test: ', {regIPFS, test});
 		
 		const Registry = new ethers.Contract(
