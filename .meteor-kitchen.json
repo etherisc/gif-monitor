@@ -382,7 +382,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "e407cc4cd115d351c2739ab0ea0a1270a2b0a6c3"
+			"checksum": "b13d66de0cc00db906c5042283fd0e904e6f80c9"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1479,6 +1479,7 @@
 			"abi-decoder",
 			"@etherisc/gifcli",
 			"cbor",
+			"multihashes",
 			"bcrypt"
 		],
 		"mrt": [
