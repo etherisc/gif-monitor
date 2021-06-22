@@ -54,7 +54,7 @@ const loadContracts = async () => {
 		
 		const regIPFS = await ipfsLink(registry_addr);
 		const test = await fetch(`https://ipfs.infura.io/ipfs/${regIPFS.ipfs}`);
-		info('Test: ', {regIPFS, body: test.json()});
+		info('Test: ', {regIPFS, body: await test.json()});
 		
 		const Registry = new ethers.Contract(
 			RegistryConfig.address, 
