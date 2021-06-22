@@ -21,7 +21,6 @@ const cborDecode = (bytecode) => {
 	const cborLength = bytes[bytes.length - 2] * 0x100 + bytes[bytes.length - 1];
 	const bytecodeBuffer = Buffer.from(bytes.slice(bytes.length - 2 - cborLength, -2));
 	const data = cbor.decodeFirstSync(bytecodeBuffer);
-	info(`data: ${JSON.stringify(data)}`);
 	for (const cborProcessor of CBOR_PROCESSORS) {
 		const cborbytes = data[cborProcessor.origin];
 		if (cborbytes) {
