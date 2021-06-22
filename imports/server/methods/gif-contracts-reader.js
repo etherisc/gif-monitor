@@ -69,7 +69,7 @@ const loadContracts = async () => {
 							}
 						}		
 
-						const ipfs = ipfsLink(controllerConfig.address);
+						const ipfs = ipfsLink(contractConfig.address);
 						info(`ipfs Link: ${ipfs}`);
 
 
