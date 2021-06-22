@@ -70,7 +70,7 @@ const loadContracts = async () => {
 						}		
 
 						const ipfs = await ipfsLink(contractConfig.address);
-						info(`ipfs Link: ${ipfs}`);
+						info(`ipfs Link: ${JSON.stringify(ipfs)}`);
 
 
 						info(`Inserting contract ${contractName} at ${contractAddress}`);
