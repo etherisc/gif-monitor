@@ -24,6 +24,7 @@ const cborDecode = (bytecode) => {
 	info(`data: ${JSON.stringify(data)}`);
 	for (const cborProcessor in CBOR_PROCESSORS) {
 		const cborbytes = data[cborProcessor.origin];
+		info(`proc: ${cborProcessor}, cborbytes: ${JSON.stringify(cborbytes)}`);
 		if (cborbytes) {
 			const metadataId = cborProcessor.process(cborbytes);
 			return {[cborProcessor.origin]: metadataId};
