@@ -7,6 +7,10 @@ Helpers.pre = function(text) {
 	return new Handlebars.SafeString('<pre class="code">' + text + '</pre>');
 };
 
+Helpers.ipfsLink = function(ipfs) {
+	
+	return new Handlebars.SafeString(`<a href="dweb:/ipfs/${ipfs.ipfs}">dweb:/ipfs/${ipfs.ipfs}</a>`);
+};
 
 Helpers.txLink = function(txHash) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`);
