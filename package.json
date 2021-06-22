@@ -12,6 +12,7 @@
     "cbor": "^7.0.5",
     "dotenv": "^8.2.0",
     "ethers": "^5.1.4",
+    "ipfs-http-client": "^50.1.2",
     "jquery.json-viewer": "^1.4.0",
     "meteor-node-stubs": "^1.0.1",
     "multihashes": "^4.0.2"

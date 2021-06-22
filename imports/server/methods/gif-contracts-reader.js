@@ -41,17 +41,22 @@ const ipfsLink = async (addr) => {
 
 }
 
+const ipfsGetAbi = 
 
 const loadContracts = async () => {
 
 	try {
 		const gif = await GifCli.connect();
 
-		const { _id } = Chains.findOne({name: 'xDai'});
+		const { _id, registry_addr } = Instances.findOne({name: 'xDai'});
 
 		// Bootstrap Registry
 
 		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
+		
+		const test = await ipfs.get(await ipfsLink(registry_addr));
+		info('Test: ', test);
+		
 		const Registry = new ethers.Contract(
 			RegistryConfig.address, 
 			JSON.parse(RegistryConfig.abi), 

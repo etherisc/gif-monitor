@@ -21,7 +21,7 @@ this.ChainsInsertController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("chains_null")
+			Meteor.subscribe("instances_null")
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -36,7 +36,7 @@ this.ChainsInsertController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			chains_null: Chains.findOne({_id:null}, {})
+			instances_null: Instances.findOne({_id:null}, {})
 		};
 		
 

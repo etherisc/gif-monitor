@@ -61,6 +61,15 @@ getContract = (contractName, mode) => {
 	return Contract;
 }
 
+/*
+ *	IPFS client
+ *	
+ *
+ *
+ */
+
+const { create } = require('ipfs-http-client');
+ipfs = create('ipfs.infura.io');
 
 /*
  *

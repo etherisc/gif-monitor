@@ -9,7 +9,7 @@ Helpers.pre = function(text) {
 
 Helpers.ipfsLink = function(ipfs) {
 	
-	return new Handlebars.SafeString(`<a href="dweb:/ipfs/${ipfs.ipfs}">dweb:/ipfs/${ipfs.ipfs}</a>`);
+	return new Handlebars.SafeString(`<a href="/ipfs/${ipfs.ipfs}" target="_blank">/ipfs/${ipfs.ipfs}</a>`);
 };
 
 Helpers.txLink = function(txHash) {
