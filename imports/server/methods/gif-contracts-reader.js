@@ -41,8 +41,6 @@ const ipfsLink = async (addr) => {
 
 }
 
-const ipfsGetAbi = 
-
 const loadContracts = async () => {
 
 	try {
