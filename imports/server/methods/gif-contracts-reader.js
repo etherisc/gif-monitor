@@ -6,14 +6,32 @@ import { loadEvents } from '/imports/server/methods/gif-logs-reader.js';
 
 const ethers = require('ethers');
 const cbor = require('cbor');
+const multihashes = require('multihashes');
 const abiDecoder = require('abi-decoder');
 const GifCli = require('@etherisc/gifcli');
+
+const CBOR_PROCESSORS = [
+	{ origin: "ipfs", process: multihashes.toB58String },
+	{ origin: "bzzr0", process: (data) => ethers.utils.hexlify(data).slice(2) },
+	{ origin: "bzzr1", process: (data) => ethers.utils.hexlify(data).slice(2) }
+]
 
 const cborDecode = (bytecode) => {
 	const bytes = ethers.utils.arrayify(bytecode);
 	const cborLength = bytes[bytes.length - 2] * 0x100 + bytes[bytes.length - 1];
 	const bytecodeBuffer = Buffer.from(bytes.slice(bytes.length - 2 - cborLength, -2));
-	return cbor.decodeFirstSync(bytecodeBuffer);
+	const data = cbor.decodeFirstSync(bytecodeBuffer);
+
+	for (const cborProcessor in CBOR_PROCESSORS) {
+		const cborbytes = data[cborProcessor.origin];
+		if (cborbytes) {
+			const metadataId = cborProcessor.process(cborbytes);
+			return {[cborProcessor.origin]: metadataId};
+		}
+	}
+
+	const msg = `Unsupported metadata file format: ${Object.keys(cborData)}`;
+	throw new Error(msg);
 };
 
 const ipfsLink = async (addr) => {
@@ -72,7 +90,7 @@ const loadContracts = async () => {
 						const ipfs = await ipfsLink(contractConfig.address);
 						info(`ipfs Link: ${JSON.stringify(ipfs)}`);
 
-
+						ipfs Link: {"ipfs":{"type":"Buffer","data":[18,32,34,15,6,254,16,248,81,190,237,217,80,78,109,221,117,236,237,29,87,136,72,123,218,132,221,235,254,2,34,75,86,155]},"solc":{"type":"Buffer","data":[0,8,0]}}
 						info(`Inserting contract ${contractName} at ${contractAddress}`);
 						Contracts.insert({
 							chain_id: _id,
