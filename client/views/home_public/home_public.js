@@ -57,7 +57,7 @@ Template.HomePublicHomeJumbotron.onRendered(function() {
 Template.HomePublicHomeJumbotron.events({
 	"click #jumbotron-button": function(e, t) {
 		e.preventDefault();
-		Router.go("core_public", {});
+		Router.go("core_public.core_contracts_public", {});
 	}
 	
 });

@@ -30,7 +30,9 @@ Router.publicRoutes = [
 	"policies_public.applications_public",
 	"policies_public.applications_public.details",
 	"policies_public.policies_public",
-	"policies_public.policies_public.details"
+	"policies_public.policies_public.details",
+	"policies_public.claims_public",
+	"policies_public.payouts_public"
 ];
 
 Router.privateRoutes = [
@@ -155,6 +157,8 @@ Router.map(function () {
 	this.route("/policies_public/applications_public/details/:applicationId", {name: "policies_public.applications_public.details", title: "", controller: "PoliciesPublicApplicationsPublicDetailsController"});
 	this.route("/policies_public/policies_public", {name: "policies_public.policies_public", title: "", controller: "PoliciesPublicPoliciesPublicController"});
 	this.route("/policies_public/policies_public/details/:policyId", {name: "policies_public.policies_public.details", title: "", controller: "PoliciesPublicPoliciesPublicDetailsController"});
+	this.route("/policies_public/claims_public", {name: "policies_public.claims_public", title: "", controller: "PoliciesPublicClaimsPublicController"});
+	this.route("/policies_public/payouts_public", {name: "policies_public.payouts_public", title: "", controller: "PoliciesPublicPayoutsPublicController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});
