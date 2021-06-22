@@ -40,8 +40,6 @@ const ipfsLink = async (addr) => {
 
 }
 
-const ipfsGetFile = async (hash) => {
-	
 
 const loadContracts = async () => {
 
@@ -123,5 +121,4 @@ const reloadContracts = () => {
 
 
 module.exports = { loadContracts, reloadContracts };
-
 
