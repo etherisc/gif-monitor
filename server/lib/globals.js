@@ -73,7 +73,7 @@ b32s = (b32) => {
 }
 
 s32b = (text) => {
-	return ethers.utils.formatBytes32String(text)
+	return ethers.utils.formatBytes32String(text.slice(0,32))
 }
 
 unix2Date = (unixDate) => {
