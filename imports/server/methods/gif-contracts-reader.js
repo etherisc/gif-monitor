@@ -82,6 +82,7 @@ const loadContracts = async () => {
 					if (contractAbi.some(item => item.name === 'assignController')) {
 
 						const controllerName = `${contractName}Controller`;
+						console.log(controllerName);
 						const controllerNameB32 = s32b(controllerName);
 						const controllerAddress = Registry.contracts(release, controllerNameB32); 
 						const controllerAbi = await getAbi(controllerAddress);
