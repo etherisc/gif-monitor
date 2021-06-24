@@ -85,7 +85,7 @@ const loadContracts = async () => {
 						const controllerName = `${contractName}Controller`;
 						console.log(controllerName);
 						const controllerNameB32 = s32b(controllerName);
-						const controllerAddress = Registry.contracts(release, controllerNameB32); 
+						const controllerAddress = await Registry.contracts(release, controllerNameB32); 
 						const controllerAbi = await getAbi(controllerAddress);
 						info(`${contractName} is Storage with controller ${controllerName}; enriching ABI..`, {controllerName, controllerAddress});
 						
