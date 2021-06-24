@@ -38,32 +38,30 @@ const ipfsLink = async (addr) => {
 	const byteCode = await eth.provider.getCode(addr);
 	return cborDecode(byteCode);
 
-}
+};
 
-const getAbiIpfs = async (addr) => {
-	
+const getAbi = async (addr) => {
+
 	const regIPFS = await ipfsLink(addr);
 	const test = await fetch(`https://ipfs.infura.io/ipfs/${regIPFS.ipfs}`);
 	const json = await test.json();
-	
+
 	return json.output.abi;
-}	
+};	
+
 
 const loadContracts = async () => {
 
 	try {
-		const gif = await GifCli.connect();
 
 		const { _id, registry_addr } = Instances.findOne({name: 'xDai'});
 
 		// Bootstrap Registry
 
-		const RegistryConfig = await gif.artifact.get('platform', 'development', 'Registry');
-
-
+		const registryAbi = await getAbi(registry_addr);
 		const Registry = new ethers.Contract(
-			registry_addr, 						// RegistryConfig.address, 
-			await getAbiIpfs(registry_addr), 	// JSON.parse(RegistryConfig.abi), 
+			registry_addr, 						
+			registryAbi, 
 			eth.wallet
 		);		
 
@@ -71,42 +69,38 @@ const loadContracts = async () => {
 		const release = await Registry.release();
 		const contractsInRelease = await Registry.contractsInRelease(release);
 		info(`Release: ${b32s(release)} / ${contractsInRelease} contracts`);
+
 		for(var index = 0; index < contractsInRelease; index += 1) {
 
 			const contractNameB32 = await Registry.contractNames(release, index);
 			const contractName = b32s(contractNameB32);
+			const contractAddress = await Registry.contracts(release, contractNameB32);
+			const contractAbi = await getAbi(contractAddress);
 
 			if (!Contracts.findOne({name: contractName})) {
 				try {
-					const contractAddress = await Registry.contracts(release, contractNameB32);
-					const contractConfig = await gif.artifact.get('platform', 'development', contractName);
-					if (contractConfig.address) {
-						let abi = JSON.parse(contractConfig.abi);
-						let abiObj = typeof abi === 'string' ? JSON.parse(abi) : abi;
-						// Check if contract is storage with controller
-						if (abiObj.some(item => item.name === 'assignController')) {
-							const controllerConfig = await gif.artifact.get('platform', 'development', contractName + 'Controller');
-							if (controllerConfig.address) {
-								info(`${contractName} is Storage with controller ${contractName}Controller; enriching ABI..`, {controllerAddress: controllerConfig.address});
-								let controllerAbiObj = JSON.parse(JSON.parse(controllerConfig.abi));
-								controllerAbiObj.forEach(item => { if (!abiObj.some((it) => it.name === item.name)) {
-									abiObj.push(item); 
-								}});
-								abi = JSON.stringify(abiObj);
-							}
-						}		
+					if (contractAbi.some(item => item.name === 'assignController')) {
 
-						const ipfs = await ipfsLink(contractConfig.address);
-						info(`Inserting contract ${contractName} at ${contractAddress}`);
-						Contracts.insert({
-							chain_id: _id,
-							name: contractName,
-							abi, 
-							address: contractAddress,
-							deployed_at_block: 0,
-							ipfs
-						});
-					}
+						const controllerName = `${contractName}Controller`;
+						const controllerNameB32 = s32b(controllerName);
+						const controllerAddress = Registry.contracts(release, controllerNameB32); 
+						const controllerAbi = await getAbi(controllerAddress);
+						info(`${contractName} is Storage with controller ${controllerName}; enriching ABI..`, {controllerName, controllerAddress});
+						
+						controllerAbi.forEach(item => { if (!contractAbi.some((it) => it.name === item.name)) {
+							contractAbi.push(item); 
+						}});
+					}		
+
+					const ipfs = await ipfsLink(contractConfig.address);
+					info(`Inserting contract ${contractName} at ${contractAddress}`);
+					Contracts.insert({
+						instance_id: _id,
+						name: contractName,
+						abi: JSON.stringify(contractAbi), 
+						address: contractAddress,
+						ipfs
+					});
 				} catch(e) {
 					error(`Error loading contract ${contractName}`, {message: e.message, stack: e.stack});
 				}
