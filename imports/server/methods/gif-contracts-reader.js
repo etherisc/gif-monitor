@@ -34,9 +34,8 @@ const cborDecode = (bytecode) => {
 };
 
 const ipfsLink = async (addr) => {
-	console.log(addr);
+	
 	const byteCode = await eth.provider.getCode(addr);
-	console.log(byteCode.slice(0,32));
 	return cborDecode(byteCode);
 
 };
@@ -86,6 +85,7 @@ const loadContracts = async () => {
 						console.log(controllerName);
 						const controllerNameB32 = s32b(controllerName);
 						const controllerAddress = await Registry.contracts(release, controllerNameB32); 
+						
 						const controllerAbi = await getAbi(controllerAddress);
 						info(`${contractName} is Storage with controller ${controllerName}; enriching ABI..`, {controllerName, controllerAddress});
 						
