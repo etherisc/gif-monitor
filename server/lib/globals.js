@@ -72,6 +72,10 @@ b32s = (b32) => {
 	return ethers.utils.parseBytes32String(b32);
 }
 
+s32b = (text) => {
+	return ethers.utils.formatBytes32String(text)
+}
+
 unix2Date = (unixDate) => {
 	
 	return new Date(unixDate * 1000);
