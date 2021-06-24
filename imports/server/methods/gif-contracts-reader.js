@@ -94,7 +94,7 @@ const loadContracts = async () => {
 						}});
 					}		
 
-					const ipfs = await ipfsLink(contractConfig.address);
+					const ipfs = await ipfsLink(contractAddress);
 					info(`Inserting contract ${contractName} at ${contractAddress}`);
 					Contracts.insert({
 						instance_id: _id,
