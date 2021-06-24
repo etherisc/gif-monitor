@@ -34,7 +34,7 @@ const cborDecode = (bytecode) => {
 };
 
 const ipfsLink = async (addr) => {
-	
+
 	const byteCode = await eth.provider.getCode(addr);
 	return cborDecode(byteCode);
 
@@ -82,16 +82,16 @@ const loadContracts = async () => {
 					if (contractAbi.some(item => item.name === 'assignController')) {
 
 						const controllerName = `${contractName}Controller`;
-						console.log(controllerName);
 						const controllerNameB32 = s32b(controllerName);
 						const controllerAddress = await Registry.contracts(release, controllerNameB32); 
-						console.log(controllerAddress);
-						const controllerAbi = await getAbi(controllerAddress);
-						info(`${contractName} is Storage with controller ${controllerName}; enriching ABI..`, {controllerName, controllerAddress});
-						
-						controllerAbi.forEach(item => { if (!contractAbi.some((it) => it.name === item.name)) {
-							contractAbi.push(item); 
-						}});
+						if (controllerAddress !== '0x0000000000000000000000000000000000000000') {
+							const controllerAbi = await getAbi(controllerAddress);
+							info(`${contractName} is Storage with controller ${controllerName}; enriching ABI..`, {controllerName, controllerAddress});
+
+							controllerAbi.forEach(item => { if (!contractAbi.some((it) => it.name === item.name)) {
+								contractAbi.push(item); 
+							}});
+						}
 					}		
 
 					const ipfs = await ipfsLink(contractAddress);
