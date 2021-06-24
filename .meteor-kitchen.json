@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "bbdf071e573437fa61b8b4ea9385f167f8b4dbfa"
+			"checksum": "bea3968f56acef3b38e807ea6241aabbed339abd"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "2542708af8e3fbeabe2fd8c2f5a5261b1e082b05"
+			"checksum": "b558c07e6de1ac017bbee96fb3d72701799927d3"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -382,7 +382,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "495ba541abf4bfa1bcaed0eb859fcd80b0bce6f4"
+			"checksum": "622a322d82bb89bdc9de17d86c41499b1ba84466"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -537,52 +537,52 @@
 			"checksum": "ee4540fdb88a92e2dca6e0476c262f56d2952445"
 		},
 		{
-			"path": "client/views/chains/chains.html",
-			"checksum": "8c041ae640ca75813f561e287e978a5ecb3441b8"
+			"path": "client/views/instances/instances.html",
+			"checksum": "dcd5eef870f9631bb0b69f37002d7c7cf5979681"
 		},
 		{
-			"path": "client/views/chains/chains.js",
-			"checksum": "74f582805cabc94e6619f0a243ae6752efa0f0a6"
+			"path": "client/views/instances/instances.js",
+			"checksum": "e2a6de11211f0c8549a68056a83d29181c1e19d7"
 		},
 		{
-			"path": "client/views/chains/chains_controller.js",
-			"checksum": "0d0f178cde0321252e0b3daa967aeb215604663f"
+			"path": "client/views/instances/instances_controller.js",
+			"checksum": "870e3e5984b9c29991cfc762a01121b433437787"
 		},
 		{
-			"path": "client/views/chains/insert/insert.html",
-			"checksum": "23dbbb0be91107c3641144e243795fb9682a6c8b"
+			"path": "client/views/instances/insert/insert.html",
+			"checksum": "ea2bcef554548c5b13e039e74d27993a933af525"
 		},
 		{
-			"path": "client/views/chains/insert/insert.js",
-			"checksum": "0209448121a9c334457819b9a4a752b6815b36c5"
+			"path": "client/views/instances/insert/insert.js",
+			"checksum": "3e7ad39907420c9b8c2190c58cf062951a6924b3"
 		},
 		{
-			"path": "client/views/chains/insert/insert_controller.js",
-			"checksum": "c03165234a44259705bfeb96e0270662835667f9"
+			"path": "client/views/instances/insert/insert_controller.js",
+			"checksum": "acb3060725ededd4ece076dbf62dfab856f3838f"
 		},
 		{
-			"path": "client/views/chains/update/update.html",
-			"checksum": "12d3bca90942b8c89f4d0da30527d35c8529bfe4"
+			"path": "client/views/instances/update/update.html",
+			"checksum": "6d52d20f8e65aa7f52790a3920bdae0f9f133cd2"
 		},
 		{
-			"path": "client/views/chains/update/update.js",
-			"checksum": "23e1b2e035cbae6ee67d3f68534ffc468743babc"
+			"path": "client/views/instances/update/update.js",
+			"checksum": "e1a658218b0314f29fbfbdef2f97c6be8006e6da"
 		},
 		{
-			"path": "client/views/chains/update/update_controller.js",
-			"checksum": "0a28857f2dafccd3d4a19ae3c09d43cca43eec8b"
+			"path": "client/views/instances/update/update_controller.js",
+			"checksum": "9478fcf14057bafe28ff0b61ef62c821764c14b0"
 		},
 		{
-			"path": "client/views/chains/details/details.html",
-			"checksum": "0794bc8d26908092d40350e2459e005427684155"
+			"path": "client/views/instances/details/details.html",
+			"checksum": "67f6caea88095115e6213b97397949b142a8c3cd"
 		},
 		{
-			"path": "client/views/chains/details/details.js",
-			"checksum": "78a5c4e5ac6107a8a4329056caff3b7e98f30716"
+			"path": "client/views/instances/details/details.js",
+			"checksum": "189ece5de2fd01caf93ac280e75489e7e9892ece"
 		},
 		{
-			"path": "client/views/chains/details/details_controller.js",
-			"checksum": "b15dbe776f67b61a377f0d5659f06b90f3541296"
+			"path": "client/views/instances/details/details_controller.js",
+			"checksum": "2a4c7973c079688b7c24d653067429463d847fb7"
 		},
 		{
 			"path": "client/views/contracts/contracts.html",
@@ -1118,7 +1118,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-contracts-reader.js",
-			"checksum": "5824837bdcff09a600a3c52e1ee3a28162c9e9a8"
+			"checksum": "9050069fbc30a95460bd78bc31c8c570f1808732"
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
@@ -1374,10 +1374,6 @@
 		"client/views/admin/users/insert/",
 		"client/views/applications/",
 		"client/views/applications/details/",
-		"client/views/chains/",
-		"client/views/chains/details/",
-		"client/views/chains/insert/",
-		"client/views/chains/update/",
 		"client/views/claims/",
 		"client/views/claims/details/",
 		"client/views/contracts/",
@@ -1392,6 +1388,10 @@
 		"client/views/forgot_password/",
 		"client/views/home_private/",
 		"client/views/home_public/",
+		"client/views/instances/",
+		"client/views/instances/details/",
+		"client/views/instances/insert/",
+		"client/views/instances/update/",
 		"client/views/layout/",
 		"client/views/loading/",
 		"client/views/login/",

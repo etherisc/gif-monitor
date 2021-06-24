@@ -50,10 +50,10 @@ Router.privateRoutes = [
 	"user_settings.profile",
 	"user_settings.change_pass",
 	"logout",
-	"chains",
-	"chains.insert",
-	"chains.update",
-	"chains.details",
+	"instances",
+	"instances.insert",
+	"instances.update",
+	"instances.details",
 	"contracts",
 	"contracts.details",
 	"events",
@@ -173,10 +173,10 @@ Router.map(function () {
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
 	this.route("/logout", {name: "logout", title: "", controller: "LogoutController"});
-	this.route("/chains", {name: "chains", title: "", controller: "ChainsController"});
-	this.route("/chains/insert", {name: "chains.insert", title: "", controller: "ChainsInsertController"});
-	this.route("/chains/update/:chainId", {name: "chains.update", title: "", controller: "ChainsUpdateController"});
-	this.route("/chains/details/:chainId", {name: "chains.details", title: "", controller: "ChainsDetailsController"});
+	this.route("/instances", {name: "instances", title: "", controller: "InstancesController"});
+	this.route("/instances/insert", {name: "instances.insert", title: "", controller: "InstancesInsertController"});
+	this.route("/instances/update/:chainId", {name: "instances.update", title: "", controller: "InstancesUpdateController"});
+	this.route("/instances/details/:chainId", {name: "instances.details", title: "", controller: "InstancesDetailsController"});
 	this.route("/contracts", {name: "contracts", title: "", controller: "ContractsController"});
 	this.route("/contracts/details/:contractId", {name: "contracts.details", title: "", controller: "ContractsDetailsController"});
 	this.route("/events", {name: "events", title: "", controller: "EventsController"});
