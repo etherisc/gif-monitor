@@ -250,7 +250,7 @@
 		},
 		{
 			"path": "client/views/products_public/products_public.html",
-			"checksum": "bfed4a4658b725ffcd6a382b5040700ca069a774"
+			"checksum": "3717eb070ea3ec22fd42d02784f16e30768344d4"
 		},
 		{
 			"path": "client/views/products_public/products_public.js",
@@ -262,7 +262,7 @@
 		},
 		{
 			"path": "client/views/products_public/details/details.html",
-			"checksum": "a4dbb5417bce248ca5807b223925b490d65b4ea6"
+			"checksum": "e6546a5895e73f0992ef8e96e36bbe1cc39b0328"
 		},
 		{
 			"path": "client/views/products_public/details/details.js",
@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "c50be60e69d7ea26715d66f52e9eb56bab5407f7"
+			"checksum": "4ec63739d1b57816f3df648a6823d6fb65eec6c7"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -694,7 +694,7 @@
 		},
 		{
 			"path": "client/views/products/products.html",
-			"checksum": "a60c1e64048f11505f13d7ddef57f2188c17648e"
+			"checksum": "a4409a26bd39f936843979b96187d54823bf82fa"
 		},
 		{
 			"path": "client/views/products/products.js",
@@ -706,7 +706,7 @@
 		},
 		{
 			"path": "client/views/products/details/details.html",
-			"checksum": "ff6fd5b707c27e2edd8ac08521ec5ddffbdd7e1a"
+			"checksum": "4956e334a988f19a6e79b75f439913bdb32e9e24"
 		},
 		{
 			"path": "client/views/products/details/details.js",
@@ -1098,7 +1098,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "14f646e33881e83c7e99ade283bd2e9f39304193"
+			"checksum": "6bde66b52c572d3dc006bc10ec800a85aa81e79d"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",

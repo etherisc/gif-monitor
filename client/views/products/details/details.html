@@ -95,7 +95,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-state">
-						{{product.state}}
+						{{productState product.state product}}
 					</p>
 				</div>
 			</div>
@@ -112,17 +112,17 @@
 </template>
 
 <template name="ProductsDetailsFormCustomActions">
-	{{#if productState 'Proposed'}}
+	{{#if isProductState 'Proposed'}}
 	{{> BUTTON_APPROVE}}
 	{{> BUTTON_PAUSE}}
 	{{/if}}
 
-	{{#if productState 'Approved'}}
+	{{#if isProductState 'Approved'}}
 	{{> BUTTON_DISAPPROVE}}
 	{{> BUTTON_PAUSE}}
 	{{/if}}
 
-	{{#if productState 'Paused'}}
+	{{#if isProductState 'Paused'}}
 	{{> BUTTON_APPROVE}}
 	{{> BUTTON_DISAPPROVE}}
 	{{/if}}
