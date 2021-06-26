@@ -162,7 +162,7 @@ Template.ProductsDetailsFormCustomActions.helpers({
 	"isPaused": function(){
 		return this.product.paused;
 	},
-	
+
 	"isApproved": function(){
 		return this.product.approved;
 	}
@@ -171,18 +171,23 @@ Template.ProductsDetailsFormCustomActions.helpers({
 Template.ProductsDetailsFormCustomActions.events({
 	"click #btn-pause": function (e,t) {
 		e.preventDefault();
-		setProductPaused(
+		setProductState(
 			t.data.product.product_id,
-			!t.data.product.paused
-		)
-		
+			'Paused'
+		);
 	},
 	"click #btn-approve": function (e,t) {
 		e.preventDefault();
-
-		setProductApproved(
+		setProductState(
 			t.data.product.product_id,
-			!t.data.product.approved
+			'Approved'
+		);
+	},
+	"click #btn-propose": function (e,t) {
+		e.preventDefault();
+		setProductState(
+			t.data.product.product_id,
+			'Proposed'
 		);
 	},
 	"click #btn-reload": function (e,t) {
@@ -190,6 +195,6 @@ Template.ProductsDetailsFormCustomActions.events({
 
 		reloadProduct(
 			t.data.product.product_id
-		)
+		);
 	}
 });

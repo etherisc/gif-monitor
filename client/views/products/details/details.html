@@ -112,24 +112,40 @@
 </template>
 
 <template name="ProductsDetailsFormCustomActions">
-	<button class="btn btn-warning" id="btn-pause">
-		{{#if isPaused}}
-			Unpause Product
-		{{/if}}
-		{{#unless isPaused}}
-			Pause Product
-		{{/unless}}
-	</button>
-	<button class="btn btn-warning" id="btn-approve">
-		{{#if isApproved}}
-			Disapprove Product
-		{{/if}}
-		{{#unless isApproved}}
-			Approve Product
-		{{/unless}}
-	</button>
+	{{#if productState 'Proposed'}}
+	{{> BUTTON_APPROVE}}
+	{{> BUTTON_PAUSE}}
+	{{/if}}
+
+	{{#if productState 'Approved'}}
+	{{> BUTTON_DISAPPROVE}}
+	{{> BUTTON_PAUSE}}
+	{{/if}}
+
+	{{#if productState 'Paused'}}
+	{{> BUTTON_APPROVE}}
+	{{> BUTTON_DISAPPROVE}}
+	{{/if}}
 	<button class="btn btn-warning" id="btn-reload">
 		Reload Product
+	</button>
+</template>
+
+<template name="BUTTON_APPROVE">
+	<button class="btn btn-warning" id="btn-approve">
+		Approve Product
+	</button>
+</template>
+
+<template name="BUTTON_DISAPPROVE">
+	<button class="btn btn-warning" id="btn-propose">
+		Disapprove Product
+	</button>
+</template>
+
+<template name="BUTTON_PAUSE">
+	<button class="btn btn-warning" id="btn-pause">
+		Pause Product
 	</button>
 </template>
 
