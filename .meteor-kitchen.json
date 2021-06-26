@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "203cea046abfc761b99bfd3df0226afb7fbea86d"
+			"checksum": "c50be60e69d7ea26715d66f52e9eb56bab5407f7"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1138,7 +1138,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",
-			"checksum": "a8f4b5d14061bd6efb11cc8e808eaad038d0e9ba"
+			"checksum": "e2b9ba75e2e79b91f4d57d0c38c9059c741d8a6b"
 		},
 		{
 			"path": "client/lib/wallet.js",
