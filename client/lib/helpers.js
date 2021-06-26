@@ -1,7 +1,6 @@
 
 console.log('loading helpers.js');
-
-
+import { ethers } from 'ethers';
 
 b32s = (b32) => {
 	return ethers.utils.parseBytes32String(b32);
