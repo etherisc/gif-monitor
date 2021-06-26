@@ -1,6 +1,29 @@
 
 console.log('loading helpers.js');
 
+
+
+b32s = (b32) => {
+	return ethers.utils.parseBytes32String(b32);
+}
+
+s32b = (text) => {
+	return ethers.utils.formatBytes32String(text.slice(0,31))
+}
+
+stateMessage = {
+	
+	product: [ 'Proposed', 'Approved', 'Paused' ],
+	oracle: [ 'Inactive', 'Active' ],
+	oracleType: [ 'Inactive', 'Active'],
+	oracleAssignment: [ 'Unassigned', 'Proposed', 'Assigned' ],
+	policy: [ 'Active', 'Expired' ],
+	claim: [ 'Applied', 'Confirmed', 'Declined' ],
+	application: [ 'Applied', 'Revoked', 'Underwritten', 'Declined' ],
+	policyFlow: [ 'Started', 'Paused', 'Finished' ],
+	payout: [ 'Expected', 'PaidOut' ]
+};
+
 Helpers = {};
 
 Helpers.pre = function(text) {
@@ -22,54 +45,6 @@ Helpers.addressLink = function(address) {
 
 Helpers.addressLongLink = function(address) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address}</a>`);
-};
-
-
-
-stateMessage = {
-	
-	product: [
-		'Proposed',
-		'Approved',
-		'Paused'
-		],
-	oracle: [
-		'Inactive',
-		'Active'
-		],
-	oracleType: [
-		'Inactive',
-		'Active'
-		],
-	oracleAssignment: [
-		'Unassigned',
-		'Proposed',
-		'Assigned'
-		],
-	policy: [
-		'Active',
-		'Expired'
-		],
-	claim: [
-		'Applied',
-		'Confirmed',
-		'Declined'
-		],
-	application: [
-		'Applied',
-		'Revoked',
-		'Underwritten',
-		'Declined'
-		],
-	policyFlow: [
-		'Started',
-		'Paused',
-		'Finished'
-		],
-	payout: [
-		'Expected',
-		'PaidOut'
-		]
 };
 
 Helpers.productState = (state) => stateMessage.product[state];
