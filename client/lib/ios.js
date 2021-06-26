@@ -32,12 +32,15 @@ const handleInfo = (message, args) => {
 }
 
 
-setProductState = async (productId, state) => {
+setProductState = async (productId, stateStr) => {
 
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
 
-
+	const state = stateMessage.product.indexOf(stateStr);
+	if (state < 0) throw new Error(`Invalid product state ${stateSTr}`);
+	
+	
 	if (!ios || !license) {
 		handleError(`Could not create contract instances (ios/license)`);
 		return;
