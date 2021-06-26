@@ -117,12 +117,12 @@
 	{{> BUTTON_PAUSE}}
 	{{/if}}
 
-	{{#if isProductState 'Approved'}}
+	{{#if isProductState 'Approved' this}}
 	{{> BUTTON_DISAPPROVE}}
 	{{> BUTTON_PAUSE}}
 	{{/if}}
 
-	{{#if isProductState 'Paused'}}
+	{{#if isProductState 'Paused' this}}
 	{{> BUTTON_APPROVE}}
 	{{> BUTTON_DISAPPROVE}}
 	{{/if}}

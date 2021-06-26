@@ -83,8 +83,7 @@ Helpers.policyFlowState = (state) => stateMessage.policyFlow[state];
 Helpers.payoutState = (state) => stateMessage.payout[state];
 
 Helpers.isProductState = (state, data) => {
-	console.log(state, data); 
-	return true;
+	return stateMessage.product[data.product.state] === state;
 };
 
 /********************* INSERT NEW HELPERS ABOVE *************************/
