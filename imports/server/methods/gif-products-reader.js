@@ -23,9 +23,9 @@ const reloadSingleProduct = async function ({ productId }) {
 			state: product.state
 		};
 
-		Products.upsert({name: productName, product_id: productId}, {$set: productObj})
+		Products.upsert({name: productObj.name, product_id: productId}, {$set: productObj})
 
-		info(`Found product ${productName}`, { product });
+		info(`Found product ${productObj.name}`, { product });
 
 	} catch (err) {
 		error(`Error ReloadSingleProduct, ${err.message}`);
