@@ -12,7 +12,13 @@ const ethers = require('ethers');
 
 eth = {}
 eth.provider = new ethers.providers.JsonRpcProvider(process.env.HTTP_PROVIDER);
-eth.provider.getBlockNumber().then(console.log);
+eth.provider.getBlockNumber()
+.then((res) => {
+	info(`Connected to ethereum node, blocknumber: ${res}`);
+})
+.catch((err) => {
+	error(`Could not connect to ethereum node, err=${err.message}`, {message: err.message, stack: err.stack});
+});
 eth.wallet = ethers.Wallet.fromMnemonic(process.env.MNEMONIC).connect(eth.provider)
 
 eth.blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {

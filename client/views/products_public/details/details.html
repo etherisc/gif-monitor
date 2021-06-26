@@ -79,16 +79,6 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-policy_token">
-				<label for="policy_token" class="col-sm-3 control-label">
-					Policy Token
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-policy_token">
-						{{addressLink product.policy_token product}}
-					</p>
-				</div>
-			</div>
 			<div class="form-group  field-release">
 				<label for="release" class="col-sm-3 control-label">
 					Release
@@ -99,31 +89,18 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-approved">
-				<label for="approved" class="col-sm-3 control-label">
-					Approved
+			<div class="form-group  field-state">
+				<label for="state" class="col-sm-3 control-label">
+					State
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-approved">
-						{{booleanToYesNo product.approved}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-paused">
-				<label for="paused" class="col-sm-3 control-label">
-					Paused
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-paused">
-						{{booleanToYesNo product.paused}}
+					<p class="form-control-static  control-field-state">
+						{{product.state}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="submit-div col-sm-9 col-sm-offset-3">
-					<a href="#" id="form-close-button" class="btn btn-primary">
-						OK
-					</a>
 				</div>
 			</div>
 		</form>

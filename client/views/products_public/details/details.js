@@ -123,7 +123,7 @@ Template.ProductsPublicDetailsForm.events({
 	"click #form-close-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("products_public", mergeObjects(Router.currentRouteParams(), {}));
+		/*CLOSE_REDIRECT*/
 	},
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();

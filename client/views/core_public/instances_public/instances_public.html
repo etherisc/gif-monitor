@@ -1,17 +1,17 @@
-<template name="Products">
+<template name="CorePublicInstancesPublic">
 	<div class="page-container container" id="content">
 		<div class="row" id="title_row">
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ProductsView}}
+		{{> CorePublicInstancesPublicView}}
 	</div>
 </template>
 
-<template name="ProductsView">
-	<div id="products-view" class="">
+<template name="CorePublicInstancesPublicView">
+	<div id="core-public-instances-public-view" class="">
 		<h2 id="component-title">
-			Products
+			GIF Instances
 		</h2>
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-search">
@@ -24,12 +24,11 @@
 						</button>
 					</span>
 				</div>
-				{{> ProductsViewCustomActions}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
-			{{#if viewAsTable}} {{> ProductsViewTable}} {{/if}}
+			{{#if viewAsTable}} {{> CorePublicInstancesPublicViewTable}} {{/if}}
 		</div>
 		<nav aria-label="...">
 			<ul class="pager">
@@ -65,68 +64,32 @@
 	</div>
 </template>
 
-<template name="ProductsViewTable">
-	<table id="dataview-table" class="table table-striped table-hover">
+<template name="CorePublicInstancesPublicViewTable">
+	<table id="dataview-table" class="table table-striped">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
 				<th class="th-sortable" data-sort="name">
 					Name
 				</th>
-				<th class="th-sortable" data-sort="product_id">
-					Product Id
-				</th>
-				<th class="th-sortable" data-sort="owner">
-					Owner
-				</th>
-				<th class="th-sortable" data-sort="address">
-					Address
-				</th>
-				<th class="th-sortable" data-sort="policy_flow">
-					Policy Flow
-				</th>
-				<th class="th-sortable" data-sort="release">
-					Release
-				</th>
-				<th class="th-sortable" data-sort="state">
-					State
+				<th class="th-sortable" data-sort="registry_addr">
+					Registry Address
 				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
-			{{#each product_list_paged}} {{> ProductsViewTableItems}} {{/each}}
+			{{#each instance_list_paged}} {{> CorePublicInstancesPublicViewTableItems}} {{/each}}
 		</tbody>
 	</table>
 </template>
 
-<template name="ProductsViewTableItems">
+<template name="CorePublicInstancesPublicViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
 			{{name}}
 		</td>
 		<td>
-			{{product_id}}
-		</td>
-		<td>
-			{{addressLink owner this}}
-		</td>
-		<td>
-			{{addressLink address this}}
-		</td>
-		<td>
-			{{policy_flow}}
-		</td>
-		<td>
-			{{release}}
-		</td>
-		<td>
-			{{state}}
+			{{registry_addr}}
 		</td>
 	</tr>
-</template>
-
-<template name="ProductsViewCustomActions">
-	<button class="btn btn-warning" id="btn-reload">
-		Reload Products
-	</button>
 </template>
 

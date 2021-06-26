@@ -123,7 +123,7 @@ Template.PoliciesPublicPoliciesPublicDetailsForm.events({
 	"click #form-close-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("policies_public.policies_public", mergeObjects(Router.currentRouteParams(), {}));
+		/*CLOSE_REDIRECT*/
 	},
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();

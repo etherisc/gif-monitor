@@ -123,7 +123,7 @@ Template.OraclesPublicOracleTypesPublicDetailsForm.events({
 	"click #form-close-button": function(e, t) {
 		e.preventDefault();
 
-		Router.go("oracles_public.oracle_types_public", mergeObjects(Router.currentRouteParams(), {}));
+		/*CLOSE_REDIRECT*/
 	},
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();

@@ -7,27 +7,26 @@ const abiDecoder = require('abi-decoder');
 
 
 
-const reloadSingleProduct = async function (args) {
+const reloadSingleProduct = async function ({ productId }) {
 
 	try {
 		const License = await getContract('License');
-		const { productId } = args;
 		const product = await License.products(productId);
-		const productName = b32s(product.name);
-
-		info(`Found product ${productName}`, { product });
-
-		Products.upsert({name: productName, product_id: productId}, {$set: {
+		const productObj = {
 			product_id: productId,
-			name: productName,
+			name: b32s(product.name),
 			owner: product.productOwner,
 			address: product.addr,
 			policy_flow: b32s(product.policyFlow),
 			release: b32s(product.release),
 			policy_token: product.policyToken,
-			approved: product.approved,
-			paused: product.paused
-		}})
+			state: product.state
+		};
+
+		Products.upsert({name: productName, product_id: productId}, {$set: productObj})
+
+		info(`Found product ${productName}`, { product });
+
 	} catch (err) {
 		error(`Error ReloadSingleProduct, ${err.message}`);
 	}
