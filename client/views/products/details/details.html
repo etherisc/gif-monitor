@@ -112,7 +112,7 @@
 </template>
 
 <template name="ProductsDetailsFormCustomActions">
-	{{#if isProductState 'Proposed'}}
+	{{#if isProductState 'Proposed' this}}
 	{{> BUTTON_APPROVE}}
 	{{> BUTTON_PAUSE}}
 	{{/if}}
