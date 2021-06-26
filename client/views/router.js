@@ -13,6 +13,7 @@ Router.publicRoutes = [
 	"forgot_password",
 	"reset_password",
 	"core_public",
+	"core_public.instances_public",
 	"core_public.core_contracts_public",
 	"core_public.core_contracts_public.details",
 	"core_public.events_public",
@@ -139,6 +140,7 @@ Router.map(function () {
 	this.route("/forgot_password", {name: "forgot_password", title: "", controller: "ForgotPasswordController"});
 	this.route("/reset_password/:resetPasswordToken", {name: "reset_password", title: "", controller: "ResetPasswordController"});
 	this.route("/core_public", {name: "core_public", title: "", controller: "CorePublicController"});
+	this.route("/core_public/instances_public", {name: "core_public.instances_public", title: "", controller: "CorePublicInstancesPublicController"});
 	this.route("/core_public/core_contracts_public", {name: "core_public.core_contracts_public", title: "", controller: "CorePublicCoreContractsPublicController"});
 	this.route("/core_public/core_contracts_public/details/:contractId", {name: "core_public.core_contracts_public.details", title: "", controller: "CorePublicCoreContractsPublicDetailsController"});
 	this.route("/core_public/events_public", {name: "core_public.events_public", title: "", controller: "CorePublicEventsPublicController"});

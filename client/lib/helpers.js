@@ -20,8 +20,32 @@ Helpers.addressLink = function(address) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address.slice(0,10)}...</a>`);
 };
 
+Helpers.addressLongLink = function(address) {
+	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address}</a>`);
+};
+
+
 
 stateMessage = {
+	
+	product: [
+		'Proposed',
+		'Approved',
+		'Paused'
+		],
+	oracle: [
+		'Inactive',
+		'Active'
+		],
+	oracleType: [
+		'Inactive',
+		'Active'
+		],
+	oracleAssignment: [
+		'Unassigned',
+		'Proposed',
+		'Assigned'
+		],
 	policy: [
 		'Active',
 		'Expired'
@@ -48,6 +72,10 @@ stateMessage = {
 		]
 };
 
+Helpers.productState = (state) => stateMessage.product[state];
+Helpers.oracleState = (state) => stateMessage.oracle[state];
+Helpers.oracleTypeState = (state) => stateMessage.oracleType[state];
+Helpers.oracleAssigmentState = (state) => stateMessage.oracleAssignment[state];
 Helpers.policyState = (state) => stateMessage.policy[state];
 Helpers.applicationState = (state) => stateMessage.application[state];
 Helpers.claimState = (state) => stateMessage.claim[state];

@@ -15,14 +15,11 @@ function formatDate(date) {
 }
 
 
-
 reloadProduct = async (productId) => {
 
 	Meteor.call('product.reload', { productId });
 
 }
-
-
 
 const handleError = (message, args) => {
 	alert(message),
@@ -35,7 +32,7 @@ const handleInfo = (message, args) => {
 }
 
 
-setProductPaused = async (productId, pause) => {
+setProductState = async (productId, state) => {
 
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
@@ -56,11 +53,11 @@ setProductPaused = async (productId, pause) => {
 		return;
 	}
 
-	info(`Trying to ${pause ? 'pause' : 'unpause'} product #${productId} ${product.name}`, product);
+	info(`Set product state to ${stateMessage.product[state]}'} for product #${productId} ${product.name}`, product);
 
-	if((pause && !product.paused) || (!pause && product.paused)) {
+	if(state !== product.state) {
 		try {
-			const res = await ios.setProductPaused(productId, pause)
+			const res = await ios.setProductState(productId, state)
 			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
@@ -69,45 +66,6 @@ setProductPaused = async (productId, pause) => {
 			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
 	} else {
-		handleInfo(`Product ${product.name} already in state <${pause ? 'paused' : 'unpaused'}>`);
+		handleInfo(`Product ${product.name} already in state ${stateMessage.product[state]}`);
 	}
 }
-
-setProductApproved = async (productId, approve) => {
-
-	const ios = await getContract('InstanceOperatorService');
-	const license = await getContract('License');	
-
-
-	if (!ios || !license) {
-		handleError(`Could not create contract instances (ios/license)`);
-		return;
-	}
-
-
-	let product;
-
-	try {
-		product = await license.products(productId);
-	} catch (err) {
-		handleError(`Could not access product ${productId}; (${err.message})`);
-		return;
-	}
-
-	info(`Trying to ${approve ? 'approve' : 'disapprove'} product #${productId} ${product.name}`, product);
-
-	if((approve && !product.approved) || (!approve && product.approved)) {
-		try {
-			const res = await ios.setProductApproved(productId, approve)
-			info(`Transaction submitted`, res);
-			const receipt = await res.wait();
-			info(`Transaction confirmed`, receipt);
-			await reloadProduct(productId);
-		} catch (err) {
-			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		}
-	} else {
-		handleInfo(`Product ${product.name} already in state ${approve ? 'approved' : 'disapproved'}`);
-	}
-}
-

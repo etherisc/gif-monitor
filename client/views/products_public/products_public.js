@@ -26,7 +26,7 @@ Template.ProductsPublic.helpers({
 var ProductsPublicViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ProductListPagedSearchString") || "",
-		searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "approved", "paused"],
+		searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "state"],
 		sortBy: Session.get("ProductListPagedSortBy") || "",
 		sortAscending: Session.get("ProductListPagedSortAscending") || true
 	};

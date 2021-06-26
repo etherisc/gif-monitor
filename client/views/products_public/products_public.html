@@ -83,17 +83,11 @@
 				<th class="th-sortable" data-sort="policy_flow">
 					Policy Flow
 				</th>
-				<th class="th-sortable" data-sort="policy_token">
-					Policy Token
-				</th>
 				<th class="th-sortable" data-sort="release">
 					Release
 				</th>
-				<th class="th-sortable" data-sort="approved">
-					Approved
-				</th>
-				<th class="th-sortable" data-sort="paused">
-					Paused
+				<th class="th-sortable" data-sort="state">
+					State
 				</th>
 			</tr>
 		</thead>
@@ -121,16 +115,10 @@
 			{{policy_flow}}
 		</td>
 		<td>
-			{{addressLink policy_token this}}
-		</td>
-		<td>
 			{{release}}
 		</td>
 		<td>
-			{{booleanToYesNo approved}}
-		</td>
-		<td>
-			{{booleanToYesNo paused}}
+			{{state}}
 		</td>
 	</tr>
 </template>

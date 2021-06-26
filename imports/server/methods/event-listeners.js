@@ -1,6 +1,7 @@
 /* Event Listeners */
 
-console.log('loading event-listeners.js');import { addListener } from "/imports/server/methods/gif-logs-reader.js";
+console.log('loading event-listeners.js');
+import { addListener } from "/imports/server/methods/gif-logs-reader.js";
 import { reloadSingleProduct } from "/imports/server/methods/gif-products-reader.js";
 
 
@@ -11,7 +12,6 @@ const getValue = (name, decodedLog) => {
 const reloadSingleProductFromLog = (eventData, decodedLog) => {
 	
 	const productId = parseInt(getValue('productId', decodedLog));
-	console.log('In reloadSingle...', productId);
 	reloadSingleProduct({ productId });
 	
 };
