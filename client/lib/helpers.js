@@ -82,6 +82,11 @@ Helpers.claimState = (state) => stateMessage.claim[state];
 Helpers.policyFlowState = (state) => stateMessage.policyFlow[state];
 Helpers.payoutState = (state) => stateMessage.payout[state];
 
+Helpers.isProductState = (state) => {
+	console.log(this); 
+	return true;
+};
+
 /********************* INSERT NEW HELPERS ABOVE *************************/
 
 
