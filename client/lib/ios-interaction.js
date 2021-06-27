@@ -67,7 +67,7 @@ setProductState = async (productId, stateStr) => {
 				"Approved": "approveProduct",
 				"Paused": "pauseProduct"
 			}[stateStr];
-			const res = await ios[method](productId, state)
+			const res = await ios[method](productId)
 			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
