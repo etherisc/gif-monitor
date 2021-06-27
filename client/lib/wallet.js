@@ -29,12 +29,14 @@ getContract = async function (contractName) {
 
 	await connectMetamask();
 
-	if (contracts[contractName]) return contracts[contractName];
+	if (contracts[contractName]) {
+		const contractConfig = contracts[contractName];
+		info(`Contract ${contractName} already loaded.`, contractConfig);
+		return contractConfig;
+	}		
 
 	const contractConfig = Contracts.findOne({name: contractName});
-	if (contractConfig) {
-		info(`Contract ${contractName} found.`, contractConfig);
-	} else {
+	if (!contractConfig) {
 		alert(`Contract ${contractName} not found!`);
 		return null;
 	}
@@ -46,6 +48,7 @@ getContract = async function (contractName) {
 	);		
 
 	contracts[contractName] = Contract;
+	info(`Contract ${contractName} loaded.`, contractConfig);
 
 	return Contract;
 };

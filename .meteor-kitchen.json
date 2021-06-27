@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "6717da0ae18df71622478100f08054fa78fdf119"
+			"checksum": "9dfc34cfb557a0e9c694b99cbc734cfd92ae7c3c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1142,10 +1142,10 @@
 		},
 		{
 			"path": "client/lib/wallet.js",
-			"checksum": "043874b0e8700e0866cdf32a9911f4dd16c81f80"
+			"checksum": "2f2c491adf8d8b84fe78dbde064295b34b752603"
 		},
 		{
-			"path": "client/lib/ios.js",
+			"path": "client/lib/ios-interaction.js",
 			"checksum": "7bfae82b68a599d7accc4be798c705c8e3b779ee"
 		},
 		{
