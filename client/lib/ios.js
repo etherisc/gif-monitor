@@ -22,13 +22,13 @@ reloadProduct = async (productId) => {
 }
 
 const handleError = (message, args) => {
-	alert(message),
-		error(message, args);
+	alert(message);
+	error(message, args);
 }
 
 const handleInfo = (message, args) => {
-	alert(message),
-		info(message, args);
+	alert(message);
+	info(message, args);
 }
 
 
@@ -39,8 +39,8 @@ setProductStateAsync = async (productId, stateStr) => {
 
 	const state = stateMessage.product.indexOf(stateStr);
 	if (state < 0) throw new Error(`Invalid product state ${stateSTr}`);
-	
-	
+
+
 	if (!ios || !license) {
 		handleError(`Could not create contract instances (ios/license)`);
 		return;
@@ -74,7 +74,7 @@ setProductStateAsync = async (productId, stateStr) => {
 }
 
 setProductState = (productId, stateStr) => {
-	
+
 	setProductStateAsync(productId, stateStr)
 	.then((res) => {
 	})
