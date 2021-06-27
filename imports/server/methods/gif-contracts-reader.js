@@ -35,7 +35,7 @@ const cborDecode = (bytecode) => {
 
 const ipfsLink = async (addr) => {
 	const byteCode = await eth.provider.getCode(addr);
-	info(`ipfsLink ${addr} ${byteCode.slice(0,10)}`);
+	info(`ipfsLink`, {addr, byteCode});
 	return cborDecode(byteCode);
 
 };
