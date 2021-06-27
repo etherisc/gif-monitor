@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9d761bf7023d0fdfb330421f3867ff8ccfde4ccd"
+			"checksum": "f4b3b151768bc4e4dfcf66309282135f6e9ac47e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -710,7 +710,7 @@
 		},
 		{
 			"path": "client/views/products/details/details.js",
-			"checksum": "7f06f040a0bd6023a201f9b8f524969c8ecf038f"
+			"checksum": "5841fcce61eb0a4e787d9fa0a1a15937824fb31a"
 		},
 		{
 			"path": "client/views/products/details/details_controller.js",
@@ -1146,7 +1146,7 @@
 		},
 		{
 			"path": "client/lib/ios.js",
-			"checksum": "f6a55cdf2ca2190a7b028af62c7cd8dd490a4c8a"
+			"checksum": "dfc0962117889a1d8dfada7016cd688e2e4712d9"
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",

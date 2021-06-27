@@ -32,7 +32,7 @@ const handleInfo = (message, args) => {
 }
 
 
-setProductState = async (productId, stateStr) => {
+setProductStateAsync = async (productId, stateStr) => {
 
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
@@ -71,4 +71,13 @@ setProductState = async (productId, stateStr) => {
 	} else {
 		handleInfo(`Product ${product.name} already in state ${stateMessage.product[state]}`);
 	}
+}
+
+setProductState = (productId, stateStr) => {
+	
+	setProductStateAsync(productId, stateStr)
+	.then((res) => {
+	})
+	.catch((err) => {
+	});
 }
