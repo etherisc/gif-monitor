@@ -33,7 +33,7 @@ const handleInfo = (message, args) => {
 }
 
 
-setProductStateAsync = async (productId, stateStr) => {
+setProductState = async (productId, stateStr) => {
 
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
@@ -74,11 +74,3 @@ setProductStateAsync = async (productId, stateStr) => {
 	}
 }
 
-setProductState = (productId, stateStr) => {
-
-	setProductStateAsync(productId, stateStr)
-	.then((res) => {
-	})
-	.catch((err) => {
-	});
-}
