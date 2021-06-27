@@ -16,7 +16,8 @@ function formatDate(date) {
 
 
 reloadProduct = async (productId) => {
-
+	
+	console.log('reload ...');
 	Meteor.call('product.reload', { productId });
 
 }
