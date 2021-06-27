@@ -32,7 +32,9 @@ getContract = async function (contractName) {
 	if (contracts[contractName]) return contracts[contractName];
 
 	const contractConfig = Contracts.findOne({name: contractName});
-	if (!contractConfig) {
+	if (contractConfig) {
+		info(`Contract ${contractName} found.`, contractConfig);
+	} else {
 		alert(`Contract ${contractName} not found!`);
 		return null;
 	}
