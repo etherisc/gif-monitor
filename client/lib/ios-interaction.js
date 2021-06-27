@@ -39,7 +39,7 @@ setProductState = async (productId, stateStr) => {
 	const license = await getContract('License');	
 
 	const state = stateMessage.product.indexOf(stateStr);
-	if (state < 0) throw new Error(`Invalid product state ${stateSTr}`);
+	if (state < 0) throw new Error(`Invalid product state ${stateStr}`);
 
 
 	if (!ios || !license) {
@@ -61,7 +61,13 @@ setProductState = async (productId, stateStr) => {
 
 	if(state !== product.state) {
 		try {
-			const res = await ios.setProductState(productId, state)
+
+			const method = {
+				"Proposed": "disapproveProduct",
+				"Approved": "approveProduct",
+				"Paused": "pauseProduct"
+			}[stateStr];
+			const res = await ios[method](productId, state)
 			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
