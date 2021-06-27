@@ -171,21 +171,21 @@ Template.ProductsDetailsFormCustomActions.helpers({
 Template.ProductsDetailsFormCustomActions.events({
 	"click #btn-pause": function (e,t) {
 		e.preventDefault();
-		setProductState(
+		await setProductState(
 			t.data.product.product_id,
 			'Paused'
 		);
 	},
 	"click #btn-approve": function (e,t) {
 		e.preventDefault();
-		setProductState(
+		await setProductState(
 			t.data.product.product_id,
 			'Approved'
 		);
 	},
 	"click #btn-propose": function (e,t) {
 		e.preventDefault();
-		setProductState(
+		await setProductState(
 			t.data.product.product_id,
 			'Proposed'
 		);
