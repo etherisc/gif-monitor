@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "1ef8760edf48aab71866b5c494a683f8e50dd8ec"
+			"checksum": "ab5eae34c70fb5a50265e50e7000ee8d6491ffa2"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1146,7 +1146,7 @@
 		},
 		{
 			"path": "client/lib/ios-interaction.js",
-			"checksum": "713778414b92338d304e869d5eedef6f0d85b9ec"
+			"checksum": "9a5c911181e60995dab80c7972651a5f0c8eba9b"
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",

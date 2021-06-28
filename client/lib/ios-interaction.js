@@ -35,11 +35,13 @@ const handleInfo = (message, args) => {
 
 setProductState = async (productId, stateStr) => {
 
+	console.log('in setProductState');
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
 
 	const state = stateMessage.product.indexOf(stateStr);
 	if (state < 0) throw new Error(`Invalid product state ${stateStr}`);
+	console.log('after getContract');
 
 
 	if (!ios || !license) {
