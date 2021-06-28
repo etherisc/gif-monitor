@@ -37,6 +37,7 @@ setProductState = async (productId, stateStr) => {
 
 	console.log('in setProductState');
 	const ios = await getContract('InstanceOperatorService');
+	console.log('in setProductState 2');
 	const license = await getContract('License');	
 
 	const state = stateMessage.product.indexOf(stateStr);
