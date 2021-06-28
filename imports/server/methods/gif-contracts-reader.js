@@ -17,6 +17,7 @@ const CBOR_PROCESSORS = [
 ]
 
 const cborDecode = (bytecode) => {
+	try {
 	const bytes = ethers.utils.arrayify(bytecode);
 	const cborLength = bytes[bytes.length - 2] * 0x100 + bytes[bytes.length - 1];
 	const bytecodeBuffer = Buffer.from(bytes.slice(bytes.length - 2 - cborLength, -2));
@@ -31,12 +32,14 @@ const cborDecode = (bytecode) => {
 
 	const msg = `Unsupported metadata file format: ${Object.keys(data)}`;
 	throw new Error(msg);
+	} catch (err) {
+	}
 };
 
 const ipfsLink = async (addr) => {
 	const byteCode = await eth.provider.getCode(addr);
 	const link = byteCode === '0x' ? '' : cborDecode(byteCode);
-	info(`ipfsLink`, {addr, byteCode, link});
+	// info(`ipfsLink`, {addr, byteCode, link});
 	return link;
 
 };
@@ -44,6 +47,7 @@ const ipfsLink = async (addr) => {
 const getAbi = async (addr) => {
 
 	const regIPFS = await ipfsLink(addr);
+	if (regIPFS === '') return [];
 	const test = await fetch(`https://gateway.pinata.cloud/ipfs/${regIPFS.ipfs}`);
 	const json = await test.json();
 

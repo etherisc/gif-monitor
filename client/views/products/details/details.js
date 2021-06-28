@@ -169,26 +169,29 @@ Template.ProductsDetailsFormCustomActions.helpers({
 });
 
 Template.ProductsDetailsFormCustomActions.events({
-	"click #btn-pause": function (e,t) {
+	"click #btn-pause": async function (e,t) {
 		e.preventDefault();
-		setProductState(
+		await setProductState(
 			t.data.product.product_id,
 			'Paused'
 		);
+		return false;
 	},
-	"click #btn-approve": function (e,t) {
+	"click #btn-approve": async function (e,t) {
 		e.preventDefault();
-		setProductState(
+		await setProductState(
 			t.data.product.product_id,
 			'Approved'
 		);
+		return false;
 	},
-	"click #btn-propose": function (e,t) {
+	"click #btn-propose": async function (e,t) {
 		e.preventDefault();
-		setProductState(
+		await setProductState(
 			t.data.product.product_id,
 			'Proposed'
 		);
+		return false;
 	},
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
@@ -196,5 +199,6 @@ Template.ProductsDetailsFormCustomActions.events({
 		reloadProduct(
 			t.data.product.product_id
 		);
+		return false;
 	}
 });
