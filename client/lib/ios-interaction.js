@@ -17,7 +17,6 @@ function formatDate(date) {
 
 reloadProduct = async (productId) => {
 	
-	console.log('reload ...');
 	Meteor.call('product.reload', { productId });
 
 }
@@ -40,8 +39,6 @@ setProductState = async (productId, stateStr) => {
 
 	const state = stateMessage.product.indexOf(stateStr);
 	if (state < 0) throw new Error(`Invalid product state ${stateStr}`);
-	console.log('after getContract');
-
 
 	if (!ios || !license) {
 		handleError(`Could not create contract instances (ios/license)`);
