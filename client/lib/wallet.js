@@ -27,33 +27,28 @@ connectMetamask = async () => {
 
 getContract = async function (contractName) {
 
-	console.log('1');
 	await connectMetamask();
-	console.log('2');
 
 	if (contracts[contractName]) {
 		const contractConfig = contracts[contractName];
-		info(`Contract ${contractName} already loaded.`, contractConfig);
+		info(`Contract ${contractName} already loaded.`);
 		return contractConfig;
 	}		
-	console.log('3');
 
 	const contractConfig = Contracts.findOne({name: contractName});
 	if (!contractConfig) {
 		alert(`Contract ${contractName} not found!`);
 		return null;
 	}
-	console.log('4');
 
 	const Contract = new ethers.Contract(
 		contractConfig.address, 
 		contractConfig.abi, 
 		signer
 	);		
-	console.log('5');
 
 	contracts[contractName] = Contract;
-	info(`Contract ${contractName} loaded.`, contractConfig);
+	info(`Contract ${contractName} loaded.`);
 
 	return Contract;
 };
