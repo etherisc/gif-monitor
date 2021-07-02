@@ -110,7 +110,7 @@ Helpers.abi2table = (abi) => {
 
 Helpers.ipfsLink = function(ipfs) {
 	
-	return new Handlebars.SafeString(`<a href="/ipfs/${ipfs.ipfs}" target="_blank">/ipfs/${ipfs.ipfs}</a>`);
+	return new Handlebars.SafeString(`<a href="https://gateway.pinata.cloud/ipfs/${ipfs.ipfs}" target="_blank">/ipfs/${ipfs.ipfs}</a>`);
 };
 
 Helpers.txLink = function(txHash) {
