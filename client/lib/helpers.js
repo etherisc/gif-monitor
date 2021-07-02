@@ -92,7 +92,7 @@ Helpers.array2table = array2table;
 const textRed = (t) => `<span class='text-danger'>${t}</span>`;
 const textBlue = (t) => `<span class='text-primary'>${t}</span>`;
 const textOrange = (t) => `<span class='text-warning'>${t}</span>`;
-const atomSingle = (io) => `${textOrange(io.type)}${io.name ? textBlue(io.name) : ''}`;
+const atomSingle = (io) => `${textOrange(io.type)}${io.name ? ` ${textBlue(io.name)}` : ''}`;
 const abiSingle = (signature) => {
 	
 	const name = signature.name ? signature.name : '<anonymous>';
