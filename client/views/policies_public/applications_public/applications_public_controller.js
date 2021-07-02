@@ -18,7 +18,7 @@ this.PoliciesPublicApplicationsPublicController = RouteController.extend({
 	isReady: function() {
 		this.applicationListPagedExtraParams = {
 			searchText: Session.get("ApplicationListPagedSearchString") || "",
-			searchFields: Session.get("ApplicationListPagedSearchFields") || ["application_id", "metadata_id", "premium", "currency", "payout_options", "state", "state_message", "created_at", "updated_at", "metadata_mongo_id"],
+			searchFields: Session.get("ApplicationListPagedSearchFields") || ["bp_key", "state", "state_message", "created_at", "updated_at", "metadata_mongo_id"],
 			sortBy: Session.get("ApplicationListPagedSortBy") || "",
 			sortAscending: Session.get("ApplicationListPagedSortAscending"),
 			pageNo: Session.get("ApplicationListPagedPageNo") || 0,

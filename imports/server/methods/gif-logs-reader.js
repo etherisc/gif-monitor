@@ -66,9 +66,9 @@ const addListener = (event, cb) => {
 	}
 }
 
-const processRecentEvents = async (contractName, eventName, filter) => {
+const processRecentEvents = async (contractName, contractAddress, eventName, filter) => {
 
-	info(`ProcessRecentEvents ${contractName} / ${eventName}`, {contractName, eventName, filter});
+	info(`ProcessRecentEvents ${contractName} / ${contractAddress} / ${eventName}`, {contractName, contractAddress, eventName, filter});
 	const last = EventLastSeen.findOne({event: eventName});
 	filter.fromBlock = last ? last.last_seen + 1 : 0;
 	filter.toBlock = 'latest';
@@ -97,10 +97,11 @@ const loadEvents = async () => {
 		const contractAbi = contractConfig.abi;
 		const contractEvents = contractAbi.filter(item => item.type === 'event');
 
-
+		info(`LoadEvents for ${contractName} at ${contractAddress}`, contractConfig);
+		
 		abiDecoder.addABI(contractAbi);
 		const Contract = await getContract(contractName);
-
+		
 
 
 		for(var idx = 0; idx < contractEvents.length; idx += 1) {
@@ -110,9 +111,9 @@ const loadEvents = async () => {
 			Contract.removeAllListeners(eventName);
 			Contract.on(
 				eventName, 
-				Meteor.bindEnvironment(() => processRecentEvents(contractName, eventName, filter))
+				Meteor.bindEnvironment(() => processRecentEvents(contractName, contractAddress, eventName, filter))
 			);
-			await processRecentEvents(contractName, eventName, filter);
+			await processRecentEvents(contractName, contractAddress, eventName, filter);
 
 		}	
 

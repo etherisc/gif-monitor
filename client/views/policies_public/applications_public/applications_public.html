@@ -68,20 +68,8 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="application_id">
-					Application Id
-				</th>
-				<th class="th-sortable" data-sort="metadata_id">
-					Metadata Id
-				</th>
-				<th class="th-sortable" data-sort="premium">
-					Premium
-				</th>
-				<th class="th-sortable" data-sort="currency">
-					Currency
-				</th>
-				<th class="th-sortable" data-sort="payout_options">
-					Payout Options
+				<th class="th-sortable" data-sort="bp_key">
+					BP Key
 				</th>
 				<th class="th-sortable" data-sort="state">
 					State
@@ -103,19 +91,7 @@
 <template name="PoliciesPublicApplicationsPublicViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{application_id}}
-		</td>
-		<td>
-			{{metadata_id}}
-		</td>
-		<td>
-			{{premium}}
-		</td>
-		<td>
-			{{currency}}
-		</td>
-		<td>
-			{{payout_options}}
+			{{bp_key}}
 		</td>
 		<td>
 			{{applicationState state this}}

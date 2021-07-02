@@ -11,21 +11,91 @@ console.log('loading gif-policies-reader.js');
 
 
 const sanitizeData = (data) => {
-	
+
 	const keys = Object.keys(data).filter((key) => isNaN(key));
 	let sanitized = {};
 	keys.forEach(key => sanitized[key] = data[key]);
 	return sanitized;
-	
+
 }
 
 
-const reloadSingleItem = async function (config, id) {
+const getBpKeyCount = async () => {
+
+	const policyStorage = getContract('Policy');
+	const count = await policyStorage.getBpKeyCount().toNumber();
+	return count;
+};
+
+const getPolicyData = async () => {
+
+	const policyStorage = getContract('Policy');
+	const count = await getBpKeyCount();
+	let bpKeys = [];
+
+	for (let bpKeyIdx = 0; bpKeyIdx < count; bpKeyIdx++) {
+		const bpKey = await policyStorage.bpKeys(bpKeyIdx);
+		await getMeta(bpKey);
+	}
+
+}
+
+
+const getSingleMeta = async (bpKey) => {
+
+	const policyStorage = getContract('Policy');
+	const metadata = await policyStorage.metadata(bpKey);
+	info(`Found Metadata ${bpKey}`, metadata);
+	Metadata.upsert({bpKey}, {$set: {
+		bpKey,
+		product_id: data.productId.toNumber(),
+		claim_ids: data.claimIds.map(item => item.toNumber()),
+		payout_ids: data.payoutIds.map(item => item.toNumber()),
+		has_policy: data.hasPolicy,
+		has_application: data.hasApplication,
+		token_contract: data.tokenContract,
+		registry_contract: data.registryContract,
+		release: data.release.toNumber(),
+		state: data.state,
+		state_message: b32s(data.stateMessage),
+		created_at: unix2Date(data.createdAt),
+		updated_at: unix2Date(data.updatedAt)			
+	}})
+}
+
+module.exports = { 
+
+	getBpKeyCount,
+	getPolicyData,
+	getSingleMeta,
+
+};
+
+/***
+
+module.exports = { 
+
+	loadApplications,
+	reloadApplications, 
+	reloadSingleApplication,
+
+	loadPolicies, 
+	reloadPolicies, 
+	reloadSinglePolicy,
+
+	loadMetadata,
+	reloadMetadata,
+	reloadSingleMetadata
+
+};
+
+
+const reloadSingleItem = async function (config, bpKey) {
 
 	try {
-		const data = sanitizeData(await config.storage[config.collection](id));
-		info(`Found ${config.collection} item ${id}`, data);
-		config.upsert(id, data);
+		const data = sanitizeData(await config.storage[config.collection](bpKey));
+		info(`Found ${config.collection} item: BpKey=${bpKey}`, data);
+		config.upsert(bpKey, data);
 
 	} catch (err) {
 		error(`Error ReloadSingleItem, ${err.message}`, {message: err.message, stack: err.stack});
@@ -35,12 +105,10 @@ const reloadSingleItem = async function (config, id) {
 const loadItems = async function (config) {
 
 	try {		
-		const count = await config.storage[config.increment]();
+		const bpKeys = await getBpKeys();
 
-		info(`${config.collection}: ${count} items found`);
-
-		for (var id = 1; id <= count; id += 1) {
-			await reloadSingleItem(config, id );
+		for (let idx = 0; idx <= bpKeys.length; idx += 1) {
+			await reloadSingleItem(config, bpKeys[idx]);
 		}
 	} catch (err) {
 		error(`Error loading ${config.collection}, ${err.message}`, {message: err.message, stack: err.stack});
@@ -135,19 +203,4 @@ const reloadSingleApplication = (id) => reloadSingleItem(configs.applications, i
 const reloadSinglePolicy = (id) => reloadSingleItem(configs.policies, id);
 const reloadSingleMetadata = (id) => reloadSingleItem(configs.metadata, id);
 
-module.exports = { 
-	
-	loadApplications,
-	reloadApplications, 
-	reloadSingleApplication,
-	
-	loadPolicies, 
-	reloadPolicies, 
-	reloadSinglePolicy,
-	
-	loadMetadata,
-	reloadMetadata,
-	reloadSingleMetadata
-	
-};
-
+**/

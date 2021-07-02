@@ -7,9 +7,7 @@ import { reloadOracles } from '/imports/server/methods/gif-oracles-reader.js';
 import { reloadProducts, reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
 import {
 	
-	reloadMetadata, reloadSingleMetadata,
-	reloadApplications, reloadSingleApplication,
-	reloadPolicies, reloadSinglePolicy
+	getPolicies
 	
 } from '/imports/server/methods/gif-policies-reader.js';
 
@@ -26,11 +24,8 @@ Meteor.methods({
 
 	"reload.products": reloadProducts,
 	"product.reload": reloadSingleProduct,
-	"reload.metadata": reloadMetadata,
-	"metadata.reload": reloadSingleMetadata,
-	"reload.applications": reloadApplications,
-	"application.reload": reloadSingleApplication,
-	"reload.policies": reloadPolicies,
-	"policy.reload": reloadSinglePolicy
+	
+	"getPolicies": getPolicies
 
+	
 });
