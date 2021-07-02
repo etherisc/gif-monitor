@@ -88,7 +88,7 @@ array2table = (arrVal) => {
 };
 
 Helpers.array2table = array2table;
-atomSingle = (io) => `${io.type} ${io.name}`;
+atomSingle = (io) => `${io.type} ${io.name}`.trim();
 abiSingle = (signature) => {
 	
 	const name = signature.name ? signature.name : '<anonymous>';
