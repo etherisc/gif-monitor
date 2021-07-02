@@ -89,10 +89,23 @@ array2table = (arrVal) => {
 
 Helpers.array2table = array2table;
 
+abiSingle = (signature) => {
+	
+	const name = signature.name ? signature.name : '<anonymous>';
+	const inputs = signature.inputs ? `(${signature.inputs.map((io) => `${io.type} ${io.name}`).join(', ')})` : '()';
+	const outputs = signature.outputs ? `returns (${signature.outputs.map(atomSingle).join(', ')})` : '';
+	
+	return `${signature.type} ${name} ${inputs} ${outputs}`;
+	
+	
+};
+
+Helpers.abiSingle = abiSingle;
+
 Helpers.abi2table = (abi) => {
-	return array2table (abi.map(item => {
-		return {name: item.name, type: item.type, inputs: array2table(item.inputs), outputs: array2table(item.outputs)};
-	}));
+	return Handlebars.SafeString(abi.map(item => {
+		return `${abiSingle(item)}<br />`;
+	})); 
 };
 
 
