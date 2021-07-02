@@ -23,11 +23,69 @@ stateMessage = {
 	payout: [ 'Expected', 'PaidOut' ]
 };
 
+const mapHeader = (key) => {
+	
+	const dict = {
+		"name": "Name",
+		"transaction_no": "hidden"
+	}; 
+	return dict[key] === 'hidden' ? null : (dict[key] ? dict[key] : key);
+};
+
+const mapVal = (key, val, data) => {
+	
+	switch (key) {
+
+		default: return val;
+
+	}
+};
+
+
 Helpers = {};
 
-Helpers.pre = function(text) {
-	return new Handlebars.SafeString('<pre class="code">' + text + '</pre>');
+Helpers.pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
+Helpers.safeStr = (str) => new Handlebars.SafeString(str ? str : '');
+
+Helpers.json2table = function(value, data) {
+	if (!value) return '';
+	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
+	const rows = Object
+	.keys(jsn)
+	.map(item => mapHeader(item) ? `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item], data)}</td><tr>` : '')
+	.join("\n");
+	const table = rows === '' ? '' : 
+	`<table class="custom-param-table">
+<tbody>
+${rows}
+</tbody> 
+</table>`;
+
+	/*
+
+<thead>
+<tr><th>Param</th><th>Value</th></tr>
+</thead>
+
+*/
+	return new Handlebars.SafeString(table);
 };
+
+Helpers.array2table = (arrVal) => {
+
+	const headers = Object.keys(arrVal[0]);
+	const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
+	const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
+	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
+
+};
+
+Helpers.abi2table = (abi) => {
+	return array2table (abi.map(item => {
+		return {name: item.name, type: item.type, inputs: json2table(item.inputs), outputs: json2table(item.outputs)};
+	}));
+};
+
 
 Helpers.ipfsLink = function(ipfs) {
 	
