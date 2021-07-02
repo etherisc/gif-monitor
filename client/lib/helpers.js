@@ -27,7 +27,9 @@ const mapHeader = (key) => {
 	
 	const dict = {
 		"name": "Name",
-		"transaction_no": "hidden"
+		"transaction_no": "hidden",
+		"internalType": "hidden",
+		"indexed": "hidden"
 	}; 
 	return dict[key] === 'hidden' ? null : (dict[key] ? dict[key] : key);
 };
