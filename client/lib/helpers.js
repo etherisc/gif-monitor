@@ -96,12 +96,11 @@ abiSingle = (signature) => {
 	const outputs = signature.outputs ? `returns (${signature.outputs.map(atomSingle).join(', ')})` : '';
 	
 	return `${signature.type} ${name} ${inputs} ${outputs}`;
-	
-	
+
 };
 
 Helpers.abiSingle = abiSingle;
-Helpers.abi2table = (abi) => Handlebars.SafeString(abi.map(abiSingle).join('<br />');
+Helpers.abi2table = (abi) => Handlebars.SafeString(abi.map(abiSingle).join('<br />'));
 
 Helpers.ipfsLink = function(ipfs) {
 	
