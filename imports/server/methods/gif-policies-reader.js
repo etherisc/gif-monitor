@@ -23,7 +23,7 @@ const sanitizeData = (data) => {
 const getBpKeyCount = async () => {
 
 	const policyStorage = getContract('Policy');
-	const countBN = (await policyStorage.callStatic.getBpKeyCount()).toNumber();
+	const count = (await policyStorage.callStatic.getBpKeyCount()).toNumber();
 	return count;
 };
 
