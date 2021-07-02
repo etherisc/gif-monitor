@@ -23,9 +23,7 @@ const sanitizeData = (data) => {
 const getBpKeyCount = async () => {
 
 	const policyStorage = getContract('Policy');
-	const countBN = await policyStorage.callStatic.getBpKeyCount();
-	console.log(countBN);
-	const count = countBN.toNumber();
+	const countBN = await policyStorage.callStatic.getBpKeyCount().toNumber();
 	return count;
 };
 
@@ -46,7 +44,7 @@ const getPolicies = async () => {
 const getSingleMeta = async (bpKey) => {
 
 	const policyStorage = getContract('Policy');
-	const metadata = await policyStorage.metadata(bpKey);
+	const metadata = await policyStorage.functions.metadata(bpKey);
 	info(`Found Metadata ${bpKey}`, metadata);
 	Metadata.upsert({bpKey}, {$set: {
 		bpKey,
