@@ -88,22 +88,25 @@ array2table = (arrVal) => {
 };
 
 Helpers.array2table = array2table;
-atomSingle = (io) => `${io.type} ${io.name}`.trim();
-abiSingle = (signature) => {
+
+const textRed = (t) => `<span class='text-danger'>${t}</span>`;
+const textBlue = (t) => `<span class='text-primary'>${t}</span>`;
+const textOrange = (t) => `<span class='text-warning'>${t}</span>`;
+const atomSingle = (io) => `${textOrange(io.type)} ${textBlue(io.name)}`.trim();
+const abiSingle = (signature) => {
 	
 	const name = signature.name ? signature.name : '<anonymous>';
 	const inputs = signature.inputs ? `(${signature.inputs.map(atomSingle).join(', ')})` : '()';
-	const outputs = signature.outputs ? `returns (${signature.outputs.map(atomSingle).join(', ')})` : '';
+	const outputs = signature.outputs ? `${textRed('returns')} (${signature.outputs.map(atomSingle).join(', ')})` : '';
 	
-	return `${signature.type} ${name} ${inputs} ${outputs}`;
+	return `${textRed(signature.type)} ${name} ${inputs} ${outputs}`;
 
 };
 
-Helpers.abiSingle = abiSingle;
 Helpers.abi2table = (abi) => {
 	const tbl = abi.map(abiSingle).join('<br />');
 	console.log(tbl);
-	return new Handlebars.SafeString(tbl);
+	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
 
 Helpers.ipfsLink = function(ipfs) {
