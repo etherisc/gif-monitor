@@ -103,7 +103,7 @@ Helpers.abiSingle = abiSingle;
 Helpers.abi2table = (abi) => {
 	const tbl = abi.map(abiSingle).join('<br />');
 	console.log(tbl);
-	return Handlebars.SafeString(tbl);
+	return new Handlebars.SafeString(tbl);
 };
 
 Helpers.ipfsLink = function(ipfs) {
