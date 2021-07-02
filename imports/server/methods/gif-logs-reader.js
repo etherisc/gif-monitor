@@ -68,7 +68,7 @@ const addListener = (event, cb) => {
 
 const processRecentEvents = async (contractName, contractAddress, eventName, filter) => {
 
-	info(`ProcessRecentEvents ${contractName} / ${contractAddress} / ${eventName}`, {contractName, contractAddress, eventName, filter});
+	info(`ProcessRecentEvents ${contractName} / ${eventName}`, {contractName, contractAddress, eventName, filter});
 	const last = EventLastSeen.findOne({event: eventName});
 	filter.fromBlock = last ? last.last_seen + 1 : 0;
 	filter.toBlock = 'latest';
