@@ -47,7 +47,7 @@ Helpers = {};
 Helpers.pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
 Helpers.safeStr = (str) => new Handlebars.SafeString(str ? str : '');
 
-Helpers.json2table = function(value, data) {
+json2table = function(value, data) {
 	if (!value) return '';
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
@@ -71,7 +71,9 @@ ${rows}
 	return new Handlebars.SafeString(table);
 };
 
-Helpers.array2table = (arrVal) => {
+Helpers.json2table = json2table;
+
+array2table = (arrVal) => {
 
 	const headers = Object.keys(arrVal[0]);
 	const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
@@ -80,9 +82,11 @@ Helpers.array2table = (arrVal) => {
 
 };
 
+Helpers.array2table = array2table;
+
 Helpers.abi2table = (abi) => {
-	return Helpers.array2table (abi.map(item => {
-		return {name: item.name, type: item.type, inputs: Helpers.json2table(item.inputs), outputs: Helpers.json2table(item.outputs)};
+	return array2table (abi.map(item => {
+		return {name: item.name, type: item.type, inputs: json2table(item.inputs), outputs: json2table(item.outputs)};
 	}));
 };
 
