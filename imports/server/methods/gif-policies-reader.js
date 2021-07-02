@@ -24,6 +24,7 @@ const getBpKeyCount = async () => {
 
 	const policyStorage = getContract('Policy');
 	const countBN = await policyStorage.getBpKeyCount();
+	console.log(countBN);
 	const count = countBN.toNumber();
 	return count;
 };
