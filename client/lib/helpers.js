@@ -105,7 +105,6 @@ const abiSingle = (signature) => {
 
 Helpers.abi2table = (abi) => {
 	const tbl = abi.map(abiSingle).join('<br />');
-	console.log(tbl);
 	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
 
