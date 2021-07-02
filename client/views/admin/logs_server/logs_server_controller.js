@@ -1,10 +1,10 @@
 this.AdminLogsServerController = RouteController.extend({
 	template: "Admin",
-
+	
 
 	yieldTemplates: {
 		'AdminLogsServer': { to: 'AdminSubcontent'}
-
+		
 	},
 
 	onBeforeAction: function() {
@@ -28,7 +28,7 @@ this.AdminLogsServerController = RouteController.extend({
 
 
 
-
+		
 
 		var subs = [
 			Meteor.subscribe("logline_list_server_paged", this.loglineListServerPagedExtraParams),
@@ -43,23 +43,26 @@ this.AdminLogsServerController = RouteController.extend({
 	},
 
 	data: function() {
-
+		
 
 		var data = {
 			params: this.params || {},
 			logline_list_server_paged: Logs.find(databaseUtils.extendFilter({source:"server"}, this.loglineListServerPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.loglineListServerPagedExtraParams)),
 			logline_list_server_paged_count: Counts.get("logline_list_server_paged_count")
 		};
+		
 
+		
 		data.logline_list_server_paged_page_count = this.loglineListServerPagedExtraParams && this.loglineListServerPagedExtraParams.pageSize ? Math.ceil(data.logline_list_server_paged_count / this.loglineListServerPagedExtraParams.pageSize) : 1;
 		if(this.isReady() && this.loglineListServerPagedExtraParams.pageNo >= data.logline_list_server_paged_page_count) {
 			Session.set("LoglineListServerPagedPageNo", data.logline_list_server_paged_page_count > 0 ? data.logline_list_server_paged_page_count - 1 : 0);
 		}
 
+
 		return data;
 	},
 
 	onAfterAction: function() {
-
+		
 	}
 });
