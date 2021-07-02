@@ -27,7 +27,7 @@ const getBpKeyCount = async () => {
 	return count;
 };
 
-const getPolicyData = async () => {
+const getPolicies = async () => {
 
 	const policyStorage = getContract('Policy');
 	const count = await getBpKeyCount();
@@ -35,7 +35,7 @@ const getPolicyData = async () => {
 
 	for (let bpKeyIdx = 0; bpKeyIdx < count; bpKeyIdx++) {
 		const bpKey = await policyStorage.bpKeys(bpKeyIdx);
-		await getMeta(bpKey);
+		await getSingleMeta(bpKey);
 	}
 
 }
@@ -66,7 +66,7 @@ const getSingleMeta = async (bpKey) => {
 module.exports = { 
 
 	getBpKeyCount,
-	getPolicyData,
+	getPolicies,
 	getSingleMeta,
 
 };
