@@ -74,13 +74,15 @@ ${rows}
 Helpers.json2table = json2table;
 
 array2table = (arrVal) => {
-
-	if (!arrVal || !Array.isArray(arrVal)) return '';
-	const headers = Object.keys(arrVal[0]);
-	const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
-	const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
-	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
-
+	try {
+		if (!arrVal || !Array.isArray(arrVal)) return '';
+		const headers = Object.keys(arrVal[0]);
+		const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
+		const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
+		return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
+	} catch (err) {
+		return '';
+	}
 };
 
 Helpers.array2table = array2table;
