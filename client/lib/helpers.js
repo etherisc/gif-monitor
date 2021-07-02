@@ -86,7 +86,7 @@ Helpers.array2table = array2table;
 
 Helpers.abi2table = (abi) => {
 	return array2table (abi.map(item => {
-		return {name: item.name, type: item.type, inputs: json2table(item.inputs), outputs: json2table(item.outputs)};
+		return {name: item.name, type: item.type, inputs: array2table(item.inputs), outputs: array2table(item.outputs)};
 	}));
 };
 

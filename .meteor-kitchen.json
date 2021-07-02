@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "ae65d76612d04ab1b731a62f8b58b079d17a0f6b"
+			"checksum": "b4f63af403444cccca92096fffbe5563596e8b99"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1098,7 +1098,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "a9b07a51217c1e7ff808aae3517bfbe7c0f6d8ff"
+			"checksum": "61a01e0d175df51f03810cdfb49c87ab0c88bb1e"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
