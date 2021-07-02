@@ -101,13 +101,7 @@ abiSingle = (signature) => {
 };
 
 Helpers.abiSingle = abiSingle;
-
-Helpers.abi2table = (abi) => {
-	return Handlebars.SafeString(abi.map(item => {
-		return `${abiSingle(item)}<br />`;
-	})); 
-};
-
+Helpers.abi2table = (abi) => Handlebars.SafeString(abi.map(abiSingle).join('<br />');
 
 Helpers.ipfsLink = function(ipfs) {
 	
