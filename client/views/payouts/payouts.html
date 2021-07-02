@@ -71,17 +71,8 @@
 				<th class="th-sortable" data-sort="payout_id">
 					Payout Id
 				</th>
-				<th class="th-sortable" data-sort="metadata_id">
-					Metadata Id
-				</th>
-				<th class="th-sortable" data-sort="claim_id">
-					Claim Id
-				</th>
-				<th class="th-sortable" data-sort="expected_amount">
-					Expected Amount
-				</th>
-				<th class="th-sortable" data-sort="actual_amount">
-					Actual Amount
+				<th class="th-sortable" data-sort="bp_key">
+					BP Key
 				</th>
 				<th class="th-sortable" data-sort="state">
 					State
@@ -91,6 +82,9 @@
 				</th>
 				<th class="th-sortable" data-sort="updated_at">
 					Updated At
+				</th>
+				<th class="th-sortable" data-sort="claim_id">
+					Claim Id
 				</th>
 			</tr>
 		</thead>
@@ -106,16 +100,7 @@
 			{{payout_id}}
 		</td>
 		<td>
-			{{metadata_id}}
-		</td>
-		<td>
-			{{claim_id}}
-		</td>
-		<td>
-			{{expected_amount}}
-		</td>
-		<td>
-			{{actual_amount}}
+			{{bp_key}}
 		</td>
 		<td>
 			{{payoutState state this}}
@@ -125,6 +110,9 @@
 		</td>
 		<td>
 			{{formatDate updated_at 'DD/MM/YYYY HH:mm:ss'}}
+		</td>
+		<td>
+			{{claim_id}}
 		</td>
 	</tr>
 </template>

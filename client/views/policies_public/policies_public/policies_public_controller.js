@@ -18,7 +18,7 @@ this.PoliciesPublicPoliciesPublicController = RouteController.extend({
 	isReady: function() {
 		this.policyListPagedExtraParams = {
 			searchText: Session.get("PolicyListPagedSearchString") || "",
-			searchFields: Session.get("PolicyListPagedSearchFields") || ["policy_id", "metadata_id", "state", "state_message", "created_at", "updated_at", "metadata_mongo_id"],
+			searchFields: Session.get("PolicyListPagedSearchFields") || ["bp_key", "state", "state_message", "created_at", "updated_at", "metadata_mongo_id"],
 			sortBy: Session.get("PolicyListPagedSortBy") || "",
 			sortAscending: Session.get("PolicyListPagedSortAscending"),
 			pageNo: Session.get("PolicyListPagedPageNo") || 0,

@@ -29,13 +29,23 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-bp_external_key">
-				<label for="bp_external_key" class="col-sm-3 control-label">
-					Bp External Key
+			<div class="form-group  field-bp_key">
+				<label for="bp_key" class="col-sm-3 control-label">
+					BP Key
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-bp_external_key">
-						{{metadata.bp_external_key}}
+					<p class="form-control-static  control-field-bp_key">
+						{{metadata.bp_key}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-bp_key_index">
+				<label for="bp_key_index" class="col-sm-3 control-label">
+					Bp Key Index
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-bp_key_index">
+						{{metadata.bp_key_index}}
 					</p>
 				</div>
 			</div>
@@ -49,23 +59,23 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-application_id">
-				<label for="application_id" class="col-sm-3 control-label">
-					Application Id
+			<div class="form-group  field-has_application">
+				<label for="has_application" class="col-sm-3 control-label">
+					Has Application
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-application_id">
-						{{metadata.application_id}}
+					<p class="form-control-static  control-field-has_application">
+						{{booleanToYesNo metadata.has_application}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-policy_id">
-				<label for="policy_id" class="col-sm-3 control-label">
-					Policy Id
+			<div class="form-group  field-has_policy">
+				<label for="has_policy" class="col-sm-3 control-label">
+					Has Policy
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-policy_id">
-						{{metadata.policy_id}}
+					<p class="form-control-static  control-field-has_policy">
+						{{booleanToYesNo metadata.has_policy}}
 					</p>
 				</div>
 			</div>
@@ -86,26 +96,6 @@
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-payout_ids">
 						{{metadata.payout_ids}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-has_policy">
-				<label for="has_policy" class="col-sm-3 control-label">
-					Has Policy
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-has_policy">
-						{{booleanToYesNo metadata.has_policy}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-has_application">
-				<label for="has_application" class="col-sm-3 control-label">
-					Has Application
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-has_application">
-						{{booleanToYesNo metadata.has_application}}
 					</p>
 				</div>
 			</div>

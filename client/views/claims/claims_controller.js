@@ -18,7 +18,7 @@ this.ClaimsController = RouteController.extend({
 	isReady: function() {
 		this.claimListPagedExtraParams = {
 			searchText: Session.get("ClaimListPagedSearchString") || "",
-			searchFields: Session.get("ClaimListPagedSearchFields") || ["claim_id", "metadata_id", "data", "state", "state_message", "created_at", "updated_at", "metadata_mongo_id"],
+			searchFields: Session.get("ClaimListPagedSearchFields") || ["claim_id", "metadata_mongo_id", "bp_key", "data", "state", "state_message", "created_at", "updated_at"],
 			sortBy: Session.get("ClaimListPagedSortBy") || "",
 			sortAscending: Session.get("ClaimListPagedSortAscending"),
 			pageNo: Session.get("ClaimListPagedPageNo") || 0,

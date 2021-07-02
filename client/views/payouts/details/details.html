@@ -39,43 +39,13 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-metadata_id">
-				<label for="metadata_id">
-					Metadata Id
+			<div class="form-group  field-bp_key">
+				<label for="bp_key">
+					BP Key
 				</label>
 				<div class="input-div">
-					<p class="form-control-static  control-field-metadata_id">
-						{{payout.metadata_id}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-claim_id">
-				<label for="claim_id">
-					Claim Id
-				</label>
-				<div class="input-div">
-					<p class="form-control-static  control-field-claim_id">
-						{{payout.claim_id}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-expected_amount">
-				<label for="expected_amount">
-					Expected Amount
-				</label>
-				<div class="input-div">
-					<p class="form-control-static  control-field-expected_amount">
-						{{payout.expected_amount}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-actual_amount">
-				<label for="actual_amount">
-					Actual Amount
-				</label>
-				<div class="input-div">
-					<p class="form-control-static  control-field-actual_amount">
-						{{payout.actual_amount}}
+					<p class="form-control-static  control-field-bp_key">
+						{{payout.bp_key}}
 					</p>
 				</div>
 			</div>
@@ -106,6 +76,16 @@
 				<div class="input-div">
 					<p class="form-control-static  control-field-updated_at">
 						{{formatDate payout.updated_at 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-claim_id">
+				<label for="claim_id">
+					Claim Id
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-claim_id">
+						{{payout.claim_id}}
 					</p>
 				</div>
 			</div>
