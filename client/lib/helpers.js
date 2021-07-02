@@ -81,8 +81,8 @@ Helpers.array2table = (arrVal) => {
 };
 
 Helpers.abi2table = (abi) => {
-	return array2table (abi.map(item => {
-		return {name: item.name, type: item.type, inputs: json2table(item.inputs), outputs: json2table(item.outputs)};
+	return Helpers.array2table (abi.map(item => {
+		return {name: item.name, type: item.type, inputs: Helpers.json2table(item.inputs), outputs: Helpers.json2table(item.outputs)};
 	}));
 };
 
