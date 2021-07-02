@@ -97,7 +97,7 @@ const abiSingle = (signature) => {
 	
 	const name = signature.name ? signature.name : '<anonymous>';
 	const inputs = signature.inputs ? `(${signature.inputs.map(atomSingle).join(', ')})` : '()';
-	const outputs = signature.outputs ? `${textRed('returns')} (${signature.outputs.map(atomSingle).join(', ')})` : '';
+	const outputs = signature.outputs && signature.outputs.length > 0 ? `${textRed('returns')} (${signature.outputs.map(atomSingle).join(', ')})` : '';
 	
 	return `${textRed(signature.type)} ${name} ${inputs} ${outputs}`;
 
