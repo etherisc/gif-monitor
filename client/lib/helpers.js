@@ -88,11 +88,11 @@ array2table = (arrVal) => {
 };
 
 Helpers.array2table = array2table;
-
+atomSingle = (io) => `${io.type} ${io.name}`;
 abiSingle = (signature) => {
 	
 	const name = signature.name ? signature.name : '<anonymous>';
-	const inputs = signature.inputs ? `(${signature.inputs.map((io) => `${io.type} ${io.name}`).join(', ')})` : '()';
+	const inputs = signature.inputs ? `(${signature.inputs.map(atomSingle).join(', ')})` : '()';
 	const outputs = signature.outputs ? `returns (${signature.outputs.map(atomSingle).join(', ')})` : '';
 	
 	return `${signature.type} ${name} ${inputs} ${outputs}`;
