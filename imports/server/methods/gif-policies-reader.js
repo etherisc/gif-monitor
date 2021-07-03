@@ -19,7 +19,7 @@ const sanitizeData = (data) => {
 }
 
 const safeExec = (name, body) => {
-	return (async () => {
+	return (async function () {
 		try {
 			console.log(arguments);
 			return await body.apply(arguments);
