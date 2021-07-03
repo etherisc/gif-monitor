@@ -79,8 +79,8 @@ const processRecentEvents = async (contractName, contractAddress, eventName, fil
 		info(`${contractName} / ${eventName}: ${logs.length} events found.`);
 		logs.map(event => processEvent(contractName, event));
 
-	} catch (e) {
-		error(`Log processing failed (${e.message})`);
+	} catch ({message, stack}) {
+		error(`Log processing failed (${message})`, {message, stack});
 	}	
 }
 
