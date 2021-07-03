@@ -73,6 +73,23 @@
 					</span>
 				</div>
 			</div>
+			<div class="form-group  field-active">
+				<label for="active" class="col-sm-3 control-label">
+					&nbsp;
+				</label>
+				<div class="input-div col-sm-9">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="{{instance.active}}" name="active" data-type="bool" {{itemIsChecked instance.active true}}>
+							Active
+						</label>
+					</div>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
 			<div class="form-group">
 				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-cancel-button" class="btn btn-default">

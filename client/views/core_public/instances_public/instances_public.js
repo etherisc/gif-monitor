@@ -26,7 +26,7 @@ Template.CorePublicInstancesPublic.helpers({
 var CorePublicInstancesPublicViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("InstanceListPagedSearchString") || "",
-		searchFields: Session.get("InstanceListPagedSearchFields") || ["name", "chain", "chain_id", "registry_addr"],
+		searchFields: Session.get("InstanceListPagedSearchFields") || ["name", "chain", "chain_id", "registry_addr", "active"],
 		sortBy: Session.get("InstanceListPagedSortBy") || "",
 		sortAscending: Session.get("InstanceListPagedSortAscending") || true
 	};
