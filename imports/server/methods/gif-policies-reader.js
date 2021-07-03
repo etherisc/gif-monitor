@@ -61,6 +61,7 @@ const getSingleMeta = safeExec('getSingleMeta', async function (bpKey) {
 	Metadata.upsert({bpKey}, {$set: {
 		bp_key,
 		product_id: data.productId.toNumber(),
+		options: data.options,
 		claims_count: data.claimsCount.toNumber(),
 		payouts_count: data.payoutsCount.toNumber(),
 		has_policy: data.hasPolicy,
