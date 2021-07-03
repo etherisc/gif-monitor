@@ -56,9 +56,10 @@ const getSingleMeta = safeExec('getSingleMeta', async function (bpKey) {
 	console.log(bpKey);
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
-	info(`Found Metadata ${bpKey}`, data);
+	const bp_key = b32s(bpKey);
+	info(`Found Metadata ${bp_key}`, data);
 	Metadata.upsert({bpKey}, {$set: {
-		bp_key: b32s(bpKey),
+		bp_key,
 		product_id: data.productId.toNumber(),
 		claims_count: data.claimsCount.toNumber(),
 		payouts_count: data.payoutsCount.toNumber(),
@@ -81,9 +82,10 @@ const getSingleMeta = safeExec('getSingleMeta', async function (bpKey) {
 const getSingleApplication = safeExec('getSingleApplication', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.applications(bpKey));
-	info(`Found Application ${bpKey}`, data);
+	const bp_key = b32s(bpKey);
+	info(`Found Application ${bp_key}`, data);
 	Applications.upsert({bpKey}, {$set: {
-		bp_key: b32s(bpKey),
+		bp_key,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
@@ -94,9 +96,10 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.policies(bpKey));
-	info(`Found Application ${bpKey}`, data);
+	const bp_key = b32s(bpKey);
+	info(`Found Application ${bp_key}`, data);
 	Policies.upsert({bpKey}, {$set: {
-		bp_key: b32s(bpKey),
+		bp_key,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
