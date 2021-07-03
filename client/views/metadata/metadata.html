@@ -81,6 +81,12 @@
 				<th class="th-sortable" data-sort="has_policy">
 					Has Policy
 				</th>
+				<th class="th-sortable" data-sort="claims_count">
+					# Claims
+				</th>
+				<th class="th-sortable" data-sort="payouts_count">
+					# Payouts
+				</th>
 				<th class="th-sortable" data-sort="created_at">
 					Created At
 				</th>
@@ -108,6 +114,12 @@
 		</td>
 		<td>
 			{{booleanToYesNo has_policy}}
+		</td>
+		<td>
+			{{claims_count}}
+		</td>
+		<td>
+			{{payouts_count}}
 		</td>
 		<td>
 			{{formatDate created_at 'DD/MM/YYYY HH:mm:ss'}}
