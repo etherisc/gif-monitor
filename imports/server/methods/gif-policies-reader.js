@@ -1,7 +1,8 @@
 /* GIF Policies Reader */
 
-
 console.log('loading gif-policies-reader.js');
+
+import { eth } from '/imports/server/methods/ethereum-provider
 
 /*
  *
@@ -47,7 +48,7 @@ const getSingleMeta = async (bpKey, idx) => {
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
 	info(`Found Metadata ${bpKey}`, data);
 	Metadata.upsert({bpKey}, {$set: {
-		bp_key: bpKey,
+		bp_key: b32s(bpKey),
 		bp_key_index: idx,
 		product_id: data.productId.toNumber(),
 		claims_count: data.claimsCount.toNumber(),
