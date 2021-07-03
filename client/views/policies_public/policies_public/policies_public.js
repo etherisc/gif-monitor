@@ -26,7 +26,7 @@ Template.PoliciesPublicPoliciesPublic.helpers({
 var PoliciesPublicPoliciesPublicViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PolicyListPagedSearchString") || "",
-		searchFields: Session.get("PolicyListPagedSearchFields") || ["bp_key", "bp_key_index", "metadata_mongo_id", "state", "created_at", "updated_at"],
+		searchFields: Session.get("PolicyListPagedSearchFields") || ["bp_key", "metadata_mongo_id", "state", "created_at", "updated_at"],
 		sortBy: Session.get("PolicyListPagedSortBy") || "",
 		sortAscending: Session.get("PolicyListPagedSortAscending") || true
 	};
