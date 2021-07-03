@@ -57,7 +57,6 @@ const getSingleMeta = async (bpKey) => {
 		registry_contract: data.registryContract,
 		release: data.release.toNumber(),
 		state: data.state,
-		state_message: b32s(data.stateMessage),
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
 	}})
