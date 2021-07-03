@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "35fd7e5840d3a3bb4d1b4123c4121d6fbaf2504b"
+			"checksum": "9ea3b2fb191466dfc82c931f991a2ff691630386"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "49faf5d8a38108f6aae5a18bba1d958b7dccaadc"
+			"checksum": "8796bd8f29a1958aa86811e024c42fc095c1677a"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -499,6 +499,54 @@
 		{
 			"path": "client/views/admin/details_modal/details_modal_controller.js",
 			"checksum": "11a72b4e71b05e37a3e3960d3f54e3688ad913e3"
+		},
+		{
+			"path": "client/views/admin/settings_page/settings_page.html",
+			"checksum": "b8d1d49174a24d8aac8f3b2baef3d2b5a4ed9241"
+		},
+		{
+			"path": "client/views/admin/settings_page/settings_page.js",
+			"checksum": "ae8dd57d076126b73139113260debf0d8e780ca6"
+		},
+		{
+			"path": "client/views/admin/settings_page/settings_page_controller.js",
+			"checksum": "819439ba157ae8bb05117a50f5277802a0a956cd"
+		},
+		{
+			"path": "client/views/admin/settings_page/insert/insert.html",
+			"checksum": "523e1b5bf64510bf58d6d6d801d61e08e9a07ad8"
+		},
+		{
+			"path": "client/views/admin/settings_page/insert/insert.js",
+			"checksum": "b3a4960c5ecc30d9ed61bd6a2e9ce70fb42db3b2"
+		},
+		{
+			"path": "client/views/admin/settings_page/insert/insert_controller.js",
+			"checksum": "c9dd0578ecd2ea1c60e825d8010ef42d540a45ce"
+		},
+		{
+			"path": "client/views/admin/settings_page/update/update.html",
+			"checksum": "f8ea4dae0897b4383bdac26f62d49df1e5203e4c"
+		},
+		{
+			"path": "client/views/admin/settings_page/update/update.js",
+			"checksum": "6800a5c845c8fd6b5c8785d389584147dd0f273d"
+		},
+		{
+			"path": "client/views/admin/settings_page/update/update_controller.js",
+			"checksum": "c91df519ada8e0b2560c90cd50788dd3a38f6d53"
+		},
+		{
+			"path": "client/views/admin/settings_page/details/details.html",
+			"checksum": "5add06d28f7b09711498eb96df482d966484f341"
+		},
+		{
+			"path": "client/views/admin/settings_page/details/details.js",
+			"checksum": "85c7f537ad74599393e55f6cbf9a7271e939ec53"
+		},
+		{
+			"path": "client/views/admin/settings_page/details/details_controller.js",
+			"checksum": "a936ae77a9bbb26eb6397b2670358c6d27f07173"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -1081,6 +1129,22 @@
 			"checksum": "aece142b4c97d18a6dce69f064e74fee287b780c"
 		},
 		{
+			"path": "both/collections/settings.js",
+			"checksum": "0cff799577d6670d9054e7373b3db139c5968f3c"
+		},
+		{
+			"path": "server/methods/settings.js",
+			"checksum": "44a3ee959b26a85e25cd7faee17708760d64cf18"
+		},
+		{
+			"path": "server/collections/settings.js",
+			"checksum": "4da6b62af677f4670dfbce9b78b06594a7bcad8e"
+		},
+		{
+			"path": "server/publish/settings.js",
+			"checksum": "5fa0736230b939f9c63d3ebe70e7dfdd11767af4"
+		},
+		{
 			"path": "both/joins/joins.js",
 			"checksum": "58f1910ae98f4c69e72b5f9dcbda0350aa756fa7"
 		},
@@ -1380,6 +1444,10 @@
 		"client/views/admin/logs_analytics/",
 		"client/views/admin/logs_browser/",
 		"client/views/admin/logs_server/",
+		"client/views/admin/settings_page/",
+		"client/views/admin/settings_page/details/",
+		"client/views/admin/settings_page/insert/",
+		"client/views/admin/settings_page/update/",
 		"client/views/admin/users/",
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",
