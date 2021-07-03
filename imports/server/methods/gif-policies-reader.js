@@ -53,6 +53,7 @@ const getPolicies = safeExec('getPolicies', async () => {
 
 const getSingleMeta = safeExec('getSingleMeta', async (bpKey) => {
 
+	console.log('bpKey');
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
 	info(`Found Metadata ${bpKey}`, data);
