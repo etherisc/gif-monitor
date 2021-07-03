@@ -44,8 +44,8 @@ const getPolicies = async () => {
 const getSingleMeta = async (bpKey) => {
 
 	const policyStorage = getContract('Policy');
-	const metadata = Object.assign({}, await policyStorage.metadata(bpKey));
-	info(`Found Metadata ${bpKey}`, metadata);
+	const data = Object.assign({}, await policyStorage.metadata(bpKey));
+	info(`Found Metadata ${bpKey}`, data);
 	Metadata.upsert({bpKey}, {$set: {
 		bpKey,
 		product_id: data.productId.toNumber(),
