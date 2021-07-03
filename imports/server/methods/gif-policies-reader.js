@@ -2,8 +2,6 @@
 
 console.log('loading gif-policies-reader.js');
 
-import { eth } from '/imports/server/methods/ethereum-provider
-
 /*
  *
  *	Policies
