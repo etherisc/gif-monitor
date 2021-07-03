@@ -45,13 +45,13 @@ const getPolicies = safeExec('getPolicies', async function () {
 
 	for (let bpKeyIdx = 0; bpKeyIdx < count; bpKeyIdx++) {
 		const bpKey = await policyStorage.bpKeys(bpKeyIdx);
-		await getSingleMeta(bpKey);
+		await getSingleMetadata(bpKey);
 	};
 
 });
 
 
-const getSingleMeta = safeExec('getSingleMeta', async function (bpKey) {
+const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
@@ -120,7 +120,7 @@ module.exports = {
 
 	getBpKeyCount,
 	getPolicies,
-	getSingleMeta,
+	getSingleMetadata,
 	getSingleApplication,
 	getSinglePolicy,
 	reloadPolicies

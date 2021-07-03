@@ -1,8 +1,9 @@
 /* Event Listeners */
 
 console.log('loading event-listeners.js');
-import { addListener } from "/imports/server/methods/gif-logs-reader.js";
-import { reloadSingleProduct } from "/imports/server/methods/gif-products-reader.js";
+import { addListener } from '/imports/server/methods/gif-logs-reader.js';
+import { reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
+import { getSingleMetadata } from '/imports/server/methods/gif-policies-reader.js';
 
 
 const getValue = (name, decodedLog) => {
@@ -16,10 +17,17 @@ const reloadSingleProductFromLog = (eventData, decodedLog) => {
 	
 };
 
+const loadPolicy = (eventData, decodedLog) => {
+	const bpKey = getValue('bpKey', decodedLog);
+	getSingleMetadata(bpKey);
+
+}
+
 
 const addListeners = () => {
 
-	addListener(["LogNewProduct", "LogProductApproved"], reloadSingleProductFromLog );
+	addListener(['LogNewProduct', 'LogProductApproved'], reloadSingleProductFromLog );
+	addListener(['LogNewMetadata', 'LogNewApplication', 'LogNewPolicy'], loadPolicy );
 
 };
 
