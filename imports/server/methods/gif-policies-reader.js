@@ -21,6 +21,7 @@ const sanitizeData = (data) => {
 const safeExec = (name, body) => {
 	return (async () => {
 		try {
+			console.log(arguments);
 			return await body.apply(arguments);
 		} catch ({message, stack}) {
 			error(`Error in ${name}`, {message, stack});
@@ -45,7 +46,7 @@ const getPolicies = safeExec('getPolicies', async () => {
 
 	for (let bpKeyIdx = 0; bpKeyIdx < count; bpKeyIdx++) {
 		const bpKey = await policyStorage.bpKeys(bpKeyIdx);
-		await getSingleMeta(bpKey, bpKeyIdx);
+		await getSingleMeta(bpKey);
 	};
 
 });
