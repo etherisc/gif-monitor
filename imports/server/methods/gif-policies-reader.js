@@ -35,19 +35,20 @@ const getPolicies = async () => {
 
 	for (let bpKeyIdx = 0; bpKeyIdx < count; bpKeyIdx++) {
 		const bpKey = await policyStorage.bpKeys(bpKeyIdx);
-		await getSingleMeta(bpKey);
+		await getSingleMeta(bpKey, bpKeyIdx);
 	}
 
 }
 
 
-const getSingleMeta = async (bpKey) => {
+const getSingleMeta = async (bpKey, idx) => {
 
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
 	info(`Found Metadata ${bpKey}`, data);
 	Metadata.upsert({bpKey}, {$set: {
-		bpKey,
+		bp_key: bpKey,
+		bp_key_index: idx,
 		product_id: data.productId.toNumber(),
 		claims_count: data.claimsCount.toNumber(),
 		payouts_count: data.payoutsCount.toNumber(),
