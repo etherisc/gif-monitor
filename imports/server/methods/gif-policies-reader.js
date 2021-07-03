@@ -21,7 +21,7 @@ const sanitizeData = (data) => {
 const safeExec = (name, body) => {
 	return (async function () {
 		try {
-			return await body.apply(arguments);
+			return await body.apply(null, arguments);
 		} catch ({message, stack}) {
 			error(`Error in ${name}`, {message, stack});
 			return null;
