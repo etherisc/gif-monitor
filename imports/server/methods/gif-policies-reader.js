@@ -49,8 +49,8 @@ const getSingleMeta = async (bpKey) => {
 	Metadata.upsert({bpKey}, {$set: {
 		bpKey,
 		product_id: data.productId.toNumber(),
-		claim_ids: data.claimIds.map(item => item.toNumber()),
-		payout_ids: data.payoutIds.map(item => item.toNumber()),
+		claims_count: data.claimsCount.toNumber(),
+		payouts_count: data.payoutsCount.toNumber(),
 		has_policy: data.hasPolicy,
 		has_application: data.hasApplication,
 		token_contract: data.tokenContract,
