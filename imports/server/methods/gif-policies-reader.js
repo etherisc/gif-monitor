@@ -21,7 +21,6 @@ const sanitizeData = (data) => {
 const safeExec = (name, body) => {
 	return (async function () {
 		try {
-			console.log(arguments);
 			return await body.apply(arguments);
 		} catch ({message, stack}) {
 			error(`Error in ${name}`, {message, stack});
@@ -30,7 +29,7 @@ const safeExec = (name, body) => {
 	});
 };
 
-const getBpKeyCount = safeExec('getBpKeyCount', async () => {
+const getBpKeyCount = safeExec('getBpKeyCount', async function () {
 
 	const policyStorage = getContract('Policy');
 	const count = (await policyStorage.callStatic.getBpKeyCount()).toNumber();
@@ -38,7 +37,7 @@ const getBpKeyCount = safeExec('getBpKeyCount', async () => {
 
 });
 
-const getPolicies = safeExec('getPolicies', async () => {
+const getPolicies = safeExec('getPolicies', async function () {
 
 	const policyStorage = getContract('Policy');
 	const count = await getBpKeyCount();
@@ -52,7 +51,7 @@ const getPolicies = safeExec('getPolicies', async () => {
 });
 
 
-const getSingleMeta = safeExec('getSingleMeta', async (bpKey) => {
+const getSingleMeta = safeExec('getSingleMeta', async function (bpKey) {
 
 	console.log(bpKey);
 	const policyStorage = getContract('Policy');
@@ -79,7 +78,7 @@ const getSingleMeta = safeExec('getSingleMeta', async (bpKey) => {
 });
 
 
-const getSingleApplication = safeExec('getSingleApplication', async (bpKey, idx) => {
+const getSingleApplication = safeExec('getSingleApplication', async function (bpKey) {
 	const data = Object.assign({}, await policyStorage.application(bpKey));
 	info(`Found Application ${bpKey}`, data);
 	Applications.upsert({bpKey}, {$set: {
@@ -91,7 +90,7 @@ const getSingleApplication = safeExec('getSingleApplication', async (bpKey, idx)
 });
 
 
-const getSinglePolicy = safeExec('getSinglePolicy', async (bpKey, idx) => {
+const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
 	const data = Object.assign({}, await policyStorage.application(bpKey));
 	info(`Found Application ${bpKey}`, data);
 	Policies.upsert({bpKey}, {$set: {
