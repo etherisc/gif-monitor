@@ -68,11 +68,11 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="payout_id">
-					Payout Id
-				</th>
 				<th class="th-sortable" data-sort="bp_key">
 					BP Key
+				</th>
+				<th class="th-sortable" data-sort="payout_id">
+					Payout Id
 				</th>
 				<th class="th-sortable" data-sort="state">
 					State
@@ -97,10 +97,10 @@
 <template name="PayoutsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{payout_id}}
+			{{bp_key}}
 		</td>
 		<td>
-			{{bp_key}}
+			{{payout_id}}
 		</td>
 		<td>
 			{{payoutState state this}}

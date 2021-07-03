@@ -26,7 +26,7 @@ Template.Payouts.helpers({
 var PayoutsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PayoutListPagedSearchString") || "",
-		searchFields: Session.get("PayoutListPagedSearchFields") || ["payout_id", "metadata_mongo_id", "bp_key", "state", "state_message", "created_at", "updated_at", "claim_id", "claim_mongo_id"],
+		searchFields: Session.get("PayoutListPagedSearchFields") || ["bp_key", "payout_id", "metadata_mongo_id", "state", "created_at", "updated_at", "claim_id", "claim_mongo_id"],
 		sortBy: Session.get("PayoutListPagedSortBy") || "",
 		sortAscending: Session.get("PayoutListPagedSortAscending") || true
 	};

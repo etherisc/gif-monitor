@@ -68,11 +68,11 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="claim_id">
-					Claim Id
-				</th>
 				<th class="th-sortable" data-sort="bp_key">
 					Bp Key
+				</th>
+				<th class="th-sortable" data-sort="claim_id">
+					Claim Id
 				</th>
 				<th class="th-sortable" data-sort="data">
 					Data
@@ -97,10 +97,10 @@
 <template name="ClaimsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{claim_id}}
+			{{bp_key}}
 		</td>
 		<td>
-			{{bp_key}}
+			{{claim_id}}
 		</td>
 		<td>
 			{{data}}
