@@ -7,7 +7,6 @@ import { getSingleMetadata } from '/imports/server/methods/gif-policies-reader.j
 
 
 const getValue = (name, decodedLog) => {
-	console.log(name, decodedLog);
 	return decodedLog.events.filter(value => value.name == name)[0].value;
 }
 
