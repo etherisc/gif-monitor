@@ -1,0 +1,65 @@
+<template name="AdminSettingsPageUpdate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminSettingsPageUpdateForm}}
+	</div>
+</template>
+
+<template name="AdminSettingsPageUpdateForm">
+	<div id="admin-settings-page-update-form" class="">
+		<h2 id="component-title">
+			Edit Setting
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-key">
+				<label for="key" class="col-sm-3 control-label">
+					Key
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="key" value="{{setting.key}}" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-value">
+				<label for="value" class="col-sm-3 control-label">
+					Value
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="value" value="{{setting.value}}" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

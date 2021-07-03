@@ -47,6 +47,10 @@ Router.privateRoutes = [
 	"admin.logs_analytics",
 	"admin.logs_server",
 	"admin.details_modal",
+	"admin.settings_page",
+	"admin.settings_page.insert",
+	"admin.settings_page.update",
+	"admin.settings_page.details",
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
@@ -91,6 +95,10 @@ Router.roleMap = [
 	{ route: "admin.logs_analytics",	roles: ["admin"] },
 	{ route: "admin.logs_server",	roles: ["admin"] },
 	{ route: "admin.details_modal",	roles: ["admin"] },
+	{ route: "admin.settings_page",	roles: ["admin"] },
+	{ route: "admin.settings_page.insert",	roles: ["admin"] },
+	{ route: "admin.settings_page.update",	roles: ["admin"] },
+	{ route: "admin.settings_page.details",	roles: ["admin"] },
 	{ route: "user_settings",	roles: ["user","admin"] },
 	{ route: "user_settings.profile",	roles: ["user","admin"] },
 	{ route: "user_settings.change_pass",	roles: ["user","admin"] }
@@ -171,6 +179,10 @@ Router.map(function () {
 	this.route("/admin/logs_analytics", {name: "admin.logs_analytics", title: "", controller: "AdminLogsAnalyticsController"});
 	this.route("/admin/logs_server", {name: "admin.logs_server", title: "", controller: "AdminLogsServerController"});
 	this.route("/admin/details_modal", {name: "admin.details_modal", title: "", controller: "AdminDetailsModalController"});
+	this.route("/admin/settings_page", {name: "admin.settings_page", title: "", controller: "AdminSettingsPageController"});
+	this.route("/admin/settings_page/insert", {name: "admin.settings_page.insert", title: "", controller: "AdminSettingsPageInsertController"});
+	this.route("/admin/settings_page/update/:settingId", {name: "admin.settings_page.update", title: "", controller: "AdminSettingsPageUpdateController"});
+	this.route("/admin/settings_page/details/:settingId", {name: "admin.settings_page.details", title: "", controller: "AdminSettingsPageDetailsController"});
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
