@@ -79,6 +79,7 @@ const getSingleMeta = safeExec('getSingleMeta', async function (bpKey) {
 
 
 const getSingleApplication = safeExec('getSingleApplication', async function (bpKey) {
+	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.application(bpKey));
 	info(`Found Application ${bpKey}`, data);
 	Applications.upsert({bpKey}, {$set: {
@@ -91,6 +92,7 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 
 
 const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
+	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.application(bpKey));
 	info(`Found Application ${bpKey}`, data);
 	Policies.upsert({bpKey}, {$set: {
