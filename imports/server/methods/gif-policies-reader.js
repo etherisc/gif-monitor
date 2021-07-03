@@ -18,15 +18,26 @@ const sanitizeData = (data) => {
 
 }
 
+const safeExec = (name, body) => {
+	return (async () => {
+		try {
+			return await body.apply(arguments);
+		} catch ({message, stack}) {
+			error(`Error in ${name}`, {message, stack});
+			return null;
+		}
+	});
+};
 
-const getBpKeyCount = async () => {
+const getBpKeyCount = safeExec('getBpKeyCount', async () => {
 
 	const policyStorage = getContract('Policy');
 	const count = (await policyStorage.callStatic.getBpKeyCount()).toNumber();
 	return count;
-};
 
-const getPolicies = async () => {
+});
+
+const getPolicies = safeExec('getPolicies', async () => {
 
 	const policyStorage = getContract('Policy');
 	const count = await getBpKeyCount();
@@ -35,19 +46,18 @@ const getPolicies = async () => {
 	for (let bpKeyIdx = 0; bpKeyIdx < count; bpKeyIdx++) {
 		const bpKey = await policyStorage.bpKeys(bpKeyIdx);
 		await getSingleMeta(bpKey, bpKeyIdx);
-	}
+	};
 
-}
+});
 
 
-const getSingleMeta = async (bpKey, idx) => {
+const getSingleMeta = safeExec('getSingleMeta', async (bpKey) => {
 
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
 	info(`Found Metadata ${bpKey}`, data);
 	Metadata.upsert({bpKey}, {$set: {
 		bp_key: b32s(bpKey),
-		bp_key_index: idx,
 		product_id: data.productId.toNumber(),
 		claims_count: data.claimsCount.toNumber(),
 		payouts_count: data.payoutsCount.toNumber(),
@@ -60,146 +70,44 @@ const getSingleMeta = async (bpKey, idx) => {
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
 	}})
-}
+
+	if (data.hasApplication) await getSingleApplication(bpKey);
+	if (data.hasPolicy) await getSinglePolicy(bpKey);
+
+});
+
+
+const getSingleApplication = safeExec('getSingleApplication', async (bpKey, idx) => {
+	const data = Object.assign({}, await policyStorage.application(bpKey));
+	info(`Found Application ${bpKey}`, data);
+	Applications.upsert({bpKey}, {$set: {
+		bp_key: b32s(bpKey),
+		state: data.state,
+		created_at: unix2Date(data.createdAt),
+		updated_at: unix2Date(data.updatedAt)			
+	}})
+});
+
+
+const getSinglePolicy = safeExec('getSinglePolicy', async (bpKey, idx) => {
+	const data = Object.assign({}, await policyStorage.application(bpKey));
+	info(`Found Application ${bpKey}`, data);
+	Policies.upsert({bpKey}, {$set: {
+		bp_key: b32s(bpKey),
+		state: data.state,
+		created_at: unix2Date(data.createdAt),
+		updated_at: unix2Date(data.updatedAt)			
+	}})
+});
+
 
 module.exports = { 
 
 	getBpKeyCount,
 	getPolicies,
 	getSingleMeta,
+	getSingleApplication,
+	getSinglePolicy
 
 };
 
-/***
-
-module.exports = { 
-
-	loadApplications,
-	reloadApplications, 
-	reloadSingleApplication,
-
-	loadPolicies, 
-	reloadPolicies, 
-	reloadSinglePolicy,
-
-	loadMetadata,
-	reloadMetadata,
-	reloadSingleMetadata
-
-};
-
-
-const reloadSingleItem = async function (config, bpKey) {
-
-	try {
-		const data = sanitizeData(await config.storage[config.collection](bpKey));
-		info(`Found ${config.collection} item: BpKey=${bpKey}`, data);
-		config.upsert(bpKey, data);
-
-	} catch (err) {
-		error(`Error ReloadSingleItem, ${err.message}`, {message: err.message, stack: err.stack});
-	}
-}
-
-const loadItems = async function (config) {
-
-	try {		
-		const bpKeys = await getBpKeys();
-
-		for (let idx = 0; idx <= bpKeys.length; idx += 1) {
-			await reloadSingleItem(config, bpKeys[idx]);
-		}
-	} catch (err) {
-		error(`Error loading ${config.collection}, ${err.message}`, {message: err.message, stack: err.stack});
-	}
-
-};
-
-
-const configs = {
-	metadata: {
-		collection: "getMetadata",
-		increment: "metadataIdIncrement",
-		storage: getContract('Policy'),
-		upsert: (id, data) => {
-			Metadata.upsert({metadata_id: id}, {$set: {
-				metadata_id: id,
-				product_id: data.productId.toNumber(),
-				application_id: data.applicationId.toNumber(),
-				policy_id: data.policyId.toNumber(),
-				claim_ids: data.claimIds.map(item => item.toNumber()),
-				payout_ids: data.payoutIds.map(item => item.toNumber()),
-				has_policy: data.hasPolicy,
-				has_application: data.hasApplication,
-				token_contract: data.tokenContract,
-				registry_contract: data.registryContract,
-				release: data.release.toNumber(),
-				state: data.state,
-				state_message: b32s(data.stateMessage),
-				bp_external_key: data.bpExternalKey,
-				created_at: unix2Date(data.createdAt),
-				updated_at: unix2Date(data.updatedAt)			
-			}})
-		}
-	},
-	applications: {
-		collection: "getApplication",
-		increment: "applicationIdIncrement",
-		storage: getContract('Policy'),
-		upsert: (id, data) => {
-			Applications.upsert({application_id: id}, {$set: {
-				application_id: id,
-				metadata_id: data.metadataId.toNumber(),
-				premium: toEther(data.premium),
-				currency: b32s(data.currency),
-				payout_options: data.payoutOptions.map(item => toEther(item)),
-				state: data.state,
-				state_message: b32s(data.stateMessage),
-				created_at: unix2Date(data.createdAt),
-				updated_at: unix2Date(data.updatedAt)			
-			}})
-		}
-	},
-	policies: {
-		collection: "policies",
-		increment: "policyIdIncrement",
-		storage: getContract('Policy'),
-		upsert: (id, data) => {
-			Policies.upsert({policy_id: id}, {$set: {
-				policy_id: id,
-				state: data.state,
-				metadata_id: data.metadataId.toNumber(),
-				state_message: b32s(data.stateMessage),
-				created_at: unix2Date(data.createdAt),
-				updated_at: unix2Date(data.updatedAt)			
-			}})
-		}
-	},
-}
-
-const reloadApplications = async () => {
-
-	Applications.remove({});
-	await loadItems(configs.applications);
-}
-
-const reloadPolicies = async () => {
-
-	Policies.remove({});
-	await loadItems(configs.policies);
-}
-
-const reloadMetadata = async () => {
-
-	Metadata.remove({});
-	await loadItems(configs.metadata);
-}
-
-const loadApplications = () => loadItems(configs.applications);
-const loadPolicies = () => loadItems(configs.policies);
-const loadMetadata = () => loadItems(configs.metadata);
-const reloadSingleApplication = (id) => reloadSingleItem(configs.applications, id);
-const reloadSinglePolicy = (id) => reloadSingleItem(configs.policies, id);
-const reloadSingleMetadata = (id) => reloadSingleItem(configs.metadata, id);
-
-**/
