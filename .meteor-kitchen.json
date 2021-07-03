@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "8ac48ce1bfd800be8c25c741138468dd5309f792"
+			"checksum": "628ab485622a052cba44b508b8c2263301567181"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -770,7 +770,7 @@
 		},
 		{
 			"path": "client/views/metadata/metadata.js",
-			"checksum": "0ad766f9f3c92c29660c4ca8af67c68ad6876196"
+			"checksum": "fe81ec19fae6befc80240be54fdab241fd750be6"
 		},
 		{
 			"path": "client/views/metadata/metadata_controller.js",
@@ -1158,7 +1158,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "b145094402f45729abbc770fd112edb5743e94a7"
+			"checksum": "f3905a5ae1f4472ae2840cd5caf36d932f62b88e"
 		},
 		{
 			"path": "client/lib/helpers.js",
@@ -1218,7 +1218,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-policies-reader.js",
-			"checksum": "8974a0b40da013a56fa935e65eb1d4b3235c9e14"
+			"checksum": "6dfa15d9638d95c1f787d00ec3dce4b08640decb"
 		},
 		{
 			"path": "client/styles/custom.css",

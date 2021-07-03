@@ -345,7 +345,7 @@ Template.MetadataViewCustomActions.events({
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('getPolicies');
+		Meteor.call('reloadPolicies');
 	}
 
 });

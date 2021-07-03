@@ -107,13 +107,23 @@ const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
 });
 
 
+const reloadPolicies = safeExec('reloadPolicies', async function () {
+	Metadata.remove({});
+	Applications.remove({});
+	Policies.remove({});
+	Claims.remove({});
+	Payouts.remove({});
+	await getPolicies();
+};
+
 module.exports = { 
 
 	getBpKeyCount,
 	getPolicies,
 	getSingleMeta,
 	getSingleApplication,
-	getSinglePolicy
+	getSinglePolicy,
+	reloadPolicies
 
 };
 
