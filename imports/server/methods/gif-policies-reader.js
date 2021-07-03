@@ -114,7 +114,7 @@ const reloadPolicies = safeExec('reloadPolicies', async function () {
 	Claims.remove({});
 	Payouts.remove({});
 	await getPolicies();
-};
+});
 
 module.exports = { 
 
