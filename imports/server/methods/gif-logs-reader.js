@@ -57,6 +57,7 @@ const addListener = (event, cb) => {
 		} else {
 			listeners[event] = [cb];
 		}
+		info(`Added Listener for ${event}`);
 	}
 
 	if (Array.isArray(event)) {
