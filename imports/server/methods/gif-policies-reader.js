@@ -7,7 +7,7 @@ console.log('loading gif-policies-reader.js');
  *	Policies
  *
  */
- 
+
 
 const sanitizeData = (data) => {
 
