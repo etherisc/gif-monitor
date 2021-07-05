@@ -30,8 +30,9 @@ const safeExec = (name, body) => {
 };
 
 const b32hexStr = (b32) => {
-	console.log(b32);
-	return Buffer.from(b32, 'hex').toString('hex');
+	const res = Buffer.from(b32, 'hex').toString('hex');
+	console.log(b32, res);
+	return res;
 }
 
 const getBpKeyCount = safeExec('getBpKeyCount', async function () {
