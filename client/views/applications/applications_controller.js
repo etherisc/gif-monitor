@@ -46,7 +46,7 @@ this.ApplicationsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			application_list_paged: Applications.find(databaseUtils.extendFilter({}, this.applicationListPagedExtraParams), databaseUtils.extendOptions({}, this.applicationListPagedExtraParams)),
+			application_list_paged: Applications.find(databaseUtils.extendFilter({}, this.applicationListPagedExtraParams), databaseUtils.extendOptions({sort:{updated_at:-1}}, this.applicationListPagedExtraParams)),
 			application_list_paged_count: Counts.get("application_list_paged_count")
 		};
 		

@@ -46,7 +46,7 @@ this.PoliciesPublicMetadataPublicController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			metadata_list_paged: Metadata.find(databaseUtils.extendFilter({}, this.metadataListPagedExtraParams), databaseUtils.extendOptions({}, this.metadataListPagedExtraParams)),
+			metadata_list_paged: Metadata.find(databaseUtils.extendFilter({}, this.metadataListPagedExtraParams), databaseUtils.extendOptions({sort:{updated_at:-1}}, this.metadataListPagedExtraParams)),
 			metadata_list_paged_count: Counts.get("metadata_list_paged_count")
 		};
 		

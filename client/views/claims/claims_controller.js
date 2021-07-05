@@ -46,7 +46,7 @@ this.ClaimsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			claim_list_paged: Claims.find(databaseUtils.extendFilter({}, this.claimListPagedExtraParams), databaseUtils.extendOptions({}, this.claimListPagedExtraParams)),
+			claim_list_paged: Claims.find(databaseUtils.extendFilter({}, this.claimListPagedExtraParams), databaseUtils.extendOptions({sort:{updated_at:-1}}, this.claimListPagedExtraParams)),
 			claim_list_paged_count: Counts.get("claim_list_paged_count")
 		};
 		
