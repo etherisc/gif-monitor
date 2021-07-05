@@ -29,7 +29,10 @@ const safeExec = (name, body) => {
 	});
 };
 
-const b32hexStr = (b32) => Buffer.from(b32.slice(2), 'hex').toString('hex').replace(/(00)+$/, '');
+const bpKey2uuid = (bpKey) => {
+	const raw = Buffer.from(bpKey.slice(2), 'hex').toString('hex').replace(/(00)+$/, '');
+	return `${raw.slice(0,8)}-${raw.slice(8,4)}-${raw.slice(12,4)}-${raw.slice(16,4)}-${raw.slice(20,12)}`;
+}
 
 const getBpKeyCount = safeExec('getBpKeyCount', async function () {
 
@@ -57,7 +60,7 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
-	const bp_key = b32hexStr(bpKey);
+	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Metadata ${bp_key}`, data);
 	Metadata.upsert({bp_key}, {$set: {
 		bp_key,
@@ -84,7 +87,7 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 const getSingleApplication = safeExec('getSingleApplication', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.applications(bpKey));
-	const bp_key = b32hexStr(bpKey);
+	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Application ${bp_key}`, data);
 	Applications.upsert({bp_key}, {$set: {
 		bp_key,
@@ -98,7 +101,7 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.policies(bpKey));
-	const bp_key = b32hexStr(bpKey);
+	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Policy ${bp_key}`, data);
 	Policies.upsert({bp_key}, {$set: {
 		bp_key,
