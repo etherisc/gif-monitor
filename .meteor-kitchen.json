@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "4f9936a099707017b2055eff30c4d3bd920af1ed"
+			"checksum": "5375c90e99df7db072a05f50976277fa43b71a80"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -838,19 +838,19 @@
 		},
 		{
 			"path": "client/views/claims/claims.html",
-			"checksum": "58257d83dfd58c81256f9c7e024e6102bcba6e46"
+			"checksum": "60a782ea808299f648288045ce317414cd31f5f1"
 		},
 		{
 			"path": "client/views/claims/claims.js",
-			"checksum": "78d2fe04a2e308dcccffb373a01606e849c7dc77"
+			"checksum": "f0cf3af1333c819e03023d94b5830726268b7db2"
 		},
 		{
 			"path": "client/views/claims/claims_controller.js",
-			"checksum": "92c890fc7511cce17f63d3c9b17e79b9e2cfc72b"
+			"checksum": "ff279e0e74bd1210bed7dc2b602aff2676bcdfc2"
 		},
 		{
 			"path": "client/views/claims/details/details.html",
-			"checksum": "a343924aa54d727cb08c507ecc04b68bd443a80a"
+			"checksum": "1a5fc1e11a669aadc8d568a4f1925f37969bfa6a"
 		},
 		{
 			"path": "client/views/claims/details/details.js",
@@ -1218,7 +1218,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-policies-reader.js",
-			"checksum": "99db78d2490e825f2752a9fc2c1551275c4856a3"
+			"checksum": "0c3548c62fe4ecb815c9aed3058077d52cc98035"
 		},
 		{
 			"path": "client/styles/custom.css",
