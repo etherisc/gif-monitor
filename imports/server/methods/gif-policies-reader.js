@@ -31,7 +31,7 @@ const safeExec = (name, body) => {
 
 const bpKey2uuid = (bpKey) => {
 	const raw = Buffer.from(bpKey.slice(2), 'hex').toString('hex').replace(/(00)+$/, '');
-	return `${raw.slice(0,8)}-${raw.slice(8,4)}-${raw.slice(12,4)}-${raw.slice(16,4)}-${raw.slice(20,12)}`;
+	return `${raw.slice(0,8)}-${raw.slice(8,12)}-${raw.slice(12,16)}-${raw.slice(16,20)}-${raw.slice(20,32)}`;
 }
 
 const getBpKeyCount = safeExec('getBpKeyCount', async function () {
