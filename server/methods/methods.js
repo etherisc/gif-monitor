@@ -19,10 +19,9 @@ Meteor.methods({
 	"reload.oracles": reloadOracles,
 
 	"reload.products": reloadProducts,
-	"product.reload": reloadSingleProduct,
 	
 	"getPolicies": getPolicies,
-	"reloadPolicies": reloadPolicies
+	"reload.policies": reloadPolicies
 
 	
 });
