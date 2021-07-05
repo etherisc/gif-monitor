@@ -87,7 +87,7 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 		}
 	}
 	
-	if (data.payoutCount > 0) {
+	if (data.payoutsCount > 0) {
 		for (let payoutsIdx = 0; payoutsIdx < data.claimsCount; payoutsIdx += 1) {
 			await getSinglePayout(bpKey, payoutsIdx);
 		}
