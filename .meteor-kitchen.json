@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5f80bfe9ca79808266e06971da874aedc3fcd3d4"
+			"checksum": "4f9936a099707017b2055eff30c4d3bd920af1ed"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1218,7 +1218,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-policies-reader.js",
-			"checksum": "0701d65f54b0a9c871d169eb87f674b434c6c5b9"
+			"checksum": "99db78d2490e825f2752a9fc2c1551275c4856a3"
 		},
 		{
 			"path": "client/styles/custom.css",
