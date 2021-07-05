@@ -59,7 +59,7 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
 	const bp_key = b32hexStr(bpKey);
 	info(`Found Metadata ${bp_key}`, data);
-	Metadata.upsert({bp_Key}, {$set: {
+	Metadata.upsert({bp_key}, {$set: {
 		bp_key,
 		product_id: data.productId.toNumber(),
 		options: data.options,
@@ -86,7 +86,7 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 	const data = Object.assign({}, await policyStorage.applications(bpKey));
 	const bp_key = b32hexStr(bpKey);
 	info(`Found Application ${bp_key}`, data);
-	Applications.upsert({bp_Key}, {$set: {
+	Applications.upsert({bp_key}, {$set: {
 		bp_key,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
@@ -100,7 +100,7 @@ const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
 	const data = Object.assign({}, await policyStorage.policies(bpKey));
 	const bp_key = b32hexStr(bpKey);
 	info(`Found Policy ${bp_key}`, data);
-	Policies.upsert({bp_Key}, {$set: {
+	Policies.upsert({bp_key}, {$set: {
 		bp_key,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
