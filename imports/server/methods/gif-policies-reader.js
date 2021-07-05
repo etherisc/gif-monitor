@@ -29,6 +29,8 @@ const safeExec = (name, body) => {
 	});
 };
 
+const b32hexStr = (b32) => Buffer.from(b32, 'hex').toString('hex');
+
 const getBpKeyCount = safeExec('getBpKeyCount', async function () {
 
 	const policyStorage = getContract('Policy');
@@ -55,7 +57,7 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.metadata(bpKey));
-	const bp_key = b32s(bpKey);
+	const bp_key = b32hexStr(bpKey);
 	info(`Found Metadata ${bp_key}`, data);
 	Metadata.upsert({bpKey}, {$set: {
 		bp_key,
@@ -82,7 +84,7 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 const getSingleApplication = safeExec('getSingleApplication', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.applications(bpKey));
-	const bp_key = b32s(bpKey);
+	const bp_key = b32hexStr(bpKey);
 	info(`Found Application ${bp_key}`, data);
 	Applications.upsert({bpKey}, {$set: {
 		bp_key,
@@ -96,7 +98,7 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.policies(bpKey));
-	const bp_key = b32s(bpKey);
+	const bp_key = b32hexStr(bpKey);
 	info(`Found Policy ${bp_key}`, data);
 	Policies.upsert({bpKey}, {$set: {
 		bp_key,
