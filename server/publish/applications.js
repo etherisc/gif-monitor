@@ -1,22 +1,14 @@
 Meteor.publish("application_list", function() {
-	return Applications.find({}, {});
+	return Applications.find({}, {sort:{updated_at:-1}});
 });
 
 Meteor.publish("application", function(applicationId) {
 	return Applications.find({_id:applicationId}, {});
 });
 
-Meteor.publish("app_s_list", function() {
-	return Applications.find({}, {});
-});
-
-Meteor.publish("app_s", function(appSId) {
-	return Applications.find({_id:appSId}, {});
-});
-
 Meteor.publish("application_list_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
-	return Applications.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return Applications.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{updated_at:-1}}, extraOptions));
 });
 
 Meteor.publish("application_list_paged_count", function(extraOptions) {
@@ -26,7 +18,7 @@ Meteor.publish("application_list_paged_count", function(extraOptions) {
 Meteor.methods({
 	"applicationListPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = Applications.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Applications.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{updated_at:-1}}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });

@@ -1,5 +1,5 @@
 Meteor.publish("payout_list", function() {
-	return Payouts.find({}, {});
+	return Payouts.find({}, {sort:{updated_at:-1}});
 });
 
 Meteor.publish("payout", function(payoutId) {
@@ -8,7 +8,7 @@ Meteor.publish("payout", function(payoutId) {
 
 Meteor.publish("payout_list_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
-	return Payouts.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return Payouts.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{updated_at:-1}}, extraOptions));
 });
 
 Meteor.publish("payout_list_paged_count", function(extraOptions) {
@@ -18,7 +18,7 @@ Meteor.publish("payout_list_paged_count", function(extraOptions) {
 Meteor.methods({
 	"payoutListPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = Payouts.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Payouts.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{updated_at:-1}}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });

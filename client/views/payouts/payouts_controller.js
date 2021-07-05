@@ -46,7 +46,7 @@ this.PayoutsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			payout_list_paged: Payouts.find(databaseUtils.extendFilter({}, this.payoutListPagedExtraParams), databaseUtils.extendOptions({}, this.payoutListPagedExtraParams)),
+			payout_list_paged: Payouts.find(databaseUtils.extendFilter({}, this.payoutListPagedExtraParams), databaseUtils.extendOptions({sort:{updated_at:-1}}, this.payoutListPagedExtraParams)),
 			payout_list_paged_count: Counts.get("payout_list_paged_count")
 		};
 		
