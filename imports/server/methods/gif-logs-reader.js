@@ -14,7 +14,7 @@ const processEvent = (contractName, eventData) => {
 
 	const valuesWithText = decodedLog.events.map(
 		value => {
-			if (value.type === 'bytes32') {
+			if (value.type === 'bytes32' && value.value.slice(64,2) === '00') {
 				value.text = b32s(value.value);
 			}
 			return value;
