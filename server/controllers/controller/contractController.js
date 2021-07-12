@@ -12,9 +12,10 @@ ContractController = RouteController.extend({
 
 			if (instance_id && contract) {
 	
-				const contract = Contracts.find({
+				const contract = Contracts.find({instance_id, contract});
+				const content = JSON.stringify(contract);
 
-				this.response.end('OK');
+				this.response.end(content);
 				return;
 			}
 
