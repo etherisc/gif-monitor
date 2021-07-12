@@ -1,5 +1,5 @@
 Router.route(
-	"/contract", 
+	"/api/v1/contract", 
 	{
 		controller: "ContractController",
 		where: "server"

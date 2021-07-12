@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9c6671c692a40345c42880e816657e55c6a9af6e"
+			"checksum": "83f4de00a96bdf2e176bf1754f70189723df3851"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1226,11 +1226,11 @@
 		},
 		{
 			"path": "both/routes/serverroutes.js",
-			"checksum": "fe6f1066b2e22dc5d22c17f2d56a010fb3568e30"
+			"checksum": "a811bb3520b427d4922f7a9d50b0cfa24c761167"
 		},
 		{
 			"path": "server/controllers/controller/contractController.js",
-			"checksum": "143f829868170276be9b410b8e75d14a4539b742"
+			"checksum": "79e19e2931d67cdeac7fd716d2e8fd88920edd49"
 		},
 		{
 			"path": "lib/string_utils.js",
