@@ -103,6 +103,7 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 	info(`Found Application ${bp_key}`, data);
 	Applications.upsert({bp_key}, {$set: {
 		bp_key,
+		data: data.data,
 		metadata_mongo_id,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
@@ -133,6 +134,7 @@ const getSingleClaim = safeExec('getSingleClaim', async function (bpKey, claimId
 	Claims.upsert({bp_key}, {$set: {
 		bp_key,
 		metadata_mongo_id,
+		data: data.data,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
@@ -147,6 +149,7 @@ const getSinglePayout = safeExec('getSinglePayout', async function (bpKey, payou
 	Payouts.upsert({bp_key}, {$set: {
 		bp_key,
 		metadata_mongo_id,
+		data: data.data,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			

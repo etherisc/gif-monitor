@@ -8,7 +8,6 @@ const ethers = require('ethers');
 const cbor = require('cbor');
 const multihashes = require('multihashes');
 const abiDecoder = require('abi-decoder');
-const GifCli = require('@etherisc/gifcli');
 
 const CBOR_PROCESSORS = [
 	{ origin: "ipfs", process: multihashes.toB58String },
