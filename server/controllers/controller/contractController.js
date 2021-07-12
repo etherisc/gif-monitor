@@ -1,3 +1,5 @@
+console.log('loading contractController.js');
+
 ContractController = RouteController.extend({
 
 	action: async function() {
