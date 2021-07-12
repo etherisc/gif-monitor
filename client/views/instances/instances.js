@@ -46,7 +46,7 @@ Template.InstancesHeader.events({
 var InstancesViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("InstanceListPagedSearchString") || "",
-		searchFields: Session.get("InstanceListPagedSearchFields") || ["name", "chain", "chain_id", "registry_addr", "active"],
+		searchFields: Session.get("InstanceListPagedSearchFields") || ["name", "chain_name", "chain_id", "registry_addr", "active"],
 		sortBy: Session.get("InstanceListPagedSortBy") || "",
 		sortAscending: Session.get("InstanceListPagedSortAscending") || true
 	};
