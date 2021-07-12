@@ -4,7 +4,7 @@ ContractController = RouteController.extend({
 
 	action: async function() {
 	
-		console.log(this.method, this.params, this.request.body, this.query);
+		console.log(this.method, this.params.query);
 	
 		switch (this.method) {
 	
