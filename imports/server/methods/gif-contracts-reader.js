@@ -63,7 +63,7 @@ const loadContracts = async () => {
 
 	try {
 
-		const { _id, registry_addr } = Instances.findOne({instance_id:101 });
+		const { _id, registry_addr } = Instances.findOne({instance_id:102 });
 
 		// Bootstrap Registry
 
