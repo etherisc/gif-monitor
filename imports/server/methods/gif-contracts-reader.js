@@ -48,10 +48,15 @@ const getAbi = async (addr) => {
 
 	const regIPFS = await ipfsLink(addr);
 	if (regIPFS === '') return [];
-	const test = await fetch(`https://gateway.pinata.cloud/ipfs/${regIPFS.ipfs}`);
-	const json = await test.json();
-
-	return json.output.abi;
+	const gatewayLink = `https://gateway.pinata.cloud/ipfs/${regIPFS.ipfs}`;
+	try {
+		const data = await fetch(gatewayLink);
+		const json = await data.json();
+		return json.output.abi;
+	} catch ({message, stack}) {
+		error(`Couldn't fetch ipfs data, is it published? ${gatewayLink}`, {message, stack});
+		return [];
+	}
 };	
 
 
