@@ -18,7 +18,7 @@ this.InstancesController = RouteController.extend({
 	isReady: function() {
 		this.instanceListPagedExtraParams = {
 			searchText: Session.get("InstanceListPagedSearchString") || "",
-			searchFields: Session.get("InstanceListPagedSearchFields") || ["name", "chain_name", "chain_id", "registry_addr", "active"],
+			searchFields: Session.get("InstanceListPagedSearchFields") || ["instance_id", "name", "chain_name", "chain_id", "registry_addr", "active"],
 			sortBy: Session.get("InstanceListPagedSortBy") || "",
 			sortAscending: Session.get("InstanceListPagedSortAscending"),
 			pageNo: Session.get("InstanceListPagedPageNo") || 0,

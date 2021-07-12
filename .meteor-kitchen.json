@@ -130,15 +130,15 @@
 		},
 		{
 			"path": "client/views/core_public/instances_public/instances_public.html",
-			"checksum": "ca4e6172ba2e464ce6a605263f79aee9983079c4"
+			"checksum": "4959402bfe0417bf3cd8e48cea91d349a3371231"
 		},
 		{
 			"path": "client/views/core_public/instances_public/instances_public.js",
-			"checksum": "1af4ddea912387282db1554b4e131aa143f4f77d"
+			"checksum": "347a66a993b82fdbb98b2e7a80a9c3ddfa7ee6d2"
 		},
 		{
 			"path": "client/views/core_public/instances_public/instances_public_controller.js",
-			"checksum": "cd480be2214af74bffbf42a66b99d75c27e13133"
+			"checksum": "0acc9c529299fee6210cb7269e262d6ff91272de"
 		},
 		{
 			"path": "client/views/core_public/core_contracts_public/core_contracts_public.html",
@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "83f4de00a96bdf2e176bf1754f70189723df3851"
+			"checksum": "35eb2bb41eb8279148f2cbb700e56515a5b16221"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -598,19 +598,19 @@
 		},
 		{
 			"path": "client/views/instances/instances.html",
-			"checksum": "7837ea82b6819cd5d36402bde21be6bee26e54d3"
+			"checksum": "85da1eda946f8192a0df4bf8bb7264e72968718d"
 		},
 		{
 			"path": "client/views/instances/instances.js",
-			"checksum": "d58b193f9cc82f5eba45fd45efa549d04f366523"
+			"checksum": "e049f0256462bb7caea2106ea2b65fde73d88974"
 		},
 		{
 			"path": "client/views/instances/instances_controller.js",
-			"checksum": "dd2bee276e805c5b628f5c9621734efd3b130885"
+			"checksum": "85bc8a88485d807b2cde6f1748a5f497e2eacbbe"
 		},
 		{
 			"path": "client/views/instances/insert/insert.html",
-			"checksum": "c4a63cc40dbf63a90739e35aec0b67e721c00cb0"
+			"checksum": "1a0acd7c461360cf5b202acff991b2699d6a3aa4"
 		},
 		{
 			"path": "client/views/instances/insert/insert.js",
@@ -622,7 +622,7 @@
 		},
 		{
 			"path": "client/views/instances/update/update.html",
-			"checksum": "59958230cb94c225906d3ce5960e85ff3b63aa90"
+			"checksum": "1822c028dabde61030ceb94d3eceeaffed7fb82f"
 		},
 		{
 			"path": "client/views/instances/update/update.js",
@@ -634,7 +634,7 @@
 		},
 		{
 			"path": "client/views/instances/details/details.html",
-			"checksum": "53e4a0de17daa1de9f0d493a29acdc769dc1c62d"
+			"checksum": "f6160c8dd52ec0660444536df7e793999fc48365"
 		},
 		{
 			"path": "client/views/instances/details/details.js",
@@ -1230,7 +1230,7 @@
 		},
 		{
 			"path": "server/controllers/controller/contractController.js",
-			"checksum": "79e19e2931d67cdeac7fd716d2e8fd88920edd49"
+			"checksum": "5e590924eed42a904886a0bb131d577505b796af"
 		},
 		{
 			"path": "lib/string_utils.js",

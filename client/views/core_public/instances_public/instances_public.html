@@ -68,6 +68,9 @@
 	<table id="dataview-table" class="table table-striped">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="instance_id">
+					Instance Id
+				</th>
 				<th class="th-sortable" data-sort="name">
 					Name
 				</th>
@@ -93,6 +96,9 @@
 
 <template name="CorePublicInstancesPublicViewTableItems">
 	<tr id="dataview-table-items-row">
+		<td>
+			{{instance_id}}
+		</td>
 		<td>
 			{{name}}
 		</td>
