@@ -8,9 +8,11 @@ ContractController = RouteController.extend({
 
 		case 'GET':
 
-			const {chain, contract} = this.params.query;
+			const {instance_id, contract} = this.params.query;
 
-			if (chain && contract) {
+			if (instance_id && contract) {
+	
+				const contract = Contracts.find({
 
 				this.response.end('OK');
 				return;
