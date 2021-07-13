@@ -65,7 +65,6 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 	const { insertedId } = Metadata.upsert({bp_key}, {$set: {
 		bp_key,
 		product_id: data.productId.toNumber(),
-		options: data.options,
 		claims_count: data.claimsCount.toNumber(),
 		payouts_count: data.payoutsCount.toNumber(),
 		has_policy: data.hasPolicy,
