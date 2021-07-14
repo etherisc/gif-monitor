@@ -21,13 +21,13 @@ const bpData = (bp_key) => {
 	
 	const claims = Claims.find({bp_key}).fetch();
 	
-	if (meta.claims_count > claims.length) error(`Missing Claims ${bp_key}`, {actual: claims.length, expected=meta.claims_count});
-	if (meta.claims_count < claims.length) error(`To many Claims ${bp_key}`, {actual: claims.length, expected=meta.claims_count});
+	if (meta.claims_count > claims.length) error(`Missing Claims ${bp_key}`, {actual: claims.length, expected: meta.claims_count});
+	if (meta.claims_count < claims.length) error(`To many Claims ${bp_key}`, {actual: claims.length, expected: meta.claims_count});
 	
 	const payouts = Payouts.find({bp_key}).fetch();
 	
-	if (meta.payouts_count > payouts.length) error(`Missing Payouts ${bp_key}`, {actual: payouts.length, expected=meta.payouts_count});
-	if (meta.payouts_count < payouts.length) error(`To many Payouts ${bp_key}`, {actual: payouts.length, expected=meta.payouts_count});
+	if (meta.payouts_count > payouts.length) error(`Missing Payouts ${bp_key}`, {actual: payouts.length, expected: meta.payouts_count});
+	if (meta.payouts_count < payouts.length) error(`To many Payouts ${bp_key}`, {actual: payouts.length, expected: meta.payouts_count});
 	
 	claims = claims.map((claim, idx) => {payouts: payouts.find(payout => payout.claim_id === idx), ... claim});
 	
