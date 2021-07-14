@@ -123,6 +123,12 @@ Helpers.addressLongLink = function(address) {
 
 Helpers.bpdoc = (val, doc) => {
 	const bpData = ReactiveMethod.call('bpData', doc.bp_key);
+	console.log(bpData);
+	const row = (key, val) => `<tr><td>${key}</td><td>${value}</td></tr>`;
+	const tbody = [
+		row('','')
+		].join("\n");
+	
 	return json2Table(bpData);
 };	
 	
