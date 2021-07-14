@@ -4,13 +4,13 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> MetadataDetailsForm}}{{> MetadataDetailsDataDisplay}}
+		{{> MetadataDetailsForm}}
 	</div>
 </template>
 
 <template name="MetadataDetailsForm">
 	<div id="metadata-details-form" class="">
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -23,157 +23,90 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-bp_key">
-				<label for="bp_key">
+				<label for="bp_key" class="col-sm-3 control-label">
 					BP Key
 				</label>
-				<div class="input-div">
-					<input type="text" name="bp_key" value="" class="form-control " autofocus="autofocus" data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-bp_key">
+						{{metadata.bp_key}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-product_id">
-				<label for="product_id">
+				<label for="product_id" class="col-sm-3 control-label">
 					Product
 				</label>
-				<div class="input-div">
-					<input type="text" name="product_id" value="" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-product_id">
+						{{metadata.product_id}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-has_application">
-				<label for="has_application">
+				<label for="has_application" class="col-sm-3 control-label">
 					Has Application
 				</label>
-				<div class="input-div">
-					<input type="text" name="has_application" value="" class="form-control " data-type="bool">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-has_application">
+						{{booleanToYesNo metadata.has_application}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-has_policy">
-				<label for="has_policy">
+				<label for="has_policy" class="col-sm-3 control-label">
 					Has Policy
 				</label>
-				<div class="input-div">
-					<input type="text" name="has_policy" value="" class="form-control " data-type="bool">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-has_policy">
+						{{booleanToYesNo metadata.has_policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-claims_count">
-				<label for="claims_count">
+				<label for="claims_count" class="col-sm-3 control-label">
 					# Claims
 				</label>
-				<div class="input-div">
-					<input type="text" name="claims_count" value="" class="form-control " data-type="array">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-claims_count">
+						{{metadata.claims_count}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-payouts_count">
-				<label for="payouts_count">
+				<label for="payouts_count" class="col-sm-3 control-label">
 					# Payouts
 				</label>
-				<div class="input-div">
-					<input type="text" name="payouts_count" value="" class="form-control " data-type="array">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
-				</div>
-			</div>
-			<div class="form-group  field-registry">
-				<label for="registry">
-					Registry
-				</label>
-				<div class="input-div">
-					<input type="text" name="registry" value="" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
-				</div>
-			</div>
-			<div class="form-group  field-token">
-				<label for="token">
-					Token
-				</label>
-				<div class="input-div">
-					<input type="text" name="token" value="" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
-				</div>
-			</div>
-			<div class="form-group  field-release">
-				<label for="release">
-					Release
-				</label>
-				<div class="input-div">
-					<input type="text" name="release" value="" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
-				</div>
-			</div>
-			<div class="form-group  field-state">
-				<label for="state">
-					State
-				</label>
-				<div class="input-div">
-					<input type="text" name="state" value="" class="form-control " data-type="integer">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payouts_count">
+						{{metadata.payouts_count}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-created_at">
-				<label for="created_at">
+				<label for="created_at" class="col-sm-3 control-label">
 					Created At
 				</label>
-				<div class="input-div">
-					<input type="text" name="created_at" value="" class="form-control " data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-created_at">
+						{{formatDate metadata.created_at 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-updated_at">
-				<label for="updated_at">
+				<label for="updated_at" class="col-sm-3 control-label">
 					Updated At
 				</label>
-				<div class="input-div">
-					<input type="text" name="updated_at" value="" class="form-control " data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-updated_at">
+						{{formatDate metadata.updated_at 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 				</div>
 			</div>
 		</form>
 	</div>
-</template>
-
-<template name="MetadataDetailsDataDisplay">
 </template>
 
