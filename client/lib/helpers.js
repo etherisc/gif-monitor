@@ -133,6 +133,7 @@ Helpers.bpdoc = async function(val, doc){
 			if (err) {
 				reject(err);
 			} else {
+				console.log(res);
 				resolve(res);
 			};
 		});
