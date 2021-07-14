@@ -30,7 +30,7 @@ const bpData = (bp_key) => {
 	if (meta.payouts_count < payouts.length) error(`To many Payouts ${bp_key}`, {actual: payouts.length, expected: meta.payouts_count});
 	
 	claims = claims.map((claim, idx) => {
-		claim.payouts = payouts.find(payout => payout.claim_id === idx);
+		claim.payouts = payouts.filter(payout => payout.claim_id === idx);
 		console.log(claim);
 		return claim;
 	});

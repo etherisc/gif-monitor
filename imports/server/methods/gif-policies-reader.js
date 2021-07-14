@@ -77,25 +77,25 @@ const getSingleMetadata = safeExec('getSingleMetadata', async function (bpKey) {
 		updated_at: unix2Date(data.updatedAt)			
 	}})
 
-	if (data.hasApplication) await getSingleApplication(bpKey, insertedId);
+	if (data.hasApplication) await getSingleApplication(bpKey);
 	if (data.hasPolicy) await getSinglePolicy(bpKey, insertedId);
 	
 	if (data.claimsCount > 0) {
 		for (let claimsIdx = 0; claimsIdx < data.claimsCount; claimsIdx += 1) {
-			await getSingleClaim(bpKey, claimsIdx, insertedId);
+			await getSingleClaim(bpKey, claimsIdx);
 		}
 	}
 	
 	if (data.payoutsCount > 0) {
 		for (let payoutsIdx = 0; payoutsIdx < data.claimsCount; payoutsIdx += 1) {
-			await getSinglePayout(bpKey, payoutsIdx, insertedId);
+			await getSinglePayout(bpKey, payoutsIdx);
 		}
 	}
 
 });
 
 
-const getSingleApplication = safeExec('getSingleApplication', async function (bpKey, metadata_mongo_id) {
+const getSingleApplication = safeExec('getSingleApplication', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.applications(bpKey));
 	const bp_key = bpKey2uuid(bpKey);
@@ -103,7 +103,6 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 	Applications.upsert({bp_key}, {$set: {
 		bp_key,
 		data: data.data,
-		metadata_mongo_id,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
@@ -111,28 +110,26 @@ const getSingleApplication = safeExec('getSingleApplication', async function (bp
 });
 
 
-const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey, metadata_mongo_id) {
+const getSinglePolicy = safeExec('getSinglePolicy', async function (bpKey) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.policies(bpKey));
 	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Policy ${bp_key}`, data);
 	Policies.upsert({bp_key}, {$set: {
 		bp_key,
-		metadata_mongo_id,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
 	}})
 });
 
-const getSingleClaim = safeExec('getSingleClaim', async function (bpKey, claimId, metadata_mongo_id) {
+const getSingleClaim = safeExec('getSingleClaim', async function (bpKey, claimId) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.claims(bpKey, claimId));
 	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Claim ${bp_key}`, data);
 	Claims.upsert({bp_key}, {$set: {
 		bp_key,
-		metadata_mongo_id,
 		data: data.data,
 		state: data.state,
 		created_at: unix2Date(data.createdAt),
@@ -140,16 +137,16 @@ const getSingleClaim = safeExec('getSingleClaim', async function (bpKey, claimId
 	}})
 });
 
-const getSinglePayout = safeExec('getSinglePayout', async function (bpKey, payoutId, metadata_mongo_id) {
+const getSinglePayout = safeExec('getSinglePayout', async function (bpKey, payoutId) {
 	const policyStorage = getContract('Policy');
 	const data = Object.assign({}, await policyStorage.payouts(bpKey, payoutId));
 	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Payout ${bp_key}`, data);
 	Payouts.upsert({bp_key}, {$set: {
 		bp_key,
-		metadata_mongo_id,
 		data: data.data,
 		state: data.state,
+		claim_id: data.claim_id,
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
 	}})
