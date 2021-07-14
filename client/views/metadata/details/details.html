@@ -4,7 +4,173 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> MetadataDetailsDataDisplay}}
+		{{> MetadataDetailsForm}}{{> MetadataDetailsDataDisplay}}
+	</div>
+</template>
+
+<template name="MetadataDetailsForm">
+	<div id="metadata-details-form" class="">
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-bp_key">
+				<label for="bp_key">
+					BP Key
+				</label>
+				<div class="input-div">
+					<input type="text" name="bp_key" value="" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-product_id">
+				<label for="product_id">
+					Product
+				</label>
+				<div class="input-div">
+					<input type="text" name="product_id" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-has_application">
+				<label for="has_application">
+					Has Application
+				</label>
+				<div class="input-div">
+					<input type="text" name="has_application" value="" class="form-control " data-type="bool">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-has_policy">
+				<label for="has_policy">
+					Has Policy
+				</label>
+				<div class="input-div">
+					<input type="text" name="has_policy" value="" class="form-control " data-type="bool">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-claims_count">
+				<label for="claims_count">
+					# Claims
+				</label>
+				<div class="input-div">
+					<input type="text" name="claims_count" value="" class="form-control " data-type="array">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-payouts_count">
+				<label for="payouts_count">
+					# Payouts
+				</label>
+				<div class="input-div">
+					<input type="text" name="payouts_count" value="" class="form-control " data-type="array">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-registry">
+				<label for="registry">
+					Registry
+				</label>
+				<div class="input-div">
+					<input type="text" name="registry" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-token">
+				<label for="token">
+					Token
+				</label>
+				<div class="input-div">
+					<input type="text" name="token" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-release">
+				<label for="release">
+					Release
+				</label>
+				<div class="input-div">
+					<input type="text" name="release" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-state">
+				<label for="state">
+					State
+				</label>
+				<div class="input-div">
+					<input type="text" name="state" value="" class="form-control " data-type="integer">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-created_at">
+				<label for="created_at">
+					Created At
+				</label>
+				<div class="input-div">
+					<input type="text" name="created_at" value="" class="form-control " data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-updated_at">
+				<label for="updated_at">
+					Updated At
+				</label>
+				<div class="input-div">
+					<input type="text" name="updated_at" value="" class="form-control " data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+				</div>
+			</div>
+		</form>
 	</div>
 </template>
 
