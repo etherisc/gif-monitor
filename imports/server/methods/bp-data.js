@@ -29,7 +29,11 @@ const bpData = (bp_key) => {
 	if (meta.payouts_count > payouts.length) error(`Missing Payouts ${bp_key}`, {actual: payouts.length, expected: meta.payouts_count});
 	if (meta.payouts_count < payouts.length) error(`To many Payouts ${bp_key}`, {actual: payouts.length, expected: meta.payouts_count});
 	
-	claims = claims.map((claim, idx) => ({payouts: payouts.find(payout => payout.claim_id === idx), ... claim}));
+	claims = claims.map((claim, idx) => {
+		claim.payouts = payouts.find(payout => payout.claim_id === idx);
+		console.log(claim);
+		return claim;
+	});
 	
 	const product = Products.findOne({product_id: meta.product_id});
 	
