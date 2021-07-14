@@ -66,7 +66,7 @@ ${rows}
 	return table;
 };
 
-json2Table = (value, data) => new Handlebars.SafeString(json2TableHtml(value, data);
+json2Table = (value, data) => new Handlebars.SafeString(json2TableHtml(value, data));
 
 Helpers.json2Table = json2Table;
 
@@ -82,7 +82,7 @@ array2TableHtml = (arrVal) => {
 	}
 };
 
-array2Table = (arrVal) => new Handlebars.SafeString(array2TableHtml(arrVal);
+array2Table = (arrVal) => new Handlebars.SafeString(array2TableHtml(arrVal));
 Helpers.array2Table = array2Table;
 
 const textRed = (t) => `<span class='text-danger'>${t}</span>`;
