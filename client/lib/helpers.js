@@ -49,7 +49,8 @@ Helpers = {};
 Helpers.pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
 Helpers.safeStr = (str) => new Handlebars.SafeString(str ? str : '');
 
-json2table = function(value, data) {
+
+json2TableHtml = function(value, data) {
 	if (!value) return '';
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
@@ -62,32 +63,27 @@ json2table = function(value, data) {
 ${rows}
 </tbody> 
 </table>`;
-
-	/*
-
-<thead>
-<tr><th>Param</th><th>Value</th></tr>
-</thead>
-
-*/
-	return new Handlebars.SafeString(table);
+	return table;
 };
 
-Helpers.json2table = json2table;
+json2Table = (value, data) => new Handlebars.SafeString(json2TableHtml(value, data);
 
-array2table = (arrVal) => {
+Helpers.json2Table = json2Table;
+
+array2TableHtml = (arrVal) => {
 	try {
 		if (!arrVal || !Array.isArray(arrVal)) return '';
 		const headers = Object.keys(arrVal[0]);
 		const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
 		const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
-		return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
+		return `<table class="custom-param-table">${header}${body}</table>`;
 	} catch (err) {
 		return '';
 	}
 };
 
-Helpers.array2table = array2table;
+array2Table = (arrVal) => new Handlebars.SafeString(array2TableHtml(arrVal);
+Helpers.array2Table = array2Table;
 
 const textRed = (t) => `<span class='text-danger'>${t}</span>`;
 const textBlue = (t) => `<span class='text-primary'>${t}</span>`;
@@ -103,7 +99,7 @@ const abiSingle = (signature) => {
 
 };
 
-Helpers.abi2table = (abi) => {
+Helpers.abi2Table = (abi) => {
 	const tbl = abi.map(abiSingle).join('<br />');
 	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
@@ -127,7 +123,7 @@ Helpers.addressLongLink = function(address) {
 
 Helpers.bpdoc = (val, doc) => {
 	const bpData = ReactiveMethod.call('bpData', doc.bp_key);
-	return json2table(bpData);
+	return json2Table(bpData);
 };	
 	
 Helpers.productState = (state) => stateMessage.product[state];
