@@ -35,7 +35,7 @@ const bpData = (bp_key) => {
 	
 	if (!product) error(`Missing Product ${meta.product_id}`);
 	
-	return {meta, policy, claims, product};
+	return {meta, policy, application, claims, product};
 }
 
 
