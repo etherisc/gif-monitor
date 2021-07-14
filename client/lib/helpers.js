@@ -125,6 +125,11 @@ Helpers.addressLongLink = function(address) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address}</a>`);
 };
 
+Helpers.bpdoc = function(val, doc){
+	console.log(doc);
+	return '';
+}
+
 Helpers.productState = (state) => stateMessage.product[state];
 Helpers.oracleState = (state) => stateMessage.oracle[state];
 Helpers.oracleTypeState = (state) => stateMessage.oracleType[state];

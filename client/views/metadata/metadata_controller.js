@@ -18,7 +18,7 @@ this.MetadataController = RouteController.extend({
 	isReady: function() {
 		this.metadataListPagedExtraParams = {
 			searchText: Session.get("MetadataListPagedSearchString") || "",
-			searchFields: Session.get("MetadataListPagedSearchFields") || ["bp_key", "bp_key_index", "product_id", "product_mongo_id", "options", "has_application", "application_mongo_id", "has_policy", "policy_mongo_id", "claims_count", "payouts_count", "registry", "token", "release", "state", "created_at", "updated_at"],
+			searchFields: Session.get("MetadataListPagedSearchFields") || ["bp_key", "product_id", "has_application", "has_policy", "claims_count", "payouts_count", "registry", "token", "release", "state", "created_at", "updated_at"],
 			sortBy: Session.get("MetadataListPagedSortBy") || "",
 			sortAscending: Session.get("MetadataListPagedSortAscending"),
 			pageNo: Session.get("MetadataListPagedPageNo") || 0,

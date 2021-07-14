@@ -22,7 +22,7 @@ this.PoliciesController = RouteController.extend({
 			sortBy: Session.get("PolicyListPagedSortBy") || "",
 			sortAscending: Session.get("PolicyListPagedSortAscending"),
 			pageNo: Session.get("PolicyListPagedPageNo") || 0,
-			pageSize: Session.get("PolicyListPagedPageSize") || 0
+			pageSize: Session.get("PolicyListPagedPageSize") || 20
 		};
 
 

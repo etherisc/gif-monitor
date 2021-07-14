@@ -6,6 +6,7 @@ import { reloadEvents } from '/imports/server/methods/gif-logs-reader.js';
 import { reloadOracles } from '/imports/server/methods/gif-oracles-reader.js';
 import { reloadProducts, reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
 import { getPolicies, reloadPolicies } from '/imports/server/methods/gif-policies-reader.js';
+import { bpData } from '/imports/server/methods/bp-data.js';
 
 Meteor.methods({
 
@@ -21,7 +22,8 @@ Meteor.methods({
 	"reload.products": reloadProducts,
 	
 	"getPolicies": getPolicies,
-	"reload.policies": reloadPolicies
-
+	"reload.policies": reloadPolicies,
+	
+	bpData,
 	
 });
