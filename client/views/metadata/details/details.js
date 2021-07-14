@@ -33,7 +33,7 @@ Template.MetadataDetailsForm.onDestroyed(function() {
 });
 
 Template.MetadataDetailsForm.onRendered(function() {
-	$('.control-field-bp_data').jsonViewer(this.data.metadata.bp_data);
+	
 
 	pageSession.set("metadataDetailsFormInfoMessage", "");
 	pageSession.set("metadataDetailsFormErrorMessage", "");
