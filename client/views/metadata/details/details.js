@@ -143,3 +143,23 @@ Template.MetadataDetailsForm.helpers({
 	}
 	
 });
+
+Template.MetadataDetailsDataDisplay.created = function() {
+
+};
+
+Template.MetadataDetailsDataDisplay.destroyed = function() {
+
+};
+
+Template.MetadataDetailsDataDisplay.rendered = function() {
+
+};
+
+Template.MetadataDetailsDataDisplay.helpers({
+
+});
+
+Template.MetadataDetailsDataDisplay.events({
+
+});
