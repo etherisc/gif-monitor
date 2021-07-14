@@ -18,7 +18,7 @@ this.PayoutsController = RouteController.extend({
 	isReady: function() {
 		this.payoutListPagedExtraParams = {
 			searchText: Session.get("PayoutListPagedSearchString") || "",
-			searchFields: Session.get("PayoutListPagedSearchFields") || ["bp_key", "metadata_mongo_id", "data", "state", "created_at", "updated_at", "claim_id", "claim_mongo_id"],
+			searchFields: Session.get("PayoutListPagedSearchFields") || ["bp_key", "data", "state", "created_at", "updated_at", "claim_id"],
 			sortBy: Session.get("PayoutListPagedSortBy") || "",
 			sortAscending: Session.get("PayoutListPagedSortAscending"),
 			pageNo: Session.get("PayoutListPagedPageNo") || 0,

@@ -26,7 +26,7 @@ Template.PoliciesPublicApplicationsPublic.helpers({
 var PoliciesPublicApplicationsPublicViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ApplicationListPagedSearchString") || "",
-		searchFields: Session.get("ApplicationListPagedSearchFields") || ["bp_key", "metadata_mongo_id", "data", "state", "created_at", "updated_at"],
+		searchFields: Session.get("ApplicationListPagedSearchFields") || ["bp_key", "data", "state", "created_at", "updated_at"],
 		sortBy: Session.get("ApplicationListPagedSortBy") || "",
 		sortAscending: Session.get("ApplicationListPagedSortAscending") || true
 	};
