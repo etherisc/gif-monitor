@@ -22,7 +22,7 @@ this.ClaimsController = RouteController.extend({
 			sortBy: Session.get("ClaimListPagedSortBy") || "",
 			sortAscending: Session.get("ClaimListPagedSortAscending"),
 			pageNo: Session.get("ClaimListPagedPageNo") || 0,
-			pageSize: Session.get("ClaimListPagedPageSize") || 0
+			pageSize: Session.get("ClaimListPagedPageSize") || 20
 		};
 
 
