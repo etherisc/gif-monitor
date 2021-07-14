@@ -153,7 +153,7 @@ Template.MetadataDetailsDataDisplay.destroyed = function() {
 };
 
 Template.MetadataDetailsDataDisplay.rendered = function() {
-
+	console.log(this);
 };
 
 Template.MetadataDetailsDataDisplay.helpers({
