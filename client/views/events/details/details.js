@@ -33,9 +33,7 @@ Template.EventsDetailsForm.onDestroyed(function() {
 });
 
 Template.EventsDetailsForm.onRendered(function() {
-	// console.log(this);
-
-$('.control-field-values').jsonViewer(this.data.event.values);
+	
 
 	pageSession.set("eventsDetailsFormInfoMessage", "");
 	pageSession.set("eventsDetailsFormErrorMessage", "");
