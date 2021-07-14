@@ -47,3 +47,19 @@ a {
  color: #fff;
  background-color: #1e61f6;
 }
+
+.custom-textarea-parameters textarea {
+	resize: vertical;
+	height: 250px;
+}
+	
+	
+.custom-param-table td, .custom-param-table th {
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.custom-param-table {
+	width: 100%;
+	margin-left: -6px;
+}
