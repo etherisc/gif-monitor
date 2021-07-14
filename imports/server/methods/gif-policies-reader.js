@@ -146,7 +146,7 @@ const getSinglePayout = safeExec('getSinglePayout', async function (bpKey, payou
 		bp_key,
 		data: data.data,
 		state: data.state,
-		claim_id: data.claimId,
+		claim_id: data.claimId.toNumber(),
 		created_at: unix2Date(data.createdAt),
 		updated_at: unix2Date(data.updatedAt)			
 	}})
