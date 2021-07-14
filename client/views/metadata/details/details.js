@@ -73,7 +73,7 @@ Template.MetadataDetailsForm.events({
 		var self = this;
 
 		function submitAction(result, msg) {
-			var metadataDetailsFormMode = "insert";
+			var metadataDetailsFormMode = "read_only";
 			if(!t.find("#form-cancel-button")) {
 				switch(metadataDetailsFormMode) {
 					case "insert": {
@@ -107,7 +107,7 @@ Template.MetadataDetailsForm.events({
 			function(values) {
 				
 
-				Meteor.call("metadataInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				
 			}
 		);
 
@@ -142,25 +142,4 @@ Template.MetadataDetailsForm.helpers({
 		return pageSession.get("metadataDetailsFormErrorMessage");
 	}
 	
-});
-
-Template.MetadataDetailsDataDisplay.created = function() {
-
-};
-
-Template.MetadataDetailsDataDisplay.destroyed = function() {
-
-};
-
-Template.MetadataDetailsDataDisplay.rendered = function() {
-	const bpData = ReactiveMethod.call('bpData', this.data.metadata.bp_key);
-	console.log(bpData);	
-};
-
-Template.MetadataDetailsDataDisplay.helpers({
-
-});
-
-Template.MetadataDetailsDataDisplay.events({
-
 });
