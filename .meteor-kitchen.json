@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "e808fd63b559768401a44aca289c6d9a1a60d53e"
+			"checksum": "cc57eabed85f58056dc96e05a0aae6e253761507"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1162,7 +1162,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "8c1c578e0ea4aa9097e16fc425b8f2cc7293f52f"
+			"checksum": "cfc2852186486612e2c7df794bc1b2d366a0240b"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
@@ -1544,6 +1544,7 @@
 	"packages": {
 		"meteor": [
 			"fetch",
+			"simple:reactive-method",
 			"accounts-password",
 			"perak:joins",
 			"tmeasday:publish-counts",
