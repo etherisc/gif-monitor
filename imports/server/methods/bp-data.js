@@ -19,7 +19,7 @@ const bpData = (bp_key) => {
 	
 	if (meta.has_application && !application) error(`Missing Application Data ${bp_key}`);
 	
-	const claims = Claims.find({bp_key}).fetch();
+	let claims = Claims.find({bp_key}).fetch();
 	
 	if (meta.claims_count > claims.length) error(`Missing Claims ${bp_key}`, {actual: claims.length, expected: meta.claims_count});
 	if (meta.claims_count < claims.length) error(`To many Claims ${bp_key}`, {actual: claims.length, expected: meta.claims_count});
