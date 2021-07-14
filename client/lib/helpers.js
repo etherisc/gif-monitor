@@ -125,23 +125,7 @@ Helpers.addressLongLink = function(address) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address}</a>`);
 };
 
-Helpers.bpdoc = async function(val, doc){
-	
-	
-	const res = await new Promise ((resolve, reject) => {
-		Meteor.call('bpData', doc.bp_key, (err, res) => {
-			if (err) {
-				reject(err);
-			} else {
-				console.log(res);
-				resolve(res);
-			};
-		});
-
-	});
-	
-}
-
+Helpers.bpdoc = (val, doc) => Meteor.call('bpData', doc.bp_key);
 Helpers.productState = (state) => stateMessage.product[state];
 Helpers.oracleState = (state) => stateMessage.oracle[state];
 Helpers.oracleTypeState = (state) => stateMessage.oracleType[state];

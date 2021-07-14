@@ -91,6 +91,7 @@ service-configuration@1.0.11
 session@1.2.0
 sha@1.0.9
 shell-server@0.5.0
+simple:reactive-method@1.0.2
 socket-stream-client@0.3.2
 spacebars@1.1.0
 spacebars-compiler@1.2.1
