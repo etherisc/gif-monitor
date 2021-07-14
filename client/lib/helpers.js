@@ -125,8 +125,8 @@ Helpers.addressLongLink = function(address) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address}</a>`);
 };
 
-Helpers.bpdoc = function(val, doc){
-	const res = Meteor.call('bpData', doc.bp_key);
+Helpers.bpdoc = async function(val, doc){
+	const res = await Meteor.call('bpData', doc.bp_key);
 	console.log(res);
 	return res;
 }
