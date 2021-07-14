@@ -126,8 +126,7 @@ Helpers.addressLongLink = function(address) {
 };
 
 Helpers.bpdoc = function(val, doc){
-	console.log(doc);
-	return '';
+	return Meteor.call('bpData', doc.bp_key);
 }
 
 Helpers.productState = (state) => stateMessage.product[state];
