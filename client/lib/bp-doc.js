@@ -167,7 +167,7 @@ const bpDoc = (val, doc) => {
 			{
 				class: 'bpdoc-row-header',
 				cells: [
-					labelLarge(`Claim # ${idx}`, 2),
+					labelLarge(`Claim #${idx+1}`, 2),
 					label('Created'),
 					valueDate(claim.created_at),
 					label('Updated'),
