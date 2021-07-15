@@ -121,7 +121,7 @@ const bpDoc = (val, doc) => {
 				cells: [
 					empty(2),
 					label('State'),
-					valueText(applicationState(application.state), 3),
+					valueText(utils.applicationState(application.state), 3),
 				]
 			},
 			{
