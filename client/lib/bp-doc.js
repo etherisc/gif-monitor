@@ -96,9 +96,9 @@ const bpDoc = (val, doc) => {
 			cells: [
 				empty(2),
 				label('# Claims'),
-				valueBool(meta.claims_count),
+				valueText(meta.claims_count),
 				label('# Payouts'),
-				valueBool(meta.payouts_count),
+				valueText(meta.payouts_count),
 			]
 		},
 	];
@@ -157,6 +157,44 @@ const bpDoc = (val, doc) => {
 				]
 			},
 		]);
+	}
+
+	if (meta.claims_count > 0) {
+
+		const claimsContent = (claim, idx) => {
+			const claimContent = [
+				spacerRow(),
+			{
+				class: 'bpdoc-row-header',
+				cells: [
+					labelLarge(`Claim # ${idx}`, 2),
+					label('Created'),
+					valueDate(claim.created_at),
+					label('Updated'),
+					valueDate(claim.updated_at),
+				]
+			},
+			{
+				class: 'bpdoc-row-data',
+				cells: [
+					empty(2),
+					label('State'),
+					valueText(utils.claimState(policy.state), 3),
+				]
+			},
+			{
+				class: 'bpdoc-row-data',
+				cells: [
+					empty(2),
+					label('Data'),
+					valueText(claim.data), 3),
+				]
+			},
+			];
+			content.concat(claimContent);
+		};
+
+		claims.map(claimsContent))
 	}
 
 	const compile = (content) => {
