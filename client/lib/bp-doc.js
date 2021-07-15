@@ -39,7 +39,9 @@ const bpDoc = (val, doc) => {
 			style: styles.data,
 			row: [
 				{ text: 'State' },
-				{ text: 
+				{ text: ''}
+				]
+		}
 	];
 
 
