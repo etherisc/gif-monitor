@@ -98,6 +98,11 @@ const abi2Table = (abi) => {
 const pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
 const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
 
+const ipfsLink = (ipfs) => safeStr(`<a href="https://gateway.pinata.cloud/ipfs/${ipfs.ipfs}" target="_blank">/ipfs/${ipfs.ipfs}</a>`);
+const txLink = (txHash) => safeStr(`<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`);
+const addressLink = (address) => safeStr(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address.slice(0,10)}...</a>`);
+const addressLongLink = (address) => safeStr(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address}</a>`);
+
 module.exports = {
 	b32s,
 	s32b,
@@ -111,6 +116,9 @@ module.exports = {
 	abi2Table,
 	pre,
 	safeStr,
+	ipfsLink,
+	txLink,
+	addressLink,
+	addressLongLink,
 };
 
-	
