@@ -4,11 +4,44 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> MetadataDetailsBpDoc}}
+		{{> MetadataDetailsBpDoc}}{{> MetadataDetailsForm}}
 	</div>
 </template>
 
 <template name="MetadataDetailsBpDoc">
 	{{bpDoc metadata.bp_data metadata}}
+</template>
+
+<template name="MetadataDetailsForm">
+	<div id="metadata-details-form" class="">
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-bp_key">
+				<label for="bp_key">
+				</label>
+				<div class="input-div">
+					<input type="text" name="bp_key" value="" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+				</div>
+			</div>
+		</form>
+	</div>
 </template>
 
