@@ -2,10 +2,10 @@ console.log('loading bp-doc.js');
 
 const bpDoc = (val, doc) => {
 	const bpData = ReactiveMethod.call('bpData', doc.bp_key);
+	console.log(bpData);
 
 	const { product, meta, application, policy, claims } = bpData;
 
-	console.log(bpData);
 	const row = (key, val) => `<tr><td>${key}</td><td>${value}</td></tr>`;
 	const tbody = [
 		row('','')
