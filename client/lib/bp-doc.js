@@ -17,7 +17,7 @@ const bpDoc = (val, doc) => {
 	const empty = (colspan) => ({ text: '', colspan });
 	const spacerRow = () => ({ class: 'bpdoc-row-spacer', cells: [ empty(6) ] });
 
-	const content = [
+	let content = [
 		{ 
 			class: 'bpdoc-row-header',
 			cells: [
