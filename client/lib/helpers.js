@@ -2,7 +2,20 @@ console.log('loading helpers.js');
 
 import { ethers } from 'ethers';
 import { bpDoc  } from '/client/lib/bp-doc.js';
-import * from '/client/lib/utils.js';
+import {
+	b32s,
+	s32b,
+	stateMessage,
+	mapHeader,
+	mapVal,
+	json2TableHtml,
+	json2Table,
+	array2TableHtml,
+	array2Table,
+	abi2Table,
+	pre,
+	safeStr,
+} from '/client/lib/utils.js';
 
 Helpers = {};
 
