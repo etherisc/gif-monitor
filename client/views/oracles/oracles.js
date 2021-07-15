@@ -192,9 +192,13 @@ Template.OraclesView.helpers({
 	},
 	"viewAsGallery": function() {
 		return Session.get("OraclesViewStyle") == "gallery";
-	}
+	}, 
 
 	
+	"CustomActionsShowCondition": function() {
+		return userIsAdmin();
+
+	}
 });
 
 

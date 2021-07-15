@@ -24,7 +24,9 @@
 						</button>
 					</span>
 				</div>
-				{{> OraclesViewCustomActions}}
+				{{#if CustomActionsShowCondition}}
+	{{> OraclesViewCustomActions}}
+{{/if}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}

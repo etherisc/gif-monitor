@@ -163,3 +163,4 @@ Template.MetadataDetailsBpDoc.helpers({
 Template.MetadataDetailsBpDoc.events({
 
 });
+
