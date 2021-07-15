@@ -192,9 +192,13 @@ Template.EventsView.helpers({
 	},
 	"viewAsGallery": function() {
 		return Session.get("EventsViewStyle") == "gallery";
-	}
+	}, 
 
 	
+	"CustomActionsShowCondition": function() {
+		return userIsAdmin();
+
+	}
 });
 
 
