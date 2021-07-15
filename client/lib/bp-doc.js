@@ -187,7 +187,7 @@ const bpDoc = (val, doc) => {
 				cells: [
 					empty(2),
 					label('Data'),
-					valueText(claim.data), 3),
+					valueText(claim.data, 3),
 				]
 			},
 			];
