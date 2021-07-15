@@ -80,7 +80,7 @@ const bpDoc = (val, doc) => {
 			const cells = row.cells.map(
 				cell => `<td ${cell.colspan ? `colspan=${cell.colspan}` : ''} ${cell.class ? `class="${cell.class}"` : ''}>${cell.text}</td>`
 			);
-			return `<tr class="${row.class}">${cells.join()}</tr>`;
+			return `<tr class="${row.class}">${cells.join('')}</tr>`;
 			});
 
 		const table = `<table class="bpdoc-table">\n${rows.join("\n")}\n</table>`;
