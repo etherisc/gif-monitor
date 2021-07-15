@@ -12,7 +12,7 @@ import {
 	array2Table,
 	abi2Table,
 	pre,
-	safeStr,
+	safeStr
 } from '/client/lib/utils.js';
 
 const bpDoc = (val, doc) => {
@@ -61,7 +61,7 @@ const bpDoc = (val, doc) => {
 				empty(2),
 				label('State'),
 				value(stateMessage.product[product.state], 3),
-				]
+			]
 		},
 		{
 			style: styles.data,
@@ -71,7 +71,7 @@ const bpDoc = (val, doc) => {
 				value(product.release),
 				label('PolicyFlow'),
 				value(product.policy_flow),
-				]
+			]
 		},
 		{
 			style: styles.data,
@@ -79,20 +79,17 @@ const bpDoc = (val, doc) => {
 				empty(2),
 				label('Owner'),
 				value(product.owner, 3),
-				]
+			]
 		},
+		{
 			style: styles.data,
 			row: [ 
 				empty(2),
 				label('Address'),
 				value(product.owner, 3),
-				]
+			]
 		},
 	];
-
-
-
-
 
 	return json2Table(bpData);
 };	
