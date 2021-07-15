@@ -82,7 +82,8 @@ Router.privateRoutes = [
 ];
 
 Router.freeRoutes = [
-	"home_public"
+	"home_public",
+	"test"
 ];
 
 Router.roleMap = [
@@ -142,6 +143,7 @@ Router.onBeforeAction(Router.ensureGranted, {only: Router.freeRoutes}); // yes, 
 Router.map(function () {
 	
 	this.route("/", {name: "home_public", title: "", controller: "HomePublicController"});
+	this.route("/test", {name: "test", title: "", controller: "TestController"});
 	this.route("/login", {name: "login", title: "", controller: "LoginController"});
 	this.route("/register", {name: "register", title: "", controller: "RegisterController"});
 	this.route("/verify_email/:verifyEmailToken", {name: "verify_email", title: "", controller: "VerifyEmailController"});
