@@ -27,7 +27,9 @@
 						</button>
 					</span>
 				</div>
-				{{> ContractsViewCustomActions}}
+				{{#if CustomActionsShowCondition}}
+	{{> ContractsViewCustomActions}}
+{{/if}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}

@@ -212,9 +212,12 @@ Template.ContractsView.helpers({
 	},
 	"viewAsGallery": function() {
 		return Session.get("ContractsViewStyle") == "gallery";
-	}
+	}, 
 
 	
+	"CustomActionsShowCondition": function() {
+		userIsAdmin()
+	}
 });
 
 

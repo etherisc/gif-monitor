@@ -22,26 +22,6 @@ Template.Instances.helpers({
 	
 });
 
-Template.InstancesHeader.created = function() {
-
-};
-
-Template.InstancesHeader.destroyed = function() {
-
-};
-
-Template.InstancesHeader.rendered = function() {
-
-};
-
-Template.InstancesHeader.helpers({
-
-});
-
-Template.InstancesHeader.events({
-
-});
-
 
 var InstancesViewExport = function(fileType) {
 	var extraParams = {
@@ -344,3 +324,4 @@ Template.InstancesViewTableItems.helpers({
 		return Instances.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+
