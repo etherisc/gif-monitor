@@ -142,11 +142,11 @@
 		},
 		{
 			"path": "client/views/events/events.html",
-			"checksum": "fdb161df9dfd104980765caab583fcc10f8ae150"
+			"checksum": "b0e5dbb47aad909f39b4c5b40afbe033713409e4"
 		},
 		{
 			"path": "client/views/events/events.js",
-			"checksum": "17c40e5d09fb97e13e116dfe3830c5fd2fd2588f"
+			"checksum": "4caff30bd78df1405df61d84b9a313f5bdfd231f"
 		},
 		{
 			"path": "client/views/events/events_controller.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "29a2264e72c1ab25c16ef976c846829166e59e8b"
+			"checksum": "b72f3a581bd323e28290799629ad6b0a88685e1f"
 		},
 		{
 			"path": "client/views/admin/admin.js",
