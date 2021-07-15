@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5266b4b48598963f8cb82c2d01e2b79bfea08726"
+			"checksum": "4ed4a81d15ba7e76fe4b4b94df6057cad1d4860f"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1230,7 +1230,7 @@
 		},
 		{
 			"path": "client/lib/bp-doc.js",
-			"checksum": "f397f2ae1fe04f5e6c69c40044f7f2635a0bee2e"
+			"checksum": "9170a5db2e3c11e9b12dd38bb4af0db478f9ea35"
 		},
 		{
 			"path": "client/lib/utils.js",
