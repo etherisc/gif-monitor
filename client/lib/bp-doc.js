@@ -231,7 +231,7 @@ const bpDoc = (val, doc) => {
 					content =content.concat(payoutContent);
 				}
 
-				payouts.map(payoutsContent);
+				claim.payouts.map(payoutsContent);
 			}
 
 		};
