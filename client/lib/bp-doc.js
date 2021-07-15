@@ -11,6 +11,7 @@ const bpDoc = (val, doc) => {
 	const label = (text, colspan) => ({ text, colspan, class: 'bpdoc-label-small' });
 	const labelLarge = (text, colspan) => ({ text, colspan, class: 'bpdoc-label-large' });
 	const valueText = (text, colspan) => ({ text, colspan });
+	const valueBool = (val, colspan) => ({ text: val ? "Yes" : "No", colspan });
 	const valueDate = (date, colspan) => ({ text: moment(date).format('DD.MM.YYYY'), colspan });
 	const valueAddress = (address, colspan) => ({ text: utils.txLink(address), colspan });
 	const empty = (colspan) => ({ text: '', colspan });
@@ -32,7 +33,7 @@ const bpDoc = (val, doc) => {
 			cells: [
 				empty(2),
 				label('State'),
-				valueText(utils.stateMessage.product[product.state], 3),
+				valueText(utils.productState(product.state), 3),
 			]
 		},
 		{
@@ -72,7 +73,91 @@ const bpDoc = (val, doc) => {
 				valueDate(meta.updated_at),
 			]
 		},
+		{
+			class: 'bpdoc-row-data',
+			cells: [
+				empty(2),
+				label('BP Key'),
+				valueText(meta.bp_key, 3),
+			]
+		},
+		{
+			class: 'bpdoc-row-data',
+			cells: [
+				empty(2),
+				label('Has Policy'),
+				valueBool(meta.has_policy),
+				label('Has Application'),
+				valueBool(meta.has_policy),
+			]
+		},
+		{
+			class: 'bpdoc-row-data',
+			cells: [
+				empty(2),
+				label('# Claims'),
+				valueBool(meta.claims_count),
+				label('# Payouts'),
+				valueBool(meta.payouts_count),
+			]
+		},
 	];
+
+	if (meta.has_application) {
+		content = content.concat([
+			spacerRow(),
+			{
+				class: 'bpdoc-row-header',
+				cells: [
+					labelLarge('Application', 2),
+					label('Created'),
+					valueDate(meta.created_at),
+					label('Updated'),
+					valueDate(meta.updated_at),
+				]
+			},
+			{
+				class: 'bpdoc-row-data',
+				cells: [
+					empty(2),
+					label('State'),
+					valueText(applicationState(application.state), 3),
+				]
+			},
+			{
+				class: 'bpdoc-row-data',
+				cells: [
+					empty(2),
+					label('Data'),
+					valueText(application.data, 3),
+				]
+			},
+		]);
+	}
+
+	if (meta.has_policy) {
+		content = content.concat([
+			spacerRow(),
+			{
+				class: 'bpdoc-row-header',
+				cells: [
+					labelLarge('Policy', 2),
+					label('Created'),
+					valueDate(meta.created_at),
+					label('Updated'),
+					valueDate(meta.updated_at),
+				]
+			},
+			{
+				class: 'bpdoc-row-data',
+				cells: [
+					empty(2),
+					label('State'),
+					valueText(utils.policyState(policy.state), 3),
+				]
+			},
+		]);
+	}
 
 	const compile = (content) => {
 		const rows = content.map(row => {
@@ -80,7 +165,7 @@ const bpDoc = (val, doc) => {
 				cell => `<td ${cell.colspan ? `colspan=${cell.colspan}` : ''} ${cell.class ? `class="${cell.class}"` : ''}>${cell.text}</td>`
 			);
 			return `<tr class="${row.class}">${cells.join("\n")}</tr>`;
-			});
+		});
 
 		const table = `<table class="bpdoc-table">\n${rows.join("\n")}\n</table>`;
 		return utils.safeStr(table);
