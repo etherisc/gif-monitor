@@ -32,7 +32,7 @@ const bpDoc = (val, doc) => {
 	const valueDate = (date, colspan) => { text: moment(date).format('DD.MM.YYYY'), colspan };
 	const valueAddress = (address, colspan) => { utils.txLink(address), colspan };
 	const empty = (colspan) => ({ colspan });
-	const emptyRow = () => { style: styles.empty, row: [ empty(6) ] };
+	const emptyRow = () => ({ style: styles.empty, row: [ empty(6) ] });
 
 	const content = [
 		{ 
