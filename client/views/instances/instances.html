@@ -4,11 +4,8 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> InstancesHeader}}{{> InstancesView}}
+		{{> InstancesView}}{{> InstancesExplanationMd}}
 	</div>
-</template>
-
-<template name="InstancesHeader">
 </template>
 
 <template name="InstancesView">
@@ -139,5 +136,15 @@
 			</span>
 		</td>
 	</tr>
+</template>
+
+<template name="InstancesExplanationMd">
+	{{#markdown}}## What do you see here?
+
+This dialog displays the list of GIF instances.
+Each GIF instances is a complete deployment of the core smart contracts on an
+Ethereum-like blockchain.
+Etherisc provides GIF instances for the major mainnets and testnets.
+{{/markdown}}
 </template>
 
