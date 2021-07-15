@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> MetadataDetailsForm}}
+		{{> MetadataDetailsForm}}{{> MetadataDetailsBpDoc}}
 	</div>
 </template>
 
@@ -47,5 +47,9 @@
 			</div>
 		</form>
 	</div>
+</template>
+
+<template name="MetadataDetailsBpDoc">
+	{{bpDoc}}
 </template>
 
