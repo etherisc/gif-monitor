@@ -1,4 +1,4 @@
-#home-image {
+home-image {
  display: block;
   margin-left: auto;
   margin-right: auto;
@@ -62,4 +62,30 @@ a {
 .custom-param-table {
 	width: 100%;
 	margin-left: -6px;
+}
+
+# BpDoc 
+
+.bpdoc-table {
+	width: 100%;
+	margin-left: -6px;
+}
+
+.bpdoc-label-large {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.bpdoc-label-small {
+}
+
+.bpdoc-row-header {
+	background-color: #75e582;
+}
+
+.bpdoc-row-data {
+}
+
+.bpdoc-row-spacer {
+	margin-top: 20px;
 }
