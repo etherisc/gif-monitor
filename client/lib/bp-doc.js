@@ -10,9 +10,9 @@ const bpDoc = (val, doc) => {
 
 	const label = (text) => ({ text, class: 'bpdoc-label-small' });
 	const labelLarge = (text) => ({ text, class: 'bpdoc-label-large' });
-	const valueText = (text, colspan) => { text, colspan };
-	const valueDate = (date, colspan) => { text: moment(date).format('DD.MM.YYYY'), colspan };
-	const valueAddress = (address, colspan) => { utils.txLink(address), colspan };
+	const valueText = (text, colspan) => ({ text, colspan });
+	const valueDate = (date, colspan) => ({ text: moment(date).format('DD.MM.YYYY'), colspan });
+	const valueAddress = (address, colspan) => ({ utils.txLink(address), colspan });
 	const empty = (colspan) => ({ colspan });
 	const spacerRow = () => ({ class: 'bpdoc-row-spacer', row: [ empty(6) ] });
 
