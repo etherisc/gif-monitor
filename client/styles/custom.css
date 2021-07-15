@@ -34,7 +34,9 @@ a {
     border-color: #1e61f6;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+.nav-pills > li.active > a, 
+.nav-pills > li.active > a:hover, 
+.nav-pills > li.active > a:focus {
  color: #fff;
  background-color: #1e61f6;
 }
@@ -43,7 +45,9 @@ a {
  color: #fff;
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
  color: #fff;
  background-color: #1e61f6;
 }
@@ -72,8 +76,7 @@ a {
 }
 
 .bpdoc-table td {
-	padding-right: 10px;
-	padding-left: 10px;
+	padding: 6px 10px;
 }
 
 .bpdoc-label-large {
@@ -90,6 +93,7 @@ a {
 }
 
 .bpdoc-row-data {
+	
 }
 
 .bpdoc-row-spacer {
@@ -100,15 +104,16 @@ a {
 	width: 30px;
 }
 
-########################
+
+##########################################
 
 .dropdown-menu > .active > a, 
 .dropdown-menu > .active > a:hover, 
 .dropdown-menu > .active > a:focus {
- color: #fff !important;
- text-decoration: none !important;
- outline: 0 !important;
- background-color: #1e61f6 !important;
+ color: #fff;
+ text-decoration: none;
+ outline: 0;
+ background-color: #1e61f6;
 }
 
 .navbar-default .navbar-nav > .open > a, 

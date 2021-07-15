@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "30f7fec97f1a6968fa5f71059e9d0916cbd289eb"
+			"checksum": "1cf5661ec587c03292049a5c44fc9950988a4253"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -46,11 +46,11 @@
 		},
 		{
 			"path": "client/views/home_public/home_public.html",
-			"checksum": "a76961ddb07e655d2cd891b21f28d098e2fc9eb3"
+			"checksum": "79724b97748d26793455c6f4b2b0e604938f9f91"
 		},
 		{
 			"path": "client/views/home_public/home_public.js",
-			"checksum": "40c82adb447ba273cb2afe0b1784b973b7359682"
+			"checksum": "b71d39b973e62629cd6acb0f3fb698658593bba5"
 		},
 		{
 			"path": "client/views/home_public/home_public_controller.js",
@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "d2e40c91ab5c71702db0620e2d29b53636010864"
+			"checksum": "fa660bb443920b3f9cacb451b750dd4831538fcd"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1222,7 +1222,7 @@
 		},
 		{
 			"path": "client/styles/custom.css",
-			"checksum": "9e2e6cdc798960cbfb3caf32428f631dcd0c65b2"
+			"checksum": "8905d87d383b075b21a0e797b454a570d19b9b6f"
 		},
 		{
 			"path": "imports/server/methods/bp-data.js",
@@ -1239,10 +1239,6 @@
 		{
 			"path": "imports/server/methods/utils.js",
 			"checksum": "f74da48074b1c46e56b371b2c6655650dd259967"
-		},
-		{
-			"path": "client/styles/framework/bootstrap3/less/custom.import.less",
-			"checksum": "875909dfd0477ec6714b79cbec176e943405a186"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1303,6 +1299,10 @@
 		{
 			"path": "client/styles/framework/bootstrap3/less/bootstrap.import.less",
 			"checksum": "124360ed236fa8144e1387b6910ef081c4611347"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3/less/custom.import.less",
+			"checksum": "875909dfd0477ec6714b79cbec176e943405a186"
 		},
 		{
 			"path": "client/styles/framework/bootstrap3/less/bootstrap.mixins.import.less",
