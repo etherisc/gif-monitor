@@ -1,5 +1,20 @@
 console.log('loading bp-doc.js');
 
+import {
+	b32s,
+	s32b,
+	stateMessage,
+	mapHeader,
+	mapVal,
+	json2TableHtml,
+	json2Table,
+	array2TableHtml,
+	array2Table,
+	abi2Table,
+	pre,
+	safeStr,
+} from '/client/lib/utils.js';
+
 const bpDoc = (val, doc) => {
 	const bpData = ReactiveMethod.call('bpData', doc.bp_key);
 	if (!bpData) return '';
