@@ -83,7 +83,7 @@ const bpDoc = (val, doc) => {
 			return `<tr class="${row.class}">${cells.join()}</tr>`;
 			});
 
-		const table = `<table class="bpdoc-table">${rows.join("\n")}</table>`;
+		const table = `<table class="bpdoc-table">\n${rows.join("\n")}\n</table>`;
 		console.log(table);
 		return utils.safeStr(table);
 	}
