@@ -164,34 +164,76 @@ const bpDoc = (val, doc) => {
 		const claimsContent = (claim, idx) => {
 			const claimContent = [
 				spacerRow(),
-			{
-				class: 'bpdoc-row-header',
-				cells: [
-					labelLarge(`Claim #${idx+1}`, 2),
-					label('Created'),
-					valueDate(claim.created_at),
-					label('Updated'),
-					valueDate(claim.updated_at),
-				]
-			},
-			{
-				class: 'bpdoc-row-data',
-				cells: [
-					empty(2),
-					label('State'),
-					valueText(utils.claimState(policy.state), 3),
-				]
-			},
-			{
-				class: 'bpdoc-row-data',
-				cells: [
-					empty(2),
-					label('Data'),
-					valueText(claim.data, 3),
-				]
-			},
+				{
+					class: 'bpdoc-row-header',
+					cells: [
+						labelLarge(`Claim #${idx+1}`, 2),
+						label('Created'),
+						valueDate(claim.created_at),
+						label('Updated'),
+						valueDate(claim.updated_at),
+					]
+				},
+				{
+					class: 'bpdoc-row-data',
+					cells: [
+						empty(2),
+						label('State'),
+						valueText(utils.claimState(claim.state), 3),
+					]
+				},
+				{
+					class: 'bpdoc-row-data',
+					cells: [
+						empty(2),
+						label('Data'),
+						valueText(claim.data, 3),
+					]
+				},
 			];
+
 			content = content.concat(claimContent);
+
+			if (claim.payouts.length > 0) {
+
+				const payoutsContent = (payout, idx) => {
+					const payoutContent = [
+						spacerRow(),
+						{
+							class: 'bpdoc-row-header',
+							cells: [
+								empty(1),
+								labelLarge(`Payout #${idx+1}`),
+								label('Created'),
+								valueDate(claim.created_at),
+								label('Updated'),
+								valueDate(claim.updated_at),
+							]
+						},
+						{
+							class: 'bpdoc-row-data',
+							cells: [
+								empty(2),
+								label('State'),
+								valueText(utils.payoutState(payout.state), 3),
+							]
+						},
+						{
+							class: 'bpdoc-row-data',
+							cells: [
+								empty(2),
+								label('Data'),
+								valueText(payout.data, 3),
+							]
+						},
+
+					];
+					content =content.concat(payoutContent);
+				}
+
+				payouts.map(payoutsContent);
+			}
+
 		};
 
 		claims.map(claimsContent);
