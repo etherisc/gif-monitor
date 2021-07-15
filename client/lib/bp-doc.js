@@ -8,8 +8,8 @@ const bpDoc = (val, doc) => {
 
 	const { product, meta, application, policy, claims } = bpData;
 
-	const label = (text) => ({ text, class: 'bpdoc-label-small' });
-	const labelLarge = (text) => ({ text, class: 'bpdoc-label-large' });
+	const label = (text, colspan) => ({ text, colspan, class: 'bpdoc-label-small' });
+	const labelLarge = (text, colspan) => ({ text, colspan, class: 'bpdoc-label-large' });
 	const valueText = (text, colspan) => ({ text, colspan });
 	const valueDate = (date, colspan) => ({ text: moment(date).format('DD.MM.YYYY'), colspan });
 	const valueAddress = (address, colspan) => ({ text: utils.txLink(address), colspan });
@@ -20,7 +20,7 @@ const bpDoc = (val, doc) => {
 		{ 
 			class: 'bpdoc-row-header',
 			cells: [
-				labelLarge('Product'),
+				labelLarge('Product', 2),
 				label('Name'),
 				valueText(product.name),
 				label('ProductID'),
@@ -65,7 +65,7 @@ const bpDoc = (val, doc) => {
 		{
 			class: 'bpdoc-row-header',
 			cells: [
-				labelLarge('Metadata'),
+				labelLarge('Metadata', 2),
 				label('Created'),
 				valueDate(meta.created_at),
 				label('Updated'),
