@@ -348,3 +348,4 @@ Template.OraclesViewCustomActions.events({
 		Meteor.call('reload.oracles');
 	}
 });
+

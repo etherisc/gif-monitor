@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> MetadataView}}
+		{{> MetadataView}}{{> MetadataExplanationMd}}
 	</div>
 </template>
 
@@ -134,5 +134,20 @@
 	<button class="btn btn-warning" id="btn-reload">
 		Reload Metadata
 	</button>
+</template>
+
+<template name="MetadataExplanationMd">
+	{{#markdown}}## What do you see here? ##
+
+For each policy, we generate a business process which collects the data needed for the different 
+stages of a policy, from application, underwriting, claims handling and payouts.
+
+The data which is common for all stages is called "Metadata". Data which is specific for a stage
+is stored in additional "Application, "Policy", "Claim" and "Payout" objects.
+
+This dialog shows a list of metadata objects of all business processes. 
+
+For more details, please click on an item.
+{{/markdown}}
 </template>
 

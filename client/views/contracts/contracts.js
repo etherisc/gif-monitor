@@ -369,3 +369,4 @@ Template.ContractsViewCustomActions.events({
 	}
 
 });
+
