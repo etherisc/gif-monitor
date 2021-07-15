@@ -92,7 +92,7 @@ const bpDoc = (val, doc) => {
 		},
 	];
 
-	return json2Table(bpData);
+	return utils.json2Table(bpData);
 };	
 
 
