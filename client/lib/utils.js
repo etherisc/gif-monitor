@@ -95,13 +95,18 @@ const abi2Table = (abi) => {
 	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
 
-const pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
+const blockExplorer = () => ReactiveMethod.call('blockExplorer');
+const ipfsGateway = () => ReactiveMethod.call('ipfsGateway');
 const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
-
-const ipfsLink = (ipfs) => safeStr(`<a href="https://gateway.pinata.cloud/ipfs/${ipfs.ipfs}" target="_blank">/ipfs/${ipfs.ipfs}</a>`);
-const txLink = (txHash) => safeStr(`<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`);
-const addressLink = (address) => safeStr(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address.slice(0,10)}...</a>`);
-const addressLongLink = (address) => safeStr(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address}</a>`);
+const pre = (text) => safeStr(`<pre class="code">${text}</pre>`);
+const ipfsLinkHtml = (ipfs) => `<a href="${ipfsGateway()}/ipfs/${ipfs.ipfs}" target="_blank">/ipfs/${ipfs.ipfs}</a>`;
+const ipfsLink = (ipfs) => safeStr(ipfsLinkHtml(ipfs));
+const txLinkHtml = (txHash) => `<a href="${blockExplorer()}/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`;
+const txLink = (txHash) => safeStr(txLinkHtml(txHash));
+const addressLongLinkHtml = (address, text) => `<a href="${blockExplorer()}/address/${address}" target="_blank">${text ? text : address}</a>`;
+const addressLongLink = (address) => safeStr(addressLongLinkHtml(address));
+const addressLinkHtml = (address) => addressLongLinkHtml(address, address.slice(0,10));
+const addressLink = (address) => safeStr(addressLinkHtml(address));
 
 module.exports = {
 	b32s,
@@ -120,5 +125,9 @@ module.exports = {
 	txLink,
 	addressLink,
 	addressLongLink,
+	blockExplorer,
+	ipfsGateway,
+	stateMessage
+	
 };
 

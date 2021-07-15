@@ -1,19 +1,6 @@
 console.log('loading bp-doc.js');
 
-import {
-	b32s,
-	s32b,
-	stateMessage,
-	mapHeader,
-	mapVal,
-	json2TableHtml,
-	json2Table,
-	array2TableHtml,
-	array2Table,
-	abi2Table,
-	pre,
-	safeStr
-} from '/client/lib/utils.js';
+import utils from '/client/lib/utils.js';
 
 const bpDoc = (val, doc) => {
 	const bpData = ReactiveMethod.call('bpData', doc.bp_key);
@@ -41,7 +28,9 @@ const bpDoc = (val, doc) => {
 
 	const label = (text) => ({ text, style: styles.label.small });
 	const labelLarge = (text) => ({ text, style: styles.label.large });
-	const value = (text, colspan) => { text, colspan };
+	const valueText = (text, colspan) => { text, colspan };
+	const valueDate = (date, colspan) => { text: moment(date).format('DD.MM.YYYY'), colspan };
+	const valueAddress = (address, colspan) => { utils.txLink(address), colspan };
 	const empty = (colspan) => ({ colspan });
 
 	const content = [
@@ -50,9 +39,9 @@ const bpDoc = (val, doc) => {
 			row: [
 				labelLarge('Product'),
 				label('Name'),
-				value(product.name),
+				valueText(product.name),
 				label('ProductID'),
-				value(product.product_id),
+				valueText(product.product_id),
 			]
 		},
 		{
@@ -60,7 +49,7 @@ const bpDoc = (val, doc) => {
 			row: [
 				empty(2),
 				label('State'),
-				value(stateMessage.product[product.state], 3),
+				valueText(stateMessage.product[product.state], 3),
 			]
 		},
 		{
@@ -68,9 +57,9 @@ const bpDoc = (val, doc) => {
 			row: [
 				empty(2),
 				label('Release'),
-				value(product.release),
+				valueText(product.release),
 				label('PolicyFlow'),
-				value(product.policy_flow),
+				valueText(product.policy_flow),
 			]
 		},
 		{
@@ -78,7 +67,7 @@ const bpDoc = (val, doc) => {
 			row: [
 				empty(2),
 				label('Owner'),
-				value(product.owner, 3),
+				valueAddress(product.owner, 3),
 			]
 		},
 		{
@@ -86,8 +75,19 @@ const bpDoc = (val, doc) => {
 			row: [ 
 				empty(2),
 				label('Address'),
-				value(product.owner, 3),
+				valueAddress(product.address, 3),
 			]
+		},
+		emptyRow(),
+		{
+			style: styles.header,
+			row: [
+				labelLarge('Metadata'),
+				label('Created'),
+				valueDate(meta.created_at),
+				label('Updated'),
+				valueDate(meta.updated_at),
+				]
 		},
 	];
 

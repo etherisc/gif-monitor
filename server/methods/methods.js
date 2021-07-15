@@ -25,5 +25,7 @@ Meteor.methods({
 	"reload.policies": reloadPolicies,
 	
 	bpData,
+	blockExplorer,
+	ipfsGateway
 	
 });
