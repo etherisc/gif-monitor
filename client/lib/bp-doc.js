@@ -12,8 +12,8 @@ const bpDoc = (val, doc) => {
 	const labelLarge = (text) => ({ text, class: 'bpdoc-label-large' });
 	const valueText = (text, colspan) => ({ text, colspan });
 	const valueDate = (date, colspan) => ({ text: moment(date).format('DD.MM.YYYY'), colspan });
-	const valueAddress = (address, colspan) => ({ utils.txLink(address), colspan });
-	const empty = (colspan) => ({ colspan });
+	const valueAddress = (address, colspan) => ({ text: utils.txLink(address), colspan });
+	const empty = (colspan) => ({ text: '', colspan });
 	const spacerRow = () => ({ class: 'bpdoc-row-spacer', row: [ empty(6) ] });
 
 	const content = [
