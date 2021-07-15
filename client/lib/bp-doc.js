@@ -6,7 +6,7 @@ const bpDoc = (val, doc) => {
 
 	const { product, meta, application, policy, claims } = bpData;
 
-	const row = (key, val) => `<tr><td>${key}</td><td>${value}</td></tr>`;
+	const row = (key, val) => `<tr><td>${key}</td><td>${val}</td></tr>`;
 	const tbody = [
 		row('','')
 	].join("\n");
