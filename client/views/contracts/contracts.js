@@ -216,7 +216,11 @@ Template.ContractsView.helpers({
 
 	
 	"CustomActionsShowCondition": function() {
-		userIsAdmin()
+		var user = Meteor.user();
+if(!user || !user.roles) {
+	return false;
+}
+return user.roles.indexOf("admin") >= 0;
 	}
 });
 

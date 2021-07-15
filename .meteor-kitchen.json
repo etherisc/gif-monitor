@@ -122,7 +122,7 @@
 		},
 		{
 			"path": "client/views/contracts/contracts.js",
-			"checksum": "4d422440e3cb51b1b0c078fa910435eb7d8190ec"
+			"checksum": "39d663cf5f242b3345da34845c7da0ddf954a3f7"
 		},
 		{
 			"path": "client/views/contracts/contracts_controller.js",
@@ -430,7 +430,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "7657b3dfb4a860f0724391b303eae801b9a43842"
+			"checksum": "6201fa080f81d790ff1a964050f202f3057db77c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
