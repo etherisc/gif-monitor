@@ -76,6 +76,7 @@ const bpDoc = (val, doc) => {
 
 	const compile = (content) => {
 		const rows = content.map(row => {
+			console.log(row);
 			const cells = row.cells.map(
 				cell => `<td ${cell.colspan ? `colspan=${cell.colspan}` : ''} ${cell.class ? `class="${cell.class}"` : ''}>${cell.text}</td>`
 			);
