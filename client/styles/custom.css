@@ -90,3 +90,7 @@ a {
 .bpdoc-row-spacer {
 	margin-top: 20px;
 }
+
+.bpdoc-empty-cell {
+	width: 30px;
+}
