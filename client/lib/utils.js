@@ -138,7 +138,16 @@ module.exports = {
 	addressLongLink,
 	blockExplorer,
 	ipfsGateway,
-	stateMessage
-	
+	stateMessage,
+	productState,
+	oracleState,
+	oracleTypeState,
+	oracleAssigmentState,
+	policyState,
+	applicationState,
+	claimState,
+	policyFlowState,
+	payoutState,
+	isProductState	
 };
 
