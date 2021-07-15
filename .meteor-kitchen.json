@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "9ea3b2fb191466dfc82c931f991a2ff691630386"
+			"checksum": "4b40418637257ec6575d2c41369673731160e06d"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "5749ba38017c13ca679b055cb74c9ae18d71b16a"
+			"checksum": "0078b7afb3e4c85b05bbbeeb6937aa1c33d22475"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -55,6 +55,18 @@
 		{
 			"path": "client/views/home_public/home_public_controller.js",
 			"checksum": "12cee04470a968b54f83f3d6b08fd5bac77bf068"
+		},
+		{
+			"path": "client/views/test/test.html",
+			"checksum": "c92896ad4afe84030b875e47a5ee54c49f7de973"
+		},
+		{
+			"path": "client/views/test/test.js",
+			"checksum": "848c4643d6320ff808842fc9d39f262221e05b83"
+		},
+		{
+			"path": "client/views/test/test_controller.js",
+			"checksum": "70f242e9aa4afef05b09b3879a7dc4914154b238"
 		},
 		{
 			"path": "client/views/login/login.html",
@@ -394,7 +406,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "08c630c841b2680de2a2838209de5bb022c107bc"
+			"checksum": "397ba273b854e8371586ed593796f58bdb111e29"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1524,6 +1536,7 @@
 		"client/views/products_public/details/",
 		"client/views/register/",
 		"client/views/reset_password/",
+		"client/views/test/",
 		"client/views/user_settings/",
 		"client/views/user_settings/change_pass/",
 		"client/views/user_settings/profile/",
