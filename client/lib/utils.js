@@ -2,6 +2,22 @@ console.log('loading utils.js');
 
 import { ethers } from 'ethers';
 
+
+/*******************
+ * Globals 
+ *******************/
+
+userIsAdmin = () => {
+	var user = Meteor.user();
+	if(!user || !user.roles) {
+		return false;
+	}
+	return user.roles.indexOf("admin") >= 0;
+};
+
+
+/*******************/
+
 const b32s = (b32) => {
 	return ethers.utils.parseBytes32String(b32);
 }
@@ -11,7 +27,7 @@ const s32b = (text) => {
 }
 
 const stateMessage = {
-	
+
 	product: [ 'Proposed', 'Approved', 'Paused' ],
 	oracle: [ 'Inactive', 'Active' ],
 	oracleType: [ 'Inactive', 'Active'],
@@ -35,7 +51,7 @@ const payoutState = (state) => stateMessage.payout[state];
 const isProductState = (state, data) => stateMessage.product[data.product.state] === state;
 
 const mapHeader = (key) => {
-	
+
 	const dict = {
 		"name": "Name",
 		"transaction_no": "hidden",
@@ -46,7 +62,7 @@ const mapHeader = (key) => {
 };
 
 const mapVal = (key, val, data) => {
-	
+
 	switch (key) {
 
 		default: return val;
@@ -92,11 +108,11 @@ const textBlue = (t) => `<span class='text-primary'>${t}</span>`;
 const textOrange = (t) => `<span class='text-warning'>${t}</span>`;
 const atomSingle = (io) => `${textOrange(io.type)}${io.name ? ` ${textBlue(io.name)}` : ''}`;
 const abiSingle = (signature) => {
-	
+
 	const name = signature.name ? signature.name : '<anonymous>';
 	const inputs = signature.inputs ? `(${signature.inputs.map(atomSingle).join(', ')})` : '()';
 	const outputs = signature.outputs && signature.outputs.length > 0 ? `${textRed('returns')} (${signature.outputs.map(atomSingle).join(', ')})` : '';
-	
+
 	return `${textRed(signature.type)} ${name} ${inputs} ${outputs}`;
 
 };
