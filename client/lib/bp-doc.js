@@ -82,7 +82,7 @@ const bpDoc = (val, doc) => {
 				]
 		},
 			style: styles.data,
-			row: [
+			row: [ 
 				empty(2),
 				label('Address'),
 				value(product.owner, 3),
