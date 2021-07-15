@@ -42,26 +42,22 @@ Template.HomePublicSpacer.events({
 
 });
 
-Template.HomePublicHomeJumbotron.onCreated(function() {
-	
+Template.HomePublicKeyVisual.created = function() {
+
+};
+
+Template.HomePublicKeyVisual.destroyed = function() {
+
+};
+
+Template.HomePublicKeyVisual.rendered = function() {
+
+};
+
+Template.HomePublicKeyVisual.helpers({
+
 });
 
-Template.HomePublicHomeJumbotron.onDestroyed(function() {
-	
-});
+Template.HomePublicKeyVisual.events({
 
-Template.HomePublicHomeJumbotron.onRendered(function() {
-	
-});
-
-Template.HomePublicHomeJumbotron.events({
-	"click #jumbotron-button": function(e, t) {
-		e.preventDefault();
-		Router.go("core_public.core_contracts_public", {});
-	}
-	
-});
-
-Template.HomePublicHomeJumbotron.helpers({
-	
 });
