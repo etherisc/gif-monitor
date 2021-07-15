@@ -2,7 +2,7 @@ console.log('loading bp-doc.js');
 
 const bpDoc = (val, doc) => {
 	const bpData = ReactiveMethod.call('bpData', doc.bp_key);
-	console.log(bpData);
+	if (!bpData) return '';
 
 	const { product, meta, application, policy, claims } = bpData;
 
