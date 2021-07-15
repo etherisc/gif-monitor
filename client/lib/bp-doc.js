@@ -61,7 +61,7 @@ const bpDoc = (val, doc) => {
 				valueAddress(product.address, 3),
 			]
 		},
-		emptyRow(),
+		spacerRow(),
 		{
 			class: 'bpdoc-row-header',
 			cells: [
