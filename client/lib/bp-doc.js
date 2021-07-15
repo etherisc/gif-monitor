@@ -8,36 +8,18 @@ const bpDoc = (val, doc) => {
 
 	const { product, meta, application, policy, claims } = bpData;
 
-	const row = (key, val) => `<tr><td>${key}</td><td>${val}</td></tr>`;
-	const tbody = [
-		row('','')
-	].join("\n");
-
-	const color = {
-		green: '#00ff00',
-		blue: '#0000ff'
-	};
-
-	const styles = {
-		header: { background: color.green },
-		label: {
-			large: {fontSize: 14, fontWeight: 'bold'},
-			small: {}
-		},
-	};
-
-	const label = (text) => ({ text, style: styles.label.small });
-	const labelLarge = (text) => ({ text, style: styles.label.large });
+	const label = (text) => ({ text, class: 'bpdoc-label-small' });
+	const labelLarge = (text) => ({ text, class: 'bpdoc-label-large' });
 	const valueText = (text, colspan) => { text, colspan };
 	const valueDate = (date, colspan) => { text: moment(date).format('DD.MM.YYYY'), colspan };
 	const valueAddress = (address, colspan) => { utils.txLink(address), colspan };
 	const empty = (colspan) => ({ colspan });
-	const emptyRow = () => ({ style: styles.empty, row: [ empty(6) ] });
+	const spacerRow = () => ({ class: 'bpdoc-row-spacer', row: [ empty(6) ] });
 
 	const content = [
 		{ 
-			style: styles.header,
-			row: [
+			class: 'bpdoc-row-header',
+			cells: [
 				labelLarge('Product'),
 				label('Name'),
 				valueText(product.name),
@@ -46,16 +28,16 @@ const bpDoc = (val, doc) => {
 			]
 		},
 		{
-			style: styles.data,
-			row: [
+			class: 'bpdoc-row-data',
+			cells: [
 				empty(2),
 				label('State'),
 				valueText(utils.stateMessage.product[product.state], 3),
 			]
 		},
 		{
-			style: styles.data,
-			row: [
+			class: 'bpdoc-row-data',
+			cells: [
 				empty(2),
 				label('Release'),
 				valueText(product.release),
@@ -64,16 +46,16 @@ const bpDoc = (val, doc) => {
 			]
 		},
 		{
-			style: styles.data,
-			row: [
+			class: 'bpdoc-row-data',
+			cells: [
 				empty(2),
 				label('Owner'),
 				valueAddress(product.owner, 3),
 			]
 		},
 		{
-			style: styles.data,
-			row: [ 
+			class: 'bpdoc-row-data',
+			cells: [ 
 				empty(2),
 				label('Address'),
 				valueAddress(product.address, 3),
@@ -81,18 +63,30 @@ const bpDoc = (val, doc) => {
 		},
 		emptyRow(),
 		{
-			style: styles.header,
-			row: [
+			class: 'bpdoc-row-header',
+			cells: [
 				labelLarge('Metadata'),
 				label('Created'),
 				valueDate(meta.created_at),
 				label('Updated'),
 				valueDate(meta.updated_at),
-				]
+			]
 		},
 	];
 
-	return utils.json2Table(bpData);
+	const compile = (content) => {
+		const rows = content.map(row => {
+			const cells = row.cells.map(
+				cell => `<td ${cell.colspan ? `colspan=${cell.colspan}` : ''} ${cell.class ? `class="${cell.class}"` : ''}>${cell.text}</td>`
+			);
+			return `<tr class="${row.class}">${cells.join()}</tr>`;
+			});
+
+		const table = `<table class="bpdoc-table">${rows.join("\n")}</table>`;
+		return table;
+	}
+
+	return compile(content);
 };	
 
 
