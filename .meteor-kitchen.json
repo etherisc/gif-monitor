@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "53671ca10b9557d32941b0243509e329a1d0fad4"
+			"checksum": "c02b6d308f81ca013079ac417ae9877663212d63"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1162,7 +1162,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "4af5b62e21a49bce6ffbcadf6f98a7182cae2784"
+			"checksum": "2020dc7732ad6045febd8752a19dd5b986524988"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
@@ -1225,14 +1225,6 @@
 			"checksum": "9470f5bfe8e9a72ae213ee88b1fe6d72f7e68189"
 		},
 		{
-			"path": "both/routes/serverroutes.js",
-			"checksum": "a811bb3520b427d4922f7a9d50b0cfa24c761167"
-		},
-		{
-			"path": "server/controllers/controller/contractController.js",
-			"checksum": "e646328b070b32b0162f8b4bedb0311d9041415c"
-		},
-		{
 			"path": "imports/server/methods/bp-data.js",
 			"checksum": "5b89ba750227e87756ad440e06442e084325de17"
 		},
@@ -1242,11 +1234,11 @@
 		},
 		{
 			"path": "client/lib/utils.js",
-			"checksum": "83d2cd5cee306febdf1dc0187a129e79bbc328bd"
+			"checksum": "805a4f1560991bf2f926a59415f60b8a4bf00df6"
 		},
 		{
 			"path": "imports/server/methods/utils.js",
-			"checksum": "142ad4a85b9abcb3ea40f62c05ced3bbc798710e"
+			"checksum": "f74da48074b1c46e56b371b2c6655650dd259967"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1446,7 +1438,6 @@
 		"both/collections/",
 		"both/joins/",
 		"both/lib/",
-		"both/routes/",
 		"client/",
 		"client/components/",
 		"client/components/confirmation_dialog/",
@@ -1548,7 +1539,6 @@
 		"server/",
 		"server/collections/",
 		"server/controllers/",
-		"server/controllers/controller/",
 		"server/lib/",
 		"server/methods/",
 		"server/publish/"

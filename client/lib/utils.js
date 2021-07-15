@@ -23,6 +23,17 @@ const stateMessage = {
 	payout: [ 'Expected', 'PaidOut' ]
 };
 
+const productState = (state) => stateMessage.product[state];
+const oracleState = (state) => stateMessage.oracle[state];
+const oracleTypeState = (state) => stateMessage.oracleType[state];
+const oracleAssigmentState = (state) => stateMessage.oracleAssignment[state];
+const policyState = (state) => stateMessage.policy[state];
+const applicationState = (state) => stateMessage.application[state];
+const claimState = (state) => stateMessage.claim[state];
+const policyFlowState = (state) => stateMessage.policyFlow[state];
+const payoutState = (state) => stateMessage.payout[state];
+const isProductState = (state, data) => stateMessage.product[data.product.state] === state;
+
 const mapHeader = (key) => {
 	
 	const dict = {
