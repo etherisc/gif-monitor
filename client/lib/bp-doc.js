@@ -49,7 +49,7 @@ const bpDoc = (val, doc) => {
 			row: [
 				empty(2),
 				label('State'),
-				valueText(stateMessage.product[product.state], 3),
+				valueText(utils.stateMessage.product[product.state], 3),
 			]
 		},
 		{
