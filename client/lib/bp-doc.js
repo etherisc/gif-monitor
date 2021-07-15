@@ -14,7 +14,7 @@ const bpDoc = (val, doc) => {
 	const valueBool = (val, colspan) => ({ text: val ? "Yes" : "No", colspan });
 	const valueDate = (date, colspan) => ({ text: moment(date).format('DD.MM.YYYY'), colspan });
 	const valueAddress = (address, colspan) => ({ text: utils.txLink(address), colspan });
-	const empty = (colspan) => ({ text: '', colspan });
+	const empty = (colspan) => ({ text: '&nbsp;', colspan });
 	const spacerRow = () => ({ class: 'bpdoc-row-spacer', cells: [ empty(6) ] });
 
 	let content = [
