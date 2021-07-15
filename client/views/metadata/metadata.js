@@ -192,9 +192,12 @@ Template.MetadataView.helpers({
 	},
 	"viewAsGallery": function() {
 		return Session.get("MetadataViewStyle") == "gallery";
-	}
+	}, 
 
 	
+	"CustomActionsShowCondition": function() {
+		return userIsAdmin();
+	}
 });
 
 

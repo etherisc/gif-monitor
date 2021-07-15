@@ -143,7 +143,12 @@ Template.ProductsDetailsForm.helpers({
 	"errorMessage": function() {
 		return pageSession.get("productsDetailsFormErrorMessage");
 	}, 
-		
+	
+	"CustomActionsShowCondition": function() {
+		return userIsAdmin();
+
+	},
+	
 });
 
 Template.ProductsDetailsFormCustomActions.created = function() {

@@ -192,9 +192,13 @@ Template.ProductsView.helpers({
 	},
 	"viewAsGallery": function() {
 		return Session.get("ProductsViewStyle") == "gallery";
-	}
+	}, 
 
 	
+	"CustomActionsShowCondition": function() {
+		return userIsAdmin();
+
+	}
 });
 
 

@@ -53,15 +53,7 @@ Router.freeRoutes = [
 	"products",
 	"products.details",
 	"metadata",
-	"metadata.details",
-	"applications",
-	"applications.details",
-	"policies",
-	"policies.details",
-	"claims",
-	"claims.details",
-	"payouts",
-	"payouts.details"
+	"metadata.details"
 ];
 
 Router.roleMap = [
@@ -138,14 +130,6 @@ Router.map(function () {
 	this.route("/products/details/:productId", {name: "products.details", title: "", controller: "ProductsDetailsController"});
 	this.route("/metadata", {name: "metadata", title: "", controller: "MetadataController"});
 	this.route("/metadata/details/:metadataId", {name: "metadata.details", title: "", controller: "MetadataDetailsController"});
-	this.route("/applications", {name: "applications", title: "", controller: "ApplicationsController"});
-	this.route("/applications/details/:applicationId", {name: "applications.details", title: "", controller: "ApplicationsDetailsController"});
-	this.route("/policies", {name: "policies", title: "", controller: "PoliciesController"});
-	this.route("/policies/details/:policyId", {name: "policies.details", title: "", controller: "PoliciesDetailsController"});
-	this.route("/claims", {name: "claims", title: "", controller: "ClaimsController"});
-	this.route("/claims/details/:claimId", {name: "claims.details", title: "", controller: "ClaimsDetailsController"});
-	this.route("/payouts", {name: "payouts", title: "", controller: "PayoutsController"});
-	this.route("/payouts/details/:payoutId", {name: "payouts.details", title: "", controller: "PayoutsDetailsController"});
 	this.route("/login", {name: "login", title: "", controller: "LoginController"});
 	this.route("/register", {name: "register", title: "", controller: "RegisterController"});
 	this.route("/verify_email/:verifyEmailToken", {name: "verify_email", title: "", controller: "VerifyEmailController"});

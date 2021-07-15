@@ -24,7 +24,9 @@
 						</button>
 					</span>
 				</div>
-				{{> MetadataViewCustomActions}}
+				{{#if CustomActionsShowCondition}}
+	{{> MetadataViewCustomActions}}
+{{/if}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}

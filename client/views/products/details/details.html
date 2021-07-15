@@ -104,7 +104,9 @@
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>
-					{{> ProductsDetailsFormCustomActions}}
+					{{#if CustomActionsShowCondition}}
+	{{> ProductsDetailsFormCustomActions}}
+{{/if}}
 				</div>
 			</div>
 		</form>
