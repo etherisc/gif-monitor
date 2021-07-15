@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "c60ed2bf09edf6a0571e71bc5de5a44915d37143"
+			"checksum": "2076e8eafce664a469e578c7731e1c14fab0b71c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1222,7 +1222,7 @@
 		},
 		{
 			"path": "client/styles/custom.css",
-			"checksum": "d5f2161d1e2d25c51c59ee7d08004305d15cc7d8"
+			"checksum": "9e2e6cdc798960cbfb3caf32428f631dcd0c65b2"
 		},
 		{
 			"path": "imports/server/methods/bp-data.js",
@@ -1239,6 +1239,10 @@
 		{
 			"path": "imports/server/methods/utils.js",
 			"checksum": "f74da48074b1c46e56b371b2c6655650dd259967"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3/less/custom.import.less",
+			"checksum": "875909dfd0477ec6714b79cbec176e943405a186"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1299,10 +1303,6 @@
 		{
 			"path": "client/styles/framework/bootstrap3/less/bootstrap.import.less",
 			"checksum": "124360ed236fa8144e1387b6910ef081c4611347"
-		},
-		{
-			"path": "client/styles/framework/bootstrap3/less/custom.import.less",
-			"checksum": "875909dfd0477ec6714b79cbec176e943405a186"
 		},
 		{
 			"path": "client/styles/framework/bootstrap3/less/bootstrap.mixins.import.less",
