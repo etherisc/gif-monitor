@@ -194,7 +194,7 @@ const bpDoc = (val, doc) => {
 			content.concat(claimContent);
 		};
 
-		claims.map(claimsContent))
+		claims.map(claimsContent);
 	}
 
 	const compile = (content) => {
