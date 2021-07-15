@@ -349,3 +349,4 @@ Template.MetadataViewCustomActions.events({
 	}
 
 });
+

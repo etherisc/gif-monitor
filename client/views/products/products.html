@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ProductsView}}
+		{{> ProductsView}}{{> ProductsExplanationMd}}
 	</div>
 </template>
 
@@ -128,5 +128,12 @@
 	<button class="btn btn-warning" id="btn-reload">
 		Reload Products
 	</button>
+</template>
+
+<template name="ProductsExplanationMd">
+	{{#markdown}}## What do you see here? ##
+This dialog shows the products which have been registered in the framework. 
+Click on a Product and you will get detailed information of the product.
+{{/markdown}}
 </template>
 

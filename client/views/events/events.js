@@ -348,3 +348,4 @@ Template.EventsViewCustomActions.events({
 		Meteor.call('reload.events');
 	}
 });
+

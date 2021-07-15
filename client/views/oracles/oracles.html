@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> OraclesView}}
+		{{> OraclesView}}{{> OraclesExplanationMd}}
 	</div>
 </template>
 
@@ -116,5 +116,13 @@
 	<button class="btn btn-warning" id="btn-reload">
 		Reload Oracles
 	</button>
+</template>
+
+<template name="OraclesExplanationMd">
+	{{#markdown}}## What do you see here? ##
+This dialog shows the available oracles of a certain type. Here the Product-Owners can request oracles which have the right signature for their purpose.
+The input and callback formats are defined by Solidity's `abi.encode` function described in the 
+[Solidity documentation](https://docs.soliditylang.org/en/latest/units-and-global-variables.html?highlight=abi%20encode#abi-encoding-and-decoding-functions).
+{{/markdown}}
 </template>
 
