@@ -24,26 +24,6 @@ Template.MetadataDetails.helpers({
 	
 });
 
-Template.MetadataDetailsBpDoc.created = function() {
-
-};
-
-Template.MetadataDetailsBpDoc.destroyed = function() {
-
-};
-
-Template.MetadataDetailsBpDoc.rendered = function() {
-
-};
-
-Template.MetadataDetailsBpDoc.helpers({
-
-});
-
-Template.MetadataDetailsBpDoc.events({
-
-});
-
 Template.MetadataDetailsForm.onCreated(function() {
 	
 });
@@ -93,7 +73,7 @@ Template.MetadataDetailsForm.events({
 		var self = this;
 
 		function submitAction(result, msg) {
-			var metadataDetailsFormMode = "insert";
+			var metadataDetailsFormMode = "read_only";
 			if(!t.find("#form-cancel-button")) {
 				switch(metadataDetailsFormMode) {
 					case "insert": {
@@ -127,7 +107,7 @@ Template.MetadataDetailsForm.events({
 			function(values) {
 				
 
-				Meteor.call("metadataInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				
 			}
 		);
 
@@ -162,4 +142,24 @@ Template.MetadataDetailsForm.helpers({
 		return pageSession.get("metadataDetailsFormErrorMessage");
 	}
 	
+});
+
+Template.MetadataDetailsBpDoc.created = function() {
+
+};
+
+Template.MetadataDetailsBpDoc.destroyed = function() {
+
+};
+
+Template.MetadataDetailsBpDoc.rendered = function() {
+
+};
+
+Template.MetadataDetailsBpDoc.helpers({
+
+});
+
+Template.MetadataDetailsBpDoc.events({
+
 });
