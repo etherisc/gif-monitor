@@ -72,11 +72,12 @@ a {
 }
 
 .bpdoc-label-large {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
 }
 
 .bpdoc-label-small {
+	font-weight: bold;
 }
 
 .bpdoc-row-header {
