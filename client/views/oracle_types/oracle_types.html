@@ -62,6 +62,7 @@
 		{{/if}}
 		{{/if}}
 	</div>
+	{{> OracleTypesViewCustomActions}}
 </template>
 
 <template name="OracleTypesViewTable">
@@ -127,6 +128,12 @@
 			{{index}}
 		</td>
 	</tr>
+</template>
+
+<template name="OracleTypesViewCustomActions">
+	<button class="btn btn-warning" id="btn-propose-oracletype">
+		Propose OracleType
+	</button>
 </template>
 
 <template name="OracleTypesExplanationMd">

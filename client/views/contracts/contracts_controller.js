@@ -18,7 +18,7 @@ this.ContractsController = RouteController.extend({
 	isReady: function() {
 		this.contractListPagedExtraParams = {
 			searchText: Session.get("ContractListPagedSearchString") || "",
-			searchFields: Session.get("ContractListPagedSearchFields") || ["chain_data.name", "name", "address"],
+			searchFields: Session.get("ContractListPagedSearchFields") || ["instance_name", "instance_id", "name", "address", "release"],
 			sortBy: Session.get("ContractListPagedSortBy") || "",
 			sortAscending: Session.get("ContractListPagedSortAscending"),
 			pageNo: Session.get("ContractListPagedPageNo") || 0,

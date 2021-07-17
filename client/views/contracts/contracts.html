@@ -4,11 +4,8 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ContractsHeader}}{{> ContractsView}}{{> ContractsExplanationMd}}
+		{{> ContractsView}}{{> ContractsExplanationMd}}
 	</div>
-</template>
-
-<template name="ContractsHeader">
 </template>
 
 <template name="ContractsView">
@@ -74,14 +71,20 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="chain_data.name">
-					Chain Id
+				<th class="th-sortable" data-sort="instance_name">
+					Instance
+				</th>
+				<th class="th-sortable" data-sort="instance_id">
+					Instance ID
 				</th>
 				<th class="th-sortable" data-sort="name">
 					Name
 				</th>
 				<th class="th-sortable" data-sort="address">
 					Address
+				</th>
+				<th class="th-sortable" data-sort="release">
+					Release
 				</th>
 			</tr>
 		</thead>
@@ -94,13 +97,19 @@
 <template name="ContractsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{chain_data.name}}
+			{{instance_name}}
+		</td>
+		<td>
+			{{instance_id}}
 		</td>
 		<td>
 			{{name}}
 		</td>
 		<td>
 			{{address}}
+		</td>
+		<td>
+			{{release}}
 		</td>
 	</tr>
 </template>

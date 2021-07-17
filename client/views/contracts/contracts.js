@@ -22,31 +22,11 @@ Template.Contracts.helpers({
 	
 });
 
-Template.ContractsHeader.created = function() {
-
-};
-
-Template.ContractsHeader.destroyed = function() {
-
-};
-
-Template.ContractsHeader.rendered = function() {
-
-};
-
-Template.ContractsHeader.helpers({
-
-});
-
-Template.ContractsHeader.events({
-
-});
-
 
 var ContractsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ContractListPagedSearchString") || "",
-		searchFields: Session.get("ContractListPagedSearchFields") || ["chain_data.name", "name", "address"],
+		searchFields: Session.get("ContractListPagedSearchFields") || ["instance_name", "instance_id", "name", "address", "release"],
 		sortBy: Session.get("ContractListPagedSortBy") || "",
 		sortAscending: Session.get("ContractListPagedSortAscending") || true
 	};
