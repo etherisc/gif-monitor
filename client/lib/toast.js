@@ -112,4 +112,15 @@ toast_prompt = function(message, options) {
 	});
 }
 
-
+toast_form = function(title, formHtml, buttons) {
+	info(`Toast dialog ${title}`, formHtml);
+	return new Promise((resolve, reject) => {
+		bootbox.prompt({
+			title: `<span style="color:blue; font-weight:bold;">${title}</span>`,
+			message: formHtml,
+			backdrop: true,
+			buttons, 
+			...options
+		});
+	});
+}
