@@ -42,9 +42,43 @@
 </template>
 
 <template name="MetadataDetailsExplanationMd">
-	{{#markdown}}## What do you see here?
+	{{#markdown}}## What do you see here? ##
 
-Here comes the explanation - stay tuned!
+For each policy, we generate a business process which collects the data needed for the different 
+stages of a policy, from application, underwriting, claims handling and payouts.
+
+The business process is like a file where we collect and maintain all information which accumulates during the lifecycle of an insurance policy.
+
+The data which is common for all stages is called "Metadata". Data which is specific for a stage
+is stored in additional "Application, "Policy", "Claim" and "Payout" objects.
+
+This dialog shows the aggregated information for a specific business process:
+
+* Product: This section shows information on the underlying product.
+* Metadata: General information which is common for all stages of the policy lifecycle.
+* Application: If a customer applies for a policy, the request is filed as "application".
+* Policy: After the insurance accepts the application ("underwriting"), the policy is issued.
+* Claims: In case of a loss, a claim is filed. In parametric insurance, claims are automatically filed in case of a detected loss event.
+* Payouts: For each claim, one or more payouts can be triggered. Each payout can be executed in one or more payments. 
+
+While the "product" and "metadata" sections are available for each business process, the "application", "policy", 
+"claims" and "payouts" sections are only available for business processes for which these data exist.
+
+### Where can I see the customer data?
+
+Not at all. Personal information cannot be stored in plaintext on a public platform.
+This information is stored off chain, as well as the link between personal data and the on-chain data.
+This link is represented by the "Business Process Key" (BP Key). The business process key is a randomized key which cannot be linked
+to a specific customer. If a customer has many policies, it is not possible to aggregate these with the on-chain data.
+
+### Where can I see the premium and sum insured?
+
+It depends. For some products, this information can be viewed in the public blockchain record. 
+For other products, this information may be hidden due to data protection requirements.
+In each case, the keys to this information are the "data" fields in application, claims and payouts.
+These fields contain secret, encoded or publicly visible information on the policy parameters.
+
+
 {{/markdown}}
 </template>
 

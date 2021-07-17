@@ -61,9 +61,11 @@ const getAbi = async (addr) => {
 
 const loadContracts = async () => {
 
+	const instance_id = 102; // TODO: make this variable
+	
 	try {
 
-		const { _id, registry_addr } = Instances.findOne({instance_id:102 });
+		const { _id, registry_addr, name: instance_name } = Instances.findOne({instance_id});
 
 		// Bootstrap Registry
 
@@ -106,10 +108,13 @@ const loadContracts = async () => {
 					const ipfs = await ipfsLink(contractAddress);
 					info(`Inserting contract ${contractName} at ${contractAddress}`);
 					Contracts.insert({
-						instance_id: _id,
+						instance_mongo_id: _id,
+						instance_id, 
+						instance_name,
 						name: contractName,
 						abi: JSON.stringify(contractAbi), 
 						address: contractAddress,
+						release: b32s(release),
 						ipfs
 					});
 				} catch(e) {

@@ -325,3 +325,28 @@ Template.OracleTypesViewTableItems.helpers({
 	}
 });
 
+Template.OracleTypesViewCustomActions.created = function() {
+
+};
+
+Template.OracleTypesViewCustomActions.destroyed = function() {
+
+};
+
+Template.OracleTypesViewCustomActions.rendered = function() {
+
+};
+
+Template.OracleTypesViewCustomActions.helpers({
+
+});
+
+Template.OracleTypesViewCustomActions.events({
+	"click #btn-reload": function (e,t) {
+		e.preventDefault();
+
+		proposeOracleType();
+	}
+
+});
+
