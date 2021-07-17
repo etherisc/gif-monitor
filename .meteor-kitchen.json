@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "42aa856c330553069d8cdea26cc9e888bc482bfe"
+			"checksum": "defa41051818a037450e90c78dfddd42cdf56830"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -842,7 +842,7 @@
 		},
 		{
 			"path": "client/lib/toast.js",
-			"checksum": "7d790cf20d353761fec08cad83aad0a0474c4c01"
+			"checksum": "82182a30600c79d1dabb348aa47847047e2075ee"
 		},
 		{
 			"path": "imports/server/methods/gif-contracts-reader.js",
