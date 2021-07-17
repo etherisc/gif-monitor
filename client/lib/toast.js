@@ -91,8 +91,7 @@ toast_prompt = function(message, options) {
 	info('Toast prompt: ' + message);
 	return new Promise((resolve, reject) => {
 		bootbox.prompt({
-			title: '<span style="color:blue; font-weight:bold;">Confirm</span>',
-			message,
+			title: `<span style="color:blue; font-weight:bold;">${message}</span>`,
 			backdrop: true,
 			buttons: {
 				confirm: {
