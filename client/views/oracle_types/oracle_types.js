@@ -342,7 +342,7 @@ Template.OracleTypesViewCustomActions.helpers({
 });
 
 Template.OracleTypesViewCustomActions.events({
-	"click #btn-reload": function (e,t) {
+	"click #btn-propose-oracletype": function (e,t) {
 		e.preventDefault();
 
 		proposeOracleType();
