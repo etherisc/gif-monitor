@@ -112,7 +112,7 @@ toast_prompt = function(message, options) {
 	});
 }
 
-toast_form = function(title, formHtml, buttons) {
+toast_form = function(title, formHtml, buttons, options) {
 	info(`Toast dialog ${title}`, formHtml);
 	console.log(formHtml);
 	return new Promise((resolve, reject) => {
