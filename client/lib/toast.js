@@ -4,7 +4,7 @@ console.log('loading toast.js');
 
 toast_error = function(message, options) {
 
-	logger.error('Toast error: ' + message);
+	error('Toast error: ' + message);
 
 	bootbox.alert({
 		title: '<span style="color:red; font-weight:bold;">Error</span>',
@@ -39,28 +39,28 @@ toast_autoclose = function(title, color, message, options) {
 
 toast_success = function(message, options) {
 
-	logger.info('Toast success: ' + message);
+	info('Toast success: ' + message);
 	toast_autoclose('Success', 'green', message, options);
 
 };
 
 toast_info = function(message, options) {
 
-	logger.info('Toast info: ' + message);
+	info('Toast info: ' + message);
 	toast_autoclose('Info', 'blue', message, options);
 
 };
 
 toast_warning = function(message, options) {
 
-	logger.info('Toast warning: ' + message);
+	info('Toast warning: ' + message);
 	toast_autoclose('Warning', 'red', message, options);
 
 };
 
 toast_confirm = function(message, options) {
 
-	logger.info('Toast confirm: ' + message);
+	info('Toast confirm: ' + message);
 	return new Promise((resolve, reject) => {
 		bootbox.confirm({
 			title: '<span style="color:blue; font-weight:bold;">Confirm</span>',
@@ -77,7 +77,7 @@ toast_confirm = function(message, options) {
 				}
 			},
 			callback: function (result) {
-				logger.info('Toast confirm result: ' + result);	
+				info('Toast confirm result: ' + result);	
 				resolve(result);
 			},
 			...options
@@ -88,7 +88,7 @@ toast_confirm = function(message, options) {
 
 toast_prompt = function(message, options) {
 
-	logger.info('Toast prompt: ' + message);
+	info('Toast prompt: ' + message);
 	return new Promise((resolve, reject) => {
 		bootbox.prompt({
 			title: '<span style="color:blue; font-weight:bold;">Confirm</span>',
@@ -105,7 +105,7 @@ toast_prompt = function(message, options) {
 				}
 			},
 			callback: function (result) {
-				logger.info('Toast confirm result: ' + result);	
+				info('Toast confirm result: ' + result);	
 				resolve(result);
 			}, 
 			...options
