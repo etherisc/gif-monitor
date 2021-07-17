@@ -1,6 +1,6 @@
 
 const formHtml = `
-<div class="form-content" style="display:none;">
+<div class="form-content">
 	<form class="form" role="form">
 		<div class="form-group">
 			<label for="ot-name">Oracle type name</label>
