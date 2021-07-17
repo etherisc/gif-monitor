@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "405e4adc80307fa06f21bc2dd74287237bf15b14"
+			"checksum": "ac44a87af31766d9279cb82406de782fa543929f"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -842,7 +842,7 @@
 		},
 		{
 			"path": "client/lib/toast.js",
-			"checksum": "4543f48d3ad9fe68cc835acaf2861c6e25ee4351"
+			"checksum": "317558a356feccde6c9d3ae7138f92c02b0e1d79"
 		},
 		{
 			"path": "imports/server/methods/gif-contracts-reader.js",
@@ -862,7 +862,7 @@
 		},
 		{
 			"path": "client/lib/ios-interaction.js",
-			"checksum": "2c5e637013fb76ec89976f9d4fee278443aaf026"
+			"checksum": "9c02225ac8e29f2c3ccdf6566fb3538d4b4d2379"
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",
@@ -894,7 +894,7 @@
 		},
 		{
 			"path": "client/lib/oracles.js",
-			"checksum": "6ffac0d497cebff79cff3260d89256e25c5302a4"
+			"checksum": "a16b83d1d3ec2434a620b41a34ff460346922519"
 		},
 		{
 			"path": "client/lib/globals.js",
