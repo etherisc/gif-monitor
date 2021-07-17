@@ -18,9 +18,9 @@ const formHtml = `
 </div>
 `;
 
-proposeOracleType = () => {
+proposeOracleType = async () => {
 
-	toast_form('Propose new OracleType:', formHtml, {
+	await toast_form('Propose new OracleType:', formHtml, {
 		// Buttons:
 		confirm: {
 			label: 'Propose OracleType',

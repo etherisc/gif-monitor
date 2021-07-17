@@ -342,10 +342,10 @@ Template.OracleTypesViewCustomActions.helpers({
 });
 
 Template.OracleTypesViewCustomActions.events({
-	"click #btn-propose-oracletype": function (e,t) {
+	"click #btn-propose-oracletype": async function (e,t) {
 		e.preventDefault();
 
-		proposeOracleType();
+		await proposeOracleType();
 	}
 
 });
