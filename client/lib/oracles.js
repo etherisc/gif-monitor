@@ -36,6 +36,13 @@ proposeOracleType = () => {
 				return false;
 			}
 
+		},
+		close: {
+			label: 'Cancel',
+			callback: function() {
+				return true;
+			}
+
 		}
 	})
 	.then((result) => {
