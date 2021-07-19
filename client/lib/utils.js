@@ -69,10 +69,8 @@ const mapVal = (key, val, data) => {
 
 	switch (key) {
 		case "assignmentState": 
-			console.log(key, val, data);
-			const ass = oracleAssignmentState(val);
-			console.log(ass);
-			return ass;
+			return oracleAssignmentState(val);
+
 		default: return val;
 
 	}
@@ -133,10 +131,6 @@ const abi2Table = (abi) => {
 
 const assignedOracles = (val, oracleType) => {
 	const items = ReactiveMethod.call('getAssignedOracles', oracleType.name);
-	
-	console.log(oracleType);
-	console.log(items);
-	
 	return array2Table(items);
 };
 	
