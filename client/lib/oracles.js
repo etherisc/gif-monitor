@@ -25,6 +25,7 @@ proposeOracleType = () => {
 		// Buttons:
 		confirm: {
 			label: 'Propose OracleType',
+            className: "btn btn-warning pull-left",
 			callback: function() {
 
 				const otName = $('form #ot-name').val();
@@ -39,6 +40,7 @@ proposeOracleType = () => {
 		},
 		close: {
 			label: 'Cancel',
+            className: "btn btn-primary pull-right",
 			callback: function() {
 				return true;
 			}
