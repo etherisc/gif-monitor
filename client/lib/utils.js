@@ -68,8 +68,8 @@ const mapHeader = (key) => {
 const mapVal = (key, val, data) => {
 
 	switch (key) {
-		case "assignmentState": 
-			return oracleAssignmentState(val);
+		//case "assignmentState": 
+		//	return oracleAssignmentState(val);
 		default: return val;
 
 	}
