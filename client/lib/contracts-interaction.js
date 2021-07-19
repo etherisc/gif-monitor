@@ -163,3 +163,14 @@ callDeactivateOracleType = async (oracleTypeName) => {
 	); 
 
 };
+
+callRevokeOracleFromOracleType = async (oracleId) => {
+
+	await callContract(
+		'OracleOwnerService', 
+		'revokeOracleFromOracleType', 
+		[oracleId], 
+		'loadOracles'
+	); 
+
+};
