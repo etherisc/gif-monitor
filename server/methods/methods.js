@@ -21,6 +21,8 @@ Meteor.methods({
 	getContract,
 	reloadContracts,
 	
+	loadOracles,
+	loadOracleTypes,
 	reloadOracles,
 	reloadOracleTypes,
 	getAssignedOracles,

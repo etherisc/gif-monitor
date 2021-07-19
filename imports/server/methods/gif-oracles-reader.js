@@ -36,6 +36,7 @@ const loadOracles = async() => {
 
 };
 
+
 const loadOracleTypes = async() => {
 
 	try {
