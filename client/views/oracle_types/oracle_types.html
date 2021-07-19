@@ -24,6 +24,7 @@
 						</button>
 					</span>
 				</div>
+				{{> OracleTypesViewCustomActions}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}
@@ -62,7 +63,6 @@
 		{{/if}}
 		{{/if}}
 	</div>
-	{{> OracleTypesViewCustomActions}}
 </template>
 
 <template name="OracleTypesViewTable">
@@ -131,6 +131,9 @@
 </template>
 
 <template name="OracleTypesViewCustomActions">
+	<button class="btn btn-warning" id="btn-reload">
+		Propose OracleType
+	</button>
 	<button class="btn btn-warning" id="btn-propose-oracletype">
 		Propose OracleType
 	</button>
