@@ -75,7 +75,7 @@ setProductState = async (productId, stateStr) => {
 callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature, description) => {
 
 	const oracleOwnerService = await getContract('OracleOwnerService');
-	info(`Call Propose Oracle Type ${oracleType}`);
+	info(`Call Propose Oracle Type ${oracleTypeName}`);
 	try {
 		const res = await oracleOwnerService.proposeOracleType(s32b(oracleTypeName), inputSignature, callbackSignature, description);
 		info(`Transaction submitted`, res);
