@@ -100,7 +100,7 @@ const getAssignedOracleTypes = (oracle_id) => {
 		{
 			assigned_oracles: {
 				$elemMatch: {
-					oracle_id: {
+					oracleId: {
 						$eq: oracle_id
 					}
 				}
