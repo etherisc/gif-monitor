@@ -96,7 +96,7 @@ const getAssignedOracles = (name) => {
 
 const getAssignedOracleTypes = (oracle_id) => {
 	
-	const oracleTypes =  OraclesTypes.find(
+	const oracleTypes =  OracleTypes.find(
 		{
 			assignedOracles: {
 				$elemMatch: {
@@ -107,12 +107,12 @@ const getAssignedOracleTypes = (oracle_id) => {
 			}
 		}).fetch();
 	
-	return oracleTypes.map(item => {
+	return oracleTypes.map(item => ({
 		oracleTypeName: item.name, 
 		oracleId: oracle_id, 
 		oracleDescription: item.description, 
 		assignmentState: item.assignmentState
-	});
+	}));
 }
 
 
