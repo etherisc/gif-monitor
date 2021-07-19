@@ -10,6 +10,36 @@ const loadOracles = async() => {
 
 	try {
 		const Query = await getContract('Query');
+
+		const oracleIdIncrement = await Query.oracleIdIncrement();
+		info(`${ oracleIdIncrement - 1 } Oracles found`);
+
+		for (var oracleIndex = 1; oracleIndex < oracleIdIncrement; oracleIndex += 1) {
+			const oracle = await Query.oracles(oracleIndex);
+
+			info(`Found oracle #${oracleIndex} (${oracle.description})`, { oracle });
+
+			Oracles.upsert({oracle_contract: oracle.oracleContract}, {$set: {
+				oracle_id: oracleIndex,
+				oracle_contract: oracle.oracleContract,
+				description: oracle.description,
+				oracle_owner: oracle.oracleOwner,
+				activated: oracle.state === 1,
+				initialized: oracle.initialized,
+				active_oracle_types: oracle.activeOracleTypes.toNumber()			
+			}})	
+		}
+	} catch (err) {
+		error(`Error fetching oracles, ${err.message}`);
+		return;
+	}
+
+};
+
+const loadOracleTypes = async() => {
+
+	try {
+		const Query = await getContract('Query');
 		const oracleTypeNamesIncrement = await Query.oracleTypeNamesIncrement();
 		info(`${ oracleTypeNamesIncrement - 1 } OracleTypes found`);
 
@@ -28,26 +58,7 @@ const loadOracles = async() => {
 				activated: oracleType.state === 1,
 				initialized: oracleType.initialized,
 				active_oracles: oracleType.activeOracles.toNumber()
-			}})
-
-			const oracleIdIncrement = await Query.oracleIdIncrement();
-			info(`${ oracleIdIncrement - 1 } Oracles found`);
-
-			for (var oracleIndex = 1; oracleIndex < oracleIdIncrement; oracleIndex += 1) {
-				const oracle = await Query.oracles(oracleIndex);
-
-				info(`Found oracle #${oracleIndex} (${oracle.description})`, { oracle });
-
-				Oracles.upsert({oracle_contract: oracle.oracleContract}, {$set: {
-					oracle_id: oracleIndex,
-					oracle_contract: oracle.oracleContract,
-					description: oracle.description,
-					oracle_owner: oracle.oracleOwner,
-					activated: oracle.state === 1,
-					initialized: oracle.initialized,
-					active_oracle_types: oracle.activeOracleTypes.toNumber()			
-				}})	
-			}
+			}});
 		}
 	} catch (err) {
 		error(`Error fetching oracles, ${err.message}`);
@@ -59,12 +70,17 @@ const loadOracles = async() => {
 const reloadOracles = () => {
 
 	Oracles.remove({});
-	OracleTypes.remove({});
 	loadOracles();
 
 }
 
+const reloadOracleTypes = () => {
 
-module.exports = { loadOracles, reloadOracles };
+	OracleTypes.remove({});
+	loadOracleTypes();
 
- 
+}
+
+
+module.exports = { loadOracles, loadOracleTypes, reloadOracles, reloadOracleTypes };
+

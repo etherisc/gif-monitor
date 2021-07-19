@@ -15,6 +15,10 @@ const formHtml = `
 			<label for="ot-callback-signature">Callback signature</label>
 			<input type="text" class="form-control" id="ot-callback-signature" name="ot-callback-signature" placeholder="Enter callback signature">
 		</div>
+		<div class="form-group">
+			<label for="ot-description">Description</label>
+			<input type="text" class="form-control" id="ot-description" name="ot-description" placeholder="Enter description">
+		</div>
 	</form>
 </div>
 `;
@@ -25,22 +29,30 @@ proposeOracleType = () => {
 		// Buttons:
 		confirm: {
 			label: 'Propose OracleType',
-            className: "btn btn-warning pull-left",
-			callback: function() {
+			className: "btn btn-warning pull-left",
+			callback: async function() {
 
 				const otName = $('form #ot-name').val();
 				const otInputSignature = $('form #ot-input-signature').val();
 				const otCallbackSignature = $('form #ot-callback-signature').val();
+				const otDescription = $('form #ot-description').val();
 
-				console.log(otName, otInputSignature, otCallbackSignature);
-				
-				return false;
+				if (
+					!otName || otName === '' || 
+					!otInputSignature || otInputSignature === '' || 
+					!otCallbackSignature || otCallbackSignature === '') {
+					alert('Please provide values for name, input signature and callback signature');
+					return false;
+				}
+
+				const success = await callProposeOracleType(otName, otInputSignature, otCallbackSignature, otDescription);
+				return success;
 			}
 
 		},
 		close: {
 			label: 'Cancel',
-            className: "btn btn-primary pull-right",
+			className: "btn btn-primary pull-right",
 			callback: function() {
 				return true;
 			}
