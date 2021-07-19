@@ -42,7 +42,7 @@ const stateMessage = {
 const productState = (state) => stateMessage.product[state];
 const oracleState = (state) => stateMessage.oracle[state];
 const oracleTypeState = (state) => stateMessage.oracleType[state];
-const oracleAssigmentState = (state) => stateMessage.oracleAssignment[state];
+const oracleAssignmentState = (state) => stateMessage.oracleAssignment[state];
 const policyState = (state) => stateMessage.policy[state];
 const applicationState = (state) => stateMessage.application[state];
 const claimState = (state) => stateMessage.claim[state];
