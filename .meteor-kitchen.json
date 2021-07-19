@@ -178,7 +178,7 @@
 		},
 		{
 			"path": "client/views/oracle_types/details/details.html",
-			"checksum": "a04b74ec212ad27b5ad3a3beaddd9fa0ce33510e"
+			"checksum": "13b83bf1895d6f751710ae5902c7ab384707fcc0"
 		},
 		{
 			"path": "client/views/oracle_types/details/details.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "03b90b682d773c70066d1b3964b580380bf37e37"
+			"checksum": "1a3648bad7f8944975fe5357b54a90035ef5245e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -886,7 +886,7 @@
 		},
 		{
 			"path": "client/lib/utils.js",
-			"checksum": "e16737ec2b8f28e9579907b224a76db773c44012"
+			"checksum": "732fec3d0e4775f63e75ab3dd082e7b44ed91226"
 		},
 		{
 			"path": "imports/server/methods/utils.js",
