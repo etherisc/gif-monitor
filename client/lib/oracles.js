@@ -166,6 +166,8 @@ const formRevokeOracleTypes = (oracleDescription, assignedOracleTypes) => {
 
 
 revokeOracleTypes = async (oracle) => {
+	
+	console.log(oracle);
 
 	const assignedOracleTypes = await new Promise((resolve, reject) => {
 		Meteor.call('getAssignedOracleTypes', oracle.oracle_id, (err, res) => {
