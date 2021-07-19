@@ -145,7 +145,7 @@ const assignedOracles = (val, oracleType) => {
 };
 	
 const assignedOracleTypes = (val, oracle) => {
-	if (!oracleId) return '';
+	if (!oracle) return '';
 	const items = ReactiveMethod.call('getAssignedOracleTypes', oracle.oracleId);
 	return array2Table(items);
 };
