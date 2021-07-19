@@ -17,6 +17,8 @@ Meteor.methods({
 	"logger.clear": logger.method_clear,
 	
 	reloadEvents,
+
+	getContract,
 	reloadContracts,
 	
 	reloadOracles,
@@ -27,7 +29,6 @@ Meteor.methods({
 	reloadSingleProduct,
 	
 	getPolicies,
-	getContract,
 	reloadPolicies,
 	
 	bpData,
