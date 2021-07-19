@@ -7,6 +7,7 @@ import {
 	loadOracles, 
 	reloadOracles, 
 	loadOracleTypes, 
+	loadOraclesAndOracleTypes, 
 	reloadOracleTypes, 
 	getAssignedOracles, 
 	getAssignedOracleTypes, 
@@ -31,6 +32,7 @@ Meteor.methods({
 	
 	loadOracles,
 	loadOracleTypes,
+	loadOraclesAndOracleTypes,
 	reloadOracles,
 	reloadOracleTypes,
 	getAssignedOracles,

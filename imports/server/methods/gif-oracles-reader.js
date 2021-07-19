@@ -75,6 +75,11 @@ const loadOracleTypes = async() => {
 
 };
 
+const loadOraclesAndOracleTypes = async () => {
+	loadOracles();
+	loadOracleTypes();
+};
+
 const getAssignedOracles = (name) => {
 	const oracleType = OracleTypes.findOne({name});
 	
@@ -157,6 +162,7 @@ const reloadOracleTypes = () => {
 module.exports = { 
 	loadOracles, 
 	loadOracleTypes, 
+	loadOraclesAndOracleTypes, 
 	reloadOracles, 
 	reloadOracleTypes, 
 	getAssignedOracles, 
