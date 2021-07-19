@@ -178,11 +178,11 @@
 		},
 		{
 			"path": "client/views/oracle_types/details/details.html",
-			"checksum": "83e420b3e7370325f1c85affcdfff6ebe8557b00"
+			"checksum": "8f05454bfca0490176b3d03da046b08cc893bccd"
 		},
 		{
 			"path": "client/views/oracle_types/details/details.js",
-			"checksum": "0209ecfa9332f3eb15e0ada3c876e7d7a226c24c"
+			"checksum": "a8257b5039ec2c656f730d72e65cdf54fa248a9b"
 		},
 		{
 			"path": "client/views/oracle_types/details/details_controller.js",
@@ -202,11 +202,11 @@
 		},
 		{
 			"path": "client/views/oracles/details/details.html",
-			"checksum": "78ede48413d3686a0386dd2ff6d3cea808e54216"
+			"checksum": "511fd0f6187bf96b5ede9adc8b4c19718ff49454"
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
-			"checksum": "84e7ced475e9536cd8b4a103208b6de05f0ffee6"
+			"checksum": "9caa7b43f064fd6ba01864b88183ab4c4db17b05"
 		},
 		{
 			"path": "client/views/oracles/details/details_controller.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9c5b337f09bc450ca08d5dd1d23cf448d40dfb43"
+			"checksum": "b99c09667fccfe12ffe49f2b99f87b36f20ba8eb"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -862,7 +862,7 @@
 		},
 		{
 			"path": "client/lib/contracts-interaction.js",
-			"checksum": "eb91e096b5acd8864ca5d9284d6958228296000d"
+			"checksum": "4647c8c22195f93bbafdb8dd79e5378b6726b419"
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",
