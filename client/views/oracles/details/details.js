@@ -143,3 +143,28 @@ Template.OraclesDetailsForm.helpers({
 	}
 	
 });
+
+Template.OraclesDetailsFormCustomActions.created = function() {
+
+};
+
+Template.OraclesDetailsFormCustomActions.destroyed = function() {
+
+};
+
+Template.OraclesDetailsFormCustomActions.rendered = function() {
+
+};
+
+Template.OraclesDetailsFormCustomActions.helpers({
+
+});
+
+Template.OraclesDetailsFormCustomActions.events({
+	"click #btn-activate": function (e,t) {
+		e.preventDefault();
+
+		callActivateOracle(t.data.oracle_type.oracleId);
+	}
+
+});

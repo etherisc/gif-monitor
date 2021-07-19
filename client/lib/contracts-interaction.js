@@ -93,10 +93,10 @@ callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature
 
 callAssignOracleToOracleType = async (oracleTypeName, oracleId) => {
 
-	const oracleOwnerService = await getContract('InstanceOperatorService');
+	const instanceOwnerService = await getContract('InstanceOperatorService');
 	info(`Call assignOracleToOracleType oracleId=${oracleId} oracleType=${oracleTypeName} `);
 	try {
-		const res = await oracleOwnerService.assignOracleToOracleType(utils.s32b(oracleTypeName), oracleId);
+		const res = await instanceOwnerService.assignOracleToOracleType(utils.s32b(oracleTypeName), oracleId);
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
@@ -108,3 +108,39 @@ callAssignOracleToOracleType = async (oracleTypeName, oracleId) => {
 	}
 
 }
+
+callActivateOracle = async (oracleId) => {
+
+	const instanceOwnerService = await getContract('InstanceOperatorService');
+	info(`Call activateOracle oracleId=${oracleId}`);
+	try {
+		const res = await instanceOwnerService.activateOracle(oracleId);
+		info(`Transaction submitted`, res);
+		const receipt = await res.wait();
+		info(`Transaction confirmed`, receipt);
+		Meteor.call('reloadOracles');
+		return true;
+	} catch (err) {
+		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
+		return false;
+	}
+
+};
+
+callActivateOracleType = async (oracleTypeName) => {
+
+	const instanceOwnerService = await getContract('InstanceOperatorService');
+	info(`Call activateOracleType oracleType=${oracleTypeName} `);
+	try {
+		const res = await instanceOwnerService.activateOracleType(utils.s32b(oracleTypeName));
+		info(`Transaction submitted`, res);
+		const receipt = await res.wait();
+		info(`Transaction confirmed`, receipt);
+		Meteor.call('reloadOracleTypes');
+		return true;
+	} catch (err) {
+		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
+		return false;
+	}
+
+};
