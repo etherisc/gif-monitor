@@ -243,7 +243,7 @@ proposeOracleToOracleTypes = async (oracle) => {
 			className: "btn btn-warning pull-left",
 			callback: function() {
 
-				assignedOracleTypes.forEach(item => {
+				unassignedOracleTypes.forEach(item => {
 
 					const doRevoke = $(`form #oracle-type-${item.oracleTypeName}`).val();
 
