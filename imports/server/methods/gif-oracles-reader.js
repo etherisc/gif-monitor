@@ -43,7 +43,7 @@ const loadOracleTypes = async() => {
 		const Query = await getContract('Query');
 		const oracleTypeNamesCount = await Query.oracleTypeNamesCount();
 		info(`${oracleTypeNamesCount} OracleTypes found`);
-		const oracleIdCount = await Query.oracleIdCount();
+		const oracleCount = await Query.oracleCount();
 		info(`${oracleIdCount} Oracles found`);
 
 		for (var oracleTypeIndex = 1; oracleTypeIndex <= oracleTypeNamesCount; oracleTypeIndex += 1) {
