@@ -164,6 +164,6 @@ Template.OracleTypesDetailsFormCustomActions.events({
 	"click #btn-assign": function (e,t) {
 		e.preventDefault();
 
-		assignOracles(t);
+		assignOracles(t.data);
 	}
 });
