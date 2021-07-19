@@ -185,6 +185,9 @@ module.exports = {
 	claimState,
 	policyFlowState,
 	payoutState,
-	isProductState	
+	isProductState,
+	isOracleTypeActive,
+	isOracleActive,
+	hasAssignableOracles
 };
 
