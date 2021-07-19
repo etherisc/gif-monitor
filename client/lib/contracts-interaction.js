@@ -88,9 +88,9 @@ setProductState = async (productId, stateStr) => {
 		await callContract(
 			'InstanceOperatorService', 
 			method, 
-			{productId}, 
+			[productId], 
 			'reloadSingleProduct',
-			{productId}
+			[productId]
 		); 
 
 	} else {
@@ -103,7 +103,7 @@ callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature
 	await callContract(
 		'OracleOwnerService', 
 		'proposeOracleType', 
-		{name: utils.s32b(oracleTypeName), inputSignature, callbackSignature, description}, 
+		[utils.s32b(oracleTypeName), inputSignature, callbackSignature, description], 
 		'loadOracleTypes'
 	); 
 }
@@ -113,7 +113,7 @@ callAssignOracleToOracleType = async (oracleTypeName, oracleId) => {
 	await callContract(
 		'InstanceOperatorService', 
 		'assignOracleToOracleType', 
-		{name: utils.s32b(oracleTypeName), oracleId}, 
+		[utils.s32b(oracleTypeName), oracleId], 
 		'loadOracleTypes'
 	); 
 
@@ -124,7 +124,7 @@ callActivateOracle = async (oracleId) => {
 	await callContract(
 		'InstanceOperatorService', 
 		'activateOracle', 
-		{oracleId}, 
+		[oracleId], 
 		'loadOracles'
 	); 
 
@@ -135,7 +135,7 @@ callDeactivateOracle = async (oracleId) => {
 	await callContract(
 		'InstanceOperatorService', 
 		'deactivateOracle', 
-		{oracleId}, 
+		[oracleId], 
 		'loadOracles'
 	); 
 
@@ -146,7 +146,7 @@ callActivateOracleType = async (oracleTypeName) => {
 	await callContract(
 		'InstanceOperatorService', 
 		'activateOracleType', 
-		{name: utils.s32b(oracleTypeName)}, 
+		[utils.s32b(oracleTypeName)], 
 		'loadOracleTypes'
 	); 
 
@@ -157,7 +157,7 @@ callDeactivateOracleType = async (oracleTypeName) => {
 	await callContract(
 		'InstanceOperatorService', 
 		'deactivateOracleType', 
-		{name: utils.s32b(oracleTypeName)}, 
+		[utils.s32b(oracleTypeName)], 
 		'loadOracleTypes'
 	); 
 
