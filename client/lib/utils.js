@@ -197,6 +197,7 @@ module.exports = {
 	isProductState,
 	isOracleTypeActive,
 	isOracleActive,
-	hasAssignableOracles
+	hasAssignableOracles,
+	hasRevokableOracleTypes
 };
 
