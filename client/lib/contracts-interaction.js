@@ -97,7 +97,7 @@ setProductState = async (productId, stateStr) => {
 	}
 }
 
-callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature, description) => 
+callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature, description) => {
 
 	await callContract(
 		'OracleOwnerService', 
