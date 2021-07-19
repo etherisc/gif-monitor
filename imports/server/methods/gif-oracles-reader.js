@@ -57,7 +57,7 @@ const loadOracleTypes = async() => {
 				const assignmentState = await Query.assignedOracles(oracleTypeNameB32, oracleIndex);
 				if (assignmentState > 0) {
 					assignedOracles.push({oracleIndex, assignmentState});
-				
+				}
 			}
 			
 			
