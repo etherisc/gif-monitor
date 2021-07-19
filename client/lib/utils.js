@@ -124,7 +124,10 @@ const abi2Table = (abi) => {
 
 
 const assignedOracles = (val, oracleType) => {
-	const items = ReactiveMethod.call('getAssignedOracles');
+	const items = ReactiveMethod.call('getAssignedOracles', oracleType.name);
+	
+	console.log(oracleType);
+	console.log(items);
 	
 	return array2Table(items);
 };
