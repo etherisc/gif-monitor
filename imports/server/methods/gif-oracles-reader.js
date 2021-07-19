@@ -44,7 +44,7 @@ const loadOracleTypes = async() => {
 		const oracleTypeNamesCount = await Query.oracleTypeNamesCount();
 		info(`${oracleTypeNamesCount} OracleTypes found`);
 		const oracleCount = await Query.oracleCount();
-		info(`${oracleIdCount} Oracles found`);
+		info(`${oracleCount} Oracles found`);
 
 		for (var oracleTypeIndex = 1; oracleTypeIndex <= oracleTypeNamesCount; oracleTypeIndex += 1) {
 			const oracleTypeNameB32 = await Query.oracleTypeNames(oracleTypeIndex);
@@ -54,7 +54,7 @@ const loadOracleTypes = async() => {
 			info(`Found oracleType ${oracleTypeName}`, { oracleType });
 			
 			const assignedOracles = [];
-			for (var idx = 1; idx <= oracleIdCount; idx += 1) {
+			for (var idx = 1; idx <= oracleCount; idx += 1) {
 				const assignmentState = await Query.assignedOracles(oracleTypeNameB32, idx);
 				if (assignmentState > 0) {
 					assignedOracles.push({oracleId: idx, assignmentState});
