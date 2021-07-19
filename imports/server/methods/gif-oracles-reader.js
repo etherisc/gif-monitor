@@ -42,6 +42,8 @@ const loadOracleTypes = async() => {
 		const Query = await getContract('Query');
 		const oracleTypeNamesIncrement = await Query.oracleTypeNamesIncrement();
 		info(`${ oracleTypeNamesIncrement - 1 } OracleTypes found`);
+		const oracleIdIncrement = await Query.oracleIdIncrement();
+		info(`${ oracleIdIncrement - 1 } Oracles found`);
 
 		for (var oracleTypeIndex = 1; oracleTypeIndex < oracleTypeNamesIncrement; oracleTypeIndex += 1) {
 			const oracleTypeNameB32 = await Query.oracleTypeNames(oracleTypeIndex);
@@ -49,7 +51,16 @@ const loadOracleTypes = async() => {
 			const oracleType = await Query.oracleTypes(oracleTypeNameB32);
 
 			info(`Found oracleType ${oracleTypeName}`, { oracleType });
-
+			
+			const assignedOracles = [];
+			for (var oracleIndex = 1; oracleIndex < oracleIdIncrement; oracleIndex += 1) {
+				const assignmentState = await Query.assignedOracles(oracleTypeNameB32, oracleIndex);
+				if (assignmentState > 0) {
+					assignedOracles.push({oracleIndex, assignmentState});
+				
+			}
+			
+			
 			OracleTypes.upsert({name: oracleTypeName}, {$set: {
 				index: oracleTypeIndex,
 				input_format: oracleType.inputFormat,
@@ -57,7 +68,8 @@ const loadOracleTypes = async() => {
 				description: oracleType.description,
 				activated: oracleType.state === 1,
 				initialized: oracleType.initialized,
-				active_oracles: oracleType.activeOracles.toNumber()
+				active_oracles: oracleType.activeOracles.toNumber(),
+				assignedOracles
 			}});
 		}
 	} catch (err) {

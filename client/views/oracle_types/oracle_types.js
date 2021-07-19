@@ -342,11 +342,17 @@ Template.OracleTypesViewCustomActions.helpers({
 });
 
 Template.OracleTypesViewCustomActions.events({
-	"click #btn-propose-oracletype": async function (e,t) {
+	"click #btn-propose-oracletype": function (e,t) {
 		e.preventDefault();
 
-		await proposeOracleType();
+		proposeOracleType();
+	},
+	"click #btn-reload": function (e,t) {
+		e.preventDefault();
+
+		Meteor.call('reload.oracleTypes');
 	}
+
 
 });
 
