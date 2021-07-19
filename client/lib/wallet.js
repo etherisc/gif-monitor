@@ -43,6 +43,7 @@ getContract = async function (contractName) {
 				resolve(res);
 			}
 		});
+	});
 	if (!contractConfig) {
 		alert(`Contract ${contractName} not found!`);
 		return null;
