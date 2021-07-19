@@ -3,7 +3,7 @@ import logger from '/imports/server/methods/logger.js';
 
 import { reloadContracts, getContract } from '/imports/server/methods/gif-contracts-reader.js';
 import { reloadEvents } from '/imports/server/methods/gif-logs-reader.js';
-import { reloadOracles, reloadOracleTypes } from '/imports/server/methods/gif-oracles-reader.js';
+import { reloadOracles, reloadOracleTypes, getAssignedOracles } from '/imports/server/methods/gif-oracles-reader.js';
 import { reloadProducts, reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
 import { getPolicies, reloadPolicies } from '/imports/server/methods/gif-policies-reader.js';
 import { bpData } from '/imports/server/methods/bp-data.js';
@@ -16,17 +16,19 @@ Meteor.methods({
 	"logger.warning": logger.method_warning,
 	"logger.clear": logger.method_clear,
 	
-	"reload.events": reloadEvents,
-	"reload.contracts": reloadContracts,
-	"reload.oracles": reloadOracles,
-	"reload.oracleTypes": reloadOracleTypes,
-
-	"reload.products": reloadProducts,
-	"reload.singleProduct": reloadSingleProduct,
+	reloadEvents,
+	reloadContracts,
 	
-	"getPolicies": getPolicies,
-	"getContract": getContract,
-	"reload.policies": reloadPolicies,
+	reloadOracles,
+	reloadOracleTypes,
+	getAssignedOracles,
+
+	reloadProducts,
+	reloadSingleProduct,
+	
+	getPolicies,
+	getContract,
+	reloadPolicies,
 	
 	bpData,
 	blockExplorer,

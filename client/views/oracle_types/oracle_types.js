@@ -350,7 +350,7 @@ Template.OracleTypesViewCustomActions.events({
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('reload.oracleTypes');
+		Meteor.call('reloadOracleTypes');
 	}
 
 

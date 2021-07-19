@@ -64,7 +64,7 @@ setProductState = async (productId, stateStr) => {
 			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
-			Meteor.call('reload.singleProduct', productId);
+			Meteor.call('reloadSingleProduct', productId);
 		} catch (err) {
 			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
@@ -82,7 +82,7 @@ callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
-		Meteor.call('reload.oracleTypes');
+		Meteor.call('reloadOracleTypes');
 		return true;
 	} catch (err) {
 		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
