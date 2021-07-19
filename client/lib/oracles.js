@@ -179,6 +179,8 @@ revokeOracleTypes = async (oracle) => {
 		});
 	});
 		
+	console.log(assignedOracleTypes);
+	
 	toast_form('Revoke Oracle from Oracletypes:', formRevokeOracleTypes(oracle.description, assignedOracleTypes), {
 
 		// Buttons:
