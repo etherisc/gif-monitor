@@ -1,7 +1,7 @@
 
 const formHtml = `
 <div class="form-content">
-	<form class="form-horizontal" role="form">
+	<form class="form" role="form">
 		<div class="form-group">
 			<label for="ot-name">Oracle type name</label>
 			<input type="text" class="form-control" id="ot-name" name="ot-name" placeholder="Enter oracle type name" value="">
