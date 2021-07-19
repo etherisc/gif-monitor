@@ -35,7 +35,7 @@ getContract = async function (contractName) {
 		return contractConfig;
 	}		
 
-	const contractConfig = ReactiveMethod.call('getContract', contractName);
+	const contractConfig = await Meteor.call('getContract', contractName);
 	if (!contractConfig) {
 		alert(`Contract ${contractName} not found!`);
 		return null;

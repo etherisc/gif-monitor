@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "d7edd9886c6e1bd484602c5090f8ca2e77a40eba"
+			"checksum": "074b2a8ac953d44d0f5d88a8788f9c367980045c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -858,7 +858,7 @@
 		},
 		{
 			"path": "client/lib/wallet.js",
-			"checksum": "e907e53abd8cab6efc4ac821c65b18c250788d1e"
+			"checksum": "11a409e1f6b5aec4e01e40dd1475ba7d37cf95b2"
 		},
 		{
 			"path": "client/lib/contracts-interaction.js",
