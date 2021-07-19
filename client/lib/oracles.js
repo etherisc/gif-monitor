@@ -93,7 +93,6 @@ assignOracles = (data) => {
 
 	console.log(data);
 	const { name: oracleTypeName, assigned_oracles: assignedOracles } = data;
-	return;
 	
 	toast_form('Assign Oracles to Oracletype:', formAssignOracles(oracleTypeName, assignedOracles), {
 
