@@ -134,6 +134,7 @@ const reloadContracts = () => {
 
 }
 
+const getContract = (name) => Contracts.findOne({name});
 
-module.exports = { loadContracts, reloadContracts };
+module.exports = { loadContracts, reloadContracts, getContract };
 

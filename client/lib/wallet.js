@@ -35,7 +35,7 @@ getContract = async function (contractName) {
 		return contractConfig;
 	}		
 
-	const contractConfig = Contracts.findOne({name: contractName});
+	const contractConfig = ReactiveMethod.call('getContract', contractName);
 	if (!contractConfig) {
 		alert(`Contract ${contractName} not found!`);
 		return null;

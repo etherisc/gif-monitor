@@ -1,7 +1,7 @@
 
 import logger from '/imports/server/methods/logger.js';
 
-import { reloadContracts } from '/imports/server/methods/gif-contracts-reader.js';
+import { reloadContracts, getContract } from '/imports/server/methods/gif-contracts-reader.js';
 import { reloadEvents } from '/imports/server/methods/gif-logs-reader.js';
 import { reloadOracles, reloadOracleTypes } from '/imports/server/methods/gif-oracles-reader.js';
 import { reloadProducts, reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
@@ -25,6 +25,7 @@ Meteor.methods({
 	"reload.singleProduct": reloadSingleProduct,
 	
 	"getPolicies": getPolicies,
+	"getContract": getContract,
 	"reload.policies": reloadPolicies,
 	
 	bpData,
