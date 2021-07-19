@@ -35,7 +35,14 @@ getContract = async function (contractName) {
 		return contractConfig;
 	}		
 
-	const contractConfig = await Meteor.call('getContract', contractName);
+	const contractConfig = await new Promise((resolve, reject) => {
+		Meteor.call('getContract', contractName, (err, res) => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(res);
+			}
+		});
 	if (!contractConfig) {
 		alert(`Contract ${contractName} not found!`);
 		return null;
