@@ -3,7 +3,7 @@ import logger from '/imports/server/methods/logger.js';
 
 import { reloadContracts, getContract } from '/imports/server/methods/gif-contracts-reader.js';
 import { reloadEvents } from '/imports/server/methods/gif-logs-reader.js';
-import { reloadOracles, reloadOracleTypes, getAssignedOracles } from '/imports/server/methods/gif-oracles-reader.js';
+import { loadOracles, reloadOracles, loadOracleTypes, reloadOracleTypes, getAssignedOracles } from '/imports/server/methods/gif-oracles-reader.js';
 import { reloadProducts, reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
 import { getPolicies, reloadPolicies } from '/imports/server/methods/gif-policies-reader.js';
 import { bpData } from '/imports/server/methods/bp-data.js';
