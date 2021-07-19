@@ -55,7 +55,8 @@ const mapHeader = (key) => {
 	const dict = {
 		"name": "Name",
 		"oracleTypeName": "Oracle Type",
-		"oracleName": "Oracle",
+		"oracleDescription": "Oracle",
+		"oracleId": "Oracle Id",
 		"assignmentState": "State",
 		"transaction_no": "hidden",
 		"internalType": "hidden",
@@ -67,7 +68,8 @@ const mapHeader = (key) => {
 const mapVal = (key, val, data) => {
 
 	switch (key) {
-
+		case "assignmentState": 
+			return oracleAssignmentState(val);
 		default: return val;
 
 	}
