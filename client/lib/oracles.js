@@ -94,6 +94,11 @@ assignOracles = (data) => {
 	console.log(data);
 	const { name: oracleTypeName, assigned_oracles: assignedOracles } = data;
 	
+	if (assignedOracles.length === 0) {
+		alert('No proposed oracles');
+		return;
+	};
+	
 	toast_form('Assign Oracles to Oracletype:', formAssignOracles(oracleTypeName, assignedOracles), {
 
 		// Buttons:
