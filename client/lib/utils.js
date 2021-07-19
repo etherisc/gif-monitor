@@ -137,32 +137,31 @@ const abi2Table = (abi) => {
 };
 
 
-const assignedOracles = async (val, oracleType) => {
+const assignedOracles = (val, oracleType) => {
+	
 	if (!oracleType) return '';
-	const items = await new Promise((resolve, reject) => {
-		Meteor.call('getAssignedOracles', oracleType.name, (err, res) => {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(res);
-			};
-		});
+	const items = new ReactiveVar([]);
+	Meteor.call('getAssignedOracles', oracleType.name, (err, res) => {
+		if (err) {
+			throw new Meteor.Error(err.message);
+		} else {
+			items.set(res);
+		};
 	});
-	return array2Table(items);
+	return array2Table(items.get());
 };
 	
-const assignedOracleTypes = async (val, oracle) => {
+const assignedOracleTypes = (val, oracle) => {
 	if (!oracle) return '';
-	const items = await new Promise((resolve, reject) => {
-		Meteor.call('getAssignedOracleTypes', oracle.oracle_id, (err, res) => {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(res);
-			};
-		});
+	const items = new ReactiveVar([]);
+	Meteor.call('getAssignedOracleTypes', oracle.oracle_id, (err, res) => {
+		if (err) {
+			throw new Meteor.Error(err.message);
+		} else {
+			items.set(res);
+		};
 	});
-	return array2Table(items);
+	return array2Table(items.get());
 };
 	
 
