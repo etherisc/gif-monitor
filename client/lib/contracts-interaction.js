@@ -37,6 +37,7 @@ const callContract = async (contractName, method, args, meteorCall, meteorCallAr
 	
 	info(`Call ${contractName}.${method}`, {contractName, method, args, meteorCall, meteorCallArgs});
 	try {
+		console.log(args);
 		const res = await contract[method](...args);
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
@@ -129,7 +130,7 @@ callActivateOracle = async (oracleId) => {
 
 };
 
-callDeActivateOracle = async (oracleId) => {
+callDeactivateOracle = async (oracleId) => {
 
 	await callContract(
 		'InstanceOperatorService', 
