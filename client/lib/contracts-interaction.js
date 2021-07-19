@@ -145,7 +145,7 @@ callActivateOracleType = async (oracleTypeName) => {
 	await callContract(
 		'InstanceOperatorService', 
 		'activateOracleType', 
-		{name: utils.s32b(oracleTypeName), 
+		{name: utils.s32b(oracleTypeName)}, 
 		'loadOracleTypes'
 	); 
 
@@ -156,7 +156,7 @@ callDeactivateOracleType = async (oracleTypeName) => {
 	await callContract(
 		'InstanceOperatorService', 
 		'deactivateOracleType', 
-		{name: utils.s32b(oracleTypeName), 
+		{name: utils.s32b(oracleTypeName)}, 
 		'loadOracleTypes'
 	); 
 
