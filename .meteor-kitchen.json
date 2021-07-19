@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5af156f94b233abdf19bb182f246a39371564c84"
+			"checksum": "61776450e2247ad73d1aaaa57364f8defd4e06f0"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -850,7 +850,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
-			"checksum": "2952c76e40fea2ca882605d3bead7ead587e23ac"
+			"checksum": "b053d875a78aa109425add7dd80dce6d650bec04"
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",
