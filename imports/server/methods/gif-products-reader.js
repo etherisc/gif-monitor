@@ -38,7 +38,7 @@ const loadProducts = async() => {
 		const License = await getContract('License');
 		const productCount = await License.productCount();
 
-		info(`License: ${productIdIncrement} products found`);
+		info(`License: ${productCount} products found`);
 
 		for (var productId = 1; productId <= productCount; productId += 1) {
 			await reloadSingleProduct({ productId });
