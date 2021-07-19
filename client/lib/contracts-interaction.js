@@ -43,7 +43,8 @@ const callContract = async (contractName, method, args, meteorCall, meteorCallAr
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
 		if (meteorCall) {
-			Meteor.call(meteorCall, ...meteorCallArgs);
+			const args = meteorCallArgs ? [] : meteorCallArgs;
+			Meteor.call(meteorCall, ...args);
 		}
 		return true;
 	} catch (err) {
