@@ -63,6 +63,7 @@ const mapHeader = (key) => {
 	const dict = {
 		"name": "Name",
 		"oracleTypeName": "Oracle Type",
+		"oracleName": "Oracle Name",
 		"oracleDescription": "Oracle",
 		"oracleId": "Oracle Id",
 		"assignmentState": "State",
