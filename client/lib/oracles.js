@@ -89,9 +89,16 @@ const formAssignOracles = (oracleTypeName, assignedOracles) => {
 };
 
 
-assignOracles = (oracleType) => {
+assignOracles = async (oracleType) => {
 
-	const assignedOracles = ReactiveMethod.call('getAssignedOracles', oracleType.name);
+	const assignedOracles = await new Promise((resolve, reject) => {
+		Meteor.call('getAssignedOracles', oracleType.name, (err, res) => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(res);
+			};
+		});
 	
 	if (assignedOracles.length === 0) {
 		alert('No proposed oracles');
