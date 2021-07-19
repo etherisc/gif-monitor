@@ -112,13 +112,13 @@
 </template>
 
 <template name="OraclesDetailsFormCustomActions">
-	{{#if isOracleActive this}}
-	<button class="btn btn-warning" id="btn-deactivate">
-		Deactivate Oracle
+	{{#if isOracleApproved this}}
+	<button class="btn btn-warning" id="btn-disapprove">
+		Disapprove Oracle
 	</button>
 	{{else}}
-	<button class="btn btn-warning" id="btn-activate">
-		Activate Oracle
+	<button class="btn btn-warning" id="btn-approve">
+		Approve Oracle
 	</button>
 	{{/if}}
 	{{#if hasRevokableOracleTypes this}}

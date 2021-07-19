@@ -166,15 +166,15 @@ Template.OracleTypesDetailsFormCustomActions.events({
 
 		assignOracles(t.data.oracle_type);
 	},
-	"click #btn-activate": function (e,t) {
+	"click #btn-approve": function (e,t) {
 		e.preventDefault();
 
-		callActivateOracleType(t.data.oracle_type.name);
+		callApproveOracleType(t.data.oracle_type.name);
 	},
-	"click #btn-deactivate": function (e,t) {
+	"click #btn-disapprove": function (e,t) {
 		e.preventDefault();
 
-		callDeactivateOracleType(t.data.oracle_type.name);
+		callDisapproveOracleType(t.data.oracle_type.name);
 	}
 
 });
