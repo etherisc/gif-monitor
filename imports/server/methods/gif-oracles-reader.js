@@ -83,7 +83,6 @@ const getAssignedOracles = (name) => {
 	
 	return oracleType.assigned_oracles.map(item => {
 		const oracle = Oracles.findOne({oracle_id: item.oracleId});
-		console.log(oracle);
 		return {
 			oracleTypeName: name, 
 			oracleId: item.oracleId, 
