@@ -164,7 +164,7 @@ Template.OraclesDetailsFormCustomActions.events({
 	"click #btn-activate": function (e,t) {
 		e.preventDefault();
 
-		callActivateOracle(t.data.oracle_type.oracleId);
+		callActivateOracle(t.data.oracle.oracleId);
 	}
 
 });
