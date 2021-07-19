@@ -26,7 +26,7 @@ Template.OracleTypes.helpers({
 var OracleTypesViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("OracleTypeListPagedSearchString") || "",
-		searchFields: Session.get("OracleTypeListPagedSearchFields") || ["name", "initialized", "activated", "input_format", "callback_format", "active_oracles", "assigned_oracles", "index"],
+		searchFields: Session.get("OracleTypeListPagedSearchFields") || ["name", "state", "input_format", "callback_format", "active_oracles", "assigned_oracles", "index"],
 		sortBy: Session.get("OracleTypeListPagedSortBy") || "",
 		sortAscending: Session.get("OracleTypeListPagedSortAscending") || true
 	};

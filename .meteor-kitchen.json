@@ -166,19 +166,19 @@
 		},
 		{
 			"path": "client/views/oracle_types/oracle_types.html",
-			"checksum": "c7f3b50dfda7f7b281d186c3d575fee5a5ced6eb"
+			"checksum": "2b2a37ed25096f626bc84de057ea77428ad43b1f"
 		},
 		{
 			"path": "client/views/oracle_types/oracle_types.js",
-			"checksum": "3e66ee531244ad4a9dd78c87dbb054aba26eede4"
+			"checksum": "37f8b7d3a22e310e503bd3eccea2a154bbafb177"
 		},
 		{
 			"path": "client/views/oracle_types/oracle_types_controller.js",
-			"checksum": "245d0f71f9a6b307d6a97a787963539ff834da9d"
+			"checksum": "b5c5e0290a1da2fce93b5c9cb7c96f54a57c5eb5"
 		},
 		{
 			"path": "client/views/oracle_types/details/details.html",
-			"checksum": "3d9ad720f09602acedb0604d33144067c31bdff3"
+			"checksum": "c19565d53d07c5e18d791fbb028856beaea6eb4a"
 		},
 		{
 			"path": "client/views/oracle_types/details/details.js",
@@ -190,19 +190,19 @@
 		},
 		{
 			"path": "client/views/oracles/oracles.html",
-			"checksum": "91a89bd5a2a51ead5bc48e4b675833c33d6e5b5f"
+			"checksum": "894516109ec5f14b08c57bde627902c012b513bb"
 		},
 		{
 			"path": "client/views/oracles/oracles.js",
-			"checksum": "6ebeaf058283a7a9ed7d4b7e6fa55ea163367422"
+			"checksum": "5b929b4f0905b7725774d61eb16f938b194c6f73"
 		},
 		{
 			"path": "client/views/oracles/oracles_controller.js",
-			"checksum": "343c3414dd8e5785474d8a761429341de00cd286"
+			"checksum": "8772b3a34daee039f91e901551d56c41a84f174a"
 		},
 		{
 			"path": "client/views/oracles/details/details.html",
-			"checksum": "fa5d07bf53a4331df88466e4e0caa1599a10bc5f"
+			"checksum": "61bcf89d20c7870067dad0e27dda7009e69ed183"
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
@@ -214,19 +214,19 @@
 		},
 		{
 			"path": "client/views/products/products.html",
-			"checksum": "9689480098fc38a42179754973c72711e760979e"
+			"checksum": "9224691aa7d9631106a2614aa2114b3cdc309aa2"
 		},
 		{
 			"path": "client/views/products/products.js",
-			"checksum": "0ea0ca0eb072930cbbf4041e21f0cf5d7d716fa6"
+			"checksum": "36534a8661cc16dbb6142b1260449b56c769becb"
 		},
 		{
 			"path": "client/views/products/products_controller.js",
-			"checksum": "b198ea431e96bae6f82ad4d6ba6eb525b393865e"
+			"checksum": "c19617d133fd6dd27bea598006a81720ce627fc3"
 		},
 		{
 			"path": "client/views/products/details/details.html",
-			"checksum": "df3032150f2f256218ec8ed5f514a7e216572752"
+			"checksum": "4565ce96b88dd6a92063a0292814141900cc66fe"
 		},
 		{
 			"path": "client/views/products/details/details.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "6272553350da6caf7701c5b76480e66934076667"
+			"checksum": "5c433ef4daf204520c0589bcaa66a698f328f3dc"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -850,7 +850,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
-			"checksum": "fa99fc041912992c44e555b920a500f5dd9a6874"
+			"checksum": "50e1a127f1356575c1e19d7c67500a4950314090"
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",

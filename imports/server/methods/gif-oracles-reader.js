@@ -21,11 +21,9 @@ const loadOracles = async() => {
 
 			Oracles.upsert({oracle_contract: oracle.oracleContract}, {$set: {
 				oracle_id: oracleIndex,
+				name: oracle.name,
 				oracle_contract: oracle.oracleContract,
-				description: oracle.description,
-				oracle_owner: oracle.oracleOwner,
-				activated: oracle.state === 1,
-				initialized: oracle.initialized,
+				state: oracle.state,
 				active_oracle_types: oracle.activeOracleTypes.toNumber()			
 			}})	
 		}
@@ -65,9 +63,7 @@ const loadOracleTypes = async() => {
 				index: oracleTypeIndex,
 				input_format: oracleType.inputFormat,
 				callback_format: oracleType.callbackFormat,
-				description: oracleType.description,
-				activated: oracleType.state === 1,
-				initialized: oracleType.initialized,
+				state: oracleType.state,
 				active_oracles: oracleType.activeOracles.toNumber(),
 				assigned_oracles: assignedOracles
 			}});
@@ -87,7 +83,6 @@ const getAssignedOracles = (name) => {
 		return {
 			oracleTypeName: name, 
 			oracleId: item.oracleId, 
-			oracleDescription: oracle.description, 
 			assignmentState: item.assignmentState
 		};
 	});
@@ -110,7 +105,6 @@ const getAssignedOracleTypes = (oracle_id) => {
 	return oracleTypes.map(item => ({
 		oracleTypeName: item.name, 
 		oracleId: oracle_id, 
-		oracleDescription: item.description, 
 		assignmentState: item.assignmentState
 	}));
 }

@@ -72,11 +72,8 @@
 				<th class="th-sortable" data-sort="name">
 					Name
 				</th>
-				<th class="th-sortable" data-sort="initialized">
-					Initialized
-				</th>
-				<th class="th-sortable" data-sort="activated">
-					Activated
+				<th class="th-sortable" data-sort="state">
+					State
 				</th>
 				<th class="th-sortable" data-sort="input_format">
 					Input Format
@@ -104,10 +101,7 @@
 			{{name}}
 		</td>
 		<td>
-			{{booleanToYesNo initialized}}
-		</td>
-		<td>
-			{{booleanToYesNo activated}}
+			{{oracleTypeState state this}}
 		</td>
 		<td>
 			{{input_format}}
