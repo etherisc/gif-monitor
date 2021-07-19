@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "e0f273fa321772090668e5eb811d86f01a1ba44f"
+			"checksum": "5e26a920f30e90823f30e6ae3825eebee1a23737"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -810,7 +810,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "1fd8da98b77d96db430b00e3146cd330f0779030"
+			"checksum": "50cb1857dc37a9ce2732743ffe407491377d36bd"
 		},
 		{
 			"path": "client/lib/helpers.js",
@@ -850,7 +850,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
-			"checksum": "6f465a3bfda1c8e02cfe1b2ae0936c11cd1129af"
+			"checksum": "97ba3e0f5b3036aae1f4e4af5d7dba5e71de77a8"
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",
@@ -862,7 +862,7 @@
 		},
 		{
 			"path": "client/lib/contracts-interaction.js",
-			"checksum": "6c5abddefb38df9fdf570ea21522737a691a2251"
+			"checksum": "55277bee5dfa1d3338f981ef68192780cf996c16"
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",

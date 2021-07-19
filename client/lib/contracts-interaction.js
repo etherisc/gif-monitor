@@ -115,7 +115,7 @@ callAssignOracleToOracleType = async (oracleTypeName, oracleId) => {
 		'InstanceOperatorService', 
 		'assignOracleToOracleType', 
 		[utils.s32b(oracleTypeName), oracleId], 
-		'loadOracleTypes'
+		'loadOraclesAndOracleTypes'
 	); 
 
 }
@@ -170,7 +170,7 @@ callRevokeOracleFromOracleType = async (oracleTypeName, oracleId) => {
 		'OracleOwnerService', 
 		'revokeOracleFromOracleType', 
 		[utils.s32b(oracleTypeName), oracleId], 
-		'loadOracles'
+		'loadOraclesAndOracleTypes'
 	); 
 
 };
@@ -181,7 +181,7 @@ callProposeOracleToOracleType = async (oracleTypeName, oracleId) => {
 		'OracleOwnerService', 
 		'proposeOracleToOracleType', 
 		[utils.s32b(oracleTypeName), oracleId], 
-		'loadOracles'
+		'loadOraclesAndOracleTypes'
 	); 
 
 };
