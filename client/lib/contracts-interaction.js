@@ -174,3 +174,14 @@ callRevokeOracleFromOracleType = async (oracleTypeName, oracleId) => {
 	); 
 
 };
+
+callProposeOracleToOracleType = async (oracleTypeName, oracleId) => {
+
+	await callContract(
+		'OracleOwnerService', 
+		'proposeOracleToOracleType', 
+		[utils.s32b(oracleTypeName), oracleId], 
+		'loadOracles'
+	); 
+
+};
