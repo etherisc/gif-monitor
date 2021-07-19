@@ -106,7 +106,7 @@ const getAssignedOracleTypes = (oracle_id) => {
 				}
 			}
 		}).fetch();
-	
+	console.log(oracle_id, oracleTypes);
 	return oracleTypes.map(item => ({
 		oracleTypeName: item.name, 
 		oracleId: oracle_id, 
