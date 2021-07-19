@@ -161,14 +161,14 @@ Template.OraclesDetailsFormCustomActions.helpers({
 });
 
 Template.OraclesDetailsFormCustomActions.events({
-	"click #btn-activate": function (e,t) {
+	"click #btn-approve": function (e,t) {
 		e.preventDefault();
-		callActivateOracle(t.data.oracle.oracle_id);
+		callApproveOracle(t.data.oracle.oracle_id);
 	},
 
-	"click #btn-deactivate": function (e,t) {
+	"click #btn-disapprove": function (e,t) {
 		e.preventDefault();
-		callDeactivateOracle(t.data.oracle.oracle_id);
+		callDisapproveOracle(t.data.oracle.oracle_id);
 	},
 
 	"click #btn-revoke": function (e,t) {

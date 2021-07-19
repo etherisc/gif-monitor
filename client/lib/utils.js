@@ -29,8 +29,8 @@ const s32b = (text) => {
 const stateMessage = {
 
 	product: [ 'Proposed', 'Approved', 'Paused' ],
-	oracle: [ 'Inactive', 'Active' ],
-	oracleType: [ 'Inactive', 'Active'],
+	oracle: [ 'Proposed', 'Approved', 'Paused' ],
+	oracleType: [ 'Uninitialized', 'Proposed', 'Approved'],
 	oracleAssignment: [ 'Unassigned', 'Proposed', 'Assigned' ],
 	policy: [ 'Active', 'Expired' ],
 	claim: [ 'Applied', 'Confirmed', 'Declined' ],
@@ -49,8 +49,8 @@ const claimState = (state) => stateMessage.claim[state];
 const policyFlowState = (state) => stateMessage.policyFlow[state];
 const payoutState = (state) => stateMessage.payout[state];
 const isProductState = (state, data) => stateMessage.product[data.product.state] === state;
-const isOracleTypeActive = (data) => data.oracle_type.activated;
-const isOracleActive = (data) => data && data.oracle ? data.oracle.activated : false;
+const isOracleTypeApproved = (data) => data.oracle_type.state === 2;
+const isOracleApproved = (data) => data && data.oracle ? data.oracle.state === 1 : false;
 const hasAssignableOracles = (data) => {
 	return (data.oracle_type.assigned_oracles.filter(item => item.assignmentState === 1).length > 0);
 };
