@@ -156,7 +156,7 @@ const formRevokeOracleTypes = (oracleDescription, assignedOracleTypes) => {
 			<span>${oracleDescription}</span>
 		</div>
 		${assignedOracleTypes.map(item => {
-			return `<div class="checkbox"><label><input id="oracle-type-${item.oracleTypeName}" type="checkBox"> ${item.oracleTypeName}</label></div>`
+			return `<div class="checkbox"><label><input id="oracle-type-${item.oracleTypeName}" type="checkBox"> OracleType "${item.oracleTypeName}"</label></div>`
 		}).join("\n")}
 	</form>
 </div>
