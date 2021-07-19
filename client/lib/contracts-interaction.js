@@ -164,12 +164,12 @@ callDeactivateOracleType = async (oracleTypeName) => {
 
 };
 
-callRevokeOracleFromOracleType = async (oracleId) => {
+callRevokeOracleFromOracleType = async (oracleTypeName, oracleId) => {
 
 	await callContract(
 		'OracleOwnerService', 
 		'revokeOracleFromOracleType', 
-		[oracleId], 
+		[utils.s32b(oracleTypeName), oracleId], 
 		'loadOracles'
 	); 
 
