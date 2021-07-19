@@ -176,6 +176,7 @@ module.exports = {
 	array2Table,
 	abi2Table,
 	assignedOracles,
+	assignedOracleTypes,
 	pre,
 	safeStr,
 	ipfsLink,
