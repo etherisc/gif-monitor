@@ -116,7 +116,7 @@ const getUnassignedOracleTypes = (oracle_id) => {
 			assigned_oracles: {
 				$elemMatch: {
 					oracleId: {
-						$neq: oracle_id
+						$ne: oracle_id
 					}
 				}
 			}
