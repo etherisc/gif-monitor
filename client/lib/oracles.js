@@ -30,7 +30,7 @@ proposeOracleType = () => {
 		confirm: {
 			label: 'Propose OracleType',
 			className: "btn btn-warning pull-left",
-			callback: async function() {
+			callback: function() {
 
 				const otName = $('form #ot-name').val();
 				const otInputSignature = $('form #ot-input-signature').val();
@@ -46,8 +46,15 @@ proposeOracleType = () => {
 					return false;
 				}
 				console.log('All ok');
-				const success = await callProposeOracleType(otName, otInputSignature, otCallbackSignature, otDescription);
-				return success;
+				callProposeOracleType(otName, otInputSignature, otCallbackSignature, otDescription)
+				.then((res) => {
+					console.log(res);
+					return res;
+				})
+				.catch((err) => {
+					console.log(err);
+					return false;
+				});
 			}
 
 		},
