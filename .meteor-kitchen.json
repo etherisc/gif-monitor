@@ -206,7 +206,7 @@
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
-			"checksum": "ab4d8f3358a57490b0395142aadd33327c4fe021"
+			"checksum": "31b300c02ec084673b77911e40b1a08d695d467d"
 		},
 		{
 			"path": "client/views/oracles/details/details_controller.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "c15b9dcbf9b57a60524bc85b0342b895e1f677c9"
+			"checksum": "2bc957642daf9dc84278e6f9f96d36c3be1ee3af"
 		},
 		{
 			"path": "client/views/admin/admin.js",
