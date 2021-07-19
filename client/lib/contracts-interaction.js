@@ -1,4 +1,5 @@
 import { ethers } from 'ethers';
+import utils from '/client/lib/utils.js';
 
 function formatDate(date) {
 	var d = new Date(date),
@@ -77,7 +78,7 @@ callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature
 	const oracleOwnerService = await getContract('OracleOwnerService');
 	info(`Call Propose Oracle Type ${oracleTypeName}`);
 	try {
-		const res = await oracleOwnerService.proposeOracleType(s32b(oracleTypeName), inputSignature, callbackSignature, description);
+		const res = await oracleOwnerService.proposeOracleType(utils.s32b(oracleTypeName), inputSignature, callbackSignature, description);
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
