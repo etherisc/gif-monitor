@@ -156,7 +156,7 @@ const formRevokeOracleTypes = (oracleDescription, assignedOracleTypes) => {
 			<span>${oracleDescription}</span>
 		</div>
 		${assignedOracleTypes.map(item => {
-			return `<div class="checkbox"><label><input id="oracle-type-${item.name}" type="checkBox"> ${item.name}</label></div>`
+			return `<div class="checkbox"><label><input id="oracle-type-${item.oracleTypeName}" type="checkBox"> ${item.oracleTypeName}</label></div>`
 		}).join("\n")}
 	</form>
 </div>
@@ -192,7 +192,7 @@ revokeOracleTypes = async (oracle) => {
 
 				assignedOracleTypes.forEach(item => {
 
-					const doRevoke = $(`form #oracle-type-${item.name}`).val();
+					const doRevoke = $(`form #oracle-type-${item.oracleTypeName}`).val();
 
 					if (doRevoke) {
 						callRevokeOracleFromOracleType(item.oracleTypeName, item.oracleId)
