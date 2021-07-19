@@ -202,7 +202,7 @@
 		},
 		{
 			"path": "client/views/oracles/details/details.html",
-			"checksum": "61bcf89d20c7870067dad0e27dda7009e69ed183"
+			"checksum": "d8077c2b0789d0b9fd9d6963e589125e64a158a1"
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5c433ef4daf204520c0589bcaa66a698f328f3dc"
+			"checksum": "cf6ac900f40900b91ee2aebc3375cc24a6e558f1"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -850,7 +850,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
-			"checksum": "50e1a127f1356575c1e19d7c67500a4950314090"
+			"checksum": "244acb2134b12647c213b65f8b894c219508b1a5"
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",
