@@ -195,8 +195,8 @@ module.exports = {
 	policyFlowState,
 	payoutState,
 	isProductState,
-	isOracleTypeActive,
-	isOracleActive,
+	isOracleTypeApproved,
+	isOracleApproved,
 	hasAssignableOracles,
 	hasRevokableOracleTypes
 };
