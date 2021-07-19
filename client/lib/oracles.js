@@ -99,6 +99,7 @@ assignOracles = async (oracleType) => {
 				resolve(res);
 			};
 		});
+	});
 	
 	if (assignedOracles.length === 0) {
 		alert('No proposed oracles');
