@@ -98,9 +98,9 @@ const getAssignedOracleTypes = (oracle_id) => {
 	
 	const oracleTypes =  OracleTypes.find(
 		{
-			assignedOracles: {
+			assigned_oracles: {
 				$elemMatch: {
-					oracleId: {
+					oracle_id: {
 						$eq: oracle_id
 					}
 				}
