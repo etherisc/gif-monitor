@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "4aa7f600e0302790bf1b3d3fd2b98b8aabcde164"
+			"checksum": "6e3c8e0d0f263748ef6fba3d49f2b0f4deff1f53"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -886,7 +886,7 @@
 		},
 		{
 			"path": "client/lib/utils.js",
-			"checksum": "06953289fad7eed53b41a7e735b3fb70a0ce8be5"
+			"checksum": "d616fc65d6ddbd818e7b94988789bd3dea08c529"
 		},
 		{
 			"path": "imports/server/methods/utils.js",
