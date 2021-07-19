@@ -202,11 +202,11 @@
 		},
 		{
 			"path": "client/views/oracles/details/details.html",
-			"checksum": "708aef9f3d4536a99099cc2dbb07bcf93f3aaa59"
+			"checksum": "825c7a7c19bad3f9f0f968ab451e55139e669f58"
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
-			"checksum": "7a5de71388b443168fe573fdab12018902f57ee2"
+			"checksum": "47e7e13c2d8e8f0cca28cf043ad726bf0a50dc51"
 		},
 		{
 			"path": "client/views/oracles/details/details_controller.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "960926fe8896350c2c5173c802f6d775e59f082d"
+			"checksum": "3eb2072943f04abd818e5f1028268afe4b1e6d89"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -886,7 +886,7 @@
 		},
 		{
 			"path": "client/lib/utils.js",
-			"checksum": "56463207e9efd34e41cf824f5c7edf93c3ef518e"
+			"checksum": "7e1798ade4693f8dd67a7e67e33ed86a0eeb5f81"
 		},
 		{
 			"path": "imports/server/methods/utils.js",
@@ -894,7 +894,7 @@
 		},
 		{
 			"path": "client/lib/oracles.js",
-			"checksum": "abc8c0632723cd2abed3e39a8646ce3271f062d2"
+			"checksum": "b06f87d5757ec31c4439d14c7438a6b18b4fc4ba"
 		},
 		{
 			"path": "client/lib/globals.js",

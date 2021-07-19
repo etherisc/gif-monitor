@@ -121,5 +121,10 @@
 		Activate Oracle
 	</button>
 	{{/if}}
+	{{#if hasRevokableOracleTypes this}}
+	<button class="btn btn-warning" id="btn-revoke">
+		Revoke Oracle from OracleTypes
+	</button>
+	{{/if}}
 </template>
 
