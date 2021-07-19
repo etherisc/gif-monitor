@@ -83,6 +83,9 @@
 				<th class="th-sortable" data-sort="oracle_owner">
 					Oracle Owner
 				</th>
+				<th class="th-sortable" data-sort="activated">
+					Activated
+				</th>
 				<th class="th-sortable" data-sort="active_oracle_types">
 					Active Oracle Types
 				</th>
@@ -107,6 +110,9 @@
 		</td>
 		<td>
 			{{addressLink oracle_owner this}}
+		</td>
+		<td>
+			{{booleanToYesNo activated}}
 		</td>
 		<td>
 			{{active_oracle_types}}
