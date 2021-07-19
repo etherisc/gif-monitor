@@ -49,6 +49,12 @@ const claimState = (state) => stateMessage.claim[state];
 const policyFlowState = (state) => stateMessage.policyFlow[state];
 const payoutState = (state) => stateMessage.payout[state];
 const isProductState = (state, data) => stateMessage.product[data.product.state] === state;
+const isOracleTypeActive = (data) => {
+	console.log(data);
+	return data.oracleType.activated;
+};
+const isOracleActive = (data) => data.oracle.activated;
+const hasAssignableOracles = (data) => (data.oracleType.assignedOracles.filter(item => item.assignmentState === 1).length > 0);
 
 const mapHeader = (key) => {
 

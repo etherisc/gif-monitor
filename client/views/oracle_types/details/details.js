@@ -170,6 +170,11 @@ Template.OracleTypesDetailsFormCustomActions.events({
 		e.preventDefault();
 
 		callActivateOracleType(t.data.oracle_type.name);
+	},
+	"click #btn-deactivate": function (e,t) {
+		e.preventDefault();
+
+		callDeactivateOracleType(t.data.oracle_type.name);
 	}
 
 });
