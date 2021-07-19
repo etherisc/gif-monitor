@@ -123,7 +123,7 @@ toast_form = function(title, formHtml, buttons, options) {
 			buttons, 
 			onEscape: function() {
 				modal.modal("hide");
-			}
+			},
 			...options
 		});
 	});
