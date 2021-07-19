@@ -69,7 +69,7 @@ const loadOracleTypes = async() => {
 				activated: oracleType.state === 1,
 				initialized: oracleType.initialized,
 				active_oracles: oracleType.activeOracles.toNumber(),
-				assignedOracles
+				assigned_oracles: assignedOracles
 			}});
 		}
 	} catch (err) {
