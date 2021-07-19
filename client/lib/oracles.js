@@ -101,7 +101,7 @@ assignOracles = async (oracleType) => {
 		});
 	});
 	
-	if (assignedOracles.length === 0) {
+	if (assignedOracles.filter(item => item.assignmentState === 1).length === 0) {
 		alert('No proposed oracles');
 		return;
 	};
