@@ -173,7 +173,7 @@ Template.OraclesDetailsFormCustomActions.events({
 
 	"click #btn-revoke": function (e,t) {
 		e.preventDefault();
-		revokeOracleTypes(t.data.oracle.oracle_id);
+		revokeOracleTypes(t.data.oracle);
 	}
 
 });
