@@ -136,11 +136,11 @@ const abi2Table = (abi) => {
 	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
 
+const items = new ReactiveVar([]);
 
 const assignedOracles = (val, oracleType) => {
 	
 	if (!oracleType) return '';
-	const items = new ReactiveVar([]);
 	Meteor.call('getAssignedOracles', oracleType.name, (err, res) => {
 		if (err) {
 			throw new Meteor.Error(err.message);
@@ -153,7 +153,6 @@ const assignedOracles = (val, oracleType) => {
 	
 const assignedOracleTypes = (val, oracle) => {
 	if (!oracle) return '';
-	const items = new ReactiveVar([]);
 	Meteor.call('getAssignedOracleTypes', oracle.oracle_id, (err, res) => {
 		if (err) {
 			throw new Meteor.Error(err.message);
