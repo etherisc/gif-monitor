@@ -145,8 +145,9 @@ const assignedOracles = async (val, oracleType) => {
 				reject(err);
 			} else {
 				resolve(res);
-			});
+			};
 		});
+	});
 	return array2Table(items);
 };
 	
@@ -158,8 +159,9 @@ const assignedOracleTypes = async (val, oracle) => {
 				reject(err);
 			} else {
 				resolve(res);
-			});
+			};
 		});
+	});
 	return array2Table(items);
 };
 	
