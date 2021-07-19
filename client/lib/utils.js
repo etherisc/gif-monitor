@@ -70,7 +70,7 @@ const mapVal = (key, val, data) => {
 	switch (key) {
 		case "assignmentState": 
 			console.log(key, val, data);
-			const ass = oracleAssignmentState(key);
+			const ass = oracleAssignmentState(val);
 			console.log(ass);
 			return ass;
 		default: return val;
