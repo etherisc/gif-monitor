@@ -178,7 +178,7 @@ module.exports = {
 	productState,
 	oracleState,
 	oracleTypeState,
-	oracleAssigmentState,
+	oracleAssignmentState,
 	policyState,
 	applicationState,
 	claimState,
