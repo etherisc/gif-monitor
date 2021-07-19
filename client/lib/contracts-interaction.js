@@ -82,7 +82,7 @@ callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
-		Meteor.call('reloadOracleTypes');
+		Meteor.call('loadOracleTypes');
 		return true;
 	} catch (err) {
 		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
@@ -100,7 +100,7 @@ callAssignOracleToOracleType = async (oracleTypeName, oracleId) => {
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
-		Meteor.call('reloadOracleTypes');
+		Meteor.call('loadOracleTypes');
 		return true;
 	} catch (err) {
 		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
@@ -118,7 +118,7 @@ callActivateOracle = async (oracleId) => {
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
-		Meteor.call('reloadOracles');
+		Meteor.call('loadOracles');
 		return true;
 	} catch (err) {
 		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
@@ -136,7 +136,7 @@ callActivateOracleType = async (oracleTypeName) => {
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
-		Meteor.call('reloadOracleTypes');
+		Meteor.call('loadOracleTypes');
 		return true;
 	} catch (err) {
 		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
