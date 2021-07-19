@@ -80,7 +80,7 @@ const formAssignOracles = (oracleTypeName, assignedOracles) => {
 			<span>${oracleTypeName}</span>
 		</div>
 		${assignedOracles.filter(item => item.assignmentState === 1).map(item => {
-			return `<div class="checkbox"><label><input id="oracle-${item.oracleId}" type="checkBox"> ${item.oracleDescription} (ID =${item.oracleId})</label></div>`
+			return `<div class="checkbox"><label><input id="oracle-${item.oracleId}" type="checkBox"> ${item.oracleName} (ID =${item.oracleId})</label></div>`
 		}).join("\n")}
 	</form>
 </div>
