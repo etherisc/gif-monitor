@@ -145,3 +145,74 @@ assignOracles = async (oracleType) => {
 
 
 };
+
+const formRevokeOracleTypes = (oracleDescription, assignedOracleTypes) => {
+	
+	const html = `
+<div class="form-content">
+	<form class="form" role="form">
+		<div class="form-group">
+			<label for="ot-name">Oracle</label>
+			<span>${oracleDescription}</span>
+		</div>
+		${assignedOracleTypes.map(item => {
+			return `<div class="checkbox"><label><input id="oracle-type-${item.name}" type="checkBox"> ${item.name}</label></div>`
+		}).join("\n")}
+	</form>
+</div>
+`;
+	return html;
+};
+
+
+revokeOracleTypes = async (oracle) => {
+
+	const assignedOracleTypes = await new Promise((resolve, reject) => {
+		Meteor.call('getAssignedOracleTypes', oracleType.oracle_id, (err, res) => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(res);
+			};
+		});
+	});
+		
+	toast_form('Revoke Oracle from Oracletypes:', formRevokeOracleTypes(oracle.description, assignedOracleTypes), {
+
+		// Buttons:
+		
+		confirm: {
+			label: 'Revoke Oracle from OracleTypes',
+			className: "btn btn-warning pull-left",
+			callback: function() {
+
+				assignedOracleTypes.forEach(item => {
+
+					const doRevoke = $(`form #oracle-type-${item.name}`).val();
+
+					if (doRevoke) {
+						callRevokeOracleFromOracleType(item.oracleTypeName, item.oracleId)
+						.then((res) => {
+							console.log(res);
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+					}
+				});
+
+			}
+		},
+
+		close: {
+			label: 'Cancel',
+			className: "btn btn-primary pull-right",
+			callback: function() {
+				return true;
+			}
+
+		}
+	})
+
+
+};

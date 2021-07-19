@@ -169,6 +169,11 @@ Template.OraclesDetailsFormCustomActions.events({
 	"click #btn-deactivate": function (e,t) {
 		e.preventDefault();
 		callDeactivateOracle(t.data.oracle.oracle_id);
+	},
+
+	"click #btn-revoke": function (e,t) {
+		e.preventDefault();
+		revokeOracleTypes(t.data.oracle.oracle_id);
 	}
 
 });
