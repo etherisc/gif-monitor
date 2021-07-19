@@ -121,6 +121,9 @@ toast_form = function(title, formHtml, buttons, options) {
 			message: formHtml,
 			backdrop: true,
 			buttons, 
+			onEscape: function() {
+				modal.modal("hide");
+			}
 			...options
 		});
 	});
