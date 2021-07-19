@@ -1,5 +1,5 @@
 
-const formHtml = `
+const formProposeOracleType = `
 <div class="form-content">
 	<form class="form" role="form">
 		<div class="form-group">
@@ -25,7 +25,7 @@ const formHtml = `
 
 proposeOracleType = () => {
 
-	toast_form('Propose new OracleType:', formHtml, {
+	toast_form('Propose new OracleType:', formProposeOracleType, {
 		// Buttons:
 		confirm: {
 			label: 'Propose OracleType',
@@ -67,14 +67,69 @@ proposeOracleType = () => {
 
 		}
 	})
-	.then((result) => {
 
-		console.log(`Calling oracleOwnerService ${result}`);
+};
+
+const formAssignOracles = (oracleTypeName, assignedOracles) => {
+	
+	const html = `
+<div class="form-content">
+	<form class="form" role="form">
+		<div class="form-group">
+			<label for="ot-name">Oracle type name</label>
+			<span>${oracleTypeName}</span>
+		</div>
+		${assignedOracles.filter(item => item.assignmentState === 1).map(item => {
+			return `<div class="checkbox"><label>${item.oracleDescription} (ID =${item.oracleId}) <input id="oracle-${item.oracleId}" type="checkBox"></label></div>`
+		}).join("\n")}
+	</form>
+</div>
+`;
+	return html;
+};
 
 
+assignOracles = (data) => {
+
+	console.log(data);
+	return;
+	
+	toast_form('Assign Oracles to Oracletype:', formAssignOracles(oracleTypeName, assignedOracles), {
+
+		// Buttons:
+		
+		confirm: {
+			label: 'Assign Oracles',
+			className: "btn btn-warning pull-left",
+			callback: function() {
+
+				assignedOracles.forEach(item => {
+
+					const doAssign = $(`form #oracle-${item.oracleId}`).val();
+
+					if (doAssign) {
+						callAssignOracleToOracleType(item.oracleTypeName, item.oracleId)
+						.then((res) => {
+							console.log(res);
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+					}
+				});
+
+			}
+		},
+
+		close: {
+			label: 'Cancel',
+			className: "btn btn-primary pull-right",
+			callback: function() {
+				return true;
+			}
+
+		}
 	})
-	.catch((err) => {
-		console.log(err);
-	});
 
-}
+
+};

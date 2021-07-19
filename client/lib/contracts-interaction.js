@@ -76,9 +76,27 @@ setProductState = async (productId, stateStr) => {
 callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature, description) => {
 
 	const oracleOwnerService = await getContract('OracleOwnerService');
-	info(`Call Propose Oracle Type ${oracleTypeName}`);
+	info(`Call proposeOracleType ${oracleTypeName}`);
 	try {
 		const res = await oracleOwnerService.proposeOracleType(utils.s32b(oracleTypeName), inputSignature, callbackSignature, description);
+		info(`Transaction submitted`, res);
+		const receipt = await res.wait();
+		info(`Transaction confirmed`, receipt);
+		Meteor.call('reloadOracleTypes');
+		return true;
+	} catch (err) {
+		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
+		return false;
+	}
+
+}
+
+callAssignOracleToOracleType = async (oracleTypeName, oracleId) => {
+
+	const oracleOwnerService = await getContract('InstanceOperatorService');
+	info(`Call assignOracleToOracleType oracleId=${oracleId} oracleType=${oracleTypeName} `);
+	try {
+		const res = await oracleOwnerService.assignOracleToOracleType(utils.s32b(oracleTypeName), oracleId);
 		info(`Transaction submitted`, res);
 		const receipt = await res.wait();
 		info(`Transaction confirmed`, receipt);
