@@ -113,18 +113,23 @@ const getUnassignedOracleTypes = (oracle_id) => {
 	
 	const oracleTypes =  OracleTypes.find(
 		{
-			$or: {
-				assigned_oracles: {
-					$elemMatch: {
-						oracleId: {
-							$ne: oracle_id
+			$or: 
+			[
+				{
+					assigned_oracles: {
+						$elemMatch: {
+							oracleId: {
+								$ne: oracle_id
+							}
 						}
 					}
 				},
-				assigned_oracles: {
-					$eq: []
+				{
+					assigned_oracles: {
+						$eq: []
+					}
 				}
-			}
+			]
 		}).fetch();
 	return oracleTypes.map(item => ({
 		oracleTypeName: item.name, 
