@@ -54,7 +54,10 @@ const isOracleTypeActive = (data) => {
 	return data.oracleType.activated;
 };
 const isOracleActive = (data) => data.oracle.activated;
-const hasAssignableOracles = (data) => (data.oracleType.assignedOracles.filter(item => item.assignmentState === 1).length > 0);
+const hasAssignableOracles = (data) => {
+	console.log(data);
+	return (data.oracleType.assignedOracles.filter(item => item.assignmentState === 1).length > 0);
+};
 
 const mapHeader = (key) => {
 
