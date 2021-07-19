@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "7f6e3e9c08d70f22361d542565fed64220f66f70"
+			"checksum": "2ce955a72cac373876a55c4ae6ce85a2f98b2dc4"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -861,8 +861,8 @@
 			"checksum": "03764d3e571f35ceca1fc37a60a8cfb864b9fbe4"
 		},
 		{
-			"path": "client/lib/ios-interaction.js",
-			"checksum": "ca1d9678353339ec249a6696814db96b11f41e1c"
+			"path": "client/lib/contracts-interaction.js",
+			"checksum": "91f587c1f0a88e0a97bd251ab9b851fd926c8717"
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",
