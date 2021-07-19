@@ -122,11 +122,19 @@
 </template>
 
 <template name="OracleTypesDetailsFormCustomActions">
+	{{#if isOracleTypeActive this}}
+	<button class="btn btn-warning" id="btn-deactivate">
+		Deactivate OracleType
+	</button>
+	{{else}}
 	<button class="btn btn-warning" id="btn-activate">
 		Activate OracleType
 	</button>
+	{{/if}}
+	{{#if hasAssignableOracles this}}
 	<button class="btn btn-warning" id="btn-assign">
 		Assign Oracles
 	</button>
+	{{/if}}
 </template>
 

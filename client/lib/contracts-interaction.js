@@ -27,6 +27,31 @@ const handleInfo = (message, args) => {
 }
 
 
+const callContract = async (contractName, method, args, meteorCall, meteorCallArgs) => {
+
+	const contract = await getContract(contractName);
+	if (!contract) {
+		handleError(`Could not create contract instances ${contractName}`);
+		return;
+	};
+	
+	info(`Call ${contractName}.${method}`, {contractName, method, args, meteorCall, meteorCallArgs});
+	try {
+		const res = await contract[method](...args);
+		info(`Transaction submitted`, res);
+		const receipt = await res.wait();
+		info(`Transaction confirmed`, receipt);
+		if (meteorCall) {
+			Meteor.call(meteorCall, ...meteorCallArgs);
+		}
+		return true;
+	} catch (err) {
+		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
+		return false;
+	}
+};
+
+
 setProductState = async (productId, stateStr) => {
 
 	const ios = await getContract('InstanceOperatorService');
@@ -53,94 +78,86 @@ setProductState = async (productId, stateStr) => {
 	info(`Set product state to ${stateMessage.product[state]} for product #${productId} ${b32s(product.name)}`, product);
 
 	if(state !== product.state) {
-		try {
+		
+		const method = {
+			"Proposed": "disapproveProduct",
+			"Approved": "approveProduct",
+			"Paused": "pauseProduct"
+		}[stateStr];
+		await callContract(
+			'InstanceOperatorService', 
+			method, 
+			{productId}, 
+			'reloadSingleProduct',
+			{productId}
+		); 
 
-			const method = {
-				"Proposed": "disapproveProduct",
-				"Approved": "approveProduct",
-				"Paused": "pauseProduct"
-			}[stateStr];
-			const res = await ios[method](productId)
-			info(`Transaction submitted`, res);
-			const receipt = await res.wait();
-			info(`Transaction confirmed`, receipt);
-			Meteor.call('reloadSingleProduct', productId);
-		} catch (err) {
-			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		}
 	} else {
 		handleInfo(`Product ${product.name} already in state ${stateMessage.product[state]}`);
 	}
 }
 
-callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature, description) => {
+callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature, description) => 
 
-	const oracleOwnerService = await getContract('OracleOwnerService');
-	info(`Call proposeOracleType ${oracleTypeName}`);
-	try {
-		const res = await oracleOwnerService.proposeOracleType(utils.s32b(oracleTypeName), inputSignature, callbackSignature, description);
-		info(`Transaction submitted`, res);
-		const receipt = await res.wait();
-		info(`Transaction confirmed`, receipt);
-		Meteor.call('loadOracleTypes');
-		return true;
-	} catch (err) {
-		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		return false;
-	}
-
+	await callContract(
+		'OracleOwnerService', 
+		'proposeOracleType', 
+		{name: utils.s32b(oracleTypeName), inputSignature, callbackSignature, description}, 
+		'loadOracleTypes'
+	); 
 }
 
 callAssignOracleToOracleType = async (oracleTypeName, oracleId) => {
 
-	const instanceOwnerService = await getContract('InstanceOperatorService');
-	info(`Call assignOracleToOracleType oracleId=${oracleId} oracleType=${oracleTypeName} `);
-	try {
-		const res = await instanceOwnerService.assignOracleToOracleType(utils.s32b(oracleTypeName), oracleId);
-		info(`Transaction submitted`, res);
-		const receipt = await res.wait();
-		info(`Transaction confirmed`, receipt);
-		Meteor.call('loadOracleTypes');
-		return true;
-	} catch (err) {
-		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		return false;
-	}
+	await callContract(
+		'InstanceOperatorService', 
+		'assignOracleToOracleType', 
+		{name: utils.s32b(oracleTypeName), oracleId}, 
+		'loadOracleTypes'
+	); 
 
 }
 
 callActivateOracle = async (oracleId) => {
 
-	const instanceOwnerService = await getContract('InstanceOperatorService');
-	info(`Call activateOracle oracleId=${oracleId}`);
-	try {
-		const res = await instanceOwnerService.activateOracle(oracleId);
-		info(`Transaction submitted`, res);
-		const receipt = await res.wait();
-		info(`Transaction confirmed`, receipt);
-		Meteor.call('loadOracles');
-		return true;
-	} catch (err) {
-		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		return false;
-	}
+	await callContract(
+		'InstanceOperatorService', 
+		'activateOracle', 
+		{oracleId}, 
+		'loadOracles'
+	); 
+
+};
+
+callDeActivateOracle = async (oracleId) => {
+
+	await callContract(
+		'InstanceOperatorService', 
+		'deactivateOracle', 
+		{oracleId}, 
+		'loadOracles'
+	); 
 
 };
 
 callActivateOracleType = async (oracleTypeName) => {
 
-	const instanceOwnerService = await getContract('InstanceOperatorService');
-	info(`Call activateOracleType oracleType=${oracleTypeName} `);
-	try {
-		const res = await instanceOwnerService.activateOracleType(utils.s32b(oracleTypeName));
-		info(`Transaction submitted`, res);
-		const receipt = await res.wait();
-		info(`Transaction confirmed`, receipt);
-		Meteor.call('loadOracleTypes');
-		return true;
-	} catch (err) {
-		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		return false;
-	}
+	await callContract(
+		'InstanceOperatorService', 
+		'activateOracleType', 
+		{name: utils.s32b(oracleTypeName}, 
+		'loadOracleTypes'
+	); 
+
+};
+
+callDeactivateOracleType = async (oracleTypeName) => {
+
+	await callContract(
+		'InstanceOperatorService', 
+		'deactivateOracleType', 
+		{name: utils.s32b(oracleTypeName}, 
+		'loadOracleTypes'
+	); 
 
 };
