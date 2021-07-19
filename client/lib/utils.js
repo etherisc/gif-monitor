@@ -144,6 +144,12 @@ const assignedOracles = (val, oracleType) => {
 	return array2Table(items);
 };
 	
+const assignedOracleTypes = (val, oracle) => {
+	if (!oracleId) return '';
+	const items = ReactiveMethod.call('getAssignedOracleTypes', oracle.oracleId);
+	return array2Table(items);
+};
+	
 
 const blockExplorer = () => ReactiveMethod.call('blockExplorer');
 const ipfsGateway = () => ReactiveMethod.call('ipfsGateway');

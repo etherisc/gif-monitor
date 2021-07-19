@@ -94,6 +94,28 @@ const getAssignedOracles = (name) => {
 }
 
 
+const getAssignedOracleTypes = (oracle_id) => {
+	
+	const oracleTypes =  OraclesTypes.find(
+		{
+			assignedOracles: {
+				$elemMatch: {
+					oracleId: {
+						$eq: oracle_id
+					}
+				}
+			}
+		}).fetch();
+	
+	return oracleTypes.map(item => {
+		oracleTypeName: item.name, 
+		oracleId: oracle_id, 
+		oracleDescription: item.description, 
+		assignmentState: item.assignmentState
+	});
+}
+
+
 const reloadOracles = () => {
 
 	Oracles.remove({});
@@ -109,5 +131,12 @@ const reloadOracleTypes = () => {
 }
 
 
-module.exports = { loadOracles, loadOracleTypes, reloadOracles, reloadOracleTypes, getAssignedOracles };
+module.exports = { 
+	loadOracles, 
+	loadOracleTypes, 
+	reloadOracles, 
+	reloadOracleTypes, 
+	getAssignedOracles, 
+	getAssignedOracleTypes 
+};
 
