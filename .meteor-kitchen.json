@@ -202,11 +202,11 @@
 		},
 		{
 			"path": "client/views/oracles/details/details.html",
-			"checksum": "d8077c2b0789d0b9fd9d6963e589125e64a158a1"
+			"checksum": "00d32f3ab0a629262369e5f6ab0f187c74737a39"
 		},
 		{
 			"path": "client/views/oracles/details/details.js",
-			"checksum": "d30610beb52a587505c248abdc85e5309fcbad3a"
+			"checksum": "631b18f8fcc5204609dc6ef9fd594ffd35842b70"
 		},
 		{
 			"path": "client/views/oracles/details/details_controller.js",
@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "6f85aa0a2a92ce1539d1c525bbeecc08a9a3f592"
+			"checksum": "ebe2deddc3cdbe5a2714a3154f04d73b2c5e18a3"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -810,7 +810,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "260219d1f6589e648247b5875a177624499d8ddb"
+			"checksum": "b2e4440972182b41dacb47c32789941dbf581d34"
 		},
 		{
 			"path": "client/lib/helpers.js",
@@ -850,7 +850,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-oracles-reader.js",
-			"checksum": "41a52b3d6471137a996fe76bcf72668fc848b844"
+			"checksum": "e14bbd9cae5a36cab5701340382bceb205d1f27c"
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",
@@ -894,7 +894,7 @@
 		},
 		{
 			"path": "client/lib/oracles.js",
-			"checksum": "f78cc71dec7cbd1b0326e717a7996988d1089613"
+			"checksum": "69ef6aa510a1f268fdbb9142901efcaedc4dbb8e"
 		},
 		{
 			"path": "client/lib/globals.js",

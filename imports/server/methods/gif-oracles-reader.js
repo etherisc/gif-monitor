@@ -102,7 +102,25 @@ const getAssignedOracleTypes = (oracle_id) => {
 				}
 			}
 		}).fetch();
-	console.log(oracle_id, oracleTypes);
+	return oracleTypes.map(item => ({
+		oracleTypeName: item.name, 
+		oracleId: oracle_id, 
+		assignmentState: item.assignmentState
+	}));
+}
+
+const getUnassignedOracleTypes = (oracle_id) => {
+	
+	const oracleTypes =  OracleTypes.find(
+		{
+			assigned_oracles: {
+				$elemMatch: {
+					oracleId: {
+						$neq: oracle_id
+					}
+				}
+			}
+		}).fetch();
 	return oracleTypes.map(item => ({
 		oracleTypeName: item.name, 
 		oracleId: oracle_id, 
@@ -132,6 +150,7 @@ module.exports = {
 	reloadOracles, 
 	reloadOracleTypes, 
 	getAssignedOracles, 
-	getAssignedOracleTypes 
+	getAssignedOracleTypes,
+	getUnassignedOracleTypes
 };
 

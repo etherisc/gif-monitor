@@ -146,7 +146,7 @@ assignOracles = async (oracleType) => {
 
 };
 
-const formRevokeOracleTypes = (oracleDescription, assignedOracleTypes) => {
+const formOracleTypes = (oracleDescription, assignedOracleTypes) => {
 	
 	const html = `
 <div class="form-content">
@@ -167,8 +167,6 @@ const formRevokeOracleTypes = (oracleDescription, assignedOracleTypes) => {
 
 revokeOracleTypes = async (oracle) => {
 	
-	console.log(oracle);
-
 	const assignedOracleTypes = await new Promise((resolve, reject) => {
 		Meteor.call('getAssignedOracleTypes', oracle.oracle_id, (err, res) => {
 			if (err) {
@@ -178,10 +176,8 @@ revokeOracleTypes = async (oracle) => {
 			};
 		});
 	});
-		
-	console.log(assignedOracleTypes);
-	
-	toast_form('Revoke Oracle from Oracletypes:', formRevokeOracleTypes(oracle.description, assignedOracleTypes), {
+			
+	toast_form('Revoke Oracle from Oracletypes:', formOracleTypes(oracle.description, assignedOracleTypes), {
 
 		// Buttons:
 		
@@ -196,6 +192,63 @@ revokeOracleTypes = async (oracle) => {
 
 					if (doRevoke) {
 						callRevokeOracleFromOracleType(item.oracleTypeName, item.oracleId)
+						.then((res) => {
+							console.log(res);
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+					}
+				});
+
+			}
+		},
+
+		close: {
+			label: 'Cancel',
+			className: "btn btn-primary pull-right",
+			callback: function() {
+				return true;
+			}
+
+		}
+	})
+
+
+};
+
+proposeOracleToOracleTypes = async (oracle) => {
+	
+	const unassignedOracleTypes = await new Promise((resolve, reject) => {
+		Meteor.call('getUnassignedOracleTypes', oracle.oracle_id, (err, res) => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(res);
+			};
+		});
+	});
+	
+	if (unassignedOracleTypes.length === 0) {
+		alert('No proposable oracle types found');
+		return;
+	};
+			
+	toast_form('Propose Oracle to Oracletypes:', formOracleTypes(oracle.description, unassignedOracleTypes), {
+
+		// Buttons:
+		
+		confirm: {
+			label: 'Propose Oracle to OracleTypes',
+			className: "btn btn-warning pull-left",
+			callback: function() {
+
+				assignedOracleTypes.forEach(item => {
+
+					const doRevoke = $(`form #oracle-type-${item.oracleTypeName}`).val();
+
+					if (doRevoke) {
+						callProposeOracleToOracleType(item.oracleTypeName, item.oracleId)
 						.then((res) => {
 							console.log(res);
 						})
