@@ -21,7 +21,7 @@ const loadOracles = async() => {
 
 			Oracles.upsert({oracle_contract: oracle.oracleContract}, {$set: {
 				oracle_id: oracleIndex,
-				name: oracle.name,
+				name: b32s(oracle.name),
 				oracle_contract: oracle.oracleContract,
 				state: oracle.state,
 				active_oracle_types: oracle.activeOracleTypes.toNumber()			
