@@ -122,6 +122,14 @@ const abi2Table = (abi) => {
 	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
 
+
+const assignedOracles = (val, oracleType) => {
+	const items = ReactiveMethod.call('getAssignedOracles');
+	
+	return array2Table(items);
+};
+	
+
 const blockExplorer = () => ReactiveMethod.call('blockExplorer');
 const ipfsGateway = () => ReactiveMethod.call('ipfsGateway');
 const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
@@ -146,6 +154,7 @@ module.exports = {
 	array2TableHtml,
 	array2Table,
 	abi2Table,
+	assignedOracles,
 	pre,
 	safeStr,
 	ipfsLink,
