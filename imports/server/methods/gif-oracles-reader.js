@@ -53,13 +53,12 @@ const loadOracleTypes = async() => {
 			info(`Found oracleType ${oracleTypeName}`, { oracleType });
 			
 			const assignedOracles = [];
-			for (var oracleIndex = 1; oracleIndex < oracleIdIncrement; oracleIndex += 1) {
-				const assignmentState = await Query.assignedOracles(oracleTypeNameB32, oracleIndex);
+			for (var idx = 1; idx < oracleIdIncrement; idx += 1) {
+				const assignmentState = await Query.assignedOracles(oracleTypeNameB32, idx);
 				if (assignmentState > 0) {
-					assignedOracles.push({oracleIndex, assignmentState});
+					assignedOracles.push({oracleId: idx, assignmentState});
 				}
 			}
-			
 			
 			OracleTypes.upsert({name: oracleTypeName}, {$set: {
 				index: oracleTypeIndex,
@@ -79,6 +78,21 @@ const loadOracleTypes = async() => {
 
 };
 
+const getAssignedOracles = (name) => {
+	const oracleType = OracleTypes.findOne({name});
+	
+	return oracleType.assigned_oracles.map(item => {
+		const oracle = Oracles.findOne({oracle_id: item.oracleId});
+		return {
+			oracleTypeName: name, 
+			oracleId: item.oracleId, 
+			oracleName: oracle.name, 
+			assignmentState: item.assignmentState
+		};
+	});
+}
+
+
 const reloadOracles = () => {
 
 	Oracles.remove({});
@@ -94,5 +108,5 @@ const reloadOracleTypes = () => {
 }
 
 
-module.exports = { loadOracles, loadOracleTypes, reloadOracles, reloadOracleTypes };
+module.exports = { loadOracles, loadOracleTypes, reloadOracles, reloadOracleTypes, getAssignedOracles };
 

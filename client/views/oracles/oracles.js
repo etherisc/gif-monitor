@@ -349,7 +349,7 @@ Template.OraclesViewCustomActions.events({
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('reload.oracles');
+		Meteor.call('reloadOracles');
 	}
 });
 
