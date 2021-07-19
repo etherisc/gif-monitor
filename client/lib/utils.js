@@ -54,6 +54,7 @@ const mapHeader = (key) => {
 
 	const dict = {
 		"name": "Name",
+		"oracle
 		"transaction_no": "hidden",
 		"internalType": "hidden",
 		"indexed": "hidden"
