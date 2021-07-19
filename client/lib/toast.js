@@ -116,7 +116,7 @@ toast_form = function(title, formHtml, buttons, options) {
 	info(`Toast dialog ${title}`, formHtml);
 	console.log(formHtml);
 	return new Promise((resolve, reject) => {
-		bootbox.dialog({
+		const modal = bootbox.dialog({
 			title: `<span style="color:blue; font-weight:bold;">${title}</span>`,
 			message: formHtml,
 			backdrop: true,
