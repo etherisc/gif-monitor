@@ -80,7 +80,7 @@ const formAssignOracles = (oracleTypeName, assignedOracles) => {
 			<span>${oracleTypeName}</span>
 		</div>
 		${assignedOracles.filter(item => item.assignmentState === 1).map(item => {
-			return `<div class="checkbox"><label>${item.oracleDescription} (ID =${item.oracleId}) <input id="oracle-${item.oracleId}" type="checkBox"></label></div>`
+			return `<div class="checkbox"><label><input id="oracle-${item.oracleId}" type="checkBox"> ${item.oracleDescription} (ID =${item.oracleId})</label></div>`
 		}).join("\n")}
 	</form>
 </div>
@@ -89,17 +89,16 @@ const formAssignOracles = (oracleTypeName, assignedOracles) => {
 };
 
 
-assignOracles = (data) => {
+assignOracles = (oracleType) => {
 
-	console.log(data);
-	const { name: oracleTypeName, assigned_oracles: assignedOracles } = data;
+	const assignedOracles = ReactiveMethod.call('getAssignedOracles', oracleType.name);
 	
 	if (assignedOracles.length === 0) {
 		alert('No proposed oracles');
 		return;
 	};
 	
-	toast_form('Assign Oracles to Oracletype:', formAssignOracles(oracleTypeName, assignedOracles), {
+	toast_form('Assign Oracles to Oracletype:', formAssignOracles(oracleType.name, assignedOracles), {
 
 		// Buttons:
 		
