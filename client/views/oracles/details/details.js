@@ -174,6 +174,11 @@ Template.OraclesDetailsFormCustomActions.events({
 	"click #btn-revoke": function (e,t) {
 		e.preventDefault();
 		revokeOracleTypes(t.data.oracle);
+	},
+	
+	"click #btn-propose": function (e,t) {
+		e.preventDefault();
+		proposeOracleToOracleTypes(t.data.oracle);
 	}
 
 });

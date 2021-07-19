@@ -27,6 +27,7 @@ Meteor.methods({
 	reloadOracleTypes,
 	getAssignedOracles,
 	getAssignedOracleTypes,
+	getUnassignedOracleTypes,
 
 	reloadProducts,
 	reloadSingleProduct,
