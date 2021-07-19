@@ -87,7 +87,7 @@ const getAssignedOracles = (name) => {
 		return {
 			oracleTypeName: name, 
 			oracleId: item.oracleId, 
-			oracleName: oracle.name, 
+			oracleDescription: oracle.description, 
 			assignmentState: item.assignmentState
 		};
 	});
