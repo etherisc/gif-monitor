@@ -7,7 +7,7 @@ const abiDecoder = require('abi-decoder');
 
 
 
-const reloadSingleProduct = async function ({ productId }) {
+const loadSingleProduct = async function ({ productId }) {
 
 	try {
 		const License = await getContract('License');
@@ -39,7 +39,7 @@ const loadProducts = async() => {
 		info(`License: ${productCount} products found`);
 
 		for (var productId = 1; productId <= productCount; productId += 1) {
-			await reloadSingleProduct({ productId });
+			await loadSingleProduct({ productId });
 		}
 	} catch (err) {
 		error(`Error loadProducts, ${err.message}`);
@@ -54,5 +54,5 @@ const reloadProducts = () => {
 
 }
 
-module.exports = { loadProducts, reloadProducts, reloadSingleProduct };
+module.exports = { loadProducts, reloadProducts, loadSingleProduct };
 
