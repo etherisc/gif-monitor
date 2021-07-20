@@ -77,7 +77,7 @@ setProductState = async (productId, stateStr) => {
 		return;
 	}
 
-	info(`Set product state to ${utils.stateMessage.product[state]} for product #${productId} ${b32s(product.name)}`, product);
+	info(`Set product state to ${utils.stateMessage.product[state]} for product #${productId} ${utils.b32s(product.name)}`, product);
 
 	if(state !== product.state) {
 		
