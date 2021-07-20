@@ -15,11 +15,9 @@ const reloadSingleProduct = async function ({ productId }) {
 		const productObj = {
 			product_id: productId,
 			name: b32s(product.name),
-			owner: product.productOwner,
-			address: product.addr,
+			product_contract: product.productContract,
 			policy_flow: b32s(product.policyFlow),
 			release: b32s(product.release),
-			policy_token: product.policyToken,
 			state: product.state
 		};
 
