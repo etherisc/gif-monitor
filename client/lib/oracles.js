@@ -15,10 +15,6 @@ const formProposeOracleType = `
 			<label for="ot-callback-signature">Callback signature</label>
 			<input type="text" class="form-control" id="ot-callback-signature" name="ot-callback-signature" placeholder="Enter callback signature">
 		</div>
-		<div class="form-group">
-			<label for="ot-description">Description</label>
-			<input type="text" class="form-control" id="ot-description" name="ot-description" placeholder="Enter description">
-		</div>
 	</form>
 </div>
 `;
@@ -35,7 +31,6 @@ proposeOracleType = () => {
 				const otName = $('form #ot-name').val();
 				const otInputSignature = $('form #ot-input-signature').val();
 				const otCallbackSignature = $('form #ot-callback-signature').val();
-				const otDescription = $('form #ot-description').val();
 
 				if (
 					!otName || otName === '' || 
@@ -46,7 +41,7 @@ proposeOracleType = () => {
 					return false;
 				}
 				console.log('All ok');
-				callProposeOracleType(otName, otInputSignature, otCallbackSignature, otDescription)
+				callProposeOracleType(otName, otInputSignature, otCallbackSignature)
 				.then((res) => {
 					console.log(res);
 					return res;
