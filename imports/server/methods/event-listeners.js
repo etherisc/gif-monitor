@@ -26,8 +26,8 @@ const loadPolicy = (eventData, decodedLog) => {
 
 const addListeners = () => {
 
-	addListener(['LogProductProposed', 'LogProductSetState'], reloadSingleProductFromLog );
-	addListener(['LogOracleProposed', 'LogOracleSetState'], reloadSingleOracleFromLog );
+	addListener(['LogProductProposed', 'LogProductSetState'], reloadSingleProduct );
+	addListener(['LogOracleProposed', 'LogOracleSetState'], reloadSingleOracle );
 	addListener(['LogNewMetadata', 'LogNewApplication', 'LogNewPolicy', 'LogNewClaim', 'LogNewPayout'], loadPolicy );
 
 };
