@@ -59,7 +59,7 @@ setProductState = async (productId, stateStr) => {
 	const ios = await getContract('InstanceOperatorService');
 	const license = await getContract('License');	
 
-	const state = stateMessage.product.indexOf(stateStr);
+	const state = utils.stateMessage.product.indexOf(stateStr);
 	if (state < 0) throw new Error(`Invalid product state ${stateStr}`);
 
 	if (!ios || !license) {
@@ -77,7 +77,7 @@ setProductState = async (productId, stateStr) => {
 		return;
 	}
 
-	info(`Set product state to ${stateMessage.product[state]} for product #${productId} ${b32s(product.name)}`, product);
+	info(`Set product state to ${utils.stateMessage.product[state]} for product #${productId} ${b32s(product.name)}`, product);
 
 	if(state !== product.state) {
 		
@@ -95,7 +95,7 @@ setProductState = async (productId, stateStr) => {
 		); 
 
 	} else {
-		handleInfo(`Product ${product.name} already in state ${stateMessage.product[state]}`);
+		handleInfo(`Product ${product.name} already in state ${utils.stateMessage.product[state]}`);
 	}
 }
 
