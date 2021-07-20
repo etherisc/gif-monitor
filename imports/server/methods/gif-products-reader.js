@@ -26,7 +26,7 @@ const loadSingleProduct = async function ({ productId }) {
 		info(`Found product ${productObj.name}`, { product });
 
 	} catch (err) {
-		error(`Error ReloadSingleProduct, ${err.message}`);
+		error(`Error loadSingleProduct, ${err.message}`);
 	}
 }
 
