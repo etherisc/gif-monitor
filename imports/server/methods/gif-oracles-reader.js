@@ -48,6 +48,7 @@ const loadSingleOracleType = async (oracleTypeIndex) => {
 	const oracleType = await Query.oracleTypes(oracleTypeNameB32);
 
 	info(`Found oracleType ${oracleTypeName}`, { oracleType });
+	const oracleCount = await Query.oracleCount();
 
 	const assignedOracles = [];
 	for (var idx = 1; idx <= oracleCount; idx += 1) {
