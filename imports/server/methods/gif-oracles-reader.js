@@ -17,7 +17,7 @@ const loadOracles = async() => {
 		for (var oracleIndex = 1; oracleIndex <= oracleCount; oracleIndex += 1) {
 			const oracle = await Query.oracles(oracleIndex);
 
-			info(`Found oracle #${oracleIndex} (${oracle.name})`, { oracle });
+			info(`Found oracle #${oracleIndex} (${b32s(oracle.name)})`, { oracle });
 
 			Oracles.upsert({oracle_contract: oracle.oracleContract}, {$set: {
 				oracle_id: oracleIndex,
