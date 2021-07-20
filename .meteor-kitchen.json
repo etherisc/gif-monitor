@@ -334,7 +334,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "44ace1237fbec33eb3e9feb512fb53f8e93cb9a3"
+			"checksum": "a2904cb4068c2feecc2f76b61d8f9922adc07a04"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -854,7 +854,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-products-reader.js",
-			"checksum": "7c860911698fb3e71d25d28cc306d8852f1ed6fb"
+			"checksum": "1ca01ae778dabd58534fff72bdc39fef817a1a82"
 		},
 		{
 			"path": "client/lib/wallet.js",
@@ -866,7 +866,7 @@
 		},
 		{
 			"path": "imports/server/methods/event-listeners.js",
-			"checksum": "256e8e977c3b05767fd4cc056245367a80c28840"
+			"checksum": "5934e9b91983a0a5cc1e8647894c06881a269daf"
 		},
 		{
 			"path": "imports/server/methods/gif-policies-reader.js",
