@@ -90,7 +90,7 @@ setProductState = async (productId, stateStr) => {
 			'InstanceOperatorService', 
 			method, 
 			[productId], 
-			'reloadSingleProduct',
+			'loadSingleProduct',
 			[productId]
 		); 
 
