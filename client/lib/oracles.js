@@ -37,10 +37,8 @@ proposeOracleType = () => {
 					!otInputSignature || otInputSignature === '' || 
 					!otCallbackSignature || otCallbackSignature === '') {
 					alert('Please provide values for name, input signature and callback signature');
-					console.log('bla');
 					return false;
 				}
-				console.log('All ok');
 				callProposeOracleType(otName, otInputSignature, otCallbackSignature)
 				.then((res) => {
 					console.log(res);
