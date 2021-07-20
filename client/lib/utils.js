@@ -18,13 +18,8 @@ userIsAdmin = () => {
 
 /*******************/
 
-const b32s = (b32) => {
-	return ethers.utils.parseBytes32String(b32);
-}
-
-const s32b = (text) => {
-	return ethers.utils.formatBytes32String(text.slice(0,31))
-}
+const b32s = (b32) => ethers.utils.parseBytes32String(b32);
+const s32b = (text) => ethers.utils.formatBytes32String(text.slice(0,31));
 
 const stateMessage = {
 
