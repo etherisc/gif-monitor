@@ -170,7 +170,7 @@ const txLinkHtml = (txHash) => `<a href="${blockExplorer()}/tx/${txHash}" target
 const txLink = (txHash) => safeStr(txLinkHtml(txHash));
 const addressLongLinkHtml = (address, text) => `<a href="${blockExplorer()}/address/${address}" target="_blank">${text ? text : address}</a>`;
 const addressLongLink = (address) => safeStr(addressLongLinkHtml(address));
-const addressLinkHtml = (address) => addressLongLinkHtml(address, address.slice(0,10));
+const addressLinkHtml = (address) => address ? addressLongLinkHtml(address, address.slice(0,10)) : "n/a";
 const addressLink = (address) => safeStr(addressLinkHtml(address));
 
 module.exports = {
