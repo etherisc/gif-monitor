@@ -16,6 +16,7 @@ const bpDoc = (val, doc) => {
 	const valueAddress = (address, colspan) => ({ text: utils.addressLink(address), colspan });
 	const empty = (colspan) => ({ text: '&nbsp;', class: 'bpdoc-empty-cell', colspan });
 	const spacerRow = () => ({ class: 'bpdoc-row-spacer', cells: [ empty(6) ] });
+	const shorten = (text, length) => text.slice(0, length) + (text.length > length ? '...' : '')
 
 	let content = [
 		{ 
@@ -129,7 +130,7 @@ const bpDoc = (val, doc) => {
 				cells: [
 					empty(2),
 					label('Data'),
-					valueText(application.data, 3),
+					valueText(shorten(application.data, 25), 3),
 				]
 			},
 		]);
@@ -187,7 +188,7 @@ const bpDoc = (val, doc) => {
 					cells: [
 						empty(2),
 						label('Data'),
-						valueText(claim.data, 3),
+						valueText(shorten(claim.data, 25), 3),
 					]
 				},
 			];
@@ -223,7 +224,7 @@ const bpDoc = (val, doc) => {
 							cells: [
 								empty(2),
 								label('Data'),
-								valueText(payout.data, 3),
+								valueText(shorten(payout.data, 25), 3),
 							]
 						},
 
