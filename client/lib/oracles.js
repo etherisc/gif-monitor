@@ -72,7 +72,7 @@ const formAssignOracles = (oracleTypeName, assignedOracles) => {
 			<label for="ot-name">Oracle type name</label>
 			<span>${oracleTypeName}</span>
 		</div>
-		${assignedOracles.filter(item => item.assignmentState === 1).map(item => {
+		${assignedOracles.map(item => {
 			return `<div class="checkbox"><label><input id="oracle-${item.oracleId}" type="checkBox"> ${item.oracleName} (ID =${item.oracleId})</label></div>`
 		}).join("\n")}
 	</form>
@@ -94,12 +94,16 @@ assignOracles = async (oracleType) => {
 		});
 	});
 	
-	if (assignedOracles.filter(item => item.assignmentState === 1).length === 0) {
+	const filtered = assignedOracles.filter(item => item.assignmentState === 1);
+	
+	if (filtered.length === 0) {
 		alert('No proposed oracles');
 		return;
 	};
 	
-	toast_form('Assign Oracles to Oracletype:', formAssignOracles(oracleType.name, assignedOracles), {
+	
+	
+	toast_form('Assign Oracles to Oracletype:', formAssignOracles(oracleType.name, filtered), {
 
 		// Buttons:
 		
@@ -108,7 +112,7 @@ assignOracles = async (oracleType) => {
 			className: "btn btn-warning pull-left",
 			callback: function() {
 
-				assignedOracles.forEach(item => {
+				filtered.forEach(item => {
 					console.log($(`form #oracle-${item.oracleId}`));
 
 					const doAssign = $(`form #oracle-${item.oracleId}`)[0].checked;
