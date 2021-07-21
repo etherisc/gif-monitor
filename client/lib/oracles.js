@@ -139,14 +139,14 @@ assignOracles = async (oracleType) => {
 
 };
 
-const formOracleTypes = (oracleDescription, assignedOracleTypes) => {
+const formOracleTypes = (oracleName, assignedOracleTypes) => {
 	
 	const html = `
 <div class="form-content">
 	<form class="form" role="form">
 		<div class="form-group">
 			<label for="ot-name">Oracle</label>
-			<span>${oracleDescription}</span>
+			<span>${oracleName}</span>
 		</div>
 		${assignedOracleTypes.map(item => {
 			return `<div class="checkbox"><label><input id="oracle-type-${item.oracleTypeName}" type="checkBox"> OracleType "${item.oracleTypeName}"</label></div>`
@@ -170,7 +170,7 @@ revokeOracleTypes = async (oracle) => {
 		});
 	});
 			
-	toast_form('Revoke Oracle from Oracletypes:', formOracleTypes(oracle.description, assignedOracleTypes), {
+	toast_form('Revoke Oracle from Oracletypes:', formOracleTypes(oracle.name, assignedOracleTypes), {
 
 		// Buttons:
 		
