@@ -111,7 +111,7 @@ assignOracles = async (oracleType) => {
 				assignedOracles.forEach(item => {
 
 					const doAssign = $(`form #oracle-${item.oracleId}`)[0].checked;
-
+					console.log($(`form #oracle-${item.oracleId}`));
 					if (doAssign) {
 						callAssignOracleToOracleType(item.oracleTypeName, item.oracleId)
 						.then((res) => {
