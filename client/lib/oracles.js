@@ -239,6 +239,7 @@ proposeOracleToOracleTypes = async (oracle) => {
 				unassignedOracleTypes.forEach(item => {
 
 					const doRevoke = $(`form #oracle-type-${item.oracleTypeName}`).val();
+					console.log(item.oracleTypeName, doRevoke)
 
 					if (doRevoke) {
 						callProposeOracleToOracleType(item.oracleTypeName, item.oracleId)
