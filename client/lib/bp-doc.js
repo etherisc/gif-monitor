@@ -49,18 +49,10 @@ const bpDoc = (val, doc) => {
 		},
 		{
 			class: 'bpdoc-row-data',
-			cells: [
-				empty(2),
-				label('Owner'),
-				valueAddress(product.owner, 3),
-			]
-		},
-		{
-			class: 'bpdoc-row-data',
 			cells: [ 
 				empty(2),
 				label('Address'),
-				valueAddress(product.address, 3),
+				valueAddress(product.product_contract, 3),
 			]
 		},
 		spacerRow(),
