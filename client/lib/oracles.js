@@ -110,7 +110,7 @@ assignOracles = async (oracleType) => {
 
 				assignedOracles.forEach(item => {
 
-					const doAssign = $(`form #oracle-${item.oracleId}`).val();
+					const doAssign = $(`form #oracle-${item.oracleId}`)[0].checked;
 
 					if (doAssign) {
 						callAssignOracleToOracleType(item.oracleTypeName, item.oracleId)
@@ -181,7 +181,7 @@ revokeOracleTypes = async (oracle) => {
 
 				assignedOracleTypes.forEach(item => {
 
-					const doRevoke = $(`form #oracle-type-${item.oracleTypeName}`).val();
+					const doRevoke = $(`form #oracle-type-${item.oracleTypeName}`)[0].checked;
 
 					if (doRevoke) {
 						callRevokeOracleFromOracleType(item.oracleTypeName, item.oracleId)
