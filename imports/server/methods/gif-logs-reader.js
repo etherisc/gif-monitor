@@ -89,7 +89,7 @@ const processRecentEvents = async (contractName, contractAddress, eventName, fil
 const loadEvents = async () => {
 
 	const contracts = Contracts.find({}).fetch();
-	const listenerCount = 0;
+	let listenerCount = 0;
 	
 	for (contract_idx = 0; contract_idx < contracts.length; contract_idx += 1) {
 
