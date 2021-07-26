@@ -177,7 +177,7 @@ const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
 	.then(response => response.json())
-	.then(ipfsJson.set(response));
+	.then(json => ipfsJson.set(json));
 	return json2Table(ipfsJson.get());
 };
 
