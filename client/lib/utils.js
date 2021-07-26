@@ -135,7 +135,7 @@ const abi2Table = (abi) => {
 const items = new ReactiveVar([]);
 
 const assignedOracles = (val, oracleType) => {
-	
+
 	if (!oracleType) return '';
 	Meteor.call('getAssignedOracles', oracleType.name, (err, res) => {
 		if (err) {
@@ -146,7 +146,7 @@ const assignedOracles = (val, oracleType) => {
 	});
 	return array2Table(items.get());
 };
-	
+
 const assignedOracleTypes = (val, oracle) => {
 	if (!oracle) return '';
 	Meteor.call('getAssignedOracleTypes', oracle.oracle_id, (err, res) => {
@@ -158,7 +158,7 @@ const assignedOracleTypes = (val, oracle) => {
 	});
 	return array2Table(items.get());
 };
-	
+
 
 const blockExplorer = () => ReactiveMethod.call('blockExplorer');
 const ipfsGateway = () => ReactiveMethod.call('ipfsGateway');
@@ -172,6 +172,15 @@ const addressLongLinkHtml = (address, text) => `<a href="${blockExplorer()}/addr
 const addressLongLink = (address) => safeStr(addressLongLinkHtml(address));
 const addressLinkHtml = (address) => address ? addressLongLinkHtml(address, address.slice(0,10)) : "n/a";
 const addressLink = (address) => safeStr(addressLinkHtml(address));
+
+const ipfsJson = new ReactiveVar({});
+const ipfsJsonView = (ipfs) => {
+	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
+	.then(response => response.json())
+	.then(ipfsJson.set(response));
+	return json2Table(ipfsJson.get());
+};
+
 
 module.exports = {
 	b32s,
@@ -208,6 +217,7 @@ module.exports = {
 	isOracleTypeApproved,
 	isOracleApproved,
 	hasAssignableOracles,
-	hasRevokableOracleTypes
+	hasRevokableOracleTypes,
+	ipfsJsonView
 };
 
