@@ -71,17 +71,17 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="name">
-					Name
-				</th>
 				<th class="th-sortable" data-sort="oracle_id">
 					Oracle Id
+				</th>
+				<th class="th-sortable" data-sort="description">
+					Description
 				</th>
 				<th class="th-sortable" data-sort="oracle_contract">
 					Oracle Contract
 				</th>
-				<th class="th-sortable" data-sort="state">
-					State
+				<th class="th-sortable" data-sort="oracle_owner">
+					Oracle Owner
 				</th>
 				<th class="th-sortable" data-sort="active_oracle_types">
 					Active Oracle Types
@@ -97,16 +97,16 @@
 <template name="OraclesViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{name}}
+			{{oracle_id}}
 		</td>
 		<td>
-			{{oracle_id}}
+			{{description}}
 		</td>
 		<td>
 			{{addressLink oracle_contract this}}
 		</td>
 		<td>
-			{{oracleState state this}}
+			{{addressLink oracle_owner this}}
 		</td>
 		<td>
 			{{active_oracle_types}}

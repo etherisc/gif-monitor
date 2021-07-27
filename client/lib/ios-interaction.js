@@ -15,6 +15,12 @@ function formatDate(date) {
 }
 
 
+reloadProduct = async (productId) => {
+	
+	Meteor.call('product.reload', { productId });
+
+}
+
 const handleError = (message, args) => {
 	alert(message);
 	error(message, args);
@@ -63,7 +69,7 @@ setProductState = async (productId, stateStr) => {
 			info(`Transaction submitted`, res);
 			const receipt = await res.wait();
 			info(`Transaction confirmed`, receipt);
-			Meteor.call('reload.singleProduct', productId);
+			await reloadProduct(productId);
 		} catch (err) {
 			handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
 		}
@@ -72,20 +78,3 @@ setProductState = async (productId, stateStr) => {
 	}
 }
 
-callProposeOracleType = async (oracleTypeName, inputSignature, callbackSignature, description) => {
-
-	const oracleOwnerService = await getContract('OracleOwnerService');
-	info(`Call Propose Oracle Type ${oracleType}`);
-	try {
-		const res = await oracleOwnerService.proposeOracleType(s32b(oracleTypeName) inputSignature, callbackSignature, description);
-		info(`Transaction submitted`, res);
-		const receipt = await res.wait();
-		info(`Transaction confirmed`, receipt);
-		Meteor.call('reload.oracleTypes');
-		return true;
-	} catch (err) {
-		handleError(`${err.message} ${err.data ? `Code: ${err.data.code} ${err.data.message}` : ''}`, err);
-		return false;
-	}
-
-}

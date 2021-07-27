@@ -18,7 +18,7 @@ this.ProductsController = RouteController.extend({
 	isReady: function() {
 		this.productListPagedExtraParams = {
 			searchText: Session.get("ProductListPagedSearchString") || "",
-			searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "product_contract", "state", "policy_flow", "release"],
+			searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "state"],
 			sortBy: Session.get("ProductListPagedSortBy") || "",
 			sortAscending: Session.get("ProductListPagedSortAscending"),
 			pageNo: Session.get("ProductListPagedPageNo") || 0,

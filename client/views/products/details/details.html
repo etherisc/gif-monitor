@@ -49,23 +49,23 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-product_contract">
-				<label for="product_contract" class="col-sm-3 control-label">
-					Product Contract
+			<div class="form-group  field-owner">
+				<label for="owner" class="col-sm-3 control-label">
+					Owner
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-product_contract">
-						{{addressLink product.product_contract product}}
+					<p class="form-control-static  control-field-owner">
+						{{addressLink product.owner product}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-state">
-				<label for="state" class="col-sm-3 control-label">
-					State
+			<div class="form-group  field-address">
+				<label for="address" class="col-sm-3 control-label">
+					Address
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-state">
-						{{productState product.state product}}
+					<p class="form-control-static  control-field-address">
+						{{addressLink product.address product}}
 					</p>
 				</div>
 			</div>
@@ -86,6 +86,16 @@
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-release">
 						{{product.release}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-state">
+				<label for="state" class="col-sm-3 control-label">
+					State
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-state">
+						{{productState product.state product}}
 					</p>
 				</div>
 			</div>

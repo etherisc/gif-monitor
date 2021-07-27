@@ -33,7 +33,9 @@ Template.ProductsDetailsForm.onDestroyed(function() {
 });
 
 Template.ProductsDetailsForm.onRendered(function() {
-	
+	this.autorun(() => {
+    this.subscribe('contract_list');
+  });
 
 	pageSession.set("productsDetailsFormInfoMessage", "");
 	pageSession.set("productsDetailsFormErrorMessage", "");

@@ -77,17 +77,20 @@
 				<th class="th-sortable" data-sort="product_id">
 					Product Id
 				</th>
-				<th class="th-sortable" data-sort="product_contract">
-					Product Contract
+				<th class="th-sortable" data-sort="owner">
+					Owner
 				</th>
-				<th class="th-sortable" data-sort="state">
-					State
+				<th class="th-sortable" data-sort="address">
+					Address
 				</th>
 				<th class="th-sortable" data-sort="policy_flow">
 					Policy Flow
 				</th>
 				<th class="th-sortable" data-sort="release">
 					Release
+				</th>
+				<th class="th-sortable" data-sort="state">
+					State
 				</th>
 			</tr>
 		</thead>
@@ -106,16 +109,19 @@
 			{{product_id}}
 		</td>
 		<td>
-			{{addressLink product_contract this}}
+			{{addressLink owner this}}
 		</td>
 		<td>
-			{{productState state this}}
+			{{addressLink address this}}
 		</td>
 		<td>
 			{{policy_flow}}
 		</td>
 		<td>
 			{{release}}
+		</td>
+		<td>
+			{{productState state this}}
 		</td>
 	</tr>
 </template>

@@ -24,7 +24,6 @@
 						</button>
 					</span>
 				</div>
-				{{> OracleTypesViewCustomActions}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}
@@ -72,8 +71,11 @@
 				<th class="th-sortable" data-sort="name">
 					Name
 				</th>
-				<th class="th-sortable" data-sort="state">
-					State
+				<th class="th-sortable" data-sort="initialized">
+					Initialized
+				</th>
+				<th class="th-sortable" data-sort="activated">
+					Activated
 				</th>
 				<th class="th-sortable" data-sort="input_format">
 					Input Format
@@ -83,6 +85,9 @@
 				</th>
 				<th class="th-sortable" data-sort="active_oracles">
 					Active Oracles
+				</th>
+				<th class="th-sortable" data-sort="assigned_oracles">
+					Assigned Oracles
 				</th>
 				<th class="th-sortable" data-sort="index">
 					Index
@@ -101,7 +106,10 @@
 			{{name}}
 		</td>
 		<td>
-			{{oracleTypeState state this}}
+			{{booleanToYesNo initialized}}
+		</td>
+		<td>
+			{{booleanToYesNo activated}}
 		</td>
 		<td>
 			{{input_format}}
@@ -113,18 +121,12 @@
 			{{active_oracles}}
 		</td>
 		<td>
+			{{assigned_oracles}}
+		</td>
+		<td>
 			{{index}}
 		</td>
 	</tr>
-</template>
-
-<template name="OracleTypesViewCustomActions">
-	<button class="btn btn-warning" id="btn-reload">
-		Reload OracleTypes
-	</button>
-	<button class="btn btn-warning" id="btn-propose-oracletype">
-		Propose OracleType
-	</button>
 </template>
 
 <template name="OracleTypesExplanationMd">

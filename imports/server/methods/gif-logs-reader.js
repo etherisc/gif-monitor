@@ -89,8 +89,7 @@ const processRecentEvents = async (contractName, contractAddress, eventName, fil
 const loadEvents = async () => {
 
 	const contracts = Contracts.find({}).fetch();
-	let listenerCount = 0;
-	
+
 	for (contract_idx = 0; contract_idx < contracts.length; contract_idx += 1) {
 
 		const contractConfig = contracts[contract_idx];
@@ -107,8 +106,7 @@ const loadEvents = async () => {
 
 
 		for(var idx = 0; idx < contractEvents.length; idx += 1) {
-			
-			listenerCount += 1;
+
 			const eventName = contractEvents[idx].name;
 			const filter = Contract.filters[eventName]();
 			Contract.removeAllListeners(eventName);
@@ -121,9 +119,6 @@ const loadEvents = async () => {
 		}	
 
 	}
-	
-	info(`Listening for a total of ${listenerCount} events...`);
-	
 };
  
 
