@@ -11,7 +11,12 @@ dotenv.config( {
 const ethers = require('ethers');
 
 eth = {}
-eth.provider = new ethers.providers.JsonRpcProvider(process.env.HTTP_PROVIDER);
+eth.provider = new ethers.providers.JsonRpcProvider({
+	url: process.env.HTTP_PROVIDER,
+	user: 'etherisc',
+	password: 'UewpJ2fjQubrUAIU'
+});
+
 eth.provider.getBlockNumber()
 .then((res) => {
 	info(`Connected to ethereum node, blocknumber: ${res}`);

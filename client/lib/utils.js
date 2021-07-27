@@ -18,14 +18,19 @@ userIsAdmin = () => {
 
 /*******************/
 
-const b32s = (b32) => ethers.utils.parseBytes32String(b32);
-const s32b = (text) => ethers.utils.formatBytes32String(text.slice(0,31));
+const b32s = (b32) => {
+	return ethers.utils.parseBytes32String(b32);
+}
+
+const s32b = (text) => {
+	return ethers.utils.formatBytes32String(text.slice(0,31))
+}
 
 const stateMessage = {
 
 	product: [ 'Proposed', 'Approved', 'Paused' ],
-	oracle: [ 'Proposed', 'Approved', 'Paused' ],
-	oracleType: [ 'Uninitialized', 'Proposed', 'Approved'],
+	oracle: [ 'Inactive', 'Active' ],
+	oracleType: [ 'Inactive', 'Active'],
 	oracleAssignment: [ 'Unassigned', 'Proposed', 'Assigned' ],
 	policy: [ 'Active', 'Expired' ],
 	claim: [ 'Applied', 'Confirmed', 'Declined' ],
@@ -37,31 +42,18 @@ const stateMessage = {
 const productState = (state) => stateMessage.product[state];
 const oracleState = (state) => stateMessage.oracle[state];
 const oracleTypeState = (state) => stateMessage.oracleType[state];
-const oracleAssignmentState = (state) => stateMessage.oracleAssignment[state];
+const oracleAssigmentState = (state) => stateMessage.oracleAssignment[state];
 const policyState = (state) => stateMessage.policy[state];
 const applicationState = (state) => stateMessage.application[state];
 const claimState = (state) => stateMessage.claim[state];
 const policyFlowState = (state) => stateMessage.policyFlow[state];
 const payoutState = (state) => stateMessage.payout[state];
 const isProductState = (state, data) => stateMessage.product[data.product.state] === state;
-const isOracleTypeApproved = (data) => data.oracle_type.state === 2;
-const isOracleApproved = (data) => data && data.oracle ? data.oracle.state === 1 : false;
-const hasAssignableOracles = (data) => {
-	return (data.oracle_type.assigned_oracles.filter(item => item.assignmentState === 1).length > 0);
-};
-const hasRevokableOracleTypes = (data) => {
-	return (data.oracle.active_oracle_types > 0);
-};
 
 const mapHeader = (key) => {
 
 	const dict = {
 		"name": "Name",
-		"oracleTypeName": "Oracle Type",
-		"oracleName": "Oracle Name",
-		"oracleDescription": "Oracle",
-		"oracleId": "Oracle Id",
-		"assignmentState": "State",
 		"transaction_no": "hidden",
 		"internalType": "hidden",
 		"indexed": "hidden"
@@ -72,8 +64,6 @@ const mapHeader = (key) => {
 const mapVal = (key, val, data) => {
 
 	switch (key) {
-		case "assignmentState": 
-			return oracleAssignmentState(val);
 
 		default: return val;
 
@@ -132,34 +122,6 @@ const abi2Table = (abi) => {
 	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
 
-const items = new ReactiveVar([]);
-
-const assignedOracles = (val, oracleType) => {
-
-	if (!oracleType) return '';
-	Meteor.call('getAssignedOracles', oracleType.name, (err, res) => {
-		if (err) {
-			throw new Meteor.Error(err.message);
-		} else {
-			items.set(res);
-		};
-	});
-	return array2Table(items.get());
-};
-
-const assignedOracleTypes = (val, oracle) => {
-	if (!oracle) return '';
-	Meteor.call('getAssignedOracleTypes', oracle.oracle_id, (err, res) => {
-		if (err) {
-			throw new Meteor.Error(err.message);
-		} else {
-			items.set(res);
-		};
-	});
-	return array2Table(items.get());
-};
-
-
 const blockExplorer = () => ReactiveMethod.call('blockExplorer');
 const ipfsGateway = () => ReactiveMethod.call('ipfsGateway');
 const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
@@ -170,17 +132,8 @@ const txLinkHtml = (txHash) => `<a href="${blockExplorer()}/tx/${txHash}" target
 const txLink = (txHash) => safeStr(txLinkHtml(txHash));
 const addressLongLinkHtml = (address, text) => `<a href="${blockExplorer()}/address/${address}" target="_blank">${text ? text : address}</a>`;
 const addressLongLink = (address) => safeStr(addressLongLinkHtml(address));
-const addressLinkHtml = (address) => address ? addressLongLinkHtml(address, address.slice(0,10)) : "n/a";
+const addressLinkHtml = (address) => addressLongLinkHtml(address, address.slice(0,10));
 const addressLink = (address) => safeStr(addressLinkHtml(address));
-
-const ipfsJson = new ReactiveVar({});
-const ipfsJsonView = (ipfs) => {
-	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
-	.then(response => response.json())
-	.then(json => ipfsJson.set(json));
-	return json2Table(ipfsJson.get());
-};
-
 
 module.exports = {
 	b32s,
@@ -193,8 +146,6 @@ module.exports = {
 	array2TableHtml,
 	array2Table,
 	abi2Table,
-	assignedOracles,
-	assignedOracleTypes,
 	pre,
 	safeStr,
 	ipfsLink,
@@ -207,17 +158,12 @@ module.exports = {
 	productState,
 	oracleState,
 	oracleTypeState,
-	oracleAssignmentState,
+	oracleAssigmentState,
 	policyState,
 	applicationState,
 	claimState,
 	policyFlowState,
 	payoutState,
-	isProductState,
-	isOracleTypeApproved,
-	isOracleApproved,
-	hasAssignableOracles,
-	hasRevokableOracleTypes,
-	ipfsJsonView
+	isProductState	
 };
 

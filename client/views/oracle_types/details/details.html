@@ -39,13 +39,23 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-state">
-				<label for="state" class="col-sm-3 control-label">
-					State
+			<div class="form-group  field-initialized">
+				<label for="initialized" class="col-sm-3 control-label">
+					Initialized
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-state">
-						{{oracleTypeState oracle_type.state oracle_type}}
+					<p class="form-control-static  control-field-initialized">
+						{{booleanToYesNo oracle_type.initialized}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-activated">
+				<label for="activated" class="col-sm-3 control-label">
+					Activated
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-activated">
+						{{booleanToYesNo oracle_type.activated}}
 					</p>
 				</div>
 			</div>
@@ -85,7 +95,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-assigned_oracles">
-						{{assignedOracles oracle_type.assigned_oracles oracle_type}}
+						{{oracle_type.assigned_oracles}}
 					</p>
 				</div>
 			</div>
@@ -104,27 +114,9 @@
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>
-					{{> OracleTypesDetailsFormCustomActions}}
 				</div>
 			</div>
 		</form>
 	</div>
-</template>
-
-<template name="OracleTypesDetailsFormCustomActions">
-	{{#if isOracleTypeApproved this}}
-	<button class="btn btn-warning" id="btn-disapprove">
-		Disapprove OracleType
-	</button>
-	{{else}}
-	<button class="btn btn-warning" id="btn-approve">
-		Approve OracleType
-	</button>
-	{{/if}}
-	{{#if hasAssignableOracles this}}
-	<button class="btn btn-warning" id="btn-assign">
-		Assign Oracles
-	</button>
-	{{/if}}
 </template>
 

@@ -348,7 +348,7 @@ Template.ContractsViewCustomActions.events({
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('reloadContracts');
+		Meteor.call('reload.contracts');
 	}
 
 });

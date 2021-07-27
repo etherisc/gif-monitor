@@ -7,7 +7,7 @@ const abiDecoder = require('abi-decoder');
 
 
 
-const loadSingleProduct = async function ({ productId }) {
+const reloadSingleProduct = async function ({ productId }) {
 
 	try {
 		const License = await getContract('License');
@@ -15,9 +15,11 @@ const loadSingleProduct = async function ({ productId }) {
 		const productObj = {
 			product_id: productId,
 			name: b32s(product.name),
-			product_contract: product.productContract,
+			owner: product.productOwner,
+			address: product.addr,
 			policy_flow: b32s(product.policyFlow),
 			release: b32s(product.release),
+			policy_token: product.policyToken,
 			state: product.state
 		};
 
@@ -26,7 +28,7 @@ const loadSingleProduct = async function ({ productId }) {
 		info(`Found product ${productObj.name}`, { product });
 
 	} catch (err) {
-		error(`Error loadSingleProduct, ${err.message}`);
+		error(`Error ReloadSingleProduct, ${err.message}`);
 	}
 }
 
@@ -34,12 +36,12 @@ const loadProducts = async() => {
 
 	try {
 		const License = await getContract('License');
-		const productCount = await License.productCount();
+		const productIdIncrement = await License.productIdIncrement();
 
-		info(`License: ${productCount} products found`);
+		info(`License: ${productIdIncrement} products found`);
 
-		for (var productId = 1; productId <= productCount; productId += 1) {
-			await loadSingleProduct({ productId });
+		for (var productId = 1; productId <= productIdIncrement; productId += 1) {
+			await reloadSingleProduct({ productId });
 		}
 	} catch (err) {
 		error(`Error loadProducts, ${err.message}`);
@@ -54,5 +56,5 @@ const reloadProducts = () => {
 
 }
 
-module.exports = { loadProducts, reloadProducts, loadSingleProduct };
+module.exports = { loadProducts, reloadProducts, reloadSingleProduct };
 
