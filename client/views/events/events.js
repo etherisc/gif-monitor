@@ -349,7 +349,7 @@ Template.EventsViewCustomActions.events({
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('reload.events');
+		Meteor.call('reloadEvents');
 	}
 });
 

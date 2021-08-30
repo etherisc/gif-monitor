@@ -26,7 +26,7 @@ Template.Products.helpers({
 var ProductsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ProductListPagedSearchString") || "",
-		searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "owner", "address", "policy_flow", "policy_token", "release", "state"],
+		searchFields: Session.get("ProductListPagedSearchFields") || ["name", "product_id", "product_contract", "state", "policy_flow", "release"],
 		sortBy: Session.get("ProductListPagedSortBy") || "",
 		sortAscending: Session.get("ProductListPagedSortAscending") || true
 	};
@@ -349,7 +349,7 @@ Template.ProductsViewCustomActions.events({
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('reload.products');
+		Meteor.call('reloadProducts');
 	}
 
 });

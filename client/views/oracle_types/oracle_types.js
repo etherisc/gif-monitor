@@ -26,7 +26,7 @@ Template.OracleTypes.helpers({
 var OracleTypesViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("OracleTypeListPagedSearchString") || "",
-		searchFields: Session.get("OracleTypeListPagedSearchFields") || ["name", "initialized", "activated", "input_format", "callback_format", "active_oracles", "assigned_oracles", "index"],
+		searchFields: Session.get("OracleTypeListPagedSearchFields") || ["name", "state", "input_format", "callback_format", "active_oracles", "assigned_oracles", "index"],
 		sortBy: Session.get("OracleTypeListPagedSortBy") || "",
 		sortAscending: Session.get("OracleTypeListPagedSortAscending") || true
 	};
@@ -323,5 +323,36 @@ Template.OracleTypesViewTableItems.helpers({
 	"deleteButtonClass": function() {
 		return OracleTypes.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
+});
+
+Template.OracleTypesViewCustomActions.created = function() {
+
+};
+
+Template.OracleTypesViewCustomActions.destroyed = function() {
+
+};
+
+Template.OracleTypesViewCustomActions.rendered = function() {
+
+};
+
+Template.OracleTypesViewCustomActions.helpers({
+
+});
+
+Template.OracleTypesViewCustomActions.events({
+	"click #btn-propose-oracletype": function (e,t) {
+		e.preventDefault();
+
+		proposeOracleType();
+	},
+	"click #btn-reload": function (e,t) {
+		e.preventDefault();
+
+		Meteor.call('reloadOracleTypes');
+	}
+
+
 });
 

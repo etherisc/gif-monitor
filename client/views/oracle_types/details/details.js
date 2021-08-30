@@ -143,3 +143,38 @@ Template.OracleTypesDetailsForm.helpers({
 	}
 	
 });
+
+Template.OracleTypesDetailsFormCustomActions.created = function() {
+
+};
+
+Template.OracleTypesDetailsFormCustomActions.destroyed = function() {
+
+};
+
+Template.OracleTypesDetailsFormCustomActions.rendered = function() {
+
+};
+
+Template.OracleTypesDetailsFormCustomActions.helpers({
+
+});
+
+Template.OracleTypesDetailsFormCustomActions.events({
+	"click #btn-assign": function (e,t) {
+		e.preventDefault();
+
+		assignOracles(t.data.oracle_type);
+	},
+	"click #btn-approve": function (e,t) {
+		e.preventDefault();
+
+		callApproveOracleType(t.data.oracle_type.name);
+	},
+	"click #btn-disapprove": function (e,t) {
+		e.preventDefault();
+
+		callDisapproveOracleType(t.data.oracle_type.name);
+	}
+
+});
