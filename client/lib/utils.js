@@ -224,7 +224,10 @@ const assignedOracleTypes = (val, oracle) => {
 const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
-	.then(response => response.json() ? response.json() : '')
+	.then(response => {
+		console.log(response);
+		return response.json;
+	})
 	.then(json => ipfsJson.set(json));
 	return meta2Table(ipfsJson.get());
 };
