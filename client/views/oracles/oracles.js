@@ -26,7 +26,7 @@ Template.Oracles.helpers({
 var OraclesViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("OracleListPagedSearchString") || "",
-		searchFields: Session.get("OracleListPagedSearchFields") || ["oracle_id", "description", "oracle_contract", "oracle_owner", "active_oracle_types"],
+		searchFields: Session.get("OracleListPagedSearchFields") || ["name", "oracle_id", "oracle_contract", "state", "active_oracle_types"],
 		sortBy: Session.get("OracleListPagedSortBy") || "",
 		sortAscending: Session.get("OracleListPagedSortAscending") || true
 	};
@@ -349,7 +349,7 @@ Template.OraclesViewCustomActions.events({
 	"click #btn-reload": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('reload.oracles');
+		Meteor.call('reloadOracles');
 	}
 });
 

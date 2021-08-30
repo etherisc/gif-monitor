@@ -2,7 +2,8 @@
 
 console.log('loading event-listeners.js');
 import { addListener } from '/imports/server/methods/gif-logs-reader.js';
-import { reloadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
+import { loadSingleProduct } from '/imports/server/methods/gif-products-reader.js';
+import { loadSingleOracle } from '/imports/server/methods/gif-oracles-reader.js';
 import { getSingleMetadata } from '/imports/server/methods/gif-policies-reader.js';
 
 
@@ -13,7 +14,14 @@ const getValue = (name, decodedLog) => {
 const reloadSingleProductFromLog = (eventData, decodedLog) => {
 	
 	const productId = parseInt(getValue('productId', decodedLog));
-	reloadSingleProduct({ productId });
+	loadSingleProduct({ productId });
+	
+};
+
+const reloadSingleOracleFromLog = (eventData, decodedLog) => {
+	
+	const oracleId = parseInt(getValue('oracleId', decodedLog));
+	loadSingleOracle({ oracleId });
 	
 };
 
@@ -26,7 +34,8 @@ const loadPolicy = (eventData, decodedLog) => {
 
 const addListeners = () => {
 
-	addListener(['LogNewProduct', 'LogProductApproved'], reloadSingleProductFromLog );
+	addListener(['LogProductProposed', 'LogProductSetState'], reloadSingleProductFromLog );
+	addListener(['LogOracleProposed', 'LogOracleSetState'], reloadSingleOracleFromLog );
 	addListener(['LogNewMetadata', 'LogNewApplication', 'LogNewPolicy', 'LogNewClaim', 'LogNewPayout'], loadPolicy );
 
 };
