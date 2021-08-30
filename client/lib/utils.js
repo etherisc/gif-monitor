@@ -184,7 +184,7 @@ ${rows.join('\n')}
 </tbody> 
 </table>`;
 	
-	return Handlebars.SafeString(html);
+	return new Handlebars.SafeString(html);
 
 };
 
@@ -227,8 +227,8 @@ const ipfsJsonView = (ipfs) => {
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
 	.then(response => response.json())
 	.then(json => ipfsJson.set(json))
-	.catch((err) => console.error(err));
-	return 'bla'; // meta2Table(ipfsJson.get());
+	.catch((err) => console.log(err));
+	return meta2Table(ipfsJson.get());
 };
 
 
