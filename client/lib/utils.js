@@ -105,6 +105,8 @@ const mapVal = (key, val, data) => {
 					Optimizer: Enabled: ${val.optimizer.enabled} / Runs: ${val.optimizer.runs}`;
 					
 		case "sources":
+			console.log(val.sources);
+			return 'xxx';
 			const sourceFiles = Object.keys(val.sources);
 			console.log(sourceFiles);
 			const link = (sf) => {
