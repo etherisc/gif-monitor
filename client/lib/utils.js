@@ -225,8 +225,9 @@ const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
 	.then(response => {
-		console.log(response);
-		return response.json;
+		const j = response.json();
+		console.log(j);
+		return j;
 	})
 	.then(json => ipfsJson.set(json));
 	return meta2Table(ipfsJson.get());
