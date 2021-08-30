@@ -182,7 +182,7 @@ const meta2Table = (meta) => {
 	const headers = Object.keys(meta);
 	console.log(headers);
     
-	const rows = headers.map((key) => mapHeader(key) ? `<tr><td>${mapHeader(key)}</td><td>${mapVal(key, meta[key])}</td></tr>` : '')
+	const rows = headers.map((key) => mapHeader(key) ? `<tr><td>${mapHeader(key)}</td><td>${mapVal(key, meta)}</td></tr>` : '')
 	const html = `<table class="custom-param-table">
 <tbody>
 ${rows.join('\n')}
