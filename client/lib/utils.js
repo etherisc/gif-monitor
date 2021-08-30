@@ -111,7 +111,7 @@ const mapVal = (key, val, data) => {
 				const iLink = urls.find((url) => url.startsWith('dweb:')).slice(5);
 				return iLink;
 			};
-			return sourceFiles.map((sf) => `${ipfsLink(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
+			return sourceFiles.map((sf) => `${ipfsLinkHtml(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
 			
 		default: return val;
 
@@ -214,12 +214,6 @@ const assignedOracleTypes = (val, oracle) => {
 	});
 	return array2Table(oracleItems.get());
 };
-
-
-
-
-
-
 
 const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
