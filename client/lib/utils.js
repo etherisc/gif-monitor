@@ -227,7 +227,7 @@ const ipfsJsonView = (ipfs) => {
 	.then(response => response.json())
 	.then(json => ipfsJson.set(json))
 	.catch((err) => console.error(err));
-	return meta2Table(ipfsJson.get());
+	return 'bla'; // meta2Table(ipfsJson.get());
 };
 
 
