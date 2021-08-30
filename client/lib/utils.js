@@ -223,6 +223,7 @@ const assignedOracleTypes = (val, oracle) => {
 
 const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
+	console.log('ipfsJsonView');
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
 	.then(response => response.json())
 	.then(json => ipfsJson.set(json))
