@@ -92,7 +92,6 @@ const mapHeader = (key) => {
 
 const mapVal = (key, val, data) => {
 
-	console.log(val);
 	switch (key) {
 		case "assignmentState": 
 			return oracleAssignmentState(val);
@@ -106,8 +105,6 @@ const mapVal = (key, val, data) => {
 					Optimizer: Enabled: ${val.optimizer.enabled} / Runs: ${val.optimizer.runs}`;
 					
 		case "sources":
-			console.log(val);
-			return 'xxx';
 			const sourceFiles = Object.keys(val);
 			console.log(sourceFiles);
 			const link = (sf) => {
@@ -180,9 +177,7 @@ const abi2Table = (abi) => {
 
 const meta2Table = (meta) => {
 
-	const headers = Object.keys(meta);
-	console.log(headers);
-    
+	const headers = Object.keys(meta);    
 	const rows = headers.map((key) => mapHeader(key) ? `<tr><td>${mapHeader(key)}</td><td>${mapVal(key, meta[key])}</td></tr>` : '')
 	const html = `<table class="custom-param-table">
 <tbody>
