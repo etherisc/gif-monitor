@@ -53,6 +53,21 @@ const hasRevokableOracleTypes = (data) => {
 	return (data.oracle.active_oracle_types > 0);
 };
 
+
+const blockExplorer = () => ReactiveMethod.call('blockExplorer');
+const ipfsGateway = () => ReactiveMethod.call('ipfsGateway');
+const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
+const pre = (text) => safeStr(`<pre class="code">${text}</pre>`);
+const ipfsLinkHtml = (ipfs, text) => `<a href="${ipfsGateway()}/ipfs/${ipfs.ipfs}" target="_blank">${text ? text : `/ipfs/${ipfs.ipfs}`}</a>`;
+const ipfsLink = (ipfs) => safeStr(ipfsLinkHtml(ipfs));
+const txLinkHtml = (txHash) => `<a href="${blockExplorer()}/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`;
+const txLink = (txHash) => safeStr(txLinkHtml(txHash));
+const addressLongLinkHtml = (address, text) => `<a href="${blockExplorer()}/address/${address}" target="_blank">${text ? text : address}</a>`;
+const addressLongLink = (address) => safeStr(addressLongLinkHtml(address));
+const addressLinkHtml = (address) => address ? addressLongLinkHtml(address, address.slice(0,10)) : "n/a";
+const addressLink = (address) => safeStr(addressLinkHtml(address));
+
+
 const mapHeader = (key) => {
 
 	const dict = {
@@ -64,7 +79,13 @@ const mapHeader = (key) => {
 		"assignmentState": "State",
 		"transaction_no": "hidden",
 		"internalType": "hidden",
-		"indexed": "hidden"
+		"indexed": "hidden",
+		"compiler": "Compiler",
+		"output": "hidden",
+		"language": "Language",
+		"settings": "Settings",
+		"version": "Version",
+		"sources": "Sources"
 	}; 
 	return dict[key] === 'hidden' ? null : (dict[key] ? dict[key] : key);
 };
@@ -74,7 +95,24 @@ const mapVal = (key, val, data) => {
 	switch (key) {
 		case "assignmentState": 
 			return oracleAssignmentState(val);
-
+			
+		case "compiler":
+			return `Version: ${val.version}`;
+		
+		case "settings": 
+			return `Target: ${val.compilationTarget}<br />
+					EVM: ${val.evmVersion}<br />
+					Optimizer: Enabled: ${val.optimizer.enabled} / Runs: ${val.optimizer.runs}`;
+					
+		case "sources":
+			const sourceFiles = Object.keys(val.sources);
+			const link = (sf) => {
+				const urls = val.sources[sf].urls;
+				const iLink = urls.find((url) => url.startsWith('dweb:')).slice(5);
+				return iLink;
+			};
+			return sourceFiles.map((sf) => `${ipfsLink(link(sf), sf)} - License: ${val.sources[sf].license}`).join('<br />');
+			
 		default: return val;
 
 	}
@@ -99,12 +137,15 @@ ${rows}
 
 const json2Table = (value, data) => new Handlebars.SafeString(json2TableHtml(value, data));
 
+const header2Html = (headers) => `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`
+const row2Html = (headers, row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`;
+
 const array2TableHtml = (arrVal) => {
 	try {
 		if (!arrVal || !Array.isArray(arrVal)) return '';
 		const headers = Object.keys(arrVal[0]);
-		const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
-		const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
+		const header = header2Html(headers);
+		const body = arrVal.map((row) => row2Html(headers, row)).join('\n');
 		return `<table class="custom-param-table">${header}${body}</table>`;
 	} catch (err) {
 		return '';
@@ -132,7 +173,23 @@ const abi2Table = (abi) => {
 	return new Handlebars.SafeString(`<pre>${tbl}</pre>`);
 };
 
-const items = new ReactiveVar([]);
+
+const meta2Table = (meta) => {
+
+	const headers = Object.keys(meta);
+    
+	const rows = headers.map((key) => mapHeader(key) ? `<tr><td>${mapHeader(key)}</td><td>${mapVal(key, meta[key])}</td></tr>` : '')
+	const html = `<table class="custom-param-table">
+<tbody>
+${rows.join('\n')}
+</tbody> 
+</table>`;
+	
+	return Handlebars.SafeString(html);
+
+};
+
+const oracleItems = new ReactiveVar([]); // used both for oracles and oracleTypes since only used on different pages
 
 const assignedOracles = (val, oracleType) => {
 
@@ -141,10 +198,10 @@ const assignedOracles = (val, oracleType) => {
 		if (err) {
 			throw new Meteor.Error(err.message);
 		} else {
-			items.set(res);
+			oracleItems.set(res);
 		};
 	});
-	return array2Table(items.get());
+	return array2Table(oracleItems.get());
 };
 
 const assignedOracleTypes = (val, oracle) => {
@@ -153,32 +210,24 @@ const assignedOracleTypes = (val, oracle) => {
 		if (err) {
 			throw new Meteor.Error(err.message);
 		} else {
-			items.set(res);
+			oracleItems.set(res);
 		};
 	});
-	return array2Table(items.get());
+	return array2Table(oracleItems.get());
 };
 
 
-const blockExplorer = () => ReactiveMethod.call('blockExplorer');
-const ipfsGateway = () => ReactiveMethod.call('ipfsGateway');
-const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
-const pre = (text) => safeStr(`<pre class="code">${text}</pre>`);
-const ipfsLinkHtml = (ipfs) => `<a href="${ipfsGateway()}/ipfs/${ipfs.ipfs}" target="_blank">/ipfs/${ipfs.ipfs}</a>`;
-const ipfsLink = (ipfs) => safeStr(ipfsLinkHtml(ipfs));
-const txLinkHtml = (txHash) => `<a href="${blockExplorer()}/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`;
-const txLink = (txHash) => safeStr(txLinkHtml(txHash));
-const addressLongLinkHtml = (address, text) => `<a href="${blockExplorer()}/address/${address}" target="_blank">${text ? text : address}</a>`;
-const addressLongLink = (address) => safeStr(addressLongLinkHtml(address));
-const addressLinkHtml = (address) => address ? addressLongLinkHtml(address, address.slice(0,10)) : "n/a";
-const addressLink = (address) => safeStr(addressLinkHtml(address));
+
+
+
+
 
 const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
 	.then(response => response.json())
 	.then(json => ipfsJson.set(json));
-	return json2Table(ipfsJson.get());
+	return meta2Table(ipfsJson.get());
 };
 
 
