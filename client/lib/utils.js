@@ -106,7 +106,6 @@ const mapVal = (key, val, data) => {
 					
 		case "sources":
 			const sourceFiles = Object.keys(val);
-			console.log(sourceFiles);
 			const link = (sf) => {
 				const urls = val[sf].urls;
 				const iLink = urls.find((url) => url.startsWith('dweb:')).slice(5);
