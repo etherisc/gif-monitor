@@ -92,6 +92,7 @@ const mapHeader = (key) => {
 
 const mapVal = (key, val, data) => {
 
+	console.log(val);
 	switch (key) {
 		case "assignmentState": 
 			return oracleAssignmentState(val);
