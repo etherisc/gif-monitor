@@ -98,7 +98,7 @@ const mapVal = (key, val, data) => {
 			return oracleAssignmentState(val);
 			
 		case "compiler":
-			return `Version: ${val.version}`;
+			return `Version: ${val}`;
 		
 		case "settings": 
 			return `Target: ${val.compilationTarget}<br />
@@ -106,16 +106,16 @@ const mapVal = (key, val, data) => {
 					Optimizer: Enabled: ${val.optimizer.enabled} / Runs: ${val.optimizer.runs}`;
 					
 		case "sources":
-			console.log(val.sources);
+			console.log(val);
 			return 'xxx';
-			const sourceFiles = Object.keys(val.sources);
+			const sourceFiles = Object.keys(val);
 			console.log(sourceFiles);
 			const link = (sf) => {
-				const urls = val.sources[sf].urls;
+				const urls = val[sf].urls;
 				const iLink = urls.find((url) => url.startsWith('dweb:')).slice(5);
 				return iLink;
 			};
-			return sourceFiles.map((sf) => `${ipfsLink(link(sf), sf)} - License: ${val.sources[sf].license}`).join('<br />');
+			return sourceFiles.map((sf) => `${ipfsLink(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
 			
 		default: return val;
 
@@ -183,7 +183,7 @@ const meta2Table = (meta) => {
 	const headers = Object.keys(meta);
 	console.log(headers);
     
-	const rows = headers.map((key) => mapHeader(key) ? `<tr><td>${mapHeader(key)}</td><td>${mapVal(key, meta)}</td></tr>` : '')
+	const rows = headers.map((key) => mapHeader(key) ? `<tr><td>${mapHeader(key)}</td><td>${mapVal(key, meta[key])}</td></tr>` : '')
 	const html = `<table class="custom-param-table">
 <tbody>
 ${rows.join('\n')}
