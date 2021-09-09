@@ -85,7 +85,8 @@ const mapHeader = (key) => {
 		"language": "Language",
 		"settings": "Settings",
 		"version": "Version",
-		"sources": "Sources"
+		"sources": "Sources",
+		"link": "Metadata IPFS Link"
 	}; 
 	return dict[key] === 'hidden' ? null : (dict[key] ? dict[key] : key);
 };
