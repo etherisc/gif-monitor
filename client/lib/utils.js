@@ -220,7 +220,9 @@ const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
 	console.log(`ipfsJsonView ${ipfs.ipfs}`);
 	const old = ipfsJson.get();
-	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
+	const gateway = ipfsGateway();
+	console.log(gateway);
+	fetch(`${gateway}/ipfs/${ipfs.ipfs}`)
 	.then(response => {
 		console.log(response);
 		return response.json();
