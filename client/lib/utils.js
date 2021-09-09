@@ -221,7 +221,10 @@ const ipfsJsonView = (ipfs) => {
 	console.log(`ipfsJsonView ${ipfs.ipfs}`);
 	const old = ipfsJson.get();
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
-	.then(response => response.json())
+	.then(response => {
+		console.log(response);
+		return response.json();
+	})
 	.then(json => { 
 		console.log(json);
 		if (JSON.stringify(old) != JSON.stringify(json)) ipfsJson.set(json); 
