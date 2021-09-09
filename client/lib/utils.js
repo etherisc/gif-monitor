@@ -100,7 +100,7 @@ const mapVal = (key, val, data) => {
 			return `Version: ${val.version}`;
 		
 		case "settings": 
-			return `Target: ${val.compilationTarget}<br />
+			return `Target: ${Object.Keys(val.compilationTarget)[0]}<br />
 					EVM: ${val.evmVersion}<br />
 					Optimizer: Enabled: ${val.optimizer.enabled} / Runs: ${val.optimizer.runs}`;
 					
