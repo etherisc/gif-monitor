@@ -222,7 +222,10 @@ const ipfsJsonView = (ipfs) => {
 	const old = ipfsJson.get();
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
 	.then(response => response.json())
-	.then(json => { if (JSON.stringify(old) != JSON.stringify(json)) ipfsJson.set(json); })
+	.then(json => { 
+		console.log(json);
+		if (JSON.stringify(old) != JSON.stringify(json)) ipfsJson.set(json); 
+	})
 	.catch((err) => console.log(ipfs, err));
 	return meta2Table(ipfsJson.get());
 };
