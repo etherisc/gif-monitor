@@ -75,7 +75,7 @@ const loadContracts = async () => {
 			registryAbi, 
 			eth.wallet
 		);		
-
+console.log(registryAbi);
 		let next = false;
 		const release = await Registry.release();
 		const contractsInRelease = await Registry.contractsInRelease(release);
