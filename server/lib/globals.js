@@ -15,7 +15,8 @@ eth = {}
 eth = {}
 eth.provider = new ethers.providers.JsonRpcProvider({
 	// Temporarily switch back to quiknode
-	url: 'https://winter-silent-tree.xdai.quiknode.pro/475f695cd14d56a43711575b2dc56e7441379aa5/'
+	// url: 'https://winter-silent-tree.xdai.quiknode.pro/475f695cd14d56a43711575b2dc56e7441379aa5/'
+	url:'http://localhost:7545'
 	// url: 'https://xdai-rpc.etherisc.com',
 	// user: 'etherisc',
 	// password: 'UewpJ2fjQubrUAIU'
