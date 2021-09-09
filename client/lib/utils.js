@@ -109,7 +109,7 @@ const mapVal = (key, val, data) => {
 			const link = (sf) => {
 				const urls = val[sf].urls;
 				const iLink = urls.find((url) => url.startsWith('dweb:')).slice(5);
-				return iLink;
+				return {ipfs: iLink};
 			};
 			return sourceFiles.map((sf) => `${ipfsLinkHtml(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
 			
