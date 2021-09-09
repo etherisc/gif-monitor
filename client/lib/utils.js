@@ -111,7 +111,7 @@ const mapVal = (key, val, data) => {
 				const iLink = urls.find((url) => url.startsWith('dweb:')).slice(5);
 				return iLink;
 			};
-			return sourceFiles.map((sf) => `${ipfsLinkHtml(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
+			return sourceFiles.map((sf) => `${ipfsLinkHtml(link(val[sf]), sf)} - License: ${val[sf].license}`).join('<br />');
 			
 		default: return val;
 
@@ -218,9 +218,10 @@ const assignedOracleTypes = (val, oracle) => {
 const ipfsJson = new ReactiveVar({});
 const ipfsJsonView = (ipfs) => {
 	console.log('ipfsJsonView');
+	const old = ipfsJson.get();
 	fetch(`${ipfsGateway()}/ipfs/${ipfs.ipfs}`)
 	.then(response => response.json())
-	.then(json => ipfsJson.set(json))
+	.then(json => { if (JSON.stringify(old) != JSON.stringify(json) ipfsJson.set(json); })
 	.catch((err) => console.log(err));
 	return meta2Table(ipfsJson.get());
 };
