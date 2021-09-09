@@ -36,8 +36,35 @@ const addListeners = () => {
 
 	addListener(['LogProductProposed', 'LogProductSetState'], reloadSingleProductFromLog );
 	addListener(['LogOracleProposed', 'LogOracleSetState'], reloadSingleOracleFromLog );
-	addListener(['LogNewMetadata', 'LogNewApplication', 'LogNewPolicy', 'LogNewClaim', 'LogNewPayout'], loadPolicy );
+	addListener([
+		'LogNewMetadata', 
+		'LogNewApplication', 
+		'LogNewPolicy', 
+		'LogNewClaim', 
+		'LogNewPayout', 
+		'LogPayoutCompleted', 
+		'LogPartialPayout',
+	], loadPolicy );
 
 };
 
 module.exports = { addListeners };
+
+
+/*
+
+event LogApplicationStateChanged (bytes32 bpKey, uint8 state) 
+event LogClaimStateChanged (bytes32 bpKey, uint256 claimId, uint8 state) 
+event LogMetadataStateChanged (bytes32 bpKey, uint8 state) 
+event LogNewApplication (uint256 productId, bytes32 bpKey) 
+event LogNewClaim (bytes32 bpKey, uint256 claimId, uint8 state) 
+event LogNewMetadata (uint256 productId, bytes32 bpKey, uint8 state) 
+event LogNewPayout (bytes32 bpKey, uint256 claimId, uint256 payoutId, uint8 state) 
+event LogNewPolicy (bytes32 bpKey) 
+event LogPartialPayout (bytes32 bpKey, uint256 payoutId, uint8 state) 
+event LogPayoutCompleted (bytes32 bpKey, uint256 payoutId, uint8 state) 
+event LogPayoutStateChanged (bytes32 bpKey, uint256 payoutId, uint8 state) 
+event LogPolicyStateChanged (bytes32 bpKey, uint8 state) 
+
+
+*/
