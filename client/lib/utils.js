@@ -97,6 +97,7 @@ const mapVal = (key, val, data) => {
 			return oracleAssignmentState(val);
 			
 		case "compiler":
+			console.log(val);
 			return `Version: ${val}`;
 		
 		case "settings": 
@@ -109,6 +110,7 @@ const mapVal = (key, val, data) => {
 			const link = (sf) => {
 				const urls = val[sf].urls;
 				const iLink = urls.find((url) => url.startsWith('dweb:')).slice(5);
+				console.log(val, sf, iLink);
 				return iLink;
 			};
 			return sourceFiles.map((sf) => `${ipfsLinkHtml(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
