@@ -48,6 +48,7 @@ const getAbi = async (addr) => {
 	const regIPFS = await ipfsLink(addr);
 	if (regIPFS === '') return [];
 	const gatewayLink = `https://gateway.pinata.cloud/ipfs/${regIPFS.ipfs}`;
+	console.log(gatewayLink);
 	try {
 		const data = await fetch(gatewayLink);
 		const json = await data.json();
