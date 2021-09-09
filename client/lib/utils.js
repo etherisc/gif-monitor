@@ -112,6 +112,9 @@ const mapVal = (key, val, data) => {
 				return {ipfs: iLink};
 			};
 			return sourceFiles.map((sf) => `${ipfsLinkHtml(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
+		
+		case "link":
+			return ipfsHtmlLink(val);
 			
 		default: return val;
 
@@ -222,7 +225,9 @@ const ipfsJsonView = (ipfs) => {
 	if (!gateway) return '';
 	fetch(`${gateway}/ipfs/${ipfs.ipfs}`)
 	.then(response => {
-		return response.json();
+		let json = response.json();
+		json.link = ipfs;
+		return json;		
 	})
 	.then(json => { 
 		if (JSON.stringify(old) != JSON.stringify(json)) ipfsJson.set(json); 
