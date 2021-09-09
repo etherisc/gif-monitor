@@ -114,7 +114,7 @@ const mapVal = (key, val, data) => {
 			return sourceFiles.map((sf) => `${ipfsLinkHtml(link(sf), sf)} - License: ${val[sf].license}`).join('<br />');
 		
 		case "link":
-			return ipfsHtmlLink(val);
+			return ipfsLinkHtml(val);
 			
 		default: return val;
 
