@@ -227,9 +227,6 @@ const ipfsJsonView = (ipfs) => {
 	.then(response => {
 		let json = response.json();
 		json.link = ipfs;
-		return json;		
-	})
-	.then(json => { 
 		if (JSON.stringify(old) != JSON.stringify(json)) ipfsJson.set(json); 
 	})
 	.catch((err) => console.log(ipfs, err));
