@@ -176,7 +176,6 @@ const abi2Table = (abi) => {
 
 const meta2Table = (meta) => {
 
-	console.log(meta);
 	const headers = Object.keys(meta);    
 	const rows = headers.map((key) => mapHeader(key) ? `<tr><td>${mapHeader(key)}</td><td>${mapVal(key, meta[key])}</td></tr>` : '')
 	const html = `<table class="custom-param-table">
