@@ -66,7 +66,7 @@ setProductState = async (productId, stateStr) => {
 		return;
 	}
 
-
+console.log(productId);
 	let product;
 
 	try {
