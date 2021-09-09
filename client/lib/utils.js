@@ -225,7 +225,7 @@ const ipfsJsonView = (ipfs) => {
 	if (!gateway) return '';
 	fetch(`${gateway}/ipfs/${ipfs.ipfs}`)
 	.then(response => response.json())
-	.then(json => 
+	.then(json => {
 		json.link = ipfs;
 		console.log(json);
 		if (JSON.stringify(old) != JSON.stringify(json)) ipfsJson.set(json); 
