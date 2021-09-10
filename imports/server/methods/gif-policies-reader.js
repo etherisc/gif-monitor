@@ -128,7 +128,7 @@ const getSingleClaim = safeExec('getSingleClaim', async function (bpKey, claimId
 	const data = Object.assign({}, await policyStorage.claims(bpKey, claimId));
 	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Claim ${bp_key}`, data);
-	Claims.upsert({bp_key}, {$set: {
+	Claims.upsert({bp_key, claimId}, {$set: {
 		bp_key,
 		data: data.data,
 		state: data.state,
@@ -142,7 +142,7 @@ const getSinglePayout = safeExec('getSinglePayout', async function (bpKey, payou
 	const data = Object.assign({}, await policyStorage.payouts(bpKey, payoutId));
 	const bp_key = bpKey2uuid(bpKey);
 	info(`Found Payout ${bp_key}`, data);
-	Payouts.upsert({bp_key}, {$set: {
+	Payouts.upsert({bp_key, payoutId}, {$set: {
 		bp_key,
 		data: data.data,
 		state: data.state,
